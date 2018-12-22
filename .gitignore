@@ -1,4 +1,10 @@
-APIKey.*
+*.prefs
+
+*.classPath
+
+*.project
+
+APIKey
 
 # Compiled class file
 *.class
