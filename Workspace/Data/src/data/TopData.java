@@ -1,9 +1,9 @@
 package data;
 
-public class TopData<t>
+public class TopData
 {
-	overallteamstandings<t> overallteamstandings;
-	public void setoverallteamstandings(overallteamstandings<t> str)
+	public overallteamstandings overallteamstandings;
+	public void setoverallteamstandings(overallteamstandings str)
 	{
 		overallteamstandings = str;
 	}

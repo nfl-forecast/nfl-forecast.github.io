@@ -2,10 +2,10 @@ package data;
 
 import java.util.List;
 
-public class overallteamstandings<t>
+public class overallteamstandings
 {
-	String lastUpdatedOn;
-	List<TeamStats> teamstandingsentry;
+	public String lastUpdatedOn;
+	public List<TeamStats> teamstandingsentry;
 	
 	public String toString()
 	{System.out.println(teamstandingsentry);

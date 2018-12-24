@@ -7,12 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Stat
 {
 	@JsonProperty("@category")
-	String category;
+	public String category;
 	@JsonProperty("@abbreviation")
-	String abbreviation;
+	public String abbreviation;
 	
 	@JsonProperty("#text")
-	String text;
+	public String text;
 	
 	public String toString()
 	{
