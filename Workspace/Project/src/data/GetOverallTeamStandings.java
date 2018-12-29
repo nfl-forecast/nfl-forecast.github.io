@@ -19,12 +19,37 @@ public class GetOverallTeamStandings {
 		try
 		{
 			String str = get("current");
-			return str;
+			int year = LocalDate.now().getYear();
+			String strPlayoff = get(year + "-playoff");
+			if(!str.equals(strPlayoff))
+				return str;
+			else
+			{
+				try
+				{
+					str = get("upcomming");
+					return str;
+				}
+				catch(Exception f)
+				{
+					return get((year - 1) + "-" + year + "-regular");
+				}
+			}
+
 		}
 		catch(Exception e)
 		{
-			int year = LocalDate.now().getYear();
-			return get((year - 1) + "-" + year + "-regular");
+			try
+			{
+				String str = get("upcomming");
+				return str;
+			}
+			catch(Exception f)
+			{
+				int year = LocalDate.now().getYear();
+				return get((year - 1) + "-" + year + "-regular");
+			}
+
 		}
 	}
 	public static void main(String[] args) {
