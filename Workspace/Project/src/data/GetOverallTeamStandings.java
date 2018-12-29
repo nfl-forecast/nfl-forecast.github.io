@@ -1,3 +1,4 @@
+package data;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
@@ -5,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -16,7 +16,6 @@ public class GetOverallTeamStandings {
 	}
 	public static String getRegOnly() throws Exception
 	{
-		boolean inMiddle = false;
 		try
 		{
 			String str = get("current");
@@ -36,6 +35,7 @@ public class GetOverallTeamStandings {
 
 			Scanner scan = new Scanner(new File("APIKey"));
 			String token = scan.next(); // reads in the api key
+			scan.close();
 			// String encoding = token;
 			String encoding = Base64.getEncoder().encodeToString((token).getBytes());
 			URL url = new URL("https://api.mysportsfeeds.com/v1.0/pull/nfl/" + year + "/overall_team_standings.json");
