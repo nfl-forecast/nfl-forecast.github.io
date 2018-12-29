@@ -63,7 +63,7 @@ public class GetOverallTeamStandings {
 			scan.close();
 			// String encoding = token;
 			String encoding = Base64.getEncoder().encodeToString((token).getBytes());
-			URL url = new URL("https://api.mysportsfeeds.com/v1.0/pull/nfl/" + year + "/overall_team_standings.json");
+			URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/" + year + "/overall_team_standings.json");
 
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");

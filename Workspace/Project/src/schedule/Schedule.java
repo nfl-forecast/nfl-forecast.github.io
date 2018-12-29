@@ -15,4 +15,8 @@ public class Schedule
 	{
 		gameentry = games;
 	}
+	public String toString()
+	{
+		return gameentry.toString();
+	}
 }

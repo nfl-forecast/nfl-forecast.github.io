@@ -26,8 +26,8 @@ public class MakeGameObjectsUsingJackson {
 
 		try {
 
-			FullSchedule allStats = mapper.readValue(str, FullSchedule.class);
-			System.out.println(allStats);
+			FullSchedule full = mapper.readValue(str, FullSchedule.class);
+			System.out.println(full);
 			
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
@@ -37,5 +37,4 @@ public class MakeGameObjectsUsingJackson {
 			e.printStackTrace();
 		}
 	}
-
 }

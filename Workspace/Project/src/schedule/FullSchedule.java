@@ -7,4 +7,9 @@ public class FullSchedule
 	{
 		fullgamesschedule = s;
 	}
+	
+	public String toString()
+	{
+		return fullgamesschedule.toString();
+	}
 }
