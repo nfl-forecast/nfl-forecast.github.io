@@ -2,7 +2,7 @@ package data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Team
+public class TeamData
 {
 	@JsonProperty("ID")
 	String ID;
@@ -35,6 +35,6 @@ public class Team
 	}
 	public String toString()
 	{
-		return City + " " +  Name;
+		return City + " " +  Name + "(id: " + ID + ")";
 	}
 }
