@@ -1,5 +1,7 @@
 package data;
 
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FullStats{
@@ -486,7 +488,7 @@ public class FullStats{
 	@JsonProperty("WinPct")
 	public Stat WinPct;
 
-	public Stat[] AllStats;
+	public Stat[] AllStats, ImportantStats;
 
 	public void setGamesPlayed(Stat str)
 	{
@@ -1297,18 +1299,21 @@ public class FullStats{
 	{
 		Stat[] temp = {GamesPlayed, PassAttempts, PassCompletions, PassPct, PassGrossYards, PassNetYards, PassAvg, PassYardsPerAtt, PassTD, PassTDPct, PassInt, PassIntPct, PassLng, Pass20Plus, Pass40Plus, PassSacks, PassSackY, QBRating, RushAttempts, RushYards, RushAverage, RushTD, RushLng, Rush20Plus, Rush40Plus, RushFumbles, Receptions, RecYards, RecAverage, RecTD, RecLng, Rec20Plus, Rec40Plus, RecFumbles, TackleSolo, TackleTotal, TackleAst, Sacks, SackYds, Safeties, Interceptions, IntTD, IntYds, IntAverage, IntLng, PassesDefended, Stuffs, StuffYds, KB, Fumbles, FumLost, FumForced, FumOwnRec, FumOppRec, FumRecYds, FumTotalRec, FumTD, KrRet, KrYds, KrAvg, KrLng, KrTD, Kr20Plus, Kr40Plus, KrFC, KrFum, PrRet, PrYds, PrAvg, PrLng, PrTD, Pr20Plus, Pr40Plus, PrFC, PrFum, FgBlk, FgMade, FgAtt, FgPct, FgMade50Plus, FgAtt50Plus, Fg50PlusPct, FgLng, XpBlk, XpMade, XpAtt, XpPct, FgAndXpPts, Kickoffs, KoYds, KoOOB, KoAvg, KoTB, KoPct, KoRet, KoRetYds, KoRetAvgYds, KoTD, KoOS, KoOSR, Punts, PuntYds, PuntNetYds, PuntLng, PuntAvg, PuntNetAvg, PuntBlk, PuntOOB, PuntDown, PuntIn20, PuntIn20Pct, PuntTB, PuntTBPct, PuntFC, PuntRet, PuntRetYds, PuntRetAvg, FirstDownsTotal, FirstDownsPass, FirstDownsRush, FirstDownsPenalty, ThirdDowns, ThirdDownsAtt, ThirdDownsPct, FourthDowns, FourthDownsAtt, FourthDownsPct, Penalties, PenaltyYds, OffensePlays, OffenseYds, OffenseAvgYds, TotalTD, PointsFor, PointsAgainst, PointDifferential, TwoPtAtt, TwoPtMade, TwoPtPassAtt, TwoPtPassMade, TwoPtRushAtt, TwoPtRushMade, TacklesForLoss, FgMade1_19, FgAtt1_19, Fg1_19Pct, FgMade20_29, FgAtt20_29, Fg20_29Pct, FgMade30_39, FgAtt30_39, Fg30_39Pct, FgMade40_49, FgAtt40_49, Fg40_49Pct, Wins, Losses, Ties, OTWins, OTLosses, WinPct};
 		AllStats = temp;
+		Stat[] temp2 = {PassPct, PassAvg, PassYardsPerAtt, PassTD, PassTDPct, PassIntPct, PassSacks, PassSackY, QBRating, RushAttempts, RushAverage, RushTD, RecAverage, RecTD, TackleTotal, Sacks, Interceptions, IntAverage, PassesDefended, Stuffs, StuffYds, FumLost, FumForced, FumOwnRec, FumOppRec, FumRecYds, FumTotalRec, KrAvg, PrAvg, FgBlk, FgPct, XpPct, KoAvg, KoRetAvgYds, PuntNetAvg, PuntIn20Pct, PuntRetAvg, FirstDownsTotal, FirstDownsPass, FirstDownsRush, ThirdDownsPct, Penalties, PenaltyYds, OffenseAvgYds, TotalTD, PointsFor, PointsAgainst, PointDifferential};
+		ImportantStats = temp2;
 	}
-
+	
 	public String toString()
 	{
 		if(AllStats == null)
 			combine();
 		String str = "";
-		for(Stat s : AllStats)
+		for(Stat s : ImportantStats)
 		{
 			if(s != null && s.text != null)
 				str += s.toString();
 		}
+		
 	return str;
 	}
 }
