@@ -9,11 +9,20 @@ import data.TopData;
 public class MakeObjectsUsingJackson {
 
 	public static void main(String[] args) {
-		run();
+		try
+		{run();
+		
+		}
+		catch(Exception e)
+		{
+			System.out.println("Aw Shucks!");
+			System.out.println("Something went wrong!");
+			e.printStackTrace();
+		}
 
 	}
-	private static void run() {
-		String str = GetOverallTeamStandings.get();
+	private static void run() throws Exception {
+		String str = GetOverallTeamStandings.getRegOnly();
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
