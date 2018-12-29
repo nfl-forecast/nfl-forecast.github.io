@@ -4,6 +4,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -12,7 +14,20 @@ public class GetOverallTeamStandings {
 	public static String get() {
 		return get("latest");
 	}
-
+	public static String getRegOnly() throws Exception
+	{
+		boolean inMiddle = false;
+		try
+		{
+			String str = get("current");
+			return str;
+		}
+		catch(Exception e)
+		{
+			int year = LocalDate.now().getYear();
+			return get((year - 1) + "-" + year + "-regular");
+		}
+	}
 	public static void main(String[] args) {
 		get();
 	}
