@@ -8,7 +8,7 @@ public class overallteamstandings
 	public List<TeamStats> teamstandingsentry;
 	
 	public String toString()
-	{System.out.println(teamstandingsentry);
+	{
 		String str = "";
 		for(TeamStats t : teamstandingsentry)
 			str += t.toString() + "\n\n";

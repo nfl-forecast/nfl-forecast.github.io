@@ -20,6 +20,6 @@ public class TeamStats
 	}
 	public String  toString()
 	{
-		return team.toString() + " #" + rank + stats.toString();
+		return team.toString() + " #" + rank + "\n" + stats.toString();
 	}
 }
