@@ -1,4 +1,4 @@
-package schedule;
+package scheduleFromAPI;
 
 public class FullSchedule
 {

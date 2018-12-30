@@ -1,4 +1,4 @@
-package schedule;
+package scheduleFromAPI;
 
 import java.util.List;
 

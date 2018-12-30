@@ -1,4 +1,4 @@
-package schedule;
+package scheduleFromAPI;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
