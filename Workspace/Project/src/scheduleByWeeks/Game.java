@@ -11,6 +11,7 @@ public class Game
 	{
 		awayTeam = away;
 		homeTeam = home;
+		calculate();
 	}
 	/**
 	 * @return The home team
@@ -30,7 +31,7 @@ public class Game
 	/**
 	 * Makes percentages to represent each teams chances to win the game
 	 */
-	public void calulate()
+	public void calculate()
 	{
 		//TODO: Set the formula to calculate percent chance to win
 		setRecords();
