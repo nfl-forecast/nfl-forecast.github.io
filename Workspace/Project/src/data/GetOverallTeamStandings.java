@@ -38,7 +38,12 @@ public class GetOverallTeamStandings {
 				}
 				catch(Exception f)
 				{
-					return get((year - 1) + "-" + year + "-regular");
+					if( LocalDate.now().getMonthValue() != 12)
+						return get((year - 1) + "-" + year + "-regular");
+					else
+					{
+						return get(year + "-regular");
+					}
 				}
 			}
 
@@ -54,7 +59,12 @@ public class GetOverallTeamStandings {
 			{
 				int year = LocalDate.now().getYear();
 				try {
-					return get((year - 1) + "-" + year + "-regular");
+					if( LocalDate.now().getMonthValue() != 12)
+						return get((year - 1) + "-" + year + "-regular");
+					else
+					{
+						return get(year + "-regular");
+					}
 				} catch (IOException e1) {
 					return null;
 				}

@@ -21,7 +21,7 @@ public class ScheduleFromAPI {
 		}
 	}
 
-	public static String getRegOnly(){
+	public static String getRegOnly() {
 		try {
 			String str = get("current");
 			int year = LocalDate.now().getYear();
@@ -34,10 +34,12 @@ public class ScheduleFromAPI {
 					return str;
 				} catch (Exception f) {
 					try {
-					return get((year - 1) + "-" + year + "-regular");
-					}
-					catch(Exception e1)
-					{
+						if (LocalDate.now().getMonthValue() != 12)
+							return get((year - 1) + "-" + year + "-regular");
+						else {
+							return get(year + "-regular");
+						}
+					} catch (Exception e1) {
 						return null;
 					}
 				}
@@ -50,7 +52,12 @@ public class ScheduleFromAPI {
 			} catch (Exception f) {
 				int year = LocalDate.now().getYear();
 				try {
-					return get((year - 1) + "-" + year + "-regular");
+					if( LocalDate.now().getMonthValue() != 12)
+						return get((year - 1) + "-" + year + "-regular");
+					else
+					{
+						return get(year + "-regular");
+					}
 				} catch (IOException e1) {
 					return null;
 				}
