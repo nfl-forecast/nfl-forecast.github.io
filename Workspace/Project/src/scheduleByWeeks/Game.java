@@ -43,18 +43,18 @@ public class Game
 	{
 		if(awayTeam.getFPI() > homeTeam.getFPI())
 		{
-			awayTeam.addWin(false, homeTeam);
-			homeTeam.addLoss(true, awayTeam);
+			awayTeam.addWin(false, homeTeam, awayPCT);
+			homeTeam.addLoss(true, awayTeam, homePCT);
 		}
 		else if(awayTeam.getFPI() < homeTeam.getFPI())
 		{
-			awayTeam.addLoss(false, homeTeam);
-			homeTeam.addWin(true, awayTeam);
+			awayTeam.addLoss(false, homeTeam, awayPCT);
+			homeTeam.addWin(true, awayTeam, homePCT);
 		}
 		else
 		{
-			awayTeam.addtie(false, homeTeam);
-			homeTeam.addtie(true, awayTeam);
+			awayTeam.addtie(false, homeTeam, awayPCT);
+			homeTeam.addtie(true, awayTeam, homePCT);
 		}
 	}
 	public String toString()

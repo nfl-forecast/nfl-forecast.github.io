@@ -39,14 +39,14 @@ public class Team {
 	 * @param home    Whether this game was a home game
 	 * @param against What team the game was played against
 	 */
-	public void addLoss(boolean home, Team against) {
-		losses++;
+	public void addLoss(boolean home, Team against, double percentage) {
+		losses+= percentage;
 		if (division.conference == against.division.conference)
-			addConL();
+			addConL(percentage);
 		if (division == against.division)
-			addDivL();
+			addDivL(percentage);
 		if (home)
-			HomeLoss++;
+			HomeLoss+= percentage;
 		else
 			AwayLoss++;
 		lossTeams.add(against);
@@ -56,43 +56,43 @@ public class Team {
 	/**
 	 * Adds one to the Division Win variable
 	 */
-	private void addDivW() {
-		divisionalW++;
+	private void addDivW(double percentage) {
+		divisionalW+= percentage;
 	}
 
 	/**
 	 * Adds one to the conference win variable
 	 */
-	private void addConW() {
-		conferenceW++;
+	private void addConW(double percentage) {
+		conferenceW+= percentage;
 	}
 
 	/**
 	 * Adds one to the Division Ties variable
 	 */
-	private void addDivT() {
-		divisionalT++;
+	private void addDivT(double percentage) {
+		divisionalT+= percentage;
 	}
 
 	/**
 	 * Adds one to the Conference Ties variable
 	 */
-	private void addConT() {
-		conferenceT++;
+	private void addConT(double percentage) {
+		conferenceT+= percentage;
 	}
 
 	/**
 	 * Adds one to the Division loss Variable
 	 */
-	private void addDivL() {
-		divisionalL++;
+	private void addDivL(double percentage) {
+		divisionalL+= percentage;
 	}
 
 	/**
 	 * Adds one to the COnference Loss Variable
 	 */
-	private void addConL() {
-		conferenceL++;
+	private void addConL(double percentage) {
+		conferenceL+= percentage;
 	}
 
 	/**
@@ -100,16 +100,16 @@ public class Team {
 	 * @param home    Whether this game was a home game
 	 * @param against What team this game was against
 	 */
-	public void addWin(boolean home, Team against) {
-		wins++;
+	public void addWin(boolean home, Team against, double percentage) {
+		wins+= percentage;
 		if (division.conference == against.division.conference)
-			addConW();
+			addConW(percentage);
 		if (division == against.division)
-			addDivW();
+			addDivW(percentage);
 		if (home) {
-			HomeWins++;
+			HomeWins+= percentage;
 		} else {
-			AwayWins++;
+			AwayWins+= percentage;
 		}
 		winTeams.add(against);
 		played.add(against);
@@ -120,16 +120,16 @@ public class Team {
 	 * @param home    Whether this game was a home game
 	 * @param against What team this game was agianst
 	 */
-	public void addtie(boolean home, Team against) {
-		ties++;
+	public void addtie(boolean home, Team against, double percentage) {
+		ties+= percentage;
 		if (division.conference == against.division.conference)
-			addConT();
+			addConT(percentage);
 		if (division == against.division)
-			addDivT();
+			addDivT(percentage);
 		if (home) {
-			HomeTies++;
+			HomeTies+= percentage;
 		} else {
-			AwayTies++;
+			AwayTies+= percentage;
 		}
 		tieTeams.add(against);
 		played.add(against);
