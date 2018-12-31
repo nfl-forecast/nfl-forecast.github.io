@@ -25,7 +25,6 @@ public class MakeObjectsUsingJackson {
 		try {
 			str = GetOverallTeamStandings.getRegOnly();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		ObjectMapper mapper = new ObjectMapper();

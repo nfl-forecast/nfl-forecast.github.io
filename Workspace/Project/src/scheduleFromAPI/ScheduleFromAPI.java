@@ -52,7 +52,6 @@ public class ScheduleFromAPI {
 				try {
 					return get((year - 1) + "-" + year + "-regular");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					return null;
 				}
 			}
