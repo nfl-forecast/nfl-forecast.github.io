@@ -53,4 +53,8 @@ public class Week
 		}
 		teamsOnBye.addAll(allTeams);
 	}
+	public String toString()
+	{
+		return games.toString();
+	}
 }

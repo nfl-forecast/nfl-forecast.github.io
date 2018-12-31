@@ -56,5 +56,8 @@ public class Game
 			homeTeam.addtie(true, awayTeam);
 		}
 	}
-	
+	public String toString()
+	{
+		return awayTeam.toString() + " @ " + homeTeam.toString();
+	}
 }

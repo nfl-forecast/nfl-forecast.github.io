@@ -56,5 +56,8 @@ public class Schedule {
 			return AFC.oppContains(t);
 		}
 	}
-
+	public String toString()
+	{
+		return weeks.toString();
+	}
 }
