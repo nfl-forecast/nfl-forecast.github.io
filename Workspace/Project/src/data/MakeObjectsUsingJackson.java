@@ -20,14 +20,14 @@ public class MakeObjectsUsingJackson {
 		}
 
 	}
-	private static void run() throws Exception {
+	public static TopData run() throws Exception {
 		String str = GetOverallTeamStandings.getRegOnly();
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
 
 			TopData allStats = mapper.readValue(str, TopData.class);
-			System.out.println(allStats);
+			return allStats;
 			
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
@@ -36,6 +36,7 @@ public class MakeObjectsUsingJackson {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 }

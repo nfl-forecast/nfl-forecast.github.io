@@ -1,11 +1,15 @@
 package teamStructure;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import data.MakeObjectsUsingJackson;
+import data.TeamStats;
 
 public class Conference implements Cloneable
 {
 	Division North, East, South, West;
-	public Conference(Division N, Division E, Division S, Division W)
+	public Conference(Division N, Division E, Division S, Division W) throws Exception
 	{
 		North = N;
 		East = E;
@@ -15,6 +19,7 @@ public class Conference implements Cloneable
 		North.addCon(this);
 		South.addCon(this);
 		West.addCon(this);
+		getStats();
 	}
 	/**
 	 * 
@@ -159,7 +164,11 @@ public class Conference implements Cloneable
 	 */
 	public Conference clone()
 	{
-		return new Conference(this.North.clone(), this.East.clone(), this.South.clone(), this.West.clone());
+		try {
+			return new Conference(this.North.clone(), this.East.clone(), this.South.clone(), this.West.clone());
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	/**
 	 * 
@@ -178,5 +187,19 @@ public class Conference implements Cloneable
 		else if(West.oppContains(team) != null)
 			return West.oppContains(team);
 		else return null;
+	}
+	/**
+	 * @throws Exception
+	 * Sets FPIs for all Teams in this conference
+	 */
+	private void getStats() throws Exception
+	{
+		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.teamstandingsentry;
+		for(TeamStats ts : tsList)
+		{
+			Team fakeTeam = new Team(ts.team.toString(), null, null);
+			if(oppContains(fakeTeam) != null)
+				oppContains(fakeTeam).makeFPI(ts);
+		}
 	}
 }

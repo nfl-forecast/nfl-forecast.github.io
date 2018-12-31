@@ -12,4 +12,8 @@ public class FullSchedule
 	{
 		return fullgamesschedule.toString();
 	}
+	public Schedule getSchedule()
+	{
+		return fullgamesschedule;
+	}
 }

@@ -9,8 +9,8 @@ public class Games
 	String date;
 	String time;
 	String location;
-	TeamSchedule awayTeam, homeTeam;
-	String week;
+	public TeamSchedule awayTeam, homeTeam;
+	public String week;
 	String ScheduleStatus;
 	
 	

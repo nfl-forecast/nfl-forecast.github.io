@@ -35,6 +35,6 @@ public class TeamData
 	}
 	public String toString()
 	{
-		return City + " " +  Name + "(id: " + ID + ")";
+		return City + " " +  Name;
 	}
 }

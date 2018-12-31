@@ -20,14 +20,14 @@ public class MakeGameObjectsUsingJackson {
 		}
 
 	}
-	private static void run() throws Exception {
+	public static FullSchedule run() throws Exception {
 		String str = ScheduleFromAPI.getRegOnly();
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
 
 			FullSchedule full = mapper.readValue(str, FullSchedule.class);
-			System.out.println(full);
+			return full;
 			
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
@@ -36,5 +36,6 @@ public class MakeGameObjectsUsingJackson {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }

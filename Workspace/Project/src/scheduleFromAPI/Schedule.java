@@ -19,4 +19,8 @@ public class Schedule
 	{
 		return gameentry.toString();
 	}
+	public List<Games> getList()
+	{
+		return gameentry;
+	}
 }
