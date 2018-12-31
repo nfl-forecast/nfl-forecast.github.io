@@ -54,11 +54,18 @@ public class Schedule {
 		}
 		else
 		{
+			if(AFC.oppContains(t) == null)
+				System.out.println(team.toString());
 			return AFC.oppContains(t);
 		}
 	}
 	public String toString()
 	{
-		return weeks.toString();
+		String str = "";
+		for(int i = 0; i < 17; i++)
+		{
+			str += "Week " + (i+1) + "\n" + weeks[i].toString() + "\n";
+		}
+		return str;	
 	}
 }

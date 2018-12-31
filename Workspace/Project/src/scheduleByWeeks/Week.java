@@ -55,6 +55,12 @@ public class Week
 	}
 	public String toString()
 	{
-		return games.toString();
+		String str = "";
+		for(Game g : games)
+		{
+			str += g.toString();
+			str+= "\n";
+		}
+		return str;
 	}
 }
