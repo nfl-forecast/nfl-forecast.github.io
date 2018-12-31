@@ -192,7 +192,7 @@ public class Conference implements Cloneable
 	 * @throws Exception
 	 * Sets FPIs for all Teams in this conference
 	 */
-	private void getStats() throws Exception
+	private void getStats()
 	{
 		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.teamstandingsentry;
 		for(TeamStats ts : tsList)
@@ -201,5 +201,9 @@ public class Conference implements Cloneable
 			if(oppContains(fakeTeam) != null)
 				oppContains(fakeTeam).makeFPI(ts);
 		}
+	}
+	public String toString()
+	{
+		return North.toString() + "\n" + East.toString() + "\n" + South.toString() + "\n" + West.toString();
 	}
 }

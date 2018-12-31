@@ -127,4 +127,12 @@ public class Division
 			return teamsInDivision[3];
 		else return null;
 	}
+	public String toString()
+	{
+		String str = "";
+		for(int i = 0; i < 3; i++)
+			str += teamsInDivision[i].toString() + ", ";
+		str += teamsInDivision[3].toString();
+		return str;
+	}
 }
