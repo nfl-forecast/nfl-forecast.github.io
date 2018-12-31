@@ -26,15 +26,16 @@ public class Schedule {
 	private void getFromAPI(Conference NFC, Conference AFC) throws Exception
 	{
 		List<Games> listGames = MakeGameObjectsUsingJackson.run().getSchedule().getList();
-		int week = 1;
+		int week = 0;
 		for(Games g : listGames)
 		{
 			if(Integer.parseInt(g.week) != week)
 			{
 				week++;
-				weeks[week] = new Week();
+				weeks[week-1] = new Week();
 			}
-			weeks[week].games.add(new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC)));
+			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC));
+			weeks[week-1].games.add(game);
 		}
 	}
 	/**

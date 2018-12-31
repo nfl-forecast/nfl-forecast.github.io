@@ -1,6 +1,7 @@
 package data;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -12,9 +13,15 @@ import java.util.Scanner;
 public class GetOverallTeamStandings {
 
 	public static String get() {
-		return get("latest");
+		try {
+			return get("latest");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
-	public static String getRegOnly() throws Exception
+	public static String getRegOnly()
 	{
 		try
 		{
@@ -47,7 +54,11 @@ public class GetOverallTeamStandings {
 			catch(Exception f)
 			{
 				int year = LocalDate.now().getYear();
-				return get((year - 1) + "-" + year + "-regular");
+				try {
+					return get((year - 1) + "-" + year + "-regular");
+				} catch (IOException e1) {
+					return null;
+				}
 			}
 
 		}
@@ -55,9 +66,7 @@ public class GetOverallTeamStandings {
 	public static void main(String[] args) {
 		get();
 	}
-	public static String get(String year) {
-		try {
-
+	public static String get(String year) throws IOException {
 			Scanner scan = new Scanner(new File("APIKey"));
 			String token = scan.next(); // reads in the api key
 			scan.close();
@@ -75,10 +84,7 @@ public class GetOverallTeamStandings {
 			while ((line = in.readLine()) != null) {
 				return line;
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
+			return null;
 	}
 
 }

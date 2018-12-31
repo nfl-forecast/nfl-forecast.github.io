@@ -922,7 +922,7 @@ public class Team {
 	 * @return A boolean value of whether the two teams have the same name
 	 */
 	public boolean equals(Team team) {
-		return team.name == this.name;
+		return team.name.equals(this.name);
 	}
 	/**
 	 * @return All of the stats deposited by the APIs

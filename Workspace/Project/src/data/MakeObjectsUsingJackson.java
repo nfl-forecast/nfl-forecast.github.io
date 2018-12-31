@@ -20,8 +20,14 @@ public class MakeObjectsUsingJackson {
 		}
 
 	}
-	public static TopData run() throws Exception {
-		String str = GetOverallTeamStandings.getRegOnly();
+	public static TopData run(){
+		String str = "";
+		try {
+			str = GetOverallTeamStandings.getRegOnly();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
