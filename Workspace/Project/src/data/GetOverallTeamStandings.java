@@ -1,4 +1,5 @@
 package data;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -20,80 +21,60 @@ public class GetOverallTeamStandings {
 		}
 		return null;
 	}
-	public static String getRegOnly()
-	{
-		try
-		{
+
+	public static String getRegOnly() {
+		try {
 			String str = get("current");
 			int year = LocalDate.now().getYear();
 			String strPlayoff = get(year + "-playoff");
-			if(!str.equals(strPlayoff))
+			if (!str.equals(strPlayoff))
 				return str;
-			else
-			{
-				try
-				{
-					str = get("upcomming");
-					return str;
-				}
-				catch(Exception f)
-				{
-					if( LocalDate.now().getMonthValue() != 12)
-						return get((year - 1) + "-" + year + "-regular");
-					else
-					{
-						return get(year + "-regular");
-					}
+			else {
+				if (LocalDate.now().getMonthValue() != 12)
+					return get((year - 1) + "-" + year + "-regular");
+				else {
+					return get(year + "-regular");
 				}
 			}
 
-		}
-		catch(Exception e)
-		{
-			try
-			{
-				String str = get("upcomming");
-				return str;
-			}
-			catch(Exception f)
-			{
-				int year = LocalDate.now().getYear();
-				try {
-					if( LocalDate.now().getMonthValue() != 12)
-						return get((year - 1) + "-" + year + "-regular");
-					else
-					{
-						return get(year + "-regular");
-					}
-				} catch (IOException e1) {
-					return null;
+		} catch (Exception e) {
+			int year = LocalDate.now().getYear();
+			try {
+				if (LocalDate.now().getMonthValue() != 12)
+					return get((year - 1) + "-" + year + "-regular");
+				else {
+					return get(year + "-regular");
 				}
+			} catch (IOException e1) {
+				return null;
 			}
 
 		}
 	}
+
 	public static void main(String[] args) {
 		get();
 	}
-	public static String get(String year) throws IOException {
-			Scanner scan = new Scanner(new File("APIKey"));
-			String token = scan.next(); // reads in the api key
-			scan.close();
-			// String encoding = token;
-			String encoding = Base64.getEncoder().encodeToString((token).getBytes());
-			URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/" + year + "/overall_team_standings.json");
 
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.setDoOutput(true);
-			connection.setRequestProperty("Authorization", "Basic " + encoding);
-			InputStream content = (InputStream) connection.getInputStream();
-			BufferedReader in = new BufferedReader(new InputStreamReader(content));
-			String line;
-			while ((line = in.readLine()) != null) {
-				return line;
-			}
-			return null;
+	public static String get(String year) throws IOException {
+		Scanner scan = new Scanner(new File("APIKey"));
+		String token = scan.next(); // reads in the api key
+		scan.close();
+		// String encoding = token;
+		String encoding = Base64.getEncoder().encodeToString((token).getBytes());
+		URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/" + year + "/overall_team_standings.json");
+
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		connection.setRequestMethod("GET");
+		connection.setDoOutput(true);
+		connection.setRequestProperty("Authorization", "Basic " + encoding);
+		InputStream content = (InputStream) connection.getInputStream();
+		BufferedReader in = new BufferedReader(new InputStreamReader(content));
+		String line;
+		while ((line = in.readLine()) != null) {
+			return line;
+		}
+		return null;
 	}
 
 }
