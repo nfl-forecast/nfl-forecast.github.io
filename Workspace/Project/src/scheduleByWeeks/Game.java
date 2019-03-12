@@ -32,6 +32,7 @@ public class Game {
 	 */
 	public void calculate() {
 		// TODO: Set the formula to calculate percent chance to win
+		awayPCT = 1-homePCT;
 		setRecords();
 	}
 
