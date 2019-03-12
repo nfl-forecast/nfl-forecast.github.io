@@ -29,20 +29,8 @@ public class ScheduleFromAPI {
 			if (!str.equals(strPlayoff))
 				return str;
 			else {
-				try {
-					str = get("upcomming");
-					return str;
-				} catch (Exception f) {
-					try {
-						if (LocalDate.now().getMonthValue() != 12)
-							return get((year - 1) + "-" + year + "-regular");
-						else {
-							return get(year + "-regular");
-						}
-					} catch (Exception e1) {
-						return null;
-					}
-				}
+				//TODO: set up what happens if currently playoffs
+				return null;
 			}
 
 		} catch (Exception e) {
