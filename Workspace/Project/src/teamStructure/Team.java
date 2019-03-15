@@ -470,7 +470,6 @@ public class Team {
 	 */
 	public void makeFPI(TeamStats stats) {
 		stat = stats;
-		FPI = stat.stats.
 		// TODO: Make a FPI
 	}
 
