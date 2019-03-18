@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import data.FullStats;
+import data.Stat;
 import data.TeamStats;
 
 public class Team {
@@ -470,7 +471,15 @@ public class Team {
 	 */
 	public void makeFPI(TeamStats stats) {
 		stat = stats;
+		FPI = 0;
+		for(Stat s: stat.stats.ImportantStats)
+		{
+			FPI += logisticShell(s.getA(), s.getB(), Integer.parseInt(s.text));
+		}
 		// TODO: Make a FPI
 	}
-
+	private double logisticShell(double a, double b, double statValue)
+	{
+		return 1/(1+Math.pow((Math.E),(a+b*(statValue))));
+	}
 }

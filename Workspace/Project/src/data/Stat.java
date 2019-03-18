@@ -14,6 +14,8 @@ public class Stat
 	@JsonProperty("#text")
 	public String text;
 	
+	private double a, b;
+	
 	public String toString()
 	{
 		return abbreviation + ": " + text + "\n";
@@ -30,5 +32,21 @@ public class Stat
 	public void setText(String str)
 	{
 		text = str;
+	}
+	
+	public void setCoefs(double one, double two)
+	{
+		a = one;
+		b = two;
+	}
+	
+	public double getA()
+	{
+		return a;
+	}
+	
+	public double getB()
+	{
+		return b;
 	}
 }
