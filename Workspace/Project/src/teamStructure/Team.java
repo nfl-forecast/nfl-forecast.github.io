@@ -482,4 +482,10 @@ public class Team {
 	{
 		return 1/(1+Math.pow((Math.E),(a+b*(statValue))));
 	}
+	
+	public double calculate(Team away)
+	{
+		//TODO: include calculating method from games
+		return 0;
+	}
 }
