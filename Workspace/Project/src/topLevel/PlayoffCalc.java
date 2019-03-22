@@ -4,25 +4,31 @@ import teamStructure.Team;
 
 public class PlayoffCalc 
 {
-	int[] natFinal, amerFinal;
-	int[][] percent;
+	double[] natFinal, amerFinal;
+	double[][] percent;
+	Team[] teams;
 
 	public PlayoffCalc(Team[] nat, Team[] amer) 
 	{
-		
+		teams = new Team[12];
+		for(int i = 0;i < 6;i++)
+		{
+			teams[i] = nat[i];
+			teams[i + 6] = amer[i];
+		}
 		
 		fillPercent();
 	}
 
 	public void calculate()
 	{
-		int[] natPerc = new int[6];
-		int[] amerPerc = new int[6];
+		double[] natPerc = new double[6];
+		double[] amerPerc = new double[6];
 
 		//NATIONAL//
 		
 		//set up arrays for either side
-		int[] left = new int[6], right = new int[6];
+		double[] left = new double[6], right = new double[6];
 		for(int j = 0;j < 6;j++)
 		{
 			left[j] = 0;
@@ -76,8 +82,8 @@ public class PlayoffCalc
 		//AMERICAN
 		
 		//set up arrays for either side
-		left = new int[6]; 
-		right = new int[6];
+		left = new double[6]; 
+		right = new double[6];
 		for(int j = 0;j < 6;j++)
 		{
 			left[j] = 0;
@@ -151,14 +157,23 @@ public class PlayoffCalc
 	
 	private void fillPercent()
 	{
-		percent = new int[12][12];
+		/*
+		percent = new double[12][12];
 		
 		for(int i = 0;i < 12;i++)
 		{
 			for(int j = 0;j < 12;j++)
 			{
-				
+				percent[i][j] = teams[i].calculate(teams[j]);
 			}
-		}
+		}*/
+		/*
+		percent = {{1,.8,.9,.7,.6,.5,.4,.3,.2,.1,.5,.9},
+				{.2,1,.85,.75,.65,.55,.45,.35,.25,.15,.5,.02},
+				{.1,.15,1,.6,.59,.49,.39,.29,.19,.09,.69,.79},
+				{.3,.25,.4,1,.81,.99,.98,.88,.78,.68,.58,.48},
+				{.4,.35,.41,.11,1,.38,.28,.18,.08,.97,.87,.77},
+				{.5,.45,.51,.01,.62,1,.67,.
+		}*/
 	}
 }
