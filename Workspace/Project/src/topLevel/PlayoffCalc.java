@@ -47,6 +47,7 @@ public class PlayoffCalc
 		right[4] = percent[4][3] * percent[5][2];
 		right[2] = percent[2][5];
 		
+//		System.out.println("AFTER FIRST GAME");
 //		for(int i = 0;i < left.length;i++)
 //		{
 //			System.out.println(left[i] + " " + right[i]);
@@ -71,11 +72,12 @@ public class PlayoffCalc
 		right[3] = percent[3][1] * right[3];
 		right[4] = percent[4][1] * right[4];
 		
-		for(int i = 0;i < left.length;i++)
-		{
-			System.out.println(left[i] + " " + right[i]);
-		}
-		System.out.println();
+//		System.out.println("AFTER SECOND GAME");
+//		for(int i = 0;i < left.length;i++)
+//		{
+//			System.out.println(left[i] + " " + right[i]);
+//		}
+//		System.out.println();
 		
 		//third game
 		for(int j = 0;j < 6;j++)
@@ -91,17 +93,20 @@ public class PlayoffCalc
 			for(int k = 0;k < 6;k++)
 				if(j * k != 20 && j * k != 18 && j * k != 6)
 					sumRight += percent[j][k] * left[k];
-			sumLeft *= right[j];
+			sumRight *= right[j];
 			
 			natPerc[j] = sumLeft + sumRight;
+			
+			//System.out.println((j + 1) + " " + sumLeft + " " + sumRight);
 		}
 		////////////////////////////////////////////////////////
 		
-		for(int i = 0;i < amerPerc.length;i++)
-		{
-			System.out.println(natPerc[i] + " " + amerPerc[i]);
-		}
-		System.out.println();
+//		System.out.println("AFTER THIRD GAME");
+//		for(int i = 0;i < amerPerc.length;i++)
+//		{
+//			System.out.println(natPerc[i]);
+//		}
+//		System.out.println();
 		
 		//AMERICAN//
 		
@@ -124,6 +129,13 @@ public class PlayoffCalc
 		right[4] = percent[10][9] * percent[11][8];
 		right[2] = percent[8][11];
 		
+		System.out.println("AFTER FIRST GAME");
+		for(int i = 0;i < left.length;i++)
+		{
+			System.out.println(left[i] + " " + right[i]);
+		}
+		System.out.println();
+		
 		//second game
 		sum1 = 0; 
 		sum2 = 0;
@@ -141,6 +153,13 @@ public class PlayoffCalc
 		right[3] = percent[9][7] * right[3];
 		right[4] = percent[10][7] * right[4];
 		
+		System.out.println("AFTER SECOND GAME");
+		for(int i = 0;i < left.length;i++)
+		{
+			System.out.println(left[i] + " " + right[i]);
+		}
+		System.out.println();
+		
 		//third game
 		for(int j = 0;j < 6;j++)
 		{
@@ -155,7 +174,7 @@ public class PlayoffCalc
 			for(int k = 0;k < 6;k++)
 				if(j * k != 20 && j * k != 18)
 					sumRight += percent[j + 6][k + 6] * left[k];
-			sumLeft *= right[j];
+			sumRight *= right[j];
 			
 			amerPerc[j] = sumLeft + sumRight;
 		}
@@ -163,7 +182,7 @@ public class PlayoffCalc
 		
 		for(int i = 0;i < amerPerc.length;i++)
 		{
-			System.out.println(natPerc[i] + " " + amerPerc[i]);
+			System.out.println(amerPerc[i]);
 		}
 		System.out.println();
 		
@@ -252,5 +271,10 @@ public class PlayoffCalc
 			System.out.println(p.natFinal[i]);
 		for(int i = 0;i < 6;i++)
 			System.out.println(p.amerFinal[i]);
+		
+		double sum = 0;
+		for(int i = 0;i < 6;i++)
+			sum += (p.natFinal[i] + p.amerFinal[i]);
+		System.out.println(sum);
 	}
 }
