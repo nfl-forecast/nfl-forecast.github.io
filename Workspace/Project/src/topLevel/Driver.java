@@ -2,6 +2,7 @@ package topLevel;
 
 import java.awt.Color;
 
+import data.Stat;
 import scheduleByWeeks.Schedule;
 import teamStructure.Conference;
 import teamStructure.Division;
@@ -49,17 +50,23 @@ public class Driver {
 
 		Division NNorth = new Division(GB, DET, CHI, MIN), NEast = new Division(WSH, DAL, NYG, PHI),
 				NSouth = new Division(NO, CAR, ATL, TB), NWest = new Division(SEA, SF, ARI, LAR);
-
+		Conference AFC = null, NFC = null;
+		Schedule season = null;
 		try {
-			Conference AFC = new Conference(ANorth, AEast, ASouth, AWest),
-					NFC = new Conference(NNorth, NEast, NSouth, NWest);
-			Schedule season = new Schedule(NFC, AFC);
-			
-			System.out.println(season);
-			
-		} catch (Exception e) {
+			AFC = new Conference(ANorth, AEast, ASouth, AWest);
+			NFC = new Conference(NNorth, NEast, NSouth, NWest);
+			season = new Schedule(NFC, AFC);
 
+		} catch (Exception e) {
+			System.out.println(e);
 		}
+		System.out.println("AFC");
+		for (Team t : AFC.places())
+				System.out.println(t.name + ": " + t.wins);
+		System.out.println();
+		System.out.println("NFC");
+		for (Team t : NFC.places())
+			System.out.println(t.name + ": " + t.wins);
 	}
 
 }

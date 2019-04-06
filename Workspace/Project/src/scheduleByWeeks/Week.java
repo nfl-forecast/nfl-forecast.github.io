@@ -2,7 +2,7 @@ package scheduleByWeeks;
 
 import java.util.ArrayList;
 
-import scheduleFromAPI.TeamSchedule;
+
 import teamStructure.Conference;
 import teamStructure.Team;
 
