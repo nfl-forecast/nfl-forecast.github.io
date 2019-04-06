@@ -22,6 +22,7 @@ public class Team {
 		s = secondary;
 		p = primary;
 		played = new ArrayList<Team>();
+		FPI = 1;
 	}
 
 	/**
@@ -453,7 +454,10 @@ public class Team {
 	 * @return All of the stats deposited by the APIs
 	 */
 	public FullStats getStats() {
-		return stat.stats;
+		if (stat == null)
+			return null;
+		else
+			return stat.stats;
 	}
 
 	/**
@@ -470,22 +474,24 @@ public class Team {
 	 *              off of the stats
 	 */
 	public void makeFPI(TeamStats stats) {
+		//temporary test
 		stat = stats;
-		FPI = 0;
-		for(Stat s: stat.stats.ImportantStats)
-		{
-			FPI += logisticShell(s.getA(), s.getB(), Integer.parseInt(s.text));
-		}
+		return;
+		
+		//stat = stats;
+		//FPI = 0;
+		//for (Stat s : stat.stats.ImportantStats) {
+		//	FPI += logisticShell(s.getA(), s.getB(), Double.parseDouble(s.text));
+		//}
 		// TODO: Make a FPI
 	}
-	private double logisticShell(double a, double b, double statValue)
-	{
-		return 1/(1+Math.pow((Math.E),(a+b*(statValue))));
+
+	private double logisticShell(double a, double b, double statValue) {
+		return 1 / (1 + Math.pow((Math.E), (a + b * (statValue))));
 	}
-	
-	public double calculate(Team away)
-	{
-		//TODO: include calculating method from games
+
+	public double calculate(Team away) {
+		// TODO: include calculating method from games
 		return 0;
 	}
 }

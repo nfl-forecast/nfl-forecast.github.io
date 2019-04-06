@@ -153,7 +153,7 @@ public class Conference implements Cloneable
 		{
 			ArrayList<Team> allTeams;
 			allTeams = allTeams();
-			for(int j = i; j > -1; j--)
+			for(int j = i-1; j >= 0; j--)
 				allTeams.remove(place[j]);
 			place[i] = Team.compareToCon(allTeams);
 		}
@@ -197,6 +197,7 @@ public class Conference implements Cloneable
 		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.teamstandingsentry;
 		for(TeamStats ts : tsList)
 		{
+			ts.stats.combine();
 			Team fakeTeam = new Team(ts.team.toString(), null, null);
 			if(oppContains(fakeTeam) != null)
 				oppContains(fakeTeam).makeFPI(ts);
