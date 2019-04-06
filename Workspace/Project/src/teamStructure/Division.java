@@ -16,6 +16,7 @@ public class Division
 		for(Team t : teamsInDivision)
 			t.addDiv(this);
 	}
+	
 	/**
 	 * 
 	 * @param con The conference this division is in
@@ -24,6 +25,7 @@ public class Division
 	{
 		conference = con;
 	}
+	
 	/**
 	 * 
 	 * @return An Array of teams that are in this division
@@ -32,6 +34,7 @@ public class Division
 	{
 		return teamsInDivision;
 	}
+	
 	/**
 	 * 
 	 * @param Team
@@ -42,6 +45,7 @@ public class Division
 	{
 		return (contains(Team) && contains(rival));
 	}
+	
 	/**
 	 * 
 	 * @param Team
@@ -53,6 +57,7 @@ public class Division
 			return true;
 		return false;
 	}
+	
 	/**
 	 * 
 	 * @return The team that is in first place of this division
@@ -64,8 +69,9 @@ public class Division
 		division.add(teamsInDivision[1]);
 		division.add(teamsInDivision[2]);
 		division.add(teamsInDivision[3]);
-		return Team.compareToDiv(division);		
+		return Team.compareTo(division);		
 	}
+	
 	/**
 	 * 
 	 * @return An array of all teams in the division sorted into their ranks in the division with Arr[0] being first place
@@ -81,7 +87,7 @@ public class Division
 		division.add(teamsInDivision[2]);
 		division.add(teamsInDivision[3]);
 		division.remove(place[0]);
-		place[1]  = Team.compareToDiv(division);
+		place[1]  = Team.compareTo(division);
 		
 		division = new ArrayList<Team>();
 		division.add(teamsInDivision[0]);
@@ -90,7 +96,7 @@ public class Division
 		division.add(teamsInDivision[3]);
 		division.remove(place[0]);
 		division.remove(place[1]);
-		place[2]  = Team.compareToDiv(division);
+		place[2]  = Team.compareTo(division);
 		
 		division = new ArrayList<Team>();
 		division.add(teamsInDivision[0]);
@@ -100,9 +106,10 @@ public class Division
 		division.remove(place[0]);
 		division.remove(place[1]);
 		division.remove(place[2]);
-		place[3]  = Team.compareToDiv(division);
+		place[3]  = Team.compareTo(division);
 		return place;
 	}
+	
 	/**
 	 * @return A clone of this Division
 	 */
@@ -110,6 +117,7 @@ public class Division
 	{
 		return(new Division(this.teamsInDivision[0].clone(), this.teamsInDivision[1].clone(), this.teamsInDivision[2].clone(), this.teamsInDivision[3].clone()));
 	}
+	
 	/**
 	 * 
 	 * @param team
@@ -127,6 +135,7 @@ public class Division
 			return teamsInDivision[3];
 		else return null;
 	}
+	
 	public String toString()
 	{
 		String str = "";

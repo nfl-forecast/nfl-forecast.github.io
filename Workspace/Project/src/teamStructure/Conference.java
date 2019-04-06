@@ -21,6 +21,7 @@ public class Conference implements Cloneable
 		West.addCon(this);
 		getStats();
 	}
+	
 	/**
 	 * 
 	 * @param Team
@@ -31,6 +32,7 @@ public class Conference implements Cloneable
 	{
 		return(contains(Team) && contains(rival));
 	}
+	
 	/**
 	 * 
 	 * @param Team
@@ -47,6 +49,7 @@ public class Conference implements Cloneable
 		else
 			return false;
 	}
+	
 	/**
 	 * 
 	 * @param Team
@@ -56,6 +59,7 @@ public class Conference implements Cloneable
 	{
 		return (East.contains(Team) || South.contains(Team) || North.contains(Team) || West.contains(Team));
 	}
+	
 	/**
 	 * 
 	 * @return An Array of the teams that would make the playoffs with Arr[0] being first seed and Arr[5] being 6th seed
@@ -69,7 +73,7 @@ public class Conference implements Cloneable
 		teams.remove(East.first());
 		teams.remove(West.first());
 		Team[] seeds = new Team[6];
-		seeds[4] = Team.compareToCon(teams);
+		seeds[4] = Team.compareTo(teams);
 		
 		teams = allTeams();
 		teams.remove(North.first());
@@ -77,14 +81,14 @@ public class Conference implements Cloneable
 		teams.remove(East.first());
 		teams.remove(West.first());
 		teams.remove(seeds[4]);
-		seeds[5] = Team.compareToCon(teams);
+		seeds[5] = Team.compareTo(teams);
 		
 		teams = new ArrayList<Team>();
 		teams.add(North.first());
 		teams.add(South.first());
 		teams.add(East.first());
 		teams.add(West.first());
-		seeds[0] = Team.compareToCon(teams);
+		seeds[0] = Team.compareTo(teams);
 		
 		teams = new ArrayList<Team>();
 		teams.add(North.first());
@@ -92,7 +96,7 @@ public class Conference implements Cloneable
 		teams.add(East.first());
 		teams.add(West.first());
 		teams.remove(seeds[0]);
-		seeds[1] = Team.compareToCon(teams);
+		seeds[1] = Team.compareTo(teams);
 		
 		teams = new ArrayList<Team>();
 		teams.add(North.first());
@@ -101,7 +105,7 @@ public class Conference implements Cloneable
 		teams.add(West.first());
 		teams.remove(seeds[0]);
 		teams.remove(seeds[1]);
-		seeds[2] = Team.compareToCon(teams);
+		seeds[2] = Team.compareTo(teams);
 		
 		teams = new ArrayList<Team>();
 		teams.add(North.first());
@@ -111,10 +115,11 @@ public class Conference implements Cloneable
 		teams.remove(seeds[0]);
 		teams.remove(seeds[1]);
 		teams.remove(seeds[2]);
-		seeds[3] = Team.compareToCon(teams);
+		seeds[3] = Team.compareTo(teams);
 		
 		return seeds;
 	}
+	
 	/**
 	 * 
 	 * @return An ArrayList of all teams in the conference
@@ -140,6 +145,7 @@ public class Conference implements Cloneable
 		all.add(North.getTeams()[3]);
 		return all;
 	}
+	
 	/**
 	 * 
 	 * @return An Array of the entire conference sorted by their seedings with Arr[0] being the best team in the conference
@@ -155,10 +161,11 @@ public class Conference implements Cloneable
 			allTeams = allTeams();
 			for(int j = i-1; j >= 0; j--)
 				allTeams.remove(place[j]);
-			place[i] = Team.compareToCon(allTeams);
+			place[i] = Team.compareTo(allTeams);
 		}
 		return place;
 	}
+	
 	/**
 	 * @return A clone of this instance of Conference
 	 */
@@ -170,6 +177,7 @@ public class Conference implements Cloneable
 			return null;
 		}
 	}
+	
 	/**
 	 * 
 	 * @param team
@@ -188,6 +196,7 @@ public class Conference implements Cloneable
 			return West.oppContains(team);
 		else return null;
 	}
+	
 	/**
 	 * @throws Exception
 	 * Sets FPIs for all Teams in this conference
@@ -203,6 +212,7 @@ public class Conference implements Cloneable
 				oppContains(fakeTeam).makeFPI(ts);
 		}
 	}
+	
 	public String toString()
 	{
 		return North.toString() + "\n" + East.toString() + "\n" + South.toString() + "\n" + West.toString();

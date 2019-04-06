@@ -56,7 +56,6 @@ public class Driver {
 			AFC = new Conference(ANorth, AEast, ASouth, AWest);
 			NFC = new Conference(NNorth, NEast, NSouth, NWest);
 			season = new Schedule(NFC, AFC);
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -70,6 +69,8 @@ public class Driver {
 		
 		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
 		calc.calculate();
+		System.out.println();
+		
 	}
 
 }

@@ -11,7 +11,7 @@ import teamStructure.Team;
 public class Schedule {
 	Week[] weeks;
 	
-	public Schedule(Conference NFC, Conference AFC) throws Exception
+	public Schedule(Conference NFC, Conference AFC)
 	{
 		weeks = new Week[17];
 		getFromAPI(NFC, AFC);
@@ -23,8 +23,9 @@ public class Schedule {
 	 * @throws Exception
 	 * Sets the weeks using the API
 	 */
-	private void getFromAPI(Conference NFC, Conference AFC) throws Exception
+	private void getFromAPI(Conference NFC, Conference AFC)
 	{
+		try {
 		List<Games> listGames = MakeGameObjectsUsingJackson.run().getSchedule().getList();
 		int week = 0;
 		for(Games g : listGames)
@@ -34,8 +35,13 @@ public class Schedule {
 				week++;
 				weeks[week-1] = new Week();
 			}
-			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC));
+			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC), g.played);
 			weeks[week-1].games.add(game);
+		}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 	/**

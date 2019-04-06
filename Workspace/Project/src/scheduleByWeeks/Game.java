@@ -5,11 +5,14 @@ import teamStructure.Team;
 public class Game {
 	Team awayTeam, homeTeam;
 	double awayPCT, homePCT;
+	boolean played;
 
-	public Game(Team away, Team home) {
+	public Game(Team away, Team home, boolean isPlayed) {
 		awayTeam = away;
 		homeTeam = home;
-		calculate();
+		played = isPlayed;
+		if(!played)
+			calculate();
 	}
 
 	/**

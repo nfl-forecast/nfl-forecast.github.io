@@ -189,6 +189,8 @@ public class PlayoffCalc
 		//SUPERBOWL//
 		natFinal = new double[6];
 		amerFinal = new double[6];
+
+		System.out.println("After SuperBowl");
 		for(int i = 0;i < natFinal.length;i++)
 		{
 			double sumNat = 0, sumAmer = 0;
@@ -205,7 +207,9 @@ public class PlayoffCalc
 				sumAmer += natPerc[j] * percent[i + 6][j];
 			}
 			amerFinal[i] = sumAmer * amerPerc[i];
+			System.out.println(natFinal[i] + " " + amerFinal[i]);
 		}
+		
 	}
 	
 	private void fillPercent()
