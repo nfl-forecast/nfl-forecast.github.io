@@ -211,16 +211,16 @@ public class PlayoffCalc
 	private void fillPercent()
 	{
 		
-		//percent = new double[12][12];
-		/*
+		percent = new double[12][12];
+		
 		for(int i = 0;i < 12;i++)
 		{
 			for(int j = 0;j < 12;j++)
 			{
 				percent[i][j] = teams[i].calculate(teams[j]);
 			}
-		}*/
-		
+		}
+		/*
 		double[][] p={{ 1,.80,.90,.70,.60,.50,.40,.30,.20,.10,.05,.90},
 				{.20,  1,.85,.75,.65,.55,.45,.35,.25,.15,.05,.02},
 				{.10,.15,  1,.60,.59,.49,.39,.29,.19,.09,.69,.79},
@@ -235,7 +235,7 @@ public class PlayoffCalc
 				{.10,.98,.21,.52,.23,.83,.34,.74,.06,.45,.50,  1}};
 		
 		percent = p;
-		
+		*/
 	}
 	
 	public static void main(String args[])

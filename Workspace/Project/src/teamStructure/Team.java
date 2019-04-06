@@ -492,6 +492,8 @@ public class Team {
 
 	public double calculate(Team away) {
 		// TODO: include calculating method from games
-		return 0;
+		if(FPI > away.FPI) return 1;
+		else if (FPI < away.FPI) return 0;
+		else return 0.5;
 	}
 }

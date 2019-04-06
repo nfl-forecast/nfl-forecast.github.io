@@ -67,6 +67,9 @@ public class Driver {
 		System.out.println("NFC");
 		for (Team t : NFC.places())
 			System.out.println(t.name + ": " + t.wins);
+		
+		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
+		calc.calculate();
 	}
 
 }
