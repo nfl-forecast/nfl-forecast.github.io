@@ -158,7 +158,7 @@ public class Team {
 		else if (strengthOfSchedule(one, two) != null)
 			return strengthOfSchedule(one, two);
 		else
-			return strengthOfSchedule(one, two);
+			return one;
 	}
 
 	/**
