@@ -14,7 +14,7 @@ public class Team {
 
 	Color s, p;
 	Division division;
-	public int conferenceW, divisionalW, wins, AwayWins, HomeWins;
+	public int wins;
 	public ArrayList<Team> played;
 
 	public Team(String teamName, Color primary, Color secondary) {
@@ -39,11 +39,6 @@ public class Team {
 	 */
 	public void addResult(boolean home, Team against, double percentage) {
 		wins += percentage;
-		if (home) {
-			HomeWins += percentage;
-		} else {
-			AwayWins += percentage;
-		}
 		played.add(against);
 	}
 
@@ -51,7 +46,7 @@ public class Team {
 	 * @return the name of the team
 	 */
 	public String toString() {
-		return name;
+		return wins + "\t" + name + " FPI: " + FPI + "   ";
 	}
 
 	/**
@@ -206,17 +201,16 @@ public class Team {
 	 */
 	public void makeFPI(TeamStats stats) {
 		// temporary test
-		stat = stats;
+		//stat = stats;
 		wins = Integer.parseInt(stats.stats.Wins.text);
-		FPI = wins;
-		return;
+		//FPI = wins;
+		//return;
 
-		// stat = stats;
-		// FPI = 0;
-		// for (Stat s : stat.stats.ImportantStats) {
-		// FPI += logisticShell(s.getA(), s.getB(), Double.parseDouble(s.text));
-		// }
-		// TODO: Make a FPI
+		stat = stats;
+		FPI = 0;
+		for (Stat s : stat.stats.ImportantStats) {
+			FPI += logisticShell(s.getA(), s.getB(), Double.parseDouble(s.text));
+		}
 	}
 
 	private double logisticShell(double a, double b, double statValue) {
@@ -225,11 +219,18 @@ public class Team {
 
 	public double calculate(Team away) {
 		// TODO: include calculating method from games
-		if (FPI > away.FPI)
-			return 1;
-		else if (FPI < away.FPI)
-			return 0;
-		else
-			return 0.5;
+//		if (FPI > away.FPI)
+//			return 1;
+//		else if (FPI < away.FPI)
+//			return 0;
+//		else
+//			return 0.5;
+		System.out.println(FPI);
+		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
+		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1);
+	}
+	public double superBowl(Team away)
+	{
+		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI))/2.5)+1);
 	}
 }

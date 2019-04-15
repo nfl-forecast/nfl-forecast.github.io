@@ -1,6 +1,7 @@
 package topLevel;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 
 import teamStructure.Team;
 
@@ -47,12 +48,12 @@ public class PlayoffCalc
 		right[4] = percent[4][3] * percent[5][2];
 		right[2] = percent[2][5];
 		
-//		System.out.println("AFTER FIRST GAME");
-//		for(int i = 0;i < left.length;i++)
-//		{
-//			System.out.println(left[i] + " " + right[i]);
-//		}
-//		System.out.println(); 
+		System.out.println("AFTER FIRST GAME");
+		for(int i = 0;i < left.length;i++)
+		{
+			System.out.println(left[i] + " " + right[i]);
+		}
+		System.out.println(); 
 		
 		//second game
 		double sum1 = 0, sum2 = 0;
@@ -72,12 +73,12 @@ public class PlayoffCalc
 		right[3] = percent[3][1] * right[3];
 		right[4] = percent[4][1] * right[4];
 		
-//		System.out.println("AFTER SECOND GAME");
-//		for(int i = 0;i < left.length;i++)
-//		{
-//			System.out.println(left[i] + " " + right[i]);
-//		}
-//		System.out.println();
+		System.out.println("AFTER SECOND GAME");
+		for(int i = 0;i < left.length;i++)
+		{
+			System.out.println(left[i] + " " + right[i]);
+		}
+		System.out.println();
 		
 		//third game
 		for(int j = 0;j < 6;j++)
@@ -101,12 +102,12 @@ public class PlayoffCalc
 		}
 		////////////////////////////////////////////////////////
 		
-//		System.out.println("AFTER THIRD GAME");
-//		for(int i = 0;i < amerPerc.length;i++)
-//		{
-//			System.out.println(natPerc[i]);
-//		}
-//		System.out.println();
+		System.out.println("AFTER THIRD GAME");
+		for(int i = 0;i < amerPerc.length;i++)
+		{
+			System.out.println(natPerc[i]);
+		}
+		System.out.println();
 		
 		//AMERICAN//
 		
@@ -209,20 +210,50 @@ public class PlayoffCalc
 			amerFinal[i] = sumAmer * amerPerc[i];
 			System.out.println(natFinal[i] + " " + amerFinal[i]);
 		}
+		double sum = 0;
+		for(int i = 0;i < 6;i++)
+			sum += (natFinal[i] + amerFinal[i]);
+		System.out.println(sum);
 		
 	}
 	
 	private void fillPercent()
 	{
-		
+		//TODO: fix third game
 		percent = new double[12][12];
 		
-		for(int i = 0;i < 12;i++)
+		for(int i = 0;i < 6;i++)
 		{
-			for(int j = 0;j < 12;j++)
+			for(int j = i+1;j < 6;j++)
 			{
 				percent[i][j] = teams[i].calculate(teams[j]);
+				percent[j][i] = 1-percent[i][j];
 			}
+		}
+		for(int i = 6;i < 12;i++)
+		{
+			for(int j = i+1;j < 12;j++)
+			{
+				percent[i][j] = teams[i].calculate(teams[j]);
+				percent[j][i] = 1-percent[i][j];
+			}
+		}
+		for(int i = 0;i < 6;i++)
+		{
+			for(int j = 6;j < 12;j++)
+			{
+				percent[i][j] = teams[i].superBowl(teams[j]);
+				percent[j][i] = 1-percent[i][j];
+			}
+		}
+		DecimalFormat fmt = new DecimalFormat("0.###");
+		for(double[] darray : percent)
+		{
+			for(double d : darray)
+			{
+				System.out.print(fmt.format(d) + "\t ");
+			}
+			System.out.println();
 		}
 		/*
 		double[][] p={{ 1,.80,.90,.70,.60,.50,.40,.30,.20,.10,.05,.90},
