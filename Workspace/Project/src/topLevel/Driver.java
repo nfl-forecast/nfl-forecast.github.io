@@ -1,6 +1,7 @@
 package topLevel;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import data.Stat;
 import scheduleByWeeks.Schedule;
@@ -67,11 +68,37 @@ public class Driver {
 		for (Team t : NFC.places())
 			System.out.println(t);
 		
-		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
-		calc.calculate();
-		System.out.println();
+	//	PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
+	//	calc.calculate();
+	//	System.out.println();
 		
-		System.out.println("AFC East");
+		int count = 0;
+		Team[] AFCTeams = AFC.places();
+		Team[] NFCTeams = NFC.places();
+		
+		for (int i = 0; i < 16; i++)
+		{
+			if (Integer.parseInt(AFCTeams[i].getStats().GamesPlayed.text) == 16)
+				count+=1;
+			if (Integer.parseInt(NFCTeams[i].getStats().GamesPlayed.text) == 16)
+				count+=1;
+		}
+		
+		if (count == 32)
+		{
+			for (int i = 0; i < 16; i++)
+			{
+				AFCTeams[i].wins = 0;
+				NFCTeams[i].wins = 0;
+			}
+		}
+		
+		for (int i = 0; i < 16; i++)
+		{
+			System.out.println(AFCTeams[i].wins);
+			System.out.println(NFCTeams[i].wins);
+		}
+	/*	System.out.println("AFC East");
 		System.out.println(NE);
 		System.out.println(MIA);
 		System.out.println(BUF);
@@ -110,7 +137,7 @@ public class Driver {
 		System.out.println(CHI);
 		System.out.println(MIN);
 		System.out.println(GB);
-		System.out.println(DET);
+		System.out.println(DET);*/
 		
 		
 	}
