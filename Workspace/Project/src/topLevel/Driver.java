@@ -60,14 +60,14 @@ public class Driver {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("AFC");
-		for (Team t : AFC.places())
-				System.out.println(t);
-		System.out.println();
-		System.out.println("NFC");
-		for (Team t : NFC.places())
-			System.out.println(t);
-		
+//		System.out.println("AFC");
+//		for (Team t : AFC.places())
+//				System.out.println(t);
+//		System.out.println();
+//		System.out.println("NFC");
+//		for (Team t : NFC.places())
+//			System.out.println(t);
+//		
 	//	PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
 	//	calc.calculate();
 	//	System.out.println();
@@ -94,11 +94,12 @@ public class Driver {
 			season.makeNotPlayed();
 		}
 		
-		for (int i = 0; i < 16; i++)
-		{
-			System.out.println(AFCTeams[i].wins);
-			System.out.println(NFCTeams[i].wins);
-		}
+//		for (int i = 0; i < 16; i++)
+//		{
+//			System.out.println(AFCTeams[i].wins);
+//			System.out.println(NFCTeams[i].wins);
+//		}
+		
 		System.out.println("AFC East");
 		System.out.println(NE);
 		System.out.println(MIA);
