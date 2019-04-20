@@ -139,9 +139,10 @@ public class Division
 	public String toString()
 	{
 		String str = "";
+		Team[] plc = places();
 		for(int i = 0; i < 3; i++)
-			str += teamsInDivision[i].toString() + ", ";
-		str += teamsInDivision[3].toString();
+			str += plc[i].toString() + "\n";
+		str += plc[3].toString();
 		return str;
 	}
 }
