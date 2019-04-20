@@ -224,7 +224,7 @@ public class Team {
 //			return 0.5;
 //		System.out.println(FPI);
 //		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
-		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1);
+		return 1/(Math.pow(10, (-(FPI-away.FPI)+.15)/2.5)+1);
 	}
 	public double superBowl(Team away)
 	{
