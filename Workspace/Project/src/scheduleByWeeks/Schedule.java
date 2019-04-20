@@ -35,7 +35,7 @@ public class Schedule {
 				week++;
 				weeks[week-1] = new Week();
 			}
-			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC), g.played);
+			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC), g.played, g.location, g.time, g.date);
 			weeks[week-1].games.add(game);
 		}
 		}
@@ -73,5 +73,17 @@ public class Schedule {
 			str += "Week " + (i+1) + "\n" + weeks[i].toString() + "\n";
 		}
 		return str;	
+	}
+	public void makeNotPlayed()
+	{
+		for(Week w: weeks)
+		{
+			for(Game g : w.games)
+			{
+				g.played = false;
+				g.calculate();
+				System.out.println(g.homeTeam.wins);
+			}
+		}
 	}
 }

@@ -14,14 +14,12 @@ public class Team {
 
 	Color s, p;
 	Division division;
-	public int wins;
-	public ArrayList<Team> played;
+	public double wins;
 
 	public Team(String teamName, Color primary, Color secondary) {
 		name = teamName;
 		s = secondary;
 		p = primary;
-		played = new ArrayList<Team>();
 		FPI = 1;
 	}
 
@@ -37,9 +35,8 @@ public class Team {
 	 * @param home    Whether this game was a home game
 	 * @param against What team this game was against
 	 */
-	public void addResult(boolean home, Team against, double percentage) {
+	public void addResult(boolean home, double percentage) {
 		wins += percentage;
-		played.add(against);
 	}
 
 	/**
@@ -121,7 +118,7 @@ public class Team {
 	 *              Percentage
 	 */
 	private static void winPercentage(ArrayList<Team> other) {
-		int highestWins = 0;
+		double highestWins = 0;
 		for (int i = 0; i < other.size(); i++) {
 			if (other.get(i).wins > highestWins) {
 				highestWins = other.get(i).wins;
@@ -225,8 +222,8 @@ public class Team {
 //			return 0;
 //		else
 //			return 0.5;
-		System.out.println(FPI);
-		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
+//		System.out.println(FPI);
+//		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
 		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1);
 	}
 	public double superBowl(Team away)

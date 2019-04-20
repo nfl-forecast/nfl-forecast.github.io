@@ -6,11 +6,17 @@ public class Game {
 	Team awayTeam, homeTeam;
 	double awayPCT, homePCT;
 	boolean played;
+	String location;
+	String time;
+	String date;
 
-	public Game(Team away, Team home, boolean isPlayed) {
+	public Game(Team away, Team home, boolean isPlayed, String l, String t, String d) {
 		awayTeam = away;
 		homeTeam = home;
 		played = isPlayed;
+		location = l;
+		time = t;
+		date = d;
 		if(!played)
 			calculate();
 	}
@@ -35,6 +41,7 @@ public class Game {
 	 */
 	public void calculate() {
 		// TODO: Set the formula to calculate percent chance to win
+		homePCT = homeTeam.calculate(awayTeam);
 		awayPCT = 1-homePCT;
 		setRecords();
 	}
@@ -43,8 +50,8 @@ public class Game {
 	 * Changes the teams records to show who was predicted to win
 	 */
 	private void setRecords() {
-		awayTeam.addResult(false, homeTeam, awayPCT);
-		homeTeam.addResult(true, awayTeam, homePCT);
+		awayTeam.addResult(false, awayPCT);
+		homeTeam.addResult(true, homePCT);
 
 	}
 

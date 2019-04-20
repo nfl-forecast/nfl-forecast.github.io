@@ -91,6 +91,7 @@ public class Driver {
 				AFCTeams[i].wins = 0;
 				NFCTeams[i].wins = 0;
 			}
+			season.makeNotPlayed();
 		}
 		
 		for (int i = 0; i < 16; i++)

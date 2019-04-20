@@ -9,9 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Games {
 	String id;
-	String date;
-	String time;
-	String location;
+	public String date;
+	public String time;
+	public String location;
 	public TeamSchedule awayTeam, homeTeam;
 	public String week;
 	public String ScheduleStatus;
