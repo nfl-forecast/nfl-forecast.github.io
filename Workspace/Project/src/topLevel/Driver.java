@@ -99,7 +99,7 @@ public class Driver {
 			System.out.println(AFCTeams[i].wins);
 			System.out.println(NFCTeams[i].wins);
 		}
-	/*	System.out.println("AFC East");
+		System.out.println("AFC East");
 		System.out.println(NE);
 		System.out.println(MIA);
 		System.out.println(BUF);
@@ -120,6 +120,13 @@ public class Driver {
 		System.out.println(CIN);
 		
 		System.out.println();
+		System.out.println("AFC South");
+		System.out.println(IND);
+		System.out.println(TEN);
+		System.out.println(JAX);
+		System.out.println(HOU);
+		
+		System.out.println();
 		System.out.println("NFC East");
 		System.out.println(DAL);
 		System.out.println(PHI);
@@ -138,8 +145,15 @@ public class Driver {
 		System.out.println(CHI);
 		System.out.println(MIN);
 		System.out.println(GB);
-		System.out.println(DET);*/
+		System.out.println(DET);
 		
+		
+		System.out.println();
+		System.out.println("NFC South");
+		System.out.println(ATL);
+		System.out.println(CAR);
+		System.out.println(TB);
+		System.out.println(NO);
 		
 	}
 
