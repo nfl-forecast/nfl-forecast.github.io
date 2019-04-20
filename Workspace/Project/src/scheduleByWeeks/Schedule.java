@@ -82,7 +82,6 @@ public class Schedule {
 			{
 				g.played = false;
 				g.calculate();
-				System.out.println(g.homeTeam.wins);
 			}
 		}
 	}

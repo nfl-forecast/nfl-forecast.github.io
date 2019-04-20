@@ -68,94 +68,49 @@ public class Driver {
 //		for (Team t : NFC.places())
 //			System.out.println(t);
 //		
-	//	PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
-	//	calc.calculate();
-	//	System.out.println();
-		
+		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
+		calc.calculate();
+		System.out.println();
+
 		int count = 0;
 		Team[] AFCTeams = AFC.places();
 		Team[] NFCTeams = NFC.places();
-		
-		for (int i = 0; i < 16; i++)
-		{
+
+		for (int i = 0; i < 16; i++) {
 			if (Integer.parseInt(AFCTeams[i].getStats().GamesPlayed.text) == 16)
-				count+=1;
+				count += 1;
 			if (Integer.parseInt(NFCTeams[i].getStats().GamesPlayed.text) == 16)
-				count+=1;
+				count += 1;
 		}
-		
-		if (count == 32)
-		{
-			for (int i = 0; i < 16; i++)
-			{
+
+		if (count == 32) {
+			for (int i = 0; i < 16; i++) {
 				AFCTeams[i].wins = 0;
 				NFCTeams[i].wins = 0;
 			}
 			season.makeNotPlayed();
 		}
-		
+
 //		for (int i = 0; i < 16; i++)
 //		{
 //			System.out.println(AFCTeams[i].wins);
 //			System.out.println(NFCTeams[i].wins);
 //		}
-		
-		System.out.println("AFC East");
-		System.out.println(NE);
-		System.out.println(MIA);
-		System.out.println(BUF);
-		System.out.println(NYJ);
-		
+
 		System.out.println();
-		System.out.println("AFC West");
-		System.out.println(KC);
-		System.out.println(LAC);
-		System.out.println(DEN);
-		System.out.println(OAK);
-		
+		AFCTeams = AFC.places();
+		NFCTeams = NFC.places();
+		System.out.println("AFC");
+		for(int i = 0; i < 16; i++)
+		{
+			System.out.println(AFCTeams[i]);
+		}
 		System.out.println();
-		System.out.println("AFC North");
-		System.out.println(BAL);
-		System.out.println(PIT);
-		System.out.println(CLE);
-		System.out.println(CIN);
-		
-		System.out.println();
-		System.out.println("AFC South");
-		System.out.println(IND);
-		System.out.println(TEN);
-		System.out.println(JAX);
-		System.out.println(HOU);
-		
-		System.out.println();
-		System.out.println("NFC East");
-		System.out.println(DAL);
-		System.out.println(PHI);
-		System.out.println(WSH);
-		System.out.println(NYG);
-		
-		System.out.println();
-		System.out.println("NFC West");
-		System.out.println(LAR);
-		System.out.println(SEA);
-		System.out.println(SF);
-		System.out.println(ARI);
-		
-		System.out.println();
-		System.out.println("NFC North");
-		System.out.println(CHI);
-		System.out.println(MIN);
-		System.out.println(GB);
-		System.out.println(DET);
-		
-		
-		System.out.println();
-		System.out.println("NFC South");
-		System.out.println(ATL);
-		System.out.println(CAR);
-		System.out.println(TB);
-		System.out.println(NO);
-		
+		System.out.println("NFC");
+		for(int i = 0; i < 16; i++)
+		{
+			System.out.println(NFCTeams[i]);
+		}
 	}
 
 }
