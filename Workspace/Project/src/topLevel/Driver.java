@@ -148,7 +148,14 @@ public class Driver {
 		System.out.println("NFC West");
 		System.out.println(NWest);
 
+		double sumWins = 0;
+		for (int i = 0; i < 16; i++) {
+			sumWins += AFCTeams[i].wins;
+			sumWins += NFCTeams[i].wins;
+		}
 
+		System.out.println();
+		System.out.print(sumWins);
 		
 		
 
