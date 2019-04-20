@@ -206,11 +206,13 @@ public class Team {
 		stat = stats;
 		FPI = 0;
 		for (Stat s : stat.stats.ImportantStats) {
-			FPI += logisticShell(s.getA(), s.getB(), Double.parseDouble(s.text));
+			FPI += logisticShell(s.getA(), s.getB(), s.getC(), Double.parseDouble(s.text));
 		}
 	}
 
-	private double logisticShell(double a, double b, double statValue) {
+	private double logisticShell(double a, double b, double c, double statValue) {
+		if (c == 1)
+			statValue = statValue/Integer.parseInt(getStats().GamesPlayed.text+"");
 		return 1 / (1 + Math.pow((Math.E), (a + b * (statValue))));
 	}
 
@@ -224,7 +226,7 @@ public class Team {
 //			return 0.5;
 //		System.out.println(FPI);
 //		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
-		return 1/(Math.pow(10, (-(FPI-away.FPI)+.15)/2.5)+1);
+		return 1/(Math.pow(10, (-(FPI-away.FPI)+.15)/4.3)+1);
 	}
 	public double superBowl(Team away)
 	{
