@@ -111,6 +111,71 @@ public class Driver {
 		{
 			System.out.println(NFCTeams[i]);
 		}
+		
+		System.out.println("STANDINGS");
+		System.out.println();
+		System.out.println("AFC East");
+		System.out.println(NE);
+		System.out.println(MIA);
+		System.out.println(BUF);
+		System.out.println(NYJ);
+		
+		System.out.println();
+		System.out.println("AFC North");
+		System.out.println(BAL);
+		System.out.println(PIT);
+		System.out.println(CLE);
+		System.out.println(CIN);
+		
+		System.out.println();
+		System.out.println("AFC South");	
+		System.out.println(HOU);
+		System.out.println(IND);
+		System.out.println(TEN);
+		System.out.println(JAX);
+	
+		
+		System.out.println();
+		System.out.println("AFC West");
+		System.out.println(KC);
+		System.out.println(LAC);
+		System.out.println(DEN);
+		System.out.println(OAK);
+		
+		
+		System.out.println();
+		System.out.println("NFC East");
+		System.out.println(DAL);
+		System.out.println(PHI);
+		System.out.println(WSH);
+		System.out.println(NYG);
+		
+		System.out.println();
+		System.out.println("NFC North");
+		System.out.println(CHI);
+		System.out.println(MIN);
+		System.out.println(GB);
+		System.out.println(DET);
+		
+		
+		System.out.println();
+		System.out.println("NFC South");
+		System.out.println(NO);
+		System.out.println(ATL);
+		System.out.println(CAR);
+		System.out.println(TB);
+	
+		System.out.println();
+		System.out.println("NFC West");
+		System.out.println(LAR);
+		System.out.println(SEA);
+		System.out.println(SF);
+		System.out.println(ARI);
+		
+
+		
+		
+
 	}
 
 }
