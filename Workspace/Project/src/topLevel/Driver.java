@@ -172,7 +172,6 @@ public class Driver{
 
 		System.out.println();
 		System.out.println("NFC West");
-<<<<<<< HEAD
 		System.out.println(NWest);
 
 		double sumWins = 0;
@@ -185,9 +184,7 @@ public class Driver{
 		System.out.print(sumWins);
 		
 		
-=======
 		System.out.println(prog.NFC.West);*/
->>>>>>> c834ac0e33a6861762e56c47926ffe2e317e014e
 
 	}
 
