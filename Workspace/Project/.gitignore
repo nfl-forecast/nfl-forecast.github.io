@@ -1,4 +1,2 @@
 /bin/
 
-#blocks the classpath
-*.classpath
