@@ -8,7 +8,7 @@ import data.TeamStats;
 
 public class Conference implements Cloneable
 {
-	Division North, East, South, West;
+	public Division North, East, South, West;
 	public Conference(Division N, Division E, Division S, Division W) throws Exception
 	{
 		North = N;

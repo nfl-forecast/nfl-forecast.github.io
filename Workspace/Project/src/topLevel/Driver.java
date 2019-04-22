@@ -1,17 +1,18 @@
 package topLevel;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
-import data.Stat;
 import scheduleByWeeks.Schedule;
 import teamStructure.Conference;
 import teamStructure.Division;
 import teamStructure.Team;
 
 public class Driver {
-
-	public static void main(String[] args) {
+	public Conference AFC, NFC;
+	public Schedule season;
+	public PlayoffCalc playoffs;
+	public Driver()
+	{
 		Team NE = new Team("New England Patriots", new Color(12, 35, 64), new Color(162, 170, 173)),
 				NYJ = new Team("New York Jets", new Color(12, 55, 29), new Color(255, 255, 255)),
 				BUF = new Team("Buffalo Bills", new Color(12, 46, 130), new Color(255, 0, 0)),
@@ -51,8 +52,9 @@ public class Driver {
 
 		Division NNorth = new Division(GB, DET, CHI, MIN), NEast = new Division(WSH, DAL, NYG, PHI),
 				NSouth = new Division(NO, CAR, ATL, TB), NWest = new Division(SEA, SF, ARI, LAR);
-		Conference AFC = null, NFC = null;
-		Schedule season = null;
+		AFC = null;
+		NFC = null;
+		season = null;
 		try {
 			AFC = new Conference(ANorth, AEast, ASouth, AWest);
 			NFC = new Conference(NNorth, NEast, NSouth, NWest);
@@ -60,22 +62,11 @@ public class Driver {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-//		System.out.println("AFC");
-//		for (Team t : AFC.places())
-//				System.out.println(t);
-//		System.out.println();
-//		System.out.println("NFC");
-//		for (Team t : NFC.places())
-//			System.out.println(t);
-//		
-		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
-		calc.calculate();
-		System.out.println();
-
-		int count = 0;
+		
 		Team[] AFCTeams = AFC.places();
 		Team[] NFCTeams = NFC.places();
 
+		int count = 0;
 		for (int i = 0; i < 16; i++) {
 			if (Integer.parseInt(AFCTeams[i].getStats().GamesPlayed.text) == 16)
 				count += 1;
@@ -90,6 +81,18 @@ public class Driver {
 			}
 			season.makeNotPlayed();
 		}
+		
+		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
+		calc.calculate();
+	}
+
+	public static void main(String[] args) {
+		Driver prog = new Driver();
+		int count = 0;
+		Team[] AFCTeams = prog.AFC.places();
+		Team[] NFCTeams = prog.NFC.places();
+
+
 
 //		for (int i = 0; i < 16; i++)
 //		{
@@ -98,8 +101,8 @@ public class Driver {
 //		}
 
 		System.out.println();
-		AFCTeams = AFC.places();
-		NFCTeams = NFC.places();
+		AFCTeams = prog.AFC.places();
+		NFCTeams = prog.NFC.places();
 		System.out.println("AFC");
 		for(int i = 0; i < 16; i++)
 		{
@@ -115,38 +118,38 @@ public class Driver {
 		System.out.println("STANDINGS");
 		System.out.println();
 		System.out.println("AFC East");
-		System.out.println(AEast);
+		System.out.println(prog.AFC.East);
 		
 		System.out.println();
 		System.out.println("AFC North");
-		System.out.println(ANorth);
+		System.out.println(prog.AFC.North);
 		
 		System.out.println();
 		System.out.println("AFC South");	
-		System.out.println(ASouth);
+		System.out.println(prog.AFC.South);
 	
 		
 		System.out.println();
 		System.out.println("AFC West");
-		System.out.println(AWest);
+		System.out.println(prog.AFC.West);
 		
 		
 		System.out.println();
 		System.out.println("NFC East");
-		System.out.println(NEast);
+		System.out.println(prog.NFC.East);
 		
 		System.out.println();
 		System.out.println("NFC North");
-		System.out.println(NNorth);
+		System.out.println(prog.NFC.North);
 		
 		
 		System.out.println();
 		System.out.println("NFC South");
-		System.out.println(NSouth);
+		System.out.println(prog.NFC.South);
 	
 		System.out.println();
 		System.out.println("NFC West");
-		System.out.println(NWest);
+		System.out.println(prog.NFC.West);
 
 
 		
