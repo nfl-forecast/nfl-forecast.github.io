@@ -63,14 +63,14 @@ public class PlayoffCalc{
 			sum2 += percent[1][j] * natWildCard[1][j];
 		}
 		
-		natDivisional[0][0] = sum1;
-		natDivisional[0][3] = percent[3][0] * natWildCard[0][3];
-		natDivisional[0][4] = percent[4][0] * natWildCard[0][4];
-		natDivisional[0][5] = percent[5][0] * natWildCard[0][5];
-		natDivisional[1][1] = sum2;
-		natDivisional[1][2] = percent[2][1] * natWildCard[1][2];
-		natDivisional[1][3] = percent[3][1] * natWildCard[1][3];
-		natDivisional[1][4] = percent[4][1] * natWildCard[1][4];
+		natDivisional[0][0] = sum1;//team 1
+		natDivisional[0][3] = percent[3][0] * natWildCard[0][3];//team 4
+		natDivisional[0][4] = percent[4][0] * natWildCard[0][4];//team 5
+		natDivisional[0][5] = percent[5][0] * natWildCard[0][5];//team 6
+		natDivisional[1][1] = sum2;//team 2
+		natDivisional[1][2] = percent[2][1] * natWildCard[1][2];//team 3
+		natDivisional[1][3] = percent[3][1] * natWildCard[1][3];//team 4
+		natDivisional[1][4] = percent[4][1] * natWildCard[1][4];//team 5
 
 		
 		// third game
@@ -111,6 +111,10 @@ public class PlayoffCalc{
 			amerWildCard[0][j] = 0;
 			amerWildCard[1][j] = 0;
 		}
+		
+		for(int i = 0; i < 6; i++)
+			for(int j = 0; j < 6; j++)
+				amerPerc[i][j] = percent[i+6][j+6];
 
 		// first game of playoffs
 		amerWildCard[0][0] = 1;
