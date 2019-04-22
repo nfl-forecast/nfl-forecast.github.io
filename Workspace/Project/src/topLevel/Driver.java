@@ -1,20 +1,20 @@
 package topLevel;
 
 import java.awt.Color;
-import java.io.FileOutputStream;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.Serializable;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import scheduleByWeeks.Schedule;
 import teamStructure.Conference;
 import teamStructure.Division;
 import teamStructure.Team;
 
-public class Driver implements Serializable{
-	private static final long serialVersionUID = 2907816626104787479L;
+public class Driver{
 	public Conference AFC, NFC;
 	public Schedule season;
 	public PlayoffCalc playoffs;
@@ -67,7 +67,8 @@ public class Driver implements Serializable{
 			NFC = new Conference(NNorth, NEast, NSouth, NWest);
 			season = new Schedule(NFC, AFC);
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("PROBLEMS");
+			e.printStackTrace();
 		}
 
 		Team[] AFCTeams = AFC.places();
@@ -89,34 +90,35 @@ public class Driver implements Serializable{
 			season.makeNotPlayed();
 		}
 
-		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
-		calc.calculate();
-		
-		//toJSON();
+		playoffs = new PlayoffCalc(NFC.seeding(), AFC.seeding());
+		playoffs.calculate();
 	}
 
 	public void toJSON() {
 		ObjectMapper Obj = new ObjectMapper();
-
+		Obj.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 		try {
 
 			// get Oraganisation object as a json string
-			String jsonStr = Obj.writeValueAsString(this);
-
+			String str = Obj.writeValueAsString(this);
 			
-			try (PrintStream out = new PrintStream(new FileOutputStream("data.json"))) {
-			    out.print(jsonStr);
-			}
+			
+			BufferedWriter write = new BufferedWriter(new FileWriter(new File("data.json")));
+			write.write(str);
+			write.close();
+			System.out.println(str);
 		}
 
 		catch (IOException e) {
+			System.out.println("PROBLEMS HERE");
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
 		Driver prog = new Driver();
-		int count = 0;
+		prog.toJSON();
+		/*int count = 0;
 		Team[] AFCTeams = prog.AFC.places();
 		Team[] NFCTeams = prog.NFC.places();
 
@@ -170,7 +172,7 @@ public class Driver implements Serializable{
 
 		System.out.println();
 		System.out.println("NFC West");
-		System.out.println(prog.NFC.West);
+		System.out.println(prog.NFC.West);*/
 
 	}
 

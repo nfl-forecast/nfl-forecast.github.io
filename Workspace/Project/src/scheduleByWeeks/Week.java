@@ -1,17 +1,15 @@
 package scheduleByWeeks;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import teamStructure.Conference;
 import teamStructure.Team;
 
-public class Week implements Serializable
+public class Week
 {
-	private static final long serialVersionUID = -284264135915555164L;
-	ArrayList<Game> games;
-	ArrayList<Team> teamsOnBye;
+	public List<Game> games;
+	public List<Team> teamsOnBye;
 	
 	public Week()
 	{
