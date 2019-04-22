@@ -1,18 +1,25 @@
 package topLevel;
 
 import java.awt.Color;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.io.Serializable;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import scheduleByWeeks.Schedule;
 import teamStructure.Conference;
 import teamStructure.Division;
 import teamStructure.Team;
 
-public class Driver {
+public class Driver implements Serializable{
+	private static final long serialVersionUID = 2907816626104787479L;
 	public Conference AFC, NFC;
 	public Schedule season;
 	public PlayoffCalc playoffs;
-	public Driver()
-	{
+
+	public Driver() {
 		Team NE = new Team("New England Patriots", new Color(12, 35, 64), new Color(162, 170, 173)),
 				NYJ = new Team("New York Jets", new Color(12, 55, 29), new Color(255, 255, 255)),
 				BUF = new Team("Buffalo Bills", new Color(12, 46, 130), new Color(255, 0, 0)),
@@ -62,7 +69,7 @@ public class Driver {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		Team[] AFCTeams = AFC.places();
 		Team[] NFCTeams = NFC.places();
 
@@ -81,9 +88,30 @@ public class Driver {
 			}
 			season.makeNotPlayed();
 		}
-		
+
 		PlayoffCalc calc = new PlayoffCalc(NFC.seeding(), AFC.seeding());
 		calc.calculate();
+		
+		//toJSON();
+	}
+
+	public void toJSON() {
+		ObjectMapper Obj = new ObjectMapper();
+
+		try {
+
+			// get Oraganisation object as a json string
+			String jsonStr = Obj.writeValueAsString(this);
+
+			
+			try (PrintStream out = new PrintStream(new FileOutputStream("data.json"))) {
+			    out.print(jsonStr);
+			}
+		}
+
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
@@ -91,8 +119,6 @@ public class Driver {
 		int count = 0;
 		Team[] AFCTeams = prog.AFC.places();
 		Team[] NFCTeams = prog.NFC.places();
-
-
 
 //		for (int i = 0; i < 16; i++)
 //		{
@@ -104,56 +130,47 @@ public class Driver {
 		AFCTeams = prog.AFC.places();
 		NFCTeams = prog.NFC.places();
 		System.out.println("AFC");
-		for(int i = 0; i < 16; i++)
-		{
+		for (int i = 0; i < 16; i++) {
 			System.out.println(AFCTeams[i]);
 		}
 		System.out.println();
 		System.out.println("NFC");
-		for(int i = 0; i < 16; i++)
-		{
+		for (int i = 0; i < 16; i++) {
 			System.out.println(NFCTeams[i]);
 		}
-		
+
 		System.out.println("STANDINGS");
 		System.out.println();
 		System.out.println("AFC East");
 		System.out.println(prog.AFC.East);
-		
+
 		System.out.println();
 		System.out.println("AFC North");
 		System.out.println(prog.AFC.North);
-		
+
 		System.out.println();
-		System.out.println("AFC South");	
+		System.out.println("AFC South");
 		System.out.println(prog.AFC.South);
-	
-		
+
 		System.out.println();
 		System.out.println("AFC West");
 		System.out.println(prog.AFC.West);
-		
-		
+
 		System.out.println();
 		System.out.println("NFC East");
 		System.out.println(prog.NFC.East);
-		
+
 		System.out.println();
 		System.out.println("NFC North");
 		System.out.println(prog.NFC.North);
-		
-		
+
 		System.out.println();
 		System.out.println("NFC South");
 		System.out.println(prog.NFC.South);
-	
+
 		System.out.println();
 		System.out.println("NFC West");
 		System.out.println(prog.NFC.West);
-
-
-		
-		
 
 	}
 

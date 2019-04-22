@@ -1,8 +1,11 @@
 package scheduleByWeeks;
 
+import java.io.Serializable;
+
 import teamStructure.Team;
 
-public class Game {
+public class Game implements Serializable{
+	private static final long serialVersionUID = 8248347989224830518L;
 	Team awayTeam, homeTeam;
 	double awayPCT, homePCT;
 	boolean played;

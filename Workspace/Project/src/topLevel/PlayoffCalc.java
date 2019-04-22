@@ -1,10 +1,12 @@
 package topLevel;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 import teamStructure.Team;
 
-public class PlayoffCalc {
+public class PlayoffCalc implements Serializable{
+	private static final long serialVersionUID = 5528952639117243920L;
 	private double[] natFinal, amerFinal, natConf, amerConf;
 	private double[][] natWildCard, natDivisional, amerWildCard, amerDivisional;
 	private double[][] percent;

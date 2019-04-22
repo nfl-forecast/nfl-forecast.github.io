@@ -1,5 +1,6 @@
 package scheduleByWeeks;
 
+import java.io.Serializable;
 import java.util.List;
 
 import scheduleFromAPI.Games;
@@ -8,7 +9,8 @@ import scheduleFromAPI.TeamSchedule;
 import teamStructure.Conference;
 import teamStructure.Team;
 
-public class Schedule {
+public class Schedule implements Serializable{
+	private static final long serialVersionUID = -3388829125440395964L;
 	Week[] weeks;
 	
 	public Schedule(Conference NFC, Conference AFC)

@@ -1,13 +1,15 @@
 package teamStructure;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import data.FullStats;
 import data.Stat;
 import data.TeamStats;
 
-public class Team {
+public class Team implements Serializable{
+	private static final long serialVersionUID = 732437744662477310L;
 	public String name;
 	private TeamStats stat;
 	private double FPI;

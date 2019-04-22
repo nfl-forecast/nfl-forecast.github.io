@@ -1,13 +1,15 @@
 package teamStructure;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import data.MakeObjectsUsingJackson;
 import data.TeamStats;
 
-public class Conference implements Cloneable
+public class Conference implements Cloneable, Serializable
 {
+	private static final long serialVersionUID = 7329413968214943502L;
 	public Division North, East, South, West;
 	public Conference(Division N, Division E, Division S, Division W) throws Exception
 	{

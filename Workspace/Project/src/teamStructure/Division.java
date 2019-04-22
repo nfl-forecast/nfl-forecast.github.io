@@ -1,9 +1,11 @@
 package teamStructure;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Division
+public class Division implements Serializable
 {
+	private static final long serialVersionUID = -8181427321212746400L;
 	private Team[] teamsInDivision;
 	Conference conference;
 	public Division(Team Team1, Team Team2, Team Team3, Team Team4)
