@@ -1,14 +1,16 @@
 package scheduleByWeeks;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import teamStructure.Team;
 
-public class Game {
+public class Game{
 	Team awayTeam, homeTeam;
-	double awayPCT, homePCT;
-	boolean played;
-	String location;
-	String time;
-	String date;
+	public double awayPCT, homePCT;
+	public boolean played;
+	public String location;
+	public String time;
+	public String date;
 
 	public Game(Team away, Team home, boolean isPlayed, String l, String t, String d) {
 		awayTeam = away;
@@ -21,6 +23,7 @@ public class Game {
 			calculate();
 	}
 
+	@JsonIgnore
 	/**
 	 * @return The home team
 	 */
@@ -28,6 +31,7 @@ public class Game {
 		return homeTeam;
 	}
 
+	@JsonIgnore
 	/**
 	 * 
 	 * @return The home team
@@ -36,6 +40,7 @@ public class Game {
 		return awayTeam;
 	}
 
+	
 	/**
 	 * Makes percentages to represent each teams chances to win the game
 	 */
@@ -57,5 +62,15 @@ public class Game {
 
 	public String toString() {
 		return awayTeam.toString() + " @ " + homeTeam.toString();
+	}
+
+	public String getHomeTeamName()
+	{
+		return homeTeam.name;
+	}
+	
+	public String getAwayTeamName()
+	{
+		return awayTeam.name;
 	}
 }

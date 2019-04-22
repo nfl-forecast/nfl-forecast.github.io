@@ -1,15 +1,15 @@
 package scheduleByWeeks;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import teamStructure.Conference;
 import teamStructure.Team;
 
 public class Week
 {
-	ArrayList<Game> games;
-	ArrayList<Team> teamsOnBye;
+	public List<Game> games;
+	public List<Team> teamsOnBye;
 	
 	public Week()
 	{

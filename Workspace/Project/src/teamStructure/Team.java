@@ -3,14 +3,20 @@ package teamStructure;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import data.FullStats;
 import data.Stat;
 import data.TeamStats;
 
-public class Team {
+@JsonIgnoreProperties(value = { "stat" })
+public class Team{
 	public String name;
+	
+	@JsonIgnore
 	private TeamStats stat;
-	private double FPI;
+	public double FPI;
 
 	Color s, p;
 	Division division;
@@ -173,6 +179,7 @@ public class Team {
 		return team.name.equals(this.name);
 	}
 
+	@JsonIgnore
 	/**
 	 * @return All of the stats deposited by the APIs
 	 */
@@ -183,6 +190,7 @@ public class Team {
 			return stat.stats;
 	}
 
+	@JsonIgnore
 	/**
 	 * 
 	 * @return The Football Power Index
