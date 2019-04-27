@@ -33,12 +33,15 @@ public class Schedule{
 		{
 			if(Integer.parseInt(g.week) != week)
 			{
+				if(week != 0)
+					weeks.get(week-1).setUpTeamsOnBye(NFC, AFC);
 				week++;
 				weeks.add(new Week());
 			}
 			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC), g.played, g.location, g.time, g.date);
 			weeks.get(week-1).games.add(game);
 		}
+		weeks.get(16).setUpTeamsOnBye(NFC, AFC);
 		}
 		catch(Exception e)
 		{

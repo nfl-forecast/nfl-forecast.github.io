@@ -73,4 +73,5 @@ public class Game{
 	{
 		return awayTeam.name;
 	}
+
 }

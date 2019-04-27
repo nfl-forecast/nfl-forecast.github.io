@@ -348,4 +348,23 @@ public class PlayoffCalc{
 		}
 		return doubleList;
 	}
+	
+	public List<String> getNFCTeams()
+	{
+		List<String> teamName = new ArrayList<String>();
+		for(int i = 0; i < 6; i++)
+		{
+			teamName.add(teams[i].name);
+		}
+		return teamName;
+	}
+	public List<String> getAFCTeams()
+	{
+		List<String> teamName = new ArrayList<String>();
+		for(int i = 6; i < 12; i++)
+		{
+			teamName.add(teams[i].name);
+		}
+		return teamName;
+	}
 }

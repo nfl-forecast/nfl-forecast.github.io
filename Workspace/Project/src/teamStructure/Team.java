@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import data.FullStats;
 import data.Stat;
 import data.TeamStats;
+import topLevel.Driver;
 
 @JsonIgnoreProperties(value = { "stat" })
 public class Team{
@@ -18,7 +19,7 @@ public class Team{
 	private TeamStats stat;
 	public double FPI;
 
-	Color s, p;
+	private Color s, p;
 	Division division;
 	public double wins;
 
@@ -239,5 +240,29 @@ public class Team{
 	public double superBowl(Team away)
 	{
 		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI))/2.5)+1);
+	}
+	
+	public int[] getPrimaryColor()
+	{
+		int[] arr = {p.getRed(), p.getGreen(), p.getBlue()};
+		return arr;
+	}
+	
+	public int[] getSecondaryColor()
+	{
+		int[] arr = {s.getRed(), s.getGreen(), s.getBlue()};
+		return arr;
+	}
+	
+	public int getTies()
+	{
+		if(Driver.allPlayed)
+			return 0;
+		else return Integer.parseInt(stat.stats.Ties.text);
+	}
+	
+	public double getLosses()
+	{
+		return 16-getTies()-wins;
 	}
 }

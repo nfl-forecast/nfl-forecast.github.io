@@ -9,7 +9,7 @@ import teamStructure.Team;
 public class Week
 {
 	public List<Game> games;
-	public List<Team> teamsOnBye;
+	private List<Team> teamsOnBye;
 	
 	public Week()
 	{
@@ -62,5 +62,12 @@ public class Week
 			str+= "\n";
 		}
 		return str;
+	}
+	public List<String> getTeamsOnBye()
+	{
+		List<String> tob = new ArrayList<String>();
+		for(Team t:teamsOnBye)
+			tob.add(t.name);
+		return tob;
 	}
 }

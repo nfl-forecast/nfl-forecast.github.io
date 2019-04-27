@@ -18,8 +18,10 @@ public class Driver{
 	public Conference AFC, NFC;
 	public Schedule season;
 	public PlayoffCalc playoffs;
-
+	public static boolean allPlayed;
 	public Driver() {
+		allPlayed = false;
+		
 		Team NE = new Team("New England Patriots", new Color(12, 35, 64), new Color(162, 170, 173)),
 				NYJ = new Team("New York Jets", new Color(12, 55, 29), new Color(255, 255, 255)),
 				BUF = new Team("Buffalo Bills", new Color(12, 46, 130), new Color(255, 0, 0)),
@@ -83,6 +85,7 @@ public class Driver{
 		}
 
 		if (count == 32) {
+			allPlayed = true;
 			for (int i = 0; i < 16; i++) {
 				AFCTeams[i].wins = 0;
 				NFCTeams[i].wins = 0;
@@ -100,10 +103,10 @@ public class Driver{
 		try {
 
 			// get Oraganisation object as a json string
-			String str = Obj.writeValueAsString(this);
+			String str = "var forecastData =" + Obj.writeValueAsString(this);
 			
 			
-			BufferedWriter write = new BufferedWriter(new FileWriter(new File("data.json")));
+			BufferedWriter write = new BufferedWriter(new FileWriter(new File("data.js")));
 			write.write(str);
 			write.close();
 			System.out.println(str);
