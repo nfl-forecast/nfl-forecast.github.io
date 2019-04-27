@@ -1,29 +1,22 @@
 angular.module('nflforecast').service('teamService',teamService);
 function teamService()
 {
-  this.getTeam = function(teamName)
-  {
-    for(var division in forecastData.AFC)
-    {
-      for (var team in forecastData.AFC[division].teams)
-      {
-        if(forecastData.AFC[division].teams[team].name === teamName)
-        {
-          return forecastData.AFC[division].teams[team];
-        }
-      }
-    }
-    for(var division in forecastData.NFC)
-    {
-      for (var team in forecastData.NFC[division].teams)
-      {
-        if(forecastData.NFC[division].teams[team].name === teamName)
-        {
-          return forecastData.NFC[division].teams[team];
+  this.getTeam = function(teamName){
+    var conferences = this.getConferenceNames()
+    for(var confIndex in conferences) {
+      for (var division in forecastData[conferences[confIndex]]) {
+        var conf = forecastData[conferences[confIndex]];
+        for (var team in conf[division].teams) {
+          if (conf[division].teams[team].name === teamName) {
+            return conf[division].teams[team];
+          }
         }
       }
     }
     return undefined;
   }
 
+  this.getConferenceNames = function() {
+    return ["AFC", "NFC"]
+  }
 }

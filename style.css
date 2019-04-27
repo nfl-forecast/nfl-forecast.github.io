@@ -1,3 +1,27 @@
 .HeaderButton{
     margin-left: 5px;
 }
+
+.game{
+    display:flex;
+    margin: 10px;
+}
+
+.gameWhenWhere{
+    display:flex;
+}
+
+.gameDate{
+    width:20%;
+}
+
+.gameTime{
+    width:20%;
+}
+.gameLocation{
+    width:60%;
+}
+.gameInfo{
+    width:60%;
+    margin:5px;
+}

@@ -1,0 +1,10 @@
+
+<div ng-repeat="conf in $ctrl.getConferenceNames()">
+  {{conf}}
+  <div ng-repeat="division in $ctrl.data[conf] track by $index">
+    {{$index}}
+    <div ng-repeat="team in $ctrl.data.AFC[division].teams">
+
+    </div>
+  </div>
+</div>
