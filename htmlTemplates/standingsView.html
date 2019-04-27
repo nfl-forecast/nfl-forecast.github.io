@@ -1,0 +1,14 @@
+<div>
+  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.DIVISIONVIEW">Divisions</button>
+  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.CONFERENCEVIEW">Conferences</button>
+  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.LEAGUEVIEW">League</button>
+</div>
+<div id='divisionStandings' ng-if="$ctrl.selectedView===$ctrl.DIVISIONVIEW">
+  <division-standings-view data="$ctrl.data"></division-standings-view>
+</div>
+<div id='conferenceStandings' ng-if="$ctrl.selectedView===$ctrl.CONFERENCEVIEW">
+  <conference-standings-view data="$ctrl.data"></conference-standings-view>
+</div>
+<div id='leagueStandings' ng-if="$ctrl.selectedView===$ctrl.LEAGUEVIEW">
+  <league-standings-view data="$ctrl.data"></league-standings-view>
+</div>

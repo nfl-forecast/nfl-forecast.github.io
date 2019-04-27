@@ -1,0 +1,26 @@
+<div class="game">
+  <div class = "gameTeam">
+    <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.awayTeamName)}}' alt='LOGO'>
+    <div class = 'fpi'>{{$ctrl.getFPI($ctrl.game.awayTeamName)}}</div>
+  </div>
+  <div class = "gameInfo">
+    <div class = "percentBar">
+      INSERT PERCENT BAR
+    </div>
+    <div class = "gameWhenWhere">
+      <div class = "gameDate">
+        {{$ctrl.game.date}}
+      </div>
+      <div class = "gameLocation">
+        {{$ctrl.game.location}}
+      </div>
+      <div class = "gameTime">
+        {{$ctrl.game.time}}
+      </div>
+    </div>
+  </div>
+  <div class = "gameTeam">
+    <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'>
+    <div class = 'fpi'>{{$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
+  </div>
+</div>

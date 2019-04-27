@@ -1,0 +1,13 @@
+<div id="ButtonRow">
+  <button id="schedule" class="HeaderButton">Schedule</button>
+  <button id="standings" class = "HeaderButton">Standings</button>
+  <button id="bracket" class = "HeaderButton">Playoff Bracket</button>
+  <button id ="percents" class = "HeaderButton">Playoff Table</button>
+  <button id="info" class = "HeaderButton">How We Do It</button>
+</div>
+<div id = 'ScheduleContainer'>
+  <week-buttons data='$ctrl.data'></week-buttons>
+</div>
+<div id = 'StandingsContainer'>
+  <standings-view data = '$ctrl.data'></standings-view>
+</div>

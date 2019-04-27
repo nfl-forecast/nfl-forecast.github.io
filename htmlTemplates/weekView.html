@@ -1,0 +1,13 @@
+<div class = 'ScheduleHeader'>
+  Byes
+</div>
+<div class='weekButtonsStyle' ng-repeat='team in $ctrl.week.teamsOnBye'>
+  <span><img class='Byeimage' ng-src='{{$ctrl.getTeamImage(team)}}' alt='LOGO'></span>
+  {{team}}
+</div>
+<div class = 'ScheduleHeader'>
+  Games
+</div>
+<div class='weekButtonsStyle' ng-repeat='gameData in $ctrl.week.games'>
+  <game-view game = gameData></game-view>
+</div>
