@@ -1,13 +1,13 @@
 <div id="ButtonRow">
-  <button id="schedule" class="HeaderButton">Schedule</button>
-  <button id="standings" class = "HeaderButton">Standings</button>
-  <button id="bracket" class = "HeaderButton">Playoff Bracket</button>
-  <button id ="percents" class = "HeaderButton">Playoff Table</button>
-  <button id="info" class = "HeaderButton">How We Do It</button>
+  <button id="schedule" class="HeaderButton" ng-click="$ctrl.shown=$ctrl.SCHEDULE">Schedule</button>
+  <button id="standings" class = "HeaderButton" ng-click="$ctrl.shown=$ctrl.STANDINGS">Standings</button>
+  <button id="bracket" class = "HeaderButton" ng-click="$ctrl.shown=$ctrl.BRACKET">Playoff Bracket</button>
+  <button id ="percents" class = "HeaderButton" ng-click="$ctrl.shown=$ctrl.TABLE">Playoff Table</button>
+  <button id="info" class = "HeaderButton" ng-click="$ctrl.shown=$ctrl.HOW">How We Do It</button>
 </div>
-<div id = 'ScheduleContainer'>
+<div id = 'ScheduleContainer' ng-if="$ctrl.shown===$ctrl.SCHEDULE">
   <week-buttons data='$ctrl.data'></week-buttons>
 </div>
-<div id = 'StandingsContainer'>
-  <standings-view data = '$ctrl.data'></standings-view>
+<div id = 'StandingsContainer' ng-if="$ctrl.shown===$ctrl.STANDINGS">
+  <standings-view data = '$ctrl.data' ></standings-view>
 </div>

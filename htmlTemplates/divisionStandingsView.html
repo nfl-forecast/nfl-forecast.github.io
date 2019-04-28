@@ -1,10 +1,9 @@
-
-<div ng-repeat="conf in $ctrl.getConferenceNames()">
-  {{conf}}
-  <div ng-repeat="division in $ctrl.data[conf] track by $index">
-    {{$index}}
-    <div ng-repeat="team in $ctrl.data.AFC[division].teams">
-
-    </div>
+<div class="confDivStandingsBlock" ng-repeat="conf in $ctrl.getConferenceNames()">
+  <div class="confNameDivStandings">
+    {{conf}}
+  </div>
+  <div class="divStandingsBlock" ng-repeat="(divisionName, division) in $ctrl.data[conf] track by $index">
+    {{divisionName}}
+    <standings-table teams="division.teams"></standings-table>
   </div>
 </div>

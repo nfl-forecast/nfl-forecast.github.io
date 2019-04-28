@@ -25,3 +25,15 @@
     width:60%;
     margin:5px;
 }
+
+.teamNameSection{
+    display:flex;
+}
+
+.imageStandings{
+    height:64px;
+    width:64px;
+}
+.standingsTable{
+    border-width: 1px;
+}

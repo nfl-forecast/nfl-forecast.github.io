@@ -1,0 +1,46 @@
+<table class="standingsTable">
+  <tr class="standingsHeaderRow">
+  <th class="teamNameStandingsHeader" ng-click="$ctrl.sortTeamName()">
+    Team Name
+  </th>
+  <th class="fpiStandingsHeader" ng-click="$ctrl.sortFPI()">
+    FPI
+  </th>
+  <th class="winsStandingsHeader" ng-click="$ctrl.sortWins()">
+    Wins
+  </th>
+  <th class="lossesStandingsHeader" ng-click="$ctrl.sortLosses()">
+    Losses
+  </th>
+  <th class="tiesStandingsHeader" ng-click="$ctrl.sortTies()">
+    Ties
+  </th>
+  </tr>
+  <tr class="standingsRow" ng-repeat="team in $ctrl.teamArr">
+    <td class="teamNameCell">
+      <div class="teamNameSection">
+        <div class="specialCharactersStandings">
+          {{$ctrl.getSpecialCharacters(team.name)}}
+        </div>
+        <div class="teamNameStandings">
+          {{team.name}}
+        </div>
+        <div class="logoStandings">
+          <img class='imageStandings' ng-src='{{$ctrl.getLogo(team.name)}}' alt='LOGO'>
+        </div>
+      </div>
+    </td>
+    <td class="fpiStandings">
+      {{team.FPI}}
+    </td>
+    <td class="winsStandings">
+      {{team.wins}}
+    </td>
+    <td class="lossesStandings">
+      {{team.losses}}
+    </td>
+    <td class="tiesStandings">
+      {{team.ties}}
+    </td>
+  </tr>
+</table>

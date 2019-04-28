@@ -1,5 +1,5 @@
 angular.module('nflforecast').component('divisionStandingsView', {
-  controller: ["teamService", DSVController],
+  controller: ["teamService",DSVController],
   bindings: {
     data: "="
   },

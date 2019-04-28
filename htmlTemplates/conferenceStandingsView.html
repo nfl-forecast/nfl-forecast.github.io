@@ -1,0 +1,6 @@
+<div class="confDivStandingsBlock" ng-repeat="conf in $ctrl.getConferenceNames()">
+  <div class="confNameConfStandings">
+    {{conf}}
+  </div>
+  <standings-table teams = "$ctrl.getConferenceTeams(conf)"></standings-table>
+</div>
