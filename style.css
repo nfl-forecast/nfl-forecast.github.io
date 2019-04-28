@@ -37,3 +37,21 @@
 .standingsTable{
     border-width: 1px;
 }
+
+.wildcard0{
+    background:grey;
+}
+
+.wildcard1{
+    background:grey;
+}
+
+.gameLogo{
+    height:60px;
+    width:60px;
+}
+
+.playoffTableLogo{
+    height:60px;
+    width:60px;
+}

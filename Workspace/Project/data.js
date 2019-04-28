@@ -5,34 +5,34 @@ var forecastData = {
         "name": "Pittsburgh Steelers",
         "FPI": 12.175618232881842,
         "wins": 8.673625355414261,
-        "secondaryColor": [255, 184, 28],
-        "losses": 7.326374644585739,
+        "primaryColor": [0, 0, 0],
         "ties": 0,
-        "primaryColor": [0, 0, 0]
+        "losses": 7.326374644585739,
+        "secondaryColor": [255, 184, 28]
       }, {
         "name": "Cleveland Browns",
         "FPI": 11.949982737086208,
         "wins": 8.24683194436789,
-        "secondaryColor": [235, 51, 0],
-        "losses": 7.753168055632109,
+        "primaryColor": [56, 47, 45],
         "ties": 0,
-        "primaryColor": [56, 47, 45]
+        "losses": 7.753168055632109,
+        "secondaryColor": [235, 51, 0]
       }, {
         "name": "Baltimore Ravens",
         "FPI": 12.28579136633959,
         "wins": 9.093262881562975,
-        "secondaryColor": [255, 255, 255],
-        "losses": 6.906737118437025,
+        "primaryColor": [26, 25, 95],
         "ties": 0,
-        "primaryColor": [26, 25, 95]
+        "losses": 6.906737118437025,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Cincinnati Bengals",
         "FPI": 10.994319256213572,
         "wins": 5.922517739127395,
-        "secondaryColor": [0, 0, 0],
-        "losses": 10.077482260872605,
+        "primaryColor": [252, 76, 2],
         "ties": 0,
-        "primaryColor": [252, 76, 2]
+        "losses": 10.077482260872605,
+        "secondaryColor": [0, 0, 0]
       }]
     },
     "East": {
@@ -40,34 +40,34 @@ var forecastData = {
         "name": "New England Patriots",
         "FPI": 12.683621851155731,
         "wins": 10.777175023540293,
-        "secondaryColor": [162, 170, 173],
-        "losses": 5.222824976459707,
+        "primaryColor": [12, 35, 64],
         "ties": 0,
-        "primaryColor": [12, 35, 64]
+        "losses": 5.222824976459707,
+        "secondaryColor": [162, 170, 173]
       }, {
         "name": "New York Jets",
         "FPI": 10.366894271080007,
         "wins": 6.024793672027159,
-        "secondaryColor": [255, 255, 255],
-        "losses": 9.975206327972842,
+        "primaryColor": [12, 55, 29],
         "ties": 0,
-        "primaryColor": [12, 55, 29]
+        "losses": 9.975206327972842,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Buffalo Bills",
         "FPI": 10.509890606344472,
         "wins": 6.1832093085306035,
-        "secondaryColor": [255, 0, 0],
-        "losses": 9.816790691469397,
+        "primaryColor": [12, 46, 130],
         "ties": 0,
-        "primaryColor": [12, 46, 130]
+        "losses": 9.816790691469397,
+        "secondaryColor": [255, 0, 0]
       }, {
         "name": "Miami Dolphins",
         "FPI": 10.59130468566504,
         "wins": 6.799900155778123,
-        "secondaryColor": [255, 255, 255],
-        "losses": 9.200099844221878,
+        "primaryColor": [0, 142, 151],
         "ties": 0,
-        "primaryColor": [0, 142, 151]
+        "losses": 9.200099844221878,
+        "secondaryColor": [255, 255, 255]
       }]
     },
     "South": {
@@ -75,34 +75,34 @@ var forecastData = {
         "name": "Houston Texans",
         "FPI": 11.796855438115344,
         "wins": 9.24640536671359,
-        "secondaryColor": [255, 0, 0],
-        "losses": 6.75359463328641,
+        "primaryColor": [9, 31, 44],
         "ties": 0,
-        "primaryColor": [9, 31, 44]
+        "losses": 6.75359463328641,
+        "secondaryColor": [255, 0, 0]
       }, {
         "name": "Indianapolis Colts",
         "FPI": 12.876116978036796,
         "wins": 11.757843912186352,
-        "secondaryColor": [255, 255, 255],
-        "losses": 4.2421560878136475,
+        "primaryColor": [0, 20, 137],
         "ties": 0,
-        "primaryColor": [0, 20, 137]
+        "losses": 4.2421560878136475,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Jacksonville Jaguars",
         "FPI": 9.970938826649844,
         "wins": 4.964562321970284,
-        "secondaryColor": [255, 255, 255],
-        "losses": 11.035437678029716,
+        "primaryColor": [0, 96, 115],
         "ties": 0,
-        "primaryColor": [0, 96, 115]
+        "losses": 11.035437678029716,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Tennessee Titans",
         "FPI": 11.079936329578059,
         "wins": 7.459961278098962,
-        "secondaryColor": [255, 255, 255],
-        "losses": 8.540038721901038,
+        "primaryColor": [65, 143, 222],
         "ties": 0,
-        "primaryColor": [65, 143, 222]
+        "losses": 8.540038721901038,
+        "secondaryColor": [255, 255, 255]
       }]
     },
     "West": {
@@ -110,71 +110,70 @@ var forecastData = {
         "name": "Los Angeles Chargers",
         "FPI": 12.43456460202733,
         "wins": 9.623733828745676,
-        "secondaryColor": [255, 184, 28],
-        "losses": 6.376266171254324,
+        "primaryColor": [12, 35, 64],
         "ties": 0,
-        "primaryColor": [12, 35, 64]
+        "losses": 6.376266171254324,
+        "secondaryColor": [255, 184, 28]
       }, {
         "name": "Denver Broncos",
         "FPI": 11.454508722776872,
         "wins": 7.403283026624605,
-        "secondaryColor": [12, 35, 64],
-        "losses": 8.596716973375395,
+        "primaryColor": [252, 76, 2],
         "ties": 0,
-        "primaryColor": [252, 76, 2]
+        "losses": 8.596716973375395,
+        "secondaryColor": [12, 35, 64]
       }, {
         "name": "Oakland Raiders",
         "FPI": 10.19524739116461,
         "wins": 4.676307474912486,
-        "secondaryColor": [191, 192, 191],
-        "losses": 11.323692525087514,
+        "primaryColor": [0, 0, 0],
         "ties": 0,
-        "primaryColor": [0, 0, 0]
+        "losses": 11.323692525087514,
+        "secondaryColor": [191, 192, 191]
       }, {
         "name": "Kansas City Chiefs",
         "FPI": 13.762097890686062,
         "wins": 12.108066961118809,
-        "secondaryColor": [255, 255, 255],
-        "losses": 3.8919330388811915,
+        "primaryColor": [200, 16, 46],
         "ties": 0,
-        "primaryColor": [200, 16, 46]
+        "losses": 3.8919330388811915,
+        "secondaryColor": [255, 255, 255]
       }]
     }
-  },
-  "NFC": {
+  }, "NFC": {
     "North": {
       "teams": [{
         "name": "Green Bay Packers",
         "FPI": 10.849903175840325,
         "wins": 7.117933944382526,
-        "secondaryColor": [255, 184, 28],
-        "losses": 8.882066055617475,
+        "primaryColor": [23, 94, 34],
         "ties": 0,
-        "primaryColor": [23, 94, 34]
+        "losses": 8.882066055617475,
+        "secondaryColor": [255, 184, 28]
       }, {
         "name": "Detroit Lions",
         "FPI": 10.542924248964283,
         "wins": 6.363863225192121,
-        "secondaryColor": [162, 170, 173],
-        "losses": 9.636136774807879,
+        "primaryColor": [0, 105, 177],
         "ties": 0,
-        "primaryColor": [0, 105, 177]
+        "losses": 9.636136774807879,
+        "secondaryColor": [162, 170, 173]
       }, {
         "name": "Chicago Bears",
         "FPI": 12.765093687764985,
         "wins": 11.20463154367576,
-        "secondaryColor": [220, 68, 5],
-        "losses": 4.7953684563242405,
+        "primaryColor": [5, 28, 44],
         "ties": 0,
-        "primaryColor": [5, 28, 44]
+        "losses": 4.7953684563242405,
+        "secondaryColor": [220, 68, 5]
       }, {
         "name": "Minnesota Vikings",
         "FPI": 11.12297542937204,
         "wins": 7.439727821543861,
-        "secondaryColor": [255, 184, 28],
-        "losses": 8.560272178456138,
+        "primaryColor": [84, 41, 109],
         "ties": 0,
-        "primaryColor": [84, 41, 109]
+        "losses": 8.560272178456138,
+        "secondaryColor": [255, 184, 28]
       }]
     },
     "East": {
@@ -182,34 +181,34 @@ var forecastData = {
         "name": "Washington Redskins",
         "FPI": 10.44247937761081,
         "wins": 6.338624912920054,
-        "secondaryColor": [255, 205, 0],
-        "losses": 9.661375087079946,
+        "primaryColor": [134, 38, 51],
         "ties": 0,
-        "primaryColor": [134, 38, 51]
+        "losses": 9.661375087079946,
+        "secondaryColor": [255, 205, 0]
       }, {
         "name": "Dallas Cowboys",
         "FPI": 11.003722809696772,
         "wins": 7.228489580712182,
-        "secondaryColor": [134, 147, 151],
-        "losses": 8.771510419287818,
+        "primaryColor": [4, 30, 66],
         "ties": 0,
-        "primaryColor": [4, 30, 66]
+        "losses": 8.771510419287818,
+        "secondaryColor": [134, 147, 151]
       }, {
         "name": "New York Giants",
         "FPI": 10.940584002566906,
         "wins": 7.038570499659618,
-        "secondaryColor": [255, 0, 0],
-        "losses": 8.961429500340383,
+        "primaryColor": [0, 30, 98],
         "ties": 0,
-        "primaryColor": [0, 30, 98]
+        "losses": 8.961429500340383,
+        "secondaryColor": [255, 0, 0]
       }, {
         "name": "Philadelphia Eagles",
         "FPI": 11.17023483650208,
         "wins": 7.46944785261587,
-        "secondaryColor": [134, 147, 151],
-        "losses": 8.53055214738413,
+        "primaryColor": [0, 72, 81],
         "ties": 0,
-        "primaryColor": [0, 72, 81]
+        "losses": 8.53055214738413,
+        "secondaryColor": [134, 147, 151]
       }]
     },
     "South": {
@@ -217,34 +216,34 @@ var forecastData = {
         "name": "New Orleans Saints",
         "FPI": 13.376999995688035,
         "wins": 11.50119002743976,
-        "secondaryColor": [0, 0, 0],
-        "losses": 4.49880997256024,
+        "primaryColor": [162, 141, 91],
         "ties": 0,
-        "primaryColor": [162, 141, 91]
+        "losses": 4.49880997256024,
+        "secondaryColor": [0, 0, 0]
       }, {
         "name": "Carolina Panthers",
         "FPI": 11.892643947818197,
         "wins": 8.425581367051219,
-        "secondaryColor": [255, 255, 255],
-        "losses": 7.574418632948781,
+        "primaryColor": [0, 133, 202],
         "ties": 0,
-        "primaryColor": [0, 133, 202]
+        "losses": 7.574418632948781,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Atlanta Falcons",
         "FPI": 11.641231849867179,
         "wins": 8.214222471528107,
-        "secondaryColor": [255, 255, 255],
-        "losses": 7.785777528471893,
+        "primaryColor": [166, 25, 46],
         "ties": 0,
-        "primaryColor": [166, 25, 46]
+        "losses": 7.785777528471893,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Tampa Bay Buccaneers",
         "FPI": 11.471284665215004,
         "wins": 7.403849829621989,
-        "secondaryColor": [61, 57, 53],
-        "losses": 8.59615017037801,
+        "primaryColor": [200, 16, 46],
         "ties": 0,
-        "primaryColor": [200, 16, 46]
+        "losses": 8.59615017037801,
+        "secondaryColor": [61, 57, 53]
       }]
     },
     "West": {
@@ -252,38 +251,37 @@ var forecastData = {
         "name": "Seattle Seahawks",
         "FPI": 12.566041345622207,
         "wins": 10.201049173091024,
-        "secondaryColor": [77, 255, 0],
-        "losses": 5.7989508269089765,
+        "primaryColor": [0, 21, 51],
         "ties": 0,
-        "primaryColor": [0, 21, 51]
+        "losses": 5.7989508269089765,
+        "secondaryColor": [77, 255, 0]
       }, {
         "name": "San Francisco 49ers",
         "FPI": 10.777081361519052,
         "wins": 6.440867582586579,
-        "secondaryColor": [255, 255, 255],
-        "losses": 9.559132417413421,
+        "primaryColor": [157, 42, 70],
         "ties": 0,
-        "primaryColor": [157, 42, 70]
+        "losses": 9.559132417413421,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Arizona Cardinals",
         "FPI": 9.302572504514773,
         "wins": 3.6348086218356817,
-        "secondaryColor": [255, 255, 255],
-        "losses": 12.365191378164319,
+        "primaryColor": [155, 39, 67],
         "ties": 0,
-        "primaryColor": [155, 39, 67]
+        "losses": 12.365191378164319,
+        "secondaryColor": [255, 255, 255]
       }, {
         "name": "Los Angeles Rams",
         "FPI": 13.082689674562099,
         "wins": 11.015661295424195,
-        "secondaryColor": [255, 255, 255],
-        "losses": 4.984338704575805,
+        "primaryColor": [4, 30, 66],
         "ties": 0,
-        "primaryColor": [4, 30, 66]
+        "losses": 4.984338704575805,
+        "secondaryColor": [255, 255, 255]
       }]
     }
-  },
-  "season": {
+  }, "season": {
     "weeks": [{
       "games": [{
         "awayPCT": 0.5823759381900504,
@@ -2625,16 +2623,15 @@ var forecastData = {
         "homeTeamName": "Tennessee Titans"
       }], "teamsOnBye": []
     }]
-  },
-  "playoffs": {
-    "afcteams": ["Kansas City Chiefs", "Indianapolis Colts", "New England Patriots", "Baltimore Ravens", "Los Angeles Chargers", "Houston Texans"],
-    "afcwildCard": [1.0, 1.0, 0.5973720761870048, 0.397290802121271, 0.6958802499161956, 0.40262792381299517],
-    "nfcwildCard": [1.0, 1.0, 0.6357416236118233, 0.3041197500838045, 0.6958802499161956, 0.3642583763881767],
-    "superBowl": [0.2025479561266278, 0.12155586196425741, 0.19506708824035235, 0.13936826244457384, 0.10132997949161887, 0.042640504938785816, 0.01832028661408491, 0.01759031467454013, 0.0808845037353451, 0.03692266808025165, 0.03399336134829313, 0.009779212341269133],
+  }, "playoffs": {
     "nfcteams": ["New Orleans Saints", "Chicago Bears", "Los Angeles Rams", "Philadelphia Eagles", "Seattle Seahawks", "Carolina Panthers"],
+    "nfcwildCard": [1.0, 1.0, 0.6357416236118233, 0.3041197500838045, 0.6958802499161956, 0.3642583763881767],
     "nfcdivisional": [0.6496108096830475, 0.48249384036493137, 0.35746011898938945, 0.08320598088504567, 0.3075342403642772, 0.11969500971330894],
-    "afcdivisional": [0.7476767687308892, 0.48720936532580644, 0.29528780980947017, 0.14461390521944967, 0.2735849497428538, 0.11051133271934906],
+    "afcwildCard": [1.0, 1.0, 0.5973720761870048, 0.397290802121271, 0.6958802499161956, 0.40262792381299517],
+    "afcteams": ["Kansas City Chiefs", "Indianapolis Colts", "New England Patriots", "Baltimore Ravens", "Los Angeles Chargers", "Houston Texans"],
+    "superBowl": [0.2025479561266278, 0.12155586196425741, 0.19506708824035235, 0.13936826244457384, 0.10132997949161887, 0.042640504938785816, 0.01832028661408491, 0.01759031467454013, 0.0808845037353451, 0.03692266808025165, 0.03399336134829313, 0.009779212341269133],
+    "nfcconference": [0.3617820721512478, 0.35863025559501427, 0.18531480378708556, 0.024548201090113807, 0.14373044291824985, 0.05189438530667773],
     "afcconference": [0.46014462744498225, 0.40208728751376593, 0.12609480860247796, 0.062124641303988204, 0.12100031145995813, 0.045071940592406566],
-    "nfcconference": [0.3617820721512478, 0.35863025559501427, 0.18531480378708556, 0.024548201090113807, 0.14373044291824985, 0.05189438530667773]
+    "afcdivisional": [0.7476767687308892, 0.48720936532580644, 0.29528780980947017, 0.14461390521944967, 0.2735849497428538, 0.11051133271934906]
   }
 }

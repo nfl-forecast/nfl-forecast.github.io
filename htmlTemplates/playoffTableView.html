@@ -18,9 +18,9 @@
   </tr>
   <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffs.afcteams track by $index">
     <td class="playoffTableLogoCell">
-      {{$ctrl.getLogo(team)}}
+      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
     </td>
-    <td class="playoffTableDataCell">
+    <td class="playoffTableDataCell wildcard{{$index}}">
       {{$ctrl.nfcWildCard($index)}}
     </td>
     <td class="playoffTableDataCell">
@@ -30,14 +30,14 @@
       {{$ctrl.playoffs.afcconference[$index]}}
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.superbowl[$index]}}
+      {{$ctrl.playoffs.superBowl[$index]}}
     </td>
   </tr>
   <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffs.nfcteams track by $index">
     <td class="playoffTableLogoCell">
-      {{$ctrl.getLogo(team)}}
+      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
     </td>
-    <td class="playoffTableDataCell">
+    <td class="playoffTableDataCell wildcard{{$index}}">
       {{$ctrl.nfcWildCard($index)}}
     </td>
     <td class="playoffTableDataCell">
