@@ -11,3 +11,6 @@
 <div id = 'StandingsContainer' ng-if="$ctrl.shown===$ctrl.STANDINGS">
   <standings-view data = '$ctrl.data' ></standings-view>
 </div>
+<div id = 'PlayoffContainer' ng-if="$ctrl.shown===$ctrl.TABLE">
+  <playoff-table-view playoffs='$ctrl.data.playoffs'></playoff-table-view>
+</div>
