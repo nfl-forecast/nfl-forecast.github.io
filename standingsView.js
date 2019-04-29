@@ -12,5 +12,5 @@ function SVController()
   this.DIVISIONVIEW = 0;
   this.CONFERENCEVIEW = 1;
   this.LEAGUEVIEW = 2;
-  this.selectedView = this.CONFERENCEVIEW;
+  this.selectedView = this.DIVISIONVIEW;
 }
