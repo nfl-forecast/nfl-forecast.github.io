@@ -5,8 +5,10 @@
   </div>
   <div class = "gameInfo">
     <div class = "percentBar" style="display:flex">
-      <div class="awayPCT" style='background:{{$ctrl.getPcolor($ctrl.game.awayTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.awayTeamName)}}; width:{{$ctrl.game.awayPercent}}'>
+      <div class = "awayBar"style='background:{{$ctrl.getPcolor($ctrl.game.awayTeamName)}}; width:{{$ctrl.game.awayPercent}}'>
+      <div class="awayPCT" style='color:{{$ctrl.getScolor($ctrl.game.awayTeamName)}}; text-align: right'>
         {{$ctrl.game.awayPercent}}
+      </div>
       </div>
       <div class="homePCT" style='background:{{$ctrl.getPcolor($ctrl.game.homeTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.homeTeamName)}}; width:{{$ctrl.game.homePercent}}'>
         {{$ctrl.game.homePercent}}
