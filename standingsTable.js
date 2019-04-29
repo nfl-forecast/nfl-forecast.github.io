@@ -55,8 +55,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.FPI < b.FPI) {return -1;}
-        if (a.FPI > b.FPI) {return 1;}
+        if (a.fpi < b.fpi) {return -1;}
+        if (a.fpi > b.fpi) {return 1;}
         return 0;})
     }
     else
@@ -64,8 +64,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.FPI;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.FPI < b.FPI) {return 1;}
-        if (a.FPI > b.FPI) {return -1;}
+        if (a.fpi < b.fpi) {return 1;}
+        if (a.fpi > b.fpi) {return -1;}
         return 0;})
     }
   };

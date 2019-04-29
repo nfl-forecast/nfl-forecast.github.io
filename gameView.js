@@ -14,7 +14,7 @@ function GVController(logoService, teamService)
     var team = teamService.getTeam(teamName);
     if(team !== undefined)
     {
-      return team.FPI;
+      return team.fpi;
     }
     else
       return undefined;
