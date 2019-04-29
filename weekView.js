@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('weekView', {
   controller: ["logoService", WVController],
   bindings: {
-    week: "="
+    week: "<"
   },
   templateUrl: "htmlTemplates/weekView.html"
 });

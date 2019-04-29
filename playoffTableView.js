@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('playoffTableView', {
   controller: ["logoService",PTVController],
   bindings: {
-    playoffs: "="
+    playoffs: "<"
   },
   templateUrl: "htmlTemplates/playoffTableView.html"
 

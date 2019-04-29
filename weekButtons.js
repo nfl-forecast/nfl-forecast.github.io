@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('weekButtons', {
   controller: WBController,
   bindings: {
-    data: "="
+    data: "<"
   },
   templateUrl: "htmlTemplates/weekButtons.html"
 

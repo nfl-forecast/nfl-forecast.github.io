@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('gameView', {
   controller: ["logoService", "teamService", GVController],
   bindings: {
-    game: "="
+    game: "<"
   },
   templateUrl: "htmlTemplates/gameView.html"
 

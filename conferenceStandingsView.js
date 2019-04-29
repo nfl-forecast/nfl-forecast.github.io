@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('conferenceStandingsView', {
   controller: ["teamService",CSVController],
   bindings: {
-    data: "="
+    data: "<"
   },
   templateUrl: "htmlTemplates/conferenceStandingsView.html"
 

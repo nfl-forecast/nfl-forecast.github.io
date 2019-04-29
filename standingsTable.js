@@ -1,7 +1,7 @@
 angular.module('nflforecast').component('standingsTable', {
   controller: ["logoService", "playoffService", STController],
   bindings: {
-    teams: "="
+    teams: "<"
   },
   templateUrl: "htmlTemplates/standingsTable.html"
 
@@ -17,10 +17,11 @@ function STController(logoService, playoffService)
   this.currSorted = this.WINS;
   this.DESCENDING = false;
   this.ASCENDING = true;
-  this.sortedState = this.DESCENDING;
+  this.sortedState = this.ASCENDING;
 
   this.$onInit = function(){
     this.teamArr = angular.copy(this.teams);
+    this.sortWins();
   };
   this.getSpecialCharacters = function(teamName){
     return playoffService.getSpecialCharacters(teamName);
