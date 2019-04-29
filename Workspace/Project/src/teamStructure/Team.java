@@ -1,6 +1,7 @@
 package teamStructure;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,11 +18,11 @@ public class Team{
 	
 	@JsonIgnore
 	private TeamStats stat;
-	public double FPI;
+	private double FPI;
 
 	private Color s, p;
 	Division division;
-	public double wins;
+	private double wins;
 
 	public Team(String teamName, Color primary, Color secondary) {
 		name = teamName;
@@ -190,16 +191,6 @@ public class Team{
 		else
 			return stat.stats;
 	}
-
-	@JsonIgnore
-	/**
-	 * 
-	 * @return The Football Power Index
-	 */
-	public double getFPI() {
-		return FPI;
-	}
-
 	/**
 	 * 
 	 * @param stats The stats that are equivalent for this team Sets the FPI based
@@ -263,6 +254,22 @@ public class Team{
 	
 	public double getLosses()
 	{
-		return 16-getTies()-wins;
+		return 16-getTies()-getWins();
+	}
+	
+	public double getWins()
+	{
+		DecimalFormat fmt = new DecimalFormat("#.##");
+		return Double.parseDouble(fmt.format(wins));
+	}
+	
+	public int getFPI()
+	{
+		return (int)(Math.round(FPI*100));
+	}
+	
+	public void setWins(int newWins)
+	{
+		wins = newWins;
 	}
 }

@@ -87,8 +87,8 @@ public class Driver{
 		if (count == 32) {
 			allPlayed = true;
 			for (int i = 0; i < 16; i++) {
-				AFCTeams[i].wins = 0;
-				NFCTeams[i].wins = 0;
+				AFCTeams[i].setWins(0);
+				NFCTeams[i].setWins(0);
 			}
 			season.makeNotPlayed();
 		}
