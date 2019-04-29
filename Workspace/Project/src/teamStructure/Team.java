@@ -254,7 +254,8 @@ public class Team{
 	
 	public double getLosses()
 	{
-		return 16-getTies()-getWins();
+		DecimalFormat fmt = new DecimalFormat("#.##");
+		return Double.parseDouble(fmt.format(16-getTies()-getWins()));
 	}
 	
 	public double getWins()
