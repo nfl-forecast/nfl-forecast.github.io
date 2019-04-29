@@ -22,5 +22,15 @@ function GVController(logoService, teamService)
   this.getTeamImage = function(teamName)
   {
     return logoService.getLogo(teamName);
-  }
+  };
+
+  this.getPcolor = function(teamName){
+    var arr = teamService.getPColor(teamName);
+    return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
+  };
+
+  this.getScolor = function(teamName){
+    var arr = teamService.getSColor(teamName);
+    return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
+  };
 }

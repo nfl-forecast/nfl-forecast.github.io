@@ -76,5 +76,13 @@ function teamService()
       }
     }
     return teamArr;
+  };
+
+  this.getPColor = function(teamName){
+    return this.getTeam(teamName).primaryColor;
+  };
+
+  this.getSColor = function(teamName){
+    return this.getTeam(teamName).secondaryColor;
   }
 }

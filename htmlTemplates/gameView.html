@@ -4,8 +4,13 @@
     <div class = 'fpi'>{{$ctrl.getFPI($ctrl.game.awayTeamName)}}</div>
   </div>
   <div class = "gameInfo">
-    <div class = "percentBar">
-      INSERT PERCENT BAR
+    <div class = "percentBar" style="display:flex">
+      <div class="awayPCT" style='background:{{$ctrl.getPcolor($ctrl.game.awayTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.awayTeamName)}}; width:{{$ctrl.game.awayPercent}}'>
+        {{$ctrl.game.awayPercent}}
+      </div>
+      <div class="homePCT" style='background:{{$ctrl.getPcolor($ctrl.game.homeTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.homeTeamName)}}; width:{{$ctrl.game.homePercent}}'>
+        {{$ctrl.game.homePercent}}
+      </div>
     </div>
     <div class = "gameWhenWhere">
       <div class = "gameDate">

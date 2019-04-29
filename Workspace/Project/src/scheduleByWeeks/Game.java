@@ -6,6 +6,7 @@ import teamStructure.Team;
 
 public class Game{
 	Team awayTeam, homeTeam;
+	@JsonIgnore
 	public double awayPCT, homePCT;
 	public boolean played;
 	public String location;
@@ -74,4 +75,13 @@ public class Game{
 		return awayTeam.name;
 	}
 
+	public String getHomePercent()
+	{
+		return (int)(100*homePCT)+"%";
+	}
+	
+	public String getAwayPercent()
+	{
+		return (int)(100*awayPCT)+"%";
+	}
 }
