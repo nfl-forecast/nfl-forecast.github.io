@@ -252,10 +252,10 @@ public class Team{
 		else return Integer.parseInt(stat.stats.Ties.text);
 	}
 	
-	public double getLosses()
+	public String getLosses()
 	{
 		DecimalFormat fmt = new DecimalFormat("#.##");
-		return Double.parseDouble(fmt.format(16-getTies()-getWins()));
+		return fmt.format(16-getTies()-getWins());
 	}
 	
 	public double getWins()
