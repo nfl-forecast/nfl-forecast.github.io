@@ -343,8 +343,11 @@ public class PlayoffCalc{
 		List<Double> doubleList = new ArrayList<Double>();
 		for(int i = 0; i < 6; i++)
 		{
-			doubleList.add(natFinal[i]);
 			doubleList.add(amerFinal[i]);
+		}
+		for(int i = 0; i < 6; i++)
+		{
+			doubleList.add(natFinal[i]);
 		}
 		return doubleList;
 	}
