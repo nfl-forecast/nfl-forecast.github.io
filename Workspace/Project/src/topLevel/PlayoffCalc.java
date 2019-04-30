@@ -359,42 +359,42 @@ public class PlayoffCalc{
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(amerWildCard[0][i]+amerWildCard[1][i]));
+			doubleList.add(fmt.format(100*(amerWildCard[0][i]+amerWildCard[1][i])));
 		return doubleList;
 	}
 	public List<String> getAFCdivisional()
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(amerDivisional[0][i]+amerDivisional[1][i]));
+			doubleList.add(fmt.format(100*(amerDivisional[0][i]+amerDivisional[1][i])));
 		return doubleList;
 	}
 	public List<String> getAFCconference()
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(amerConf[i]));
+			doubleList.add(fmt.format(100*amerConf[i]));
 		return doubleList;
 	}
 	public List<String> getNFCwildCard()
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(natWildCard[0][i]+natWildCard[1][i]));
+			doubleList.add(fmt.format(100*(natWildCard[0][i]+natWildCard[1][i])));
 		return doubleList;
 	}
 	public List<String> getNFCdivisional()
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(natDivisional[0][i]+natDivisional[1][i]));
+			doubleList.add(fmt.format(100*(natDivisional[0][i]+natDivisional[1][i])));
 		return doubleList;
 	}
 	public List<String> getNFCconference()
 	{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(fmt.format(natConf[i]));
+			doubleList.add(fmt.format(natConf[i] * 100));
 		return doubleList;
 	}
 	public List<String> getSuperBowl()
@@ -402,11 +402,11 @@ public class PlayoffCalc{
 		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
 		{
-			doubleList.add(fmt.format(amerFinal[i]));
+			doubleList.add(fmt.format(amerFinal[i] * 100));
 		}
 		for(int i = 0; i < 6; i++)
 		{
-			doubleList.add(fmt.format(natFinal[i]));
+			doubleList.add(fmt.format(natFinal[i] * 100));
 		}
 		return doubleList;
 	}
