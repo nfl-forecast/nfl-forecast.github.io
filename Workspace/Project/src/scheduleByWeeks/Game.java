@@ -77,11 +77,11 @@ public class Game{
 
 	public String getHomePercent()
 	{
-		return (int)(100*homePCT)+"%";
+		return Math.round(100*homePCT)+"%";
 	}
 	
 	public String getAwayPercent()
 	{
-		return (int)(100*awayPCT)+"%";
+		return Math.round(100*awayPCT)+"%";
 	}
 }
