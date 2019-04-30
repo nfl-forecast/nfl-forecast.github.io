@@ -88,9 +88,9 @@ public class PlayoffCalc{
 				+ natDivisional[0][3] * (percent[1][2] * percent[3][1] + percent[2][1] * percent[3][2]);
 		natConf[4] = natDivisional[1][4] * (percent[0][5] * percent[4][0] + percent[5][0] * percent[4][5])
 				+ natDivisional[0][4] * (percent[1][2] * percent[4][1] + percent[2][1] * percent[4][2]);
-		natConf[5] = natDivisional[5][0]
-				* (percent[3][4] * (percent[1][3] * percent[5][1] + percent[3][1] * percent[5][3])
-						+ percent[4][3] * (percent[1][4] * percent[5][1] + percent[4][1] * percent[5][4]));
+		natConf[5] = natDivisional[0][5]
+				* ((percent[3][4] * (percent[1][3] * percent[5][1] + percent[3][1] * percent[5][3]))
+						+ (percent[4][3] * (percent[1][4] * percent[5][1] + percent[4][1] * percent[5][4])));
 		////////////////////////////////////////////////////////
 
 		
