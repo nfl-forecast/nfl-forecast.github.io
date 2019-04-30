@@ -141,7 +141,7 @@ public class PlayoffCalc{
 		sum2 = 0;
 		for (int j = 2; j < 6; j++) {
 			sum1 += amerPerc[0][j] * amerWildCard[0][j];
-			sum2 += percent[1][j] * amerWildCard[1][j];
+			sum2 += amerPerc[1][j] * amerWildCard[1][j];
 		}
 		
 		amerDivisional[0][0] = sum1;
