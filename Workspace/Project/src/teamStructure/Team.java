@@ -230,7 +230,7 @@ public class Team{
 	}
 	public double superBowl(Team away)
 	{
-		return 1/(Math.pow(10, -(Math.abs(FPI-away.FPI))/2.5)+1);
+		return 1/(Math.pow(10, -(FPI-away.FPI)/2.5)+1);
 	}
 	
 	public int[] getPrimaryColor()
