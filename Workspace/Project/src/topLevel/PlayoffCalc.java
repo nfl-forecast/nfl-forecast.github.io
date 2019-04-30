@@ -120,10 +120,10 @@ public class PlayoffCalc{
 		amerWildCard[0][0] = 1;
 		amerWildCard[1][1] = 1;
 		amerWildCard[0][3] = amerPerc[3][4] * amerPerc[2][5];
-		amerWildCard[0][4] = percent[4][3] * amerPerc[2][5];
+		amerWildCard[0][4] = amerPerc[4][3] * amerPerc[2][5];
 		amerWildCard[0][5] = amerPerc[5][2];
-		amerWildCard[1][3] = percent[3][4] * amerPerc[5][2];
-		amerWildCard[1][4] = percent[4][3] * amerPerc[5][2];
+		amerWildCard[1][3] = amerPerc[3][4] * amerPerc[5][2];
+		amerWildCard[1][4] = amerPerc[4][3] * amerPerc[5][2];
 		amerWildCard[1][2] = amerPerc[2][5];
 
 
