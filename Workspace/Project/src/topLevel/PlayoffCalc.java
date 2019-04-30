@@ -74,23 +74,60 @@ public class PlayoffCalc{
 
 		
 		// third game
-		//prob with 1st or 2nd seed(0 or 1)
-		natConf[0] = (natWildCard[1][3] * percent[0][5] * ((percent[1][3] * percent[0][1]) + (percent[3][1] * percent[0][3])))
-				+ (natWildCard[1][4] * percent[0][5] * ((percent[1][4] * percent[0][1]) + (percent[4][1] * percent[0][4])))
-				+ (natWildCard[0][3] * percent[0][3] * ((percent[1][2] * percent[0][1]) + (percent[2][1] * percent[0][2])))
-				+ (natWildCard[0][4] * percent[0][4] * ((percent[1][2] * percent[0][1]) + (percent[2][1] * percent[0][2])));
-		natConf[1] = (percent[1][2] * (natWildCard[0][3] * ((percent[0][3] * percent[1][0]) + (percent[3][0] * percent[1][3]))+ (natWildCard[0][4]) * ((percent[0][4]) * percent[1][0]) + (percent[4][0] * percent[0][4])))
-				+ ((percent[0][5] * percent[1][0] + percent[5][0] * percent[1][5])* (natWildCard[1][3] * percent[1][3] + natWildCard[1][4] * percent[1][4]));
-		natConf[2] = natDivisional[1][2]
-				* (percent[3][4] * (percent[0][3] * percent[2][0] + percent[3][0] * percent[2][3])
-						+ percent[4][3] * (percent[0][4] * percent[2][0] + percent[4][0] * percent[2][4]));
-		natConf[3] = natDivisional[1][3] * (percent[0][5] * percent[3][0] + percent[5][0] * percent[3][5])
-				+ natDivisional[0][3] * (percent[1][2] * percent[3][1] + percent[2][1] * percent[3][2]);
-		natConf[4] = natDivisional[1][4] * ((percent[0][5] * percent[4][0]) + (percent[5][0] * percent[4][5]))
-				+ (natDivisional[0][4] * ((percent[1][2] * percent[4][1]) + (percent[2][1] * percent[4][2])));
-		natConf[5] = natDivisional[0][5]
-				* ((percent[3][4] * (percent[1][3] * percent[5][1] + percent[3][1] * percent[5][3]))
-						+ (percent[4][3] * (percent[1][4] * percent[5][1] + percent[4][1] * percent[5][4])));
+		natConf[0] =
+				(natWildCard[0][3] * percent[0][3] *
+				((percent[1][2]    * percent[0][1])+
+				 (percent[2][1]    * percent[0][2])))+
+				(natWildCard[0][4] * percent[0][4] *
+				((percent[1][2]    * percent[0][1])+
+				 (percent[2][1]    * percent[0][2])))+
+				(natWildCard[1][3] * percent[0][5] *
+				((percent[1][3]    * percent[0][1])+
+				 (percent[3][1]    * percent[0][3])))+
+				(natWildCard[1][4] * percent[0][5]*
+				((percent[1][4]    * percent[0][1])+
+				 (percent[4][1]    * percent[0][4])));
+		natConf[1] =
+				(natWildCard[0][3] * percent[1][2]*
+				((percent[0][3]    * percent[1][0])+
+				 (percent[3][0]    * percent[1][3])))+
+				(natWildCard[0][4] * percent[1][2]*
+				((percent[0][4]    * percent[1][0])+
+				 (percent[4][0]    * percent[1][4])))+
+				(natWildCard[1][3] * percent[1][3]*
+				((percent[0][5]    * percent[1][0])+
+				 (percent[5][0]    * percent[1][5])))+
+				(natWildCard[1][4] * percent[1][4]*
+				((percent[0][5]    * percent[1][0])+
+				 (percent[5][0]    * percent[1][5])));
+		natConf[2] =
+				(natWildCard[0][3] * percent[2][1]*
+				((percent[0][3]    * percent[2][0])+
+				 (percent[3][0]    * percent[2][3])))+
+				(natWildCard[0][4] * percent[2][1]*
+				((percent[0][4]    * percent[2][0])+
+				 (percent[4][0]    * percent[2][4])));
+		natConf[3] = 
+				(natWildCard[0][3] * percent[3][0]*
+				((percent[1][2]    * percent[3][1])+
+				 (percent[2][1]    * percent[3][2])))+
+				(natWildCard[1][3] * percent[3][1]*
+				((percent[0][5]    * percent[3][0])+
+				 (percent[5][0]    * percent[3][5])));
+		natConf[4] = 
+				(natWildCard[0][4] * percent[4][0]*
+				((percent[1][2]    * percent[4][1])+
+				 (percent[2][1]    * percent[4][2])))+
+				(natWildCard[1][4] * percent[4][1]*
+				((percent[0][5]    * percent[4][0])+
+				 (percent[5][0]    * percent[4][5])));
+		natConf[5] = 
+				(natWildCard[1][3] * percent[5][0]*
+				((percent[1][3]    * percent[5][1])+
+				 (percent[3][1]    * percent[5][3])))+
+				(natWildCard[1][4] * percent[5][0]*
+				((percent[1][4]    * percent[5][1])+
+				 (percent[4][1]    * percent[5][4])));
 		////////////////////////////////////////////////////////
 
 		
@@ -150,27 +187,60 @@ public class PlayoffCalc{
 		
 
 		// third game
-		amerConf[0] = amerWildCard[1][3] * (amerPerc[0][5])
-				* ((amerPerc[1][3] * amerPerc[0][1]) + amerPerc[3][1] * amerPerc[0][3])
-				+ amerWildCard[1][4] * (amerPerc[0][5])
-						* ((amerPerc[1][4] * amerPerc[0][1]) + (amerPerc[4][1] * amerPerc[0][4]))
-				+ amerWildCard[0][3] * amerPerc[0][3] * (amerPerc[1][2] * amerPerc[0][1] + amerPerc[2][1] * amerPerc[0][2])
-				+ amerWildCard[0][4] * amerPerc[0][4] * (amerPerc[1][2] * amerPerc[0][1] + amerPerc[2][1] * amerPerc[0][2]);
-		amerConf[1] = amerPerc[1][2]
-				* (amerWildCard[0][3] * ((amerPerc[0][3] * amerPerc[1][0]) + (amerPerc[3][0] * amerPerc[1][3]))
-						+ (amerWildCard[0][4]) * ((amerPerc[0][4]) * amerPerc[1][0]) + (amerPerc[4][0] * amerPerc[0][4]))
-				+ (amerPerc[0][5] * amerPerc[1][0] + amerPerc[5][0] * amerPerc[1][5])
-						* (amerWildCard[1][3] * amerPerc[1][3] + amerWildCard[1][4] * amerPerc[1][4]);
-		amerConf[2] = amerDivisional[1][2]
-				* (amerPerc[3][4] * (amerPerc[0][3] * amerPerc[2][0] + amerPerc[3][0] * amerPerc[2][3])
-						+ amerPerc[4][3] * (amerPerc[0][4] * amerPerc[2][0] + amerPerc[4][0] * amerPerc[2][4]));
-		amerConf[3] = amerDivisional[1][3] * (amerPerc[0][5] * amerPerc[3][0] + amerPerc[5][0] * amerPerc[3][5])
-				+ amerDivisional[0][3] * (amerPerc[1][2] * amerPerc[3][1] + amerPerc[2][1] * amerPerc[3][2]);
-		amerConf[4] = amerDivisional[1][4] * (amerPerc[0][5] * amerPerc[4][0] + amerPerc[5][0] * amerPerc[4][5])
-				+ amerDivisional[0][4] * (amerPerc[1][2] * amerPerc[4][1] + amerPerc[2][1] * amerPerc[4][2]);
-		amerConf[5] = amerDivisional[0][5]
-				* (amerPerc[3][4] * (amerPerc[1][3] * amerPerc[5][1] + amerPerc[3][1] * amerPerc[5][3])
-						+ amerPerc[4][3] * (amerPerc[1][4] * amerPerc[5][1] + amerPerc[4][1] * amerPerc[5][4]));
+		amerConf[0] =
+				(amerWildCard[0][3] * amerPerc[0][3] *
+				((amerPerc[1][2]    * amerPerc[0][1])+
+				 (amerPerc[2][1]    * amerPerc[0][2])))+
+				(amerWildCard[0][4] * amerPerc[0][4] *
+				((amerPerc[1][2]    * amerPerc[0][1])+
+				 (amerPerc[2][1]    * amerPerc[0][2])))+
+				(amerWildCard[1][3] * amerPerc[0][5] *
+				((amerPerc[1][3]    * amerPerc[0][1])+
+				 (amerPerc[3][1]    * amerPerc[0][3])))+
+				(amerWildCard[1][4] * amerPerc[0][5]*
+				((amerPerc[1][4]    * amerPerc[0][1])+
+				 (amerPerc[4][1]    * amerPerc[0][4])));
+		amerConf[1] =
+				(amerWildCard[0][3] * amerPerc[1][2]*
+				((amerPerc[0][3]    * amerPerc[1][0])+
+				 (amerPerc[3][0]    * amerPerc[1][3])))+
+				(amerWildCard[0][4] * amerPerc[1][2]*
+				((amerPerc[0][4]    * amerPerc[1][0])+
+				 (amerPerc[4][0]    * amerPerc[1][4])))+
+				(amerWildCard[1][3] * amerPerc[1][3]*
+				((amerPerc[0][5]    * amerPerc[1][0])+
+				 (amerPerc[5][0]    * amerPerc[1][5])))+
+				(amerWildCard[1][4] * amerPerc[1][4]*
+				((amerPerc[0][5]    * amerPerc[1][0])+
+				 (amerPerc[5][0]    * amerPerc[1][5])));
+		amerConf[2] =
+				(amerWildCard[0][3] * amerPerc[2][1]*
+				((amerPerc[0][3]    * amerPerc[2][0])+
+				 (amerPerc[3][0]    * amerPerc[2][3])))+
+				(amerWildCard[0][4] * amerPerc[2][1]*
+				((amerPerc[0][4]    * amerPerc[2][0])+
+				 (amerPerc[4][0]    * amerPerc[2][4])));
+		amerConf[3] = 
+				(amerWildCard[0][3] * amerPerc[3][0]*
+				((amerPerc[1][2]    * amerPerc[3][1])+
+				 (amerPerc[2][1]    * amerPerc[3][2])))+
+				(amerWildCard[1][3] * amerPerc[3][1]*
+				((amerPerc[0][5]    * amerPerc[3][0])+
+				 (amerPerc[5][0]    * amerPerc[3][5])));
+		amerConf[4] = 
+				(amerWildCard[0][4] * amerPerc[4][0]*
+				((amerPerc[1][2]    * amerPerc[4][1])+
+				 (amerPerc[2][1]    * amerPerc[4][2])))+
+				(amerWildCard[1][4] * amerPerc[4][1]*
+				((amerPerc[0][5]    * amerPerc[4][0])+
+				 (amerPerc[5][0]    * amerPerc[4][5])));
+		amerConf[5] = 
+				(amerWildCard[1][3] * amerPerc[5][0]*
+				((amerPerc[1][3]    * amerPerc[5][1])+
+				 (amerPerc[3][1]    * amerPerc[5][3])))+
+				(amerWildCard[1][4] * amerPerc[5][0]*
+				((amerPerc[1][4]    * amerPerc[5][1])+
+				 (amerPerc[4][1]    * amerPerc[5][4])));
 		////////////////////////////////////////////////////////
 
 
@@ -193,17 +263,6 @@ public class PlayoffCalc{
 			}
 			amerFinal[i] = sumAmer * amerConf[i];
 		}
-		double sum = 0;
-		for (int i = 0; i < 6; i++)
-			sum += (natFinal[i] + amerFinal[i]);
-		for(int i = 0; i < 6; i++)
-		{
-			natFinal[i] /= sum;
-			amerFinal[i] /= sum;
-		}
-		sum = 0;
-		for (int i = 0; i < 6; i++)
-			sum += (natFinal[i] + amerFinal[i]);
 	}
 
 	private void fillPercent() {
