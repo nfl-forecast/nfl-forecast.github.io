@@ -268,33 +268,6 @@ public class PlayoffCalc{
 			}
 			amerFinal[i] = sumAmer * amerConf[i];
 		}
-
-		for (int i = 0; i < natFinal.length; i++)
-		{
-			natFinal[i] = Double.parseDouble(fmt.format(natFinal[i]*100));
-			amerFinal[i] = Double.parseDouble(fmt.format(amerFinal[i]*100));
-		}
-		for (int i = 0; i < natConf.length; i++)
-		{
-			natConf[i] = Double.parseDouble(fmt.format(natConf[i]*100));
-			amerConf[i] = Double.parseDouble(fmt.format(amerConf[i]*100));
-		}
-		for (int i = 0; i < natWildCard.length; i++)
-		{
-			for (int j = 0; j < natWildCard[0].length; j++)
-			{
-				natWildCard[i][j] = Double.parseDouble(fmt.format(natWildCard[i][j]*100));
-				amerWildCard[i][j] = Double.parseDouble(fmt.format(amerWildCard[i][j]*100));
-			}
-		}
-		for (int i = 0; i < natDivisional.length; i++)
-		{
-			for (int j = 0; j < natDivisional[0].length; j++)
-			{
-				natDivisional[i][j] = Double.parseDouble(fmt.format(natDivisional[i][j]*100));
-				amerDivisional[i][j] = Double.parseDouble(fmt.format(amerDivisional[i][j]*100));
-			}
-		}
 	}
 
 	private void fillPercent() {
