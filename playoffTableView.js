@@ -17,13 +17,13 @@ function PTVController(logoService)
     if(index === 0 || index === 1)
       return " ";
     else
-      return this.playoffs.afcwildCard[index];
+      return (this.playoffs.afcwildCard[index] + "%");
   }
 
   this.nfcWildCard = function(index) {
     if(index === 0 || index === 1)
       return " ";
     else
-      return this.playoffs.nfcwildCard[index];
+      return (this.playoffs.nfcwildCard[index] + "%");
   }
 }

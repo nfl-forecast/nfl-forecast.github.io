@@ -11,6 +11,7 @@ public class PlayoffCalc{
 	private double[][] natWildCard, natDivisional, amerWildCard, amerDivisional;
 	private double[][] percent;
 	private Team[] teams;
+	DecimalFormat fmt;
 
 	public PlayoffCalc(Team[] nat, Team[] amer) {
 		teams = new Team[12];
@@ -19,12 +20,13 @@ public class PlayoffCalc{
 			teams[i + 6] = amer[i];
 		}
 
+		fmt = new DecimalFormat("#.##");
+
 		fillPercent();
 	}
 
 	public void calculate() 
 	{
-		DecimalFormat fmt = new DecimalFormat("#.##");
 		natConf = new double[6];
 		amerConf = new double[6];
 
@@ -380,58 +382,58 @@ public class PlayoffCalc{
 		System.out.println(sum);
 	}*/
 
-	public List<Double> getAFCwildCard()
+	public List<String> getAFCwildCard()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(amerWildCard[0][i]+amerWildCard[1][i]);
+			doubleList.add(fmt.format(amerWildCard[0][i]+amerWildCard[1][i]));
 		return doubleList;
 	}
-	public List<Double> getAFCdivisional()
+	public List<String> getAFCdivisional()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(amerDivisional[0][i]+amerDivisional[1][i]);
+			doubleList.add(fmt.format(amerDivisional[0][i]+amerDivisional[1][i]));
 		return doubleList;
 	}
-	public List<Double> getAFCconference()
+	public List<String> getAFCconference()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(amerConf[i]);
+			doubleList.add(fmt.format(amerConf[i]));
 		return doubleList;
 	}
-	public List<Double> getNFCwildCard()
+	public List<String> getNFCwildCard()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(natWildCard[0][i]+natWildCard[1][i]);
+			doubleList.add(fmt.format(natWildCard[0][i]+natWildCard[1][i]));
 		return doubleList;
 	}
-	public List<Double> getNFCdivisional()
+	public List<String> getNFCdivisional()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(natDivisional[0][i]+natDivisional[1][i]);
+			doubleList.add(fmt.format(natDivisional[0][i]+natDivisional[1][i]));
 		return doubleList;
 	}
-	public List<Double> getNFCconference()
+	public List<String> getNFCconference()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
-			doubleList.add(natConf[i]);
+			doubleList.add(fmt.format(natConf[i]));
 		return doubleList;
 	}
-	public List<Double> getSuperBowl()
+	public List<String> getSuperBowl()
 	{
-		List<Double> doubleList = new ArrayList<Double>();
+		List<String> doubleList = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
 		{
-			doubleList.add(amerFinal[i]);
+			doubleList.add(fmt.format(amerFinal[i]));
 		}
 		for(int i = 0; i < 6; i++)
 		{
-			doubleList.add(natFinal[i]);
+			doubleList.add(fmt.format(natFinal[i]));
 		}
 		return doubleList;
 	}
