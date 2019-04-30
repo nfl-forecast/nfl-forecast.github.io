@@ -226,11 +226,11 @@ public class Team{
 //			return 0.5;
 //		System.out.println(FPI);
 //		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
-		return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/4.0)+1);
+		return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/3.5)+1);
 	}
 	public double superBowl(Team away)
 	{
-		return 1/(Math.pow(10, -(FPI-away.FPI)/2.5)+1);
+		return 1/(Math.pow(10, -(FPI-away.FPI)/3.5)+1);
 	}
 	
 	public int[] getPrimaryColor()
