@@ -76,11 +76,13 @@ table,td,th{
 }
 
 .teamNameStandings{
-    justify-items: center;
     width:70%;
+    justify-items: left;
+    text-align: left;
 }
 .specialCharactersStandings{
     justify-items: left;
+    height: 100%;
     width:5%;
 }
 
@@ -97,4 +99,8 @@ table,td,th{
 .confNameConfStandings{
     font-size: larger;
     font-weight: bold;
+}
+
+.teamNameCell{
+    width:70%;
 }
