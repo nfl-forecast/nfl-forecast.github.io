@@ -28,6 +28,6 @@
   </div>
   <div class = "gameTeam">
     <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'>
-    <div class = 'fpi'>{"FPI" + {$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
+    <div class = 'fpi'> "FPI" + {{$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
   </div>
 </div>
