@@ -26,16 +26,16 @@
       <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
     </td>
     <td class="playoffTableDataCell wildcard{{$index}}">
-      {{$ctrl.afcWildCard($index)}}
+      <center>{{$ctrl.afcWildCard($index)}}</center>
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.afcdivisional[$index] + "%"}}
+      <center>{{$ctrl.playoffs.afcdivisional[$index] + "%"}}</center>
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.afcconference[$index] + "%"}}
+      <center>{{$ctrl.playoffs.afcconference[$index] + "%"}}</center>
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.superBowl[$index] + "%"}}
+      <center>{{$ctrl.playoffs.superBowl[$index] + "%"}}</center>
     </td>
   </tr>
   <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffs.nfcteams track by $index">
@@ -43,16 +43,16 @@
       <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
     </td>
     <td class="playoffTableDataCell wildcard{{$index}}">
-      {{$ctrl.nfcWildCard($index)}}
+      <center>{{$ctrl.nfcWildCard($index)}}</center>
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.nfcdivisional[$index] + "%"}}
+      <center>{{$ctrl.playoffs.nfcdivisional[$index] + "%"}}</center>
     </td>
     <td class="playoffTableDataCell">
       <center>{{$ctrl.playoffs.nfcconference[$index] + "%"}}</center>
     </td>
     <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.superBowl[$index + 6] + "%"}}
+      <center>{{$ctrl.playoffs.superBowl[$index + 6] + "%"}}</center>
     </td>
   </tr>
 </table>
