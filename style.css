@@ -104,3 +104,7 @@ table,td,th{
 .teamNameCell{
     width:70%;
 }
+
+.percentBar{
+    hieght: 60px;
+}
