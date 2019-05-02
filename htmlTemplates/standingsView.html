@@ -3,6 +3,17 @@
   <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.CONFERENCEVIEW">Conferences</button>
   <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.LEAGUEVIEW">League</button>
 </div>
+<div class="message">
+  <div class="messageHeader">
+    KEY
+  </div>
+  <div class="messageBody">
+    *=Home Field Advantage
+    z=First Round Bye
+    y=division winner
+    x=wildcard
+  </div>
+</div>
 <div id='divisionStandings' ng-if="$ctrl.selectedView===$ctrl.DIVISIONVIEW">
   <division-standings-view data="$ctrl.data"></division-standings-view>
 </div>
