@@ -4,7 +4,7 @@
 
 .game{
     display:flex;
-    margin: 10px;
+    margin: 25px;
 }
 
 .gameWhenWhere{
@@ -106,5 +106,9 @@ table,td,th{
 }
 
 .percentBar{
-    height: 60px;
+    height: 36px;
+}
+
+.awayPCT, .homePCT{
+	font-size: xx-large;
 }
