@@ -119,5 +119,6 @@ table,td,th{
   	border: 2px solid green;	
 }
 .weekButtonsStyle:hover{
+	background-color: brown; 
 	color:blue;
 }
