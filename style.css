@@ -51,9 +51,6 @@ table,td,th{
     background:grey;
 }
 
-.wildcard2, .wildcard3, .wildcard4, .wildcard5{
-    background:rgba(255, 0, 0, .5);
-}
 .gameLogo{
     height:60px;
     width:60px;
