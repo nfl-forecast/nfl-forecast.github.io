@@ -52,7 +52,7 @@ table,td,th{
 }
 
 .wildcard2, .wildcard3, .wildcard4, .wildcard5{
-    background: red;
+    background:rgba(255, 0, 0, 1);
 }
 .gameLogo{
     height:60px;
