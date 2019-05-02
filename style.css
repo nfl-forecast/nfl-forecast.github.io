@@ -112,7 +112,4 @@ table,td,th{
 .awayPCT, .homePCT{
 	font-size: xx-large;
 }
-.weekButtonsStyle:hover{
-	background-color: brown; 
-	color:blue;
-}
+
