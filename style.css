@@ -6,7 +6,9 @@
 .gameWhenWhere{
     display:flex;
 }
-
+.gameTeam{
+    width:20%;
+}
 .gameDate{
     width:20%;
     text-align:left;
@@ -27,7 +29,6 @@
 
 .teamNameSection{
     display:flex;
-    width: 20%;
 }
 
 .imageStandings{
