@@ -106,5 +106,19 @@ table,td,th{
 }
 
 .awayPCT, .homePCT{
-	font-size: xx-large;
+   font-size: xx-large;
+}
+
+.away_home_row {
+   display: flex;
+}
+
+.away {
+   width: 50%;
+   text-align: left;
+}
+
+.home {
+   width: 50%;
+   text-align: right;
 }
