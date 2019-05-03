@@ -1,3 +1,7 @@
+.HeaderButton{
+    margin-left: 5px;
+}
+
 .game{
     display:flex;
     margin: 25px;
