@@ -27,6 +27,7 @@
 
 .teamNameSection{
     display:flex;
+    width: 20%;
 }
 
 .imageStandings{
