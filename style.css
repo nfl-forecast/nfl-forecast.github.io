@@ -7,7 +7,7 @@
     display:flex;
 }
 .gameTeam{
-    width:20%;
+    width:10%;
 }
 .gameDate{
     width:20%;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 .gameInfo{
-    width:60%;
+    width:80%;
     margin:5px;
 }
 
