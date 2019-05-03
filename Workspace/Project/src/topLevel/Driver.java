@@ -22,6 +22,7 @@ public class Driver{
 	public Schedule season;
 	public PlayoffCalc playoffs;
 	public static boolean allPlayed;
+	public String lastUpdated;
 	public Driver() {
 		allPlayed = false;
 		
@@ -101,7 +102,7 @@ public class Driver{
 		
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date date = new Date();
-		System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
+		lastUpdated = dateFormat.format(date); //2016/11/16 12:08:43
 	}
 
 	public void toJSON() {
