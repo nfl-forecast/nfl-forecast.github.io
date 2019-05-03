@@ -6,8 +6,13 @@
 .gameWhenWhere{
     display:flex;
 }
-.gameTeam{
-    width:10%; 
+.gameAwayTeam{
+    width:10%;
+    justify-content: left;
+}
+.gameHomeTeam{
+    width:10%;
+     justify-content: right;
 }
 .gameDate{
     width:20%;
