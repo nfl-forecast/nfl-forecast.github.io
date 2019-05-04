@@ -88,14 +88,14 @@ public class Driver{
 				count += 1;
 		}
 
-		if (count == 32) {
-			allPlayed = true;
-			for (int i = 0; i < 16; i++) {
-				AFCTeams[i].setWins(0);
-				NFCTeams[i].setWins(0);
-			}
-			season.makeNotPlayed();
-		}
+//		if (count == 32) {
+//			allPlayed = true;
+//			for (int i = 0; i < 16; i++) {
+//				AFCTeams[i].setWins(0);
+//				NFCTeams[i].setWins(0);
+//			}
+//			season.makeNotPlayed();
+//		}
 
 		playoffs = new PlayoffCalc(NFC.seeding(), AFC.seeding());
 		playoffs.calculate();
