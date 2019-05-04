@@ -355,6 +355,13 @@ public class PlayoffCalc{
 		System.out.println(sum);
 	}*/
 
+	public List<Integer> getFPI ()
+	{
+		List<Integer> FPIlist = new ArrayList<Integer>();
+		for (int i = 0; i < 12; i++)
+			FPIlist.add((int)(Math.round(teams[i].getFPI())));
+		return FPIlist;
+	}
 	public List<String> getAFCwildCard()
 	{
 		List<String> doubleList = new ArrayList<String>();
