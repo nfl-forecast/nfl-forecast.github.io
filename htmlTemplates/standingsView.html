@@ -1,7 +1,7 @@
 <div>
-  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.DIVISIONVIEW">Divisions</button>
-  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.CONFERENCEVIEW">Conferences</button>
-  <button class = 'standingsButtons' ng-click="$ctrl.selectedView = $ctrl.LEAGUEVIEW">League</button>
+  <button class = 'standingsButtons, Button{{$ctrl.selectedView === $ctrl.DIVISIONVIEW}}' ng-click="$ctrl.selectedView = $ctrl.DIVISIONVIEW">Divisions</button>
+  <button class = 'standingsButtons, Button{{$ctrl.selectedView === $ctrl.CONFERENCEVIEW}}' ng-click="$ctrl.selectedView = $ctrl.CONFERENCEVIEW">Conferences</button>
+  <button class = 'standingsButtons, Button{{$ctrl.selectedView === $ctrl.LEAGUEVIEW}}' ng-click="$ctrl.selectedView = $ctrl.LEAGUEVIEW">League</button>
 </div>
 <div class="message">
   <div class="messageHeader">
