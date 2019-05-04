@@ -7,11 +7,11 @@
     display:flex;
 }
 .gameAwayTeam{
-    width:5%;
+    width:6%;
     justify-content: left;
 }
 .gameHomeTeam{
-    width:5%;
+    width:6%;
      justify-content: right;
     justify-items: right;
 }
@@ -37,7 +37,7 @@
     text-align: center;
 }
 .gameInfo{
-    width:90%;
+    width:88%;
     margin:5px;
 }
 
