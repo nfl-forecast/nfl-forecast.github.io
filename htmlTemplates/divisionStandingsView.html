@@ -1,9 +1,9 @@
 <div class="confDivStandingsBlock" ng-repeat="conf in $ctrl.getConferenceNames()">
   <div class="confNameDivStandings">
-    {{conf}}
+    <br>{{conf}}
   </div>
   <div class="divStandingsBlock" ng-repeat="(divisionName, division) in $ctrl.data[conf] track by $index">
-    {{divisionName}}
+    <br>{{divisionName}}
     <standings-table teams="division.teams"></standings-table>
   </div>
 </div>
