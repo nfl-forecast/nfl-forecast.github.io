@@ -1,5 +1,6 @@
-<div class = 'ScheduleHeader'>
-  Byes
+<div class = 'ScheduleHeader' ng-show="!($ctrl.week.teamsOnBye.length === 0)">
+  <div>Byes
+  </div>
 </div>
 <div class='weekButtonsStyle' ng-repeat='team in $ctrl.week.teamsOnBye'>
   <span><img class='Byeimage' ng-src='{{$ctrl.getTeamImage(team)}}' alt='LOGO'></span>
