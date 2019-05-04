@@ -15,6 +15,7 @@ function PTVController(logoService)
   this.DIV = 3;
   this.CONF = 4;
   this.SB = 5;
+  this.FPI = 6;
   this.currSorted = this.SEED;
   this.DESCENDING = false;
   this.ASCENDING = true;
@@ -62,6 +63,26 @@ function PTVController(logoService)
     this.playoffData = angular.copy(this.originalOrder);
   };
 
+  this.sortFPI = function(){
+    if(this.currSorted===this.FPI && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.teamArr.sort(function(a, b){
+        if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return -1;}
+        if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return 1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.FPI;
+      this.sortedState = this.DESCENDING;
+      this.teamArr.sort(function(a, b){
+        if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return 1;}
+        if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return -1;}
+        return 0;})
+    }
+  };
+  
   this.sortWC = function(){
     if(this.currSorted===this.WC && this.sortedState === this.DESCENDING)
     {
