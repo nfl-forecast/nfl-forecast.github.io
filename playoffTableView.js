@@ -27,6 +27,8 @@ function PTVController(logoService)
     this.totalNames = [];
     this.totalNames = this.totalNames.concat(this.playoffsCopy.afcteams);
     this.totalNames = this.totalNames.concat(this.playoffsCopy.nfcteams);
+    this.fpiValues = [];
+    this.fpiValues = this.fpiValues.concat(this.playoffsCopy.fpi);
     this.totalWildCard = [];
     this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.afcwildCard);
     this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.nfcwildCard);
@@ -39,7 +41,7 @@ function PTVController(logoService)
     this.superBowl = this.playoffsCopy.superBowl;
 
     for(var i = 0; i < 12; i++) {
-      this.playoffData[i] = {seed:this.seeds[i], name:this.totalNames[i], wildcard:parseFloat(this.totalWildCard[i]), divisional:parseFloat(this.totalDivisional[i]), conference:parseFloat(this.totalConference[i]), superbowl:parseFloat(this.superBowl[i])};
+      this.playoffData[i] = {seed:this.seeds[i], name:this.totalNames[i], fpi:this.fpiValues[i], wildcard:parseFloat(this.totalWildCard[i]), divisional:parseFloat(this.totalDivisional[i]), conference:parseFloat(this.totalConference[i]), superbowl:parseFloat(this.superBowl[i])};
     }
     this.originalOrder = angular.copy(this.playoffData);
   };
