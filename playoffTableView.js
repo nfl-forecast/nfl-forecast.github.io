@@ -67,7 +67,7 @@ function PTVController(logoService)
     if(this.currSorted===this.FPI && this.sortedState === this.DESCENDING)
     {
       this.sortedState = this.ASCENDING;
-      this.teamArr.sort(function(a, b){
+      this.playoffData.sort(function(a, b){
         if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return -1;}
         if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return 1;}
         return 0;})
@@ -76,7 +76,7 @@ function PTVController(logoService)
     {
       this.currSorted=this.FPI;
       this.sortedState = this.DESCENDING;
-      this.teamArr.sort(function(a, b){
+      this.playoffData.sort(function(a, b){
         if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return 1;}
         if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return -1;}
         return 0;})
