@@ -33,6 +33,9 @@
     <td class="playoffTableLogoCell">
       <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team.name)}}'>
     </td>
+    <td class="playoffTableFPICell">
+      {{team.fpi}}
+    </td>
     <td class="playoffTableDataCell wildcard{{team.seed}}" style="background:{{$ctrl.style(team)}}">
       {{$ctrl.wildcard($index)}}
     </td>
