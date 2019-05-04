@@ -113,8 +113,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (parseFloat(a.losses) < parseFloat(b.losses)) {return -1;}
-        if (parseFloat(a.losses) > parseFloat(b.losses)) {return 1;}
+        if (parseFloat(a.ties) < parseFloat(b.ties)) {return -1;}
+        if (parseFloat(a.ties) > parseFloat(b.ties)) {return 1;}
         return 0;})
     }
     else
@@ -122,8 +122,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.TIES;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (parseFloat(a.losses) < parseFloat(b.losses)) {return 1;}
-        if (parseFloat(a.losses) > parseFloat(b.losses)) {return -1;}
+        if (parseFloat(a.ties) < parseFloat(b.ties)) {return 1;}
+        if (parseFloat(a.ties) > parseFloat(b.ties)) {return -1;}
         return 0;})
     }
   };
