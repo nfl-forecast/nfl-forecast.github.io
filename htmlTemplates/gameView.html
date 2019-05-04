@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class = "gameHomeTeam">
-    <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'>
-    <div class = 'fpi'> FPI: {{$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
+    <div gameHomeLogo><img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'></div>
+    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
   </div>
 </div>
