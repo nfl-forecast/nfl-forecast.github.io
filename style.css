@@ -46,8 +46,8 @@
 }
 
 .imageStandings{
-    height:64px;
-    width:64px;
+    height:38px;
+    width:38px;
 }
 table,td,th{
     border: 1px solid black;
@@ -156,7 +156,7 @@ button:active {
 
 .lastUpdated{
     color: grey;
-    margin: 100px;
+    margin: 50px;
     text-align: center;
 }
 
