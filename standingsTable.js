@@ -55,8 +55,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.fpi < b.fpi) {return -1;}
-        if (a.fpi > b.fpi) {return 1;}
+        if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return -1;}
+        if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return 1;}
         return 0;})
     }
     else
@@ -64,8 +64,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.FPI;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.fpi < b.fpi) {return 1;}
-        if (a.fpi > b.fpi) {return -1;}
+        if (parseFloat(a.fpi) < parseFloat(b.fpi)) {return 1;}
+        if (parseFloat(a.fpi) > parseFloat(b.fpi)) {return -1;}
         return 0;})
     }
   };
@@ -74,8 +74,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.wins < b.wins) {return -1;}
-        if (a.wins > b.wins) {return 1;}
+        if (parseFloat(a.wins) < parseFloat(b.wins)) {return -1;}
+        if (parseFloat(a.wins) > parseFloat(b.wins)) {return 1;}
         return 0;})
     }
     else
@@ -83,8 +83,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.WINS;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.wins < b.wins) {return 1;}
-        if (a.wins > b.wins) {return -1;}
+        if (parseFloat(a.wins) < parseFloat(b.wins)) {return 1;}
+        if (parseFloat(a.wins) > parseFloat(b.wins)) {return -1;}
         return 0;})
     }
   };
@@ -93,8 +93,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.losses < b.losses) {return -1;}
-        if (a.losses > b.losses) {return 1;}
+        if (parseFloat(a.losses) < parseFloat(b.losses)) {return -1;}
+        if (parseFloat(a.losses) > parseFloat(b.losses)) {return 1;}
         return 0;})
     }
     else
@@ -102,8 +102,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.LOSSES;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.losses < b.losses) {return 1;}
-        if (a.losses > b.losses) {return -1;}
+        if (parseFloat(a.losses) < parseFloat(b.losses)) {return 1;}
+        if (parseFloat(a.losses) > parseFloat(b.losses)) {return -1;}
         return 0;})
     }
   };
@@ -112,8 +112,8 @@ function STController(logoService, playoffService)
     {
       this.sortedState = this.ASCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.ties < b.ties) {return -1;}
-        if (a.ties > b.ties) {return 1;}
+        if (parseFloat(a.losses) < parseFloat(b.losses)) {return -1;}
+        if (parseFloat(a.losses) > parseFloat(b.losses)) {return 1;}
         return 0;})
     }
     else
@@ -121,8 +121,8 @@ function STController(logoService, playoffService)
       this.currSorted=this.TIES;
       this.sortedState = this.DESCENDING;
       this.teamArr.sort(function(a, b){
-        if (a.ties < b.ties) {return 1;}
-        if (a.ties > b.ties) {return -1;}
+        if (parseFloat(a.losses) < parseFloat(b.losses)) {return 1;}
+        if (parseFloat(a.losses) > parseFloat(b.losses)) {return -1;}
         return 0;})
     }
   };
