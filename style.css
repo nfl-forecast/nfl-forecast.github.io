@@ -7,12 +7,12 @@
     display:flex;
 }
 .gameAwayTeam{
-    width:5%;
+    width:6%;
     justify-content: left;
 }
 .gameHomeTeam{
-    width:5%;
-     justify-content: right;
+    width:6%;
+    justify-content: right;
     justify-items: right;
 }
 
@@ -37,7 +37,7 @@
     text-align: center;
 }
 .gameInfo{
-    width:90%;
+    width:88%;
     margin:5px;
 }
 
@@ -118,21 +118,23 @@ table,td,th{
 }
 
 .awayPCT, .homePCT{
-   font-size: xx-large;
+    font-size: xx-large;
 }
 
 .away_home_row {
-   display: flex;
+    display: flex;
 }
 
 .away {
-   width: 50%;
-   text-align: left;
+    width: 50%;
+    font-size: large;
+    text-align: left;
 }
 
 .home {
-   width: 50%;
-   text-align: right;
+    width: 50%;
+    font-size: large;
+    text-align: right;
 }
 
 .gameView {
@@ -155,5 +157,10 @@ button:active {
 .lastUpdated{
     color: grey;
     margin: 100px;
+    text-align: center;
+}
+
+.scheduleHeader{
+    font-size: xx-large;
     text-align: center;
 }
