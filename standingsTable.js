@@ -19,6 +19,7 @@ function STController(logoService, playoffService)
   this.ASCENDING = true;
   this.sortedState = this.ASCENDING;
 
+
   this.$onInit = function(){
     this.teamArr = angular.copy(this.teams);
     this.sortWins();

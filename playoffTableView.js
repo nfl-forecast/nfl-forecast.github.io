@@ -9,21 +9,171 @@ angular.module('nflforecast').component('playoffTableView', {
 
 function PTVController(logoService)
 {
+  this.SEED = 0;
+  this.NAME = 1;
+  this.WC = 2;
+  this.DIV = 3;
+  this.CONF = 4;
+  this.SB = 5;
+  this.currSorted = this.SEED;
+  this.DESCENDING = false;
+  this.ASCENDING = true;
+  this.sortedState = this.ASCENDING;
+  this.playoffData = [];
+  this.originalOrder = [];
+  this.$onInit = function(){
+    this.playoffsCopy = angular.copy(this.playoffs);
+    this.seeds = [1,2,3,4,5,6,1,2,3,4,5,6];
+    this.totalNames = [];
+    this.totalNames = this.totalNames.concat(this.playoffsCopy.afcteams);
+    this.totalNames = this.totalNames.concat(this.playoffsCopy.nfcteams);
+    this.totalWildCard = [];
+    this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.afcwildCard);
+    this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.nfcwildCard);
+    this.totalDivisional = [];
+    this.totalDivisional = this.totalDivisional.concat(this.playoffsCopy.afcdivisional);
+    this.totalDivisional = this.totalDivisional.concat(this.playoffsCopy.nfcdivisional);
+    this.totalConference = [];
+    this.totalConference = this.totalConference.concat(this.playoffsCopy.afcconference);
+    this.totalConference = this.totalConference.concat(this.playoffsCopy.nfcconference);
+    this.superBowl = this.playoffsCopy.superBowl;
+
+    for(var i = 0; i < 12; i++) {
+      this.playoffData[i] = {seed:this.seeds[i], name:this.totalNames[i], wildcard:parseFloat(this.totalWildCard[i]), divisional:parseFloat(this.totalDivisional[i]), conference:parseFloat(this.totalConference[i]), superbowl:parseFloat(this.superBowl[i])};
+    }
+    this.originalOrder = angular.copy(this.playoffData);
+  };
+
   this.getLogo = function(teamName){
     return logoService.getLogo(teamName);
   };
 
-  this.afcWildCard = function(index) {
-    if(index === 0 || index === 1)
+  this.wildcard = function(index) {
+    if(this.playoffData[index].seed === 1 || this.playoffData[index].seed === 2)
       return " ";
     else
-      return (this.playoffs.afcwildCard[index] + "%");
+      return (this.playoffData[index].wildcard + "%");
+  };
+
+  this.sortSeed = function(){
+    this.selceted = this.SEED;
+    this.playoffData = angular.copy(this.originalOrder);
+  };
+
+  this.sortWC = function(){
+    if(this.currSorted===this.WC && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.wildcard < b.wildcard) {return -1;}
+        if (a.wildcard > b.wildcard) {return 1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.WC;
+      this.sortedState = this.DESCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.wildcard < b.wildcard) {return 1;}
+        if (a.wildcard > b.wildcard) {return -1;}
+        return 0;})
+    }
+  };
+
+  this.sortDiv = function(){
+    if(this.currSorted===this.DIV && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.divisional < b.divisional) {return -1;}
+        if (a.divisional > b.divisional) {return 1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.DIV;
+      this.sortedState = this.DESCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.divisional < b.divisional) {return 1;}
+        if (a.divisional > b.divisional) {return -1;}
+        return 0;})
+    }
+  };
+
+  this.sortConf = function(){
+    if(this.currSorted===this.CONF && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.conference < b.conference) {return -1;}
+        if (a.conference > b.conference) {return 1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.CONF;
+      this.sortedState = this.DESCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.conference < b.conference) {return 1;}
+        if (a.conference > b.conference) {return -1;}
+        return 0;})
+    }
+  };
+
+  this.sortSB = function(){
+    if(this.currSorted===this.SB && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.superbowl < b.superbowl) {return -1;}
+        if (a.superbowl > b.superbowl) {return 1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.SB;
+      this.sortedState = this.DESCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.superbowl < b.superbowl) {return 1;}
+        if (a.superbowl > b.superbowl) {return -1;}
+        return 0;})
+    }
+  };
+
+  this.sortTeam = function(){
+    if(this.currSorted===this.NAME && this.sortedState === this.DESCENDING)
+    {
+      this.sortedState = this.ASCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.name < b.name) {return 1;}
+        if (a.name > b.name) {return -1;}
+        return 0;})
+    }
+    else
+    {
+      this.currSorted=this.NAME;
+      this.sortedState = this.DESCENDING;
+      this.playoffData.sort(function(a, b){
+        if (a.name < b.name) {return -1;}
+        if (a.name > b.name) {return 1;}
+        return 0;})
+    }
+  };
+
+  this.getColor = function(withoutSymbol) {
+    var percent = Number.parseFloat(withoutSymbol);
+    var total = 255;
+    var amount = percent * total/100;
+    var rounded = Math.round(amount);
+    var adjusted = 300-amount;
+    if(adjusted > 255) adjusted = 255;
+    return adjusted;
   }
 
-  this.nfcWildCard = function(index) {
-    if(index === 0 || index === 1)
-      return " ";
+  this.style = function(team) {
+    if(team.seed <= 2)
+      return "grey";
     else
-      return (this.playoffs.nfcwildCard[index] + "%");
-  }
+      return "rgb(" + this.getColor(team.wildcard) + ", 0, 0)";
+  };
 }

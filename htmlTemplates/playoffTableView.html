@@ -5,54 +5,43 @@
     </th>
   </tr>
   <tr class="playoffTableHeaderRow">
+    <th class = "playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortSeed()"> Seed </div>
+    </th>
     <th class ="playoffTableHeaderCell">
-      Team
+      <div class="playoffTableBtn" ng-click="$ctrl.sortTeam()"> Team </div>
     </th>
     <th class ="playoffTableHeaderCell">
-        Wild Card  
+      <div class="playoffTableBtn" ng-click="$ctrl.sortWC()"> Wild card </div>
     </th>
     <th class = "playoffTableHeaderCell">
-        Divisional  
+      <div class="playoffTableBtn" ng-click="$ctrl.sortDiv()"> Divisional </div>
     </th>
     <th class = "playoffTableHeaderCell">
-        Conference  
+      <div class="playoffTableBtn" ng-click="$ctrl.sortConf()"> Conference </div>
     </th>
     <th class = "playoffTableHeaderCell">
-        Superbowl  
+      <div class="playoffTableBtn" ng-click="$ctrl.sortSB()"> Super Bowl </div>
     </th>
   </tr>
-  <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffs.afcteams track by $index">
+  <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffData track by $index">
+    <td classs="playoffTableSeedCell">
+      {{team.seed}}
+    </td>
     <td class="playoffTableLogoCell">
-      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
+      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team.name)}}'>
     </td>
-    <td class="playoffTableDataCell wildcard{{$index}}">
-      {{$ctrl.afcWildCard($index)}}
+    <td class="playoffTableDataCell wildcard{{team.seed}}" style="background:{{$ctrl.style(team)}}">
+      {{$ctrl.wildcard($index)}}
     </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.afcdivisional[$index] + "%"}}
+    <td class="playoffTableDataCell"  style="background:rgb({{$ctrl.getColor(team.divisional)}}, 0, 0">
+      {{team.divisional + "%"}}
     </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.afcconference[$index] + "%"}}
+    <td class="playoffTableDataCell" style="background:rgb({{$ctrl.getColor(team.conference)}}, 0, 0">
+      {{team.conference + "%"}}
     </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.superBowl[$index] + "%"}}
-    </td>
-  </tr>
-  <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.playoffs.nfcteams track by $index">
-    <td class="playoffTableLogoCell">
-      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team)}}'>
-    </td>
-    <td class="playoffTableDataCell wildcard{{$index}}">
-      {{$ctrl.nfcWildCard($index)}}
-    </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.nfcdivisional[$index] + "%"}}
-    </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.nfcconference[$index] + "%"}}
-    </td>
-    <td class="playoffTableDataCell">
-      {{$ctrl.playoffs.superBowl[$index + 6] + "%"}}
+    <td class="playoffTableDataCell" style="background:rgb({{$ctrl.getColor(team.superbowl)}}, 0, 0">
+      {{team.superbowl + "%"}}
     </td>
   </tr>
 </table>
