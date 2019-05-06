@@ -35,7 +35,7 @@ public class ScheduleFromAPI {
 
 		} catch (Exception e) {
 			try {
-				String str = get("upcomming");
+				String str = get("upcoming");
 				return str;
 			} catch (Exception f) {
 				int year = LocalDate.now().getYear();
