@@ -1,0 +1,63 @@
+<div class="predictedWinner">
+  <div class="pwHeader">
+    Predicted Winner
+  </div>
+  <div class="pwImages">
+    <div class="pwLogo">
+      <img class="predSBWin" ng-src="{{$ctrl.getLogo($ctrl.teams($ctrl.getPredictedSBWinner()))}}">
+    </div>
+    <div class="trophyDiv">
+      <img class="trophy" ng-src="{{$ctrl.getLogo('trophy')}}">
+    </div>
+  </div>
+  <div class="pwPCT">
+    {{$ctrl.playoffs.superBowl[$ctrl.getPredictedSBWinner()]}}%
+  </div>
+</div>
+<div class="superbowlBracket">
+  <playoff-game-view team1="'AFC Winner'" team2="'NFC Winner'"></playoff-game-view>
+</div>
+<div class="conferenceBracket">
+  <div class="AFCConferenceBracket">
+    <playoff-game-view team1="'Highest Remaining AFC Seed'" team2="'Lowest Remaining AFC Seed'"></playoff-game-view>
+  </div>
+  <div class="NFCConferenceBracket">
+    <playoff-game-view team1="'Highest Remaining NFC Seed'" team2="'Lowest Remaining NFC Seed'"></playoff-game-view>
+  </div>
+</div>
+<div class="divisionalBracket">
+  <div class="AFCDivisionalBracket">
+    <div class="AFC1Bracket">
+      <playoff-game-view team1="'Highest Seeded Winner From AFC Wildcard Games'" team2="$ctrl.teams(0)"></playoff-game-view>
+    </div>
+    <div class="AFC2BRacket">
+      <playoff-game-view team1="'Lowest Seeded Winner From AFC Wildcard Games'" team2="$ctrl.teams(1)"></playoff-game-view>
+    </div>
+  </div>
+  <div class="NFCDivisionalBracket">
+    <div class="NFC1Bracket">
+      <playoff-game-view team1="'Highest Seeded Winner From NFC Wildcard Games'" team2="$ctrl.teams(6)"></playoff-game-view>
+    </div>
+    <div class="NFC2BRacket">
+      <playoff-game-view team1="'Lowest Seeded Winner From NFC Wildcard Games'" team2="$ctrl.teams(7)"></playoff-game-view>
+    </div>
+  </div>
+</div>
+<div class="wildcardBracket">
+  <div class="AFCWildcardBracket">
+    <div class="AFC36Bracket">
+      <playoff-game-view team1="$ctrl.teams(5)" team2="$ctrl.teams(2)"></playoff-game-view>
+    </div>
+    <div class="AFC45BRacket">
+      <playoff-game-view team1="$ctrl.teams(4)" team2="$ctrl.teams(3)"></playoff-game-view>
+    </div>
+  </div>
+  <div class="NFCWildcardBracket">
+    <div class="NFC36Bracket">
+      <playoff-game-view team1="$ctrl.teams(11)" team2="$ctrl.teams(8)"></playoff-game-view>
+    </div>
+    <div class="NFC45BRacket">
+      <playoff-game-view team1="$ctrl.teams(10)" team2="$ctrl.teams(9)"></playoff-game-view>
+    </div>
+  </div>
+</div>

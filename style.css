@@ -164,3 +164,45 @@ button:active {
     font-size: xx-large;
     text-align: center;
 }
+
+.predictedWinner {
+    text-align: center;
+}
+
+.pwHeader {
+    text-align: center;
+}
+
+.pwImages{
+    display: flex;
+    justify-content: center;
+}
+
+.predSBWin {
+    width: 197px;
+    height: 197px;
+    margin: 5px;
+}
+.trophy {
+    width: 70px;
+    height: 197px;
+    margin: 5px;
+}
+
+.pwPCT {
+    text-align: center;
+}
+.playoffGame{
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+}
+
+.superbowlBracket {
+    width: 50%;
+}
+
+.playoffGameDiv{
+    justify-content: center;
+    text-align: center;
+}

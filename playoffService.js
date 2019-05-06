@@ -3,6 +3,21 @@ function playoffService()
 {
   this.characterMap = new Map();
 
+  this.getWildcardPCT = function(teamName) {
+    for(var i = 0; i < 12; i++)
+    {
+      if(forecastData.playoffs.afcteams[i] === teamName)
+      {
+        return forecastData.playoffs.afcwildCard[i];
+      }
+      if(forecastData.playoffs.nfcteams[i] === teamName)
+      {
+        return forecastData.playoffs.nfcwildCard[i];
+      }
+    }
+    return 0;
+  };
+
   this.initcharacterMap = function(characterMap){
     var afcTeams = forecastData.playoffs.afcteams;
     var afc1=afcTeams[0];

@@ -1,0 +1,34 @@
+<div class="playoffGameDiv" ng-if="!$ctrl.fakeGame">
+  <table class="playoffGame">
+    <tr>
+      <td>
+        {{$ctrl.team1}}
+      </td>
+      <td>
+        {{$ctrl.getWildCard($ctrl.team1)}}%
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{$ctrl.team2}}
+      </td>
+      <td>
+        {{$ctrl.getWildCard($ctrl.team2)}}%
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="playoffGameDiv" ng-if="$ctrl.fakeGame">
+  <table class="playoffGame">
+    <tr>
+      <td>
+        {{$ctrl.team1}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{$ctrl.team2}}
+      </td>
+    </tr>
+  </table>
+</div>

@@ -36,7 +36,7 @@ function logoService()
     logoMap.set("Jacksonville Jaguars", {image: "images/Jacksonville-Jaguars.jpg"});
     logoMap.set("New York Jets", {image: "images/New-York-Jets.jpg"});
     logoMap.set("Oakland Raiders", {image: "images/Oakland-Raiders.jpg"});
-
+    logoMap.set("trophy", {image:"images/Lombardi-Trophy.jpg"});
   };
 
   this.initlogomap(this.logoMap);
