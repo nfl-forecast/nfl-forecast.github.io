@@ -209,10 +209,10 @@ button:active {
     text-align: center;
 }
 
-.conferenceBracket, divionsalBracket{
+.conferenceBracket, .divionsalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
     display: flex;
 }
 
-.AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2BRacket, .NFC1Bracket, .NFC2BRacket{
+.AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2BRacket, .NFC1Bracket, .NFC2BRacket, .AFCWildcardBracket, .NFCWildcardBracket, .AFC36Bracket, .AFC45Bracket, .NFC36Bracket, .NFC45Bracket{
   width: 50%;
 }
