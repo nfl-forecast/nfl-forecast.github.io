@@ -218,6 +218,6 @@ button:active {
 }
 
 body{
-    min-width: 500px;
+    min-width: 1000px;
     max-width: 2000px;
 }
