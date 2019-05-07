@@ -2,7 +2,12 @@
   <table class="playoffGame">
     <tr>
       <td class="bracketTeam">
-        {{$ctrl.team1}}
+        <div class = "bracketLogo">
+          <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team1)}}">
+        </div>
+        <div class = "bracketName">
+          {{$ctrl.team1}}
+        </div>
       </td>
       <td>
         {{$ctrl.getWildCard($ctrl.team1)}}%
@@ -10,7 +15,12 @@
     </tr>
     <tr>
       <td class="bracketTeam">
-        {{$ctrl.team2}}
+        <div class = "bracketLogo">
+          <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team2)}}">
+        </div>
+        <div class = "bracketName">
+          {{$ctrl.team2}}
+        </div>
       </td>
       <td>
         {{$ctrl.getWildCard($ctrl.team2)}}%
@@ -27,7 +37,12 @@
     </tr>
     <tr>
       <td class="bracketTeam">
-        {{$ctrl.team2}}
+        <div class = "bracketLogo"  ng-if="!($ctrl.t2 ===undefined)">
+          <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team2)}}">
+        </div>
+        <div class = "bracketName">
+          {{$ctrl.team2}}
+        </div>
       </td>
     </tr>
   </table>

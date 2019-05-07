@@ -171,6 +171,7 @@ button:active {
 
 .pwHeader {
     text-align: center;
+    font-size: large;
 }
 
 .pwImages{
@@ -182,7 +183,6 @@ button:active {
     width: 197px;
     height: 197px;
     margin: 5px;
-    margin-left: auto;
 }
 .trophy {
     width: 70px;
@@ -193,6 +193,7 @@ button:active {
 
 .pwPCT {
     text-align: center;
+    font-size:medium;
 }
 .playoffGame{
     justify-content: center;
@@ -221,7 +222,7 @@ button:active {
 }
 
 .bracketTeam {
-    margin: 5px;
+    padding: 5px;
 }
 
 body{
@@ -231,9 +232,14 @@ body{
 
 .pwLogo{
     width:50%;
-    margin-left: auto;
+    text-align:right;
 }
 .trophyDiv{
     width:50%;
-    margin-right:auto;
+    text-align: left;
+}
+
+.bracketLogo{
+    height:60px;
+    width:60px;
 }

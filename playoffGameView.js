@@ -15,13 +15,18 @@ function PGVController(logoService, teamService, playoffService) {
     this.t2 = teamService.getTeam(this.team2);
     if(this.t1 === undefined || this.t2===undefined)
       this.fakeGame = true;
-  }
+  };
 
   this.getLogo = function(teamName) {
     return logoService.getLogo(teamName);
-  }
+  };
 
   this.getWildCard = function(teamName) {
     return playoffService.getWildcardPCT(teamName);
+  };
+
+  this.getTeam2 = function() {
+    var test = !(this.t2 ===undefined);
+    return test;
   }
 }
