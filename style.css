@@ -194,8 +194,9 @@ button:active {
 }
 .playoffGame{
     justify-content: center;
-    width: 50px;
+    width: 200px;
     margin: 10px;
+    height: 73px;
     margin-left:auto;
     margin-right:auto;
 }
