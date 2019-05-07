@@ -218,6 +218,10 @@ button:active {
   width: 50%;
 }
 
+.bracketTeam {
+    margin: 3px;
+}
+
 body{
     min-width: 1000px;
     max-width: 2000px;
