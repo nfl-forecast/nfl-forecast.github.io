@@ -209,7 +209,7 @@ button:active {
     text-align: center;
 }
 
-.conferenceBracket, .divionsalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
+.conferenceBracket, .divisionalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
     display: flex;
 }
 
