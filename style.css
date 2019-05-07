@@ -209,10 +209,10 @@ button:active {
     text-align: center;
 }
 
-.conferenceBracket{
+.conferenceBracket, divionsalBracket{
     display: flex;
 }
 
-.AFCConferenceBracket, .NFCConferenceBracket{
+.AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2BRacket, .NFC1Bracket, .NFC2BRacket{
   width: 50%;
 }
