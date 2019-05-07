@@ -194,7 +194,7 @@ button:active {
 }
 .playoffGame{
     justify-content: center;
-    width: 15%;
+    width: 50px;
     margin: 10px;
     margin-left:auto;
     margin-right:auto;
@@ -215,4 +215,9 @@ button:active {
 
 .AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2BRacket, .NFC1Bracket, .NFC2BRacket, .AFCWildcardBracket, .NFCWildcardBracket, .AFC36Bracket, .AFC45Bracket, .NFC36Bracket, .NFC45Bracket{
   width: 50%;
+}
+
+body{
+    min-width: 500px;
+    max-width: 2000px;
 }
