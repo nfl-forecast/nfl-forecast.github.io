@@ -208,3 +208,11 @@ button:active {
     justify-content: center;
     text-align: center;
 }
+
+.conferenceBracket{
+    display: flex;
+}
+
+.AFCConferenceBracket, .NFCConferenceBracket{
+  width: 50%;
+}
