@@ -1,7 +1,7 @@
 <div class="playoffGameDiv" ng-if="!$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
-      <td>
+      <td class="bracketTeam">
         {{$ctrl.team1}}
       </td>
       <td>
@@ -9,7 +9,7 @@
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="bracketTeam">
         {{$ctrl.team2}}
       </td>
       <td>
@@ -21,12 +21,12 @@
 <div class="playoffGameDiv" ng-if="$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
-      <td>
+      <td class="bracketTeam">
         {{$ctrl.team1}}
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="bracketTeam">
         {{$ctrl.team2}}
       </td>
     </tr>
