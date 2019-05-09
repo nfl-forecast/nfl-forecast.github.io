@@ -37,11 +37,17 @@
 <div class="playoffGameDiv" ng-if="$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
+       <td class="awayTeam">
+          Away
+      </td>
       <td class="bracketTeam">
         {{$ctrl.team1}}
       </td>
     </tr>
     <tr>
+      <td class="awayTeam">
+          Home
+      </td>
       <td class="bracketTeam">
         <div class = "bracketLogo"  ng-if="!($ctrl.t2 ===undefined)">
           <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team2)}}">
