@@ -26,6 +26,7 @@ public class Driver{
 	public static boolean allPlayed;
 	public String lastUpdated;
 	public double[][] full3232Array;
+	public String[] names3232Array;
 	public static SchedType type;
 	public Driver() {
 		type = SchedType.regularSeasonStarted;
@@ -110,11 +111,14 @@ public class Driver{
 		lastUpdated = dateFormat.format(date); //2016/11/16 12:08:43
 		
 		Team[] allTeams = new Team[32];
+		names3232Array = new String[32];
 		
 		for(int i = 0; i < 16; i++)
 		{
 			allTeams[i] = AFCTeams[i];
 			allTeams[i+16] = NFCTeams[i];
+			names3232Array[i] = AFCTeams[i].name;
+			names3232Array[i+16] = NFCTeams[i].name;
 		}
 		
 		full3232Array = PlayoffCalc.makeFullPercents(allTeams);
