@@ -17,6 +17,8 @@ import teamStructure.Conference;
 import teamStructure.Division;
 import teamStructure.Team;
 
+
+
 public class Driver{
 	public Conference AFC, NFC;
 	public Schedule season;
@@ -24,7 +26,9 @@ public class Driver{
 	public static boolean allPlayed;
 	public String lastUpdated;
 	public double[][] full3232Array;
+	public static SchedType type;
 	public Driver() {
+		type = SchedType.regularSeasonStarted;
 		allPlayed = false;
 		
 		Team NE = new Team("New England Patriots", new Color(12, 35, 64), new Color(162, 170, 173)),

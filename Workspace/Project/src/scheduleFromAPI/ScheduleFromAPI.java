@@ -11,6 +11,9 @@ import java.time.LocalDate;
 import java.util.Base64;
 import java.util.Scanner;
 
+import topLevel.Driver;
+import topLevel.SchedType;
+
 public class ScheduleFromAPI {
 
 	public static String get() {
@@ -30,12 +33,15 @@ public class ScheduleFromAPI {
 				return str;
 			else {
 				//TODO: set up what happens if currently playoffs
+
+				Driver.type = SchedType.playoffs;
 				return null;
 			}
 
 		} catch (Exception e) {
 			try {
 				String str = get("upcoming");
+				Driver.type = SchedType.regularSeasonNext;
 				return str;
 			} catch (Exception f) {
 				int year = LocalDate.now().getYear();

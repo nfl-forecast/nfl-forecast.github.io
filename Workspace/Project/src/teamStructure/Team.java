@@ -11,6 +11,7 @@ import data.FullStats;
 import data.Stat;
 import data.TeamStats;
 import topLevel.Driver;
+import topLevel.SchedType;
 
 @JsonIgnoreProperties(value = { "stat" })
 public class Team{
@@ -276,16 +277,31 @@ public class Team{
 	
 	public String getStatWins()
 	{
-		return stat.stats.Wins.text;
+		if(Driver.type != SchedType.regularSeasonNext)
+			return stat.stats.Wins.text;
+		else
+		{
+			return "0";
+		}
 	}
 	
 	public String getStatLosses()
 	{
-		return stat.stats.Losses.text;
+		if(Driver.type != SchedType.regularSeasonNext)
+			return stat.stats.Losses.text;
+		else
+		{
+			return "0";
+		}
 	}
 	
 	public String getStatTies()
 	{
-		return stat.stats.Ties.text;
+		if(Driver.type != SchedType.regularSeasonNext)
+			return stat.stats.Ties.text;
+		else
+		{
+			return "0";
+		}
 	}
 }
