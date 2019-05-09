@@ -4,7 +4,7 @@
     <div class = 'fpi'> FPI: {{$ctrl.getFPI($ctrl.game.awayTeamName)}}</div>
   </div>
   <div class = "gameInfo">
-    <div class = "percentBar" style="display:flex">
+    <div class = "percentBar" style="display:flex" ng-if="$ctrl.game.played === false">
       <div class = "awayBar"style='background:{{$ctrl.getPcolor($ctrl.game.awayTeamName)}}; width:{{$ctrl.game.awayPercent}}'>
       <div class="awayPCT" style='color:{{$ctrl.getScolor($ctrl.game.awayTeamName)}}; text-align: right'>
        {{$ctrl.game.awayPercent}}&nbsp;
@@ -13,6 +13,9 @@
       <div class="homePCT" style='background:{{$ctrl.getPcolor($ctrl.game.homeTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.homeTeamName)}}; width:{{$ctrl.game.homePercent}}'>
        &nbsp;{{$ctrl.game.homePercent}}
       </div>
+    </div>
+    <div class = "gameComplete" ng-if="$ctrl.game.played === true">
+      Game Played
     </div>
     <div class = "gameWhenWhere">
       <div class = "gameDate">

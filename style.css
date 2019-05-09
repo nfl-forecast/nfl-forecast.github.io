@@ -249,3 +249,8 @@ body{
 	text-align:left;
 	color:gray;
 }
+
+
+.gameComplete {
+    font-size: x-large;
+}
