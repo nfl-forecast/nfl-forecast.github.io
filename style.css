@@ -84,7 +84,7 @@ table,td,th{
 }
 
 .teamNameStandings{
-    width:70%;
+    width:50%;
     justify-items: left;
     text-align: left;
 }
@@ -242,4 +242,10 @@ body{
 .bracketLogo{
     height:60px;
     width:60px;
+}
+
+.currRecordStandings{
+	width:20%;
+	text-align:left;
+	color:gray;
 }
