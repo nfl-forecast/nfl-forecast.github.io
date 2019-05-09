@@ -185,18 +185,18 @@ function PTVController(logoService)
 
   this.getColor = function(withoutSymbol) {
     var percent = Number.parseFloat(withoutSymbol);
-    var total = 255;
-    var amount = percent * total/100;
-    var rounded = Math.round(amount);
-    var adjusted = 300-amount;
-    if(adjusted > 255) adjusted = 255;
-    return adjusted;
+	var adjusted = -1/100 * Math.pow(percent * 4/3 - 100,2) + 100;
+	if(adjusted > 100) adjusted = 100;
+	var red = (-51 * Math.pow(adjusted,2))/2000 + 255;
+	var blue = (-153 * Math.pow(adjusted - 50,2))/2000 + 765 / 4;
+	var green = (-51 * Math.pow(adjusted - 100,2))/2000 + 255;
+    return "rgb(" + Math.round(red) + ", " + Math.round(green) + ", " + Math.round(blue) + ")";
   }
 
   this.style = function(team) {
     if(team.seed <= 2)
       return "grey";
     else
-      return "rgb(" + this.getColor(team.wildcard) + ", 0, 0)";
+      return this.getColor(team.wildcard);
   };
 }
