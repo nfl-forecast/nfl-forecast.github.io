@@ -438,4 +438,16 @@ public class PlayoffCalc{
 		}
 		return teamName;
 	}
+	
+	public static double[][] makeFullPercents(Team[] teams){
+		double[][] percents = new double[32][32];
+		for(int i = 0; i < 32; i++)
+			for(int j= i+1; j < 32; j++)
+			{
+				double percent = teams[i].superBowl(teams[j]);
+				percents[i][j] = percent;
+				percents[j][i] = 1-percent;
+			}
+		return percents;
+	}
 }

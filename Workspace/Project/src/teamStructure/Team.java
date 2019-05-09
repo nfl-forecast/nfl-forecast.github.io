@@ -273,4 +273,19 @@ public class Team{
 	{
 		wins = newWins;
 	}
+	
+	public String getStatWins()
+	{
+		return stat.stats.Wins.text;
+	}
+	
+	public String getStatLosses()
+	{
+		return stat.stats.Losses.text;
+	}
+	
+	public String getStatTies()
+	{
+		return stat.stats.Ties.text;
+	}
 }

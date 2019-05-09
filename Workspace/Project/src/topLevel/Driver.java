@@ -23,6 +23,7 @@ public class Driver{
 	public PlayoffCalc playoffs;
 	public static boolean allPlayed;
 	public String lastUpdated;
+	public double[][] full3232Array;
 	public Driver() {
 		allPlayed = false;
 		
@@ -103,6 +104,16 @@ public class Driver{
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date date = new Date();
 		lastUpdated = dateFormat.format(date); //2016/11/16 12:08:43
+		
+		Team[] allTeams = new Team[32];
+		
+		for(int i = 0; i < 16; i++)
+		{
+			allTeams[i] = AFCTeams[i];
+			allTeams[i+16] = NFCTeams[i];
+		}
+		
+		full3232Array = PlayoffCalc.makeFullPercents(allTeams);
 	}
 
 	public void toJSON() {
