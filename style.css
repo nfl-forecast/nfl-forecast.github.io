@@ -197,13 +197,16 @@ button:active {
 }
 .playoffGame{
     justify-content: center;
-    width: 225px;
+    width: 270px;
     margin: 30px;
     height: 73px;
     margin-left:auto;
     margin-right:auto;
 }
 
+.awayTeam, .homeTeam{
+    width: 60px;
+}
 .superbowlBracket {
     width: 100%;
 }
