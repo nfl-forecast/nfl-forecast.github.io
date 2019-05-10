@@ -37,7 +37,7 @@
 <div class="playoffGameDiv" ng-if="$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
-       <td class="awayTeam">
+       <td class="awayTeam" ng-if="!($ctrl.team1 == 'AFC Winner')">
           Away
       </td>
       <td class="bracketTeam">
@@ -45,7 +45,7 @@
       </td>
     </tr>
     <tr>
-      <td class="awayTeam">
+      <td class="HomeTeam" ng-if="!($ctrl.team2 == 'NFC Winner')">
           Home
       </td>
       <td class="bracketTeam">
