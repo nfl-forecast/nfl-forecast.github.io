@@ -43,11 +43,15 @@
 
 .teamNameSection{
     display:flex;
+    font-size: x-large;
 }
 
+.winsStandings, .lossesStandings, .fpiStandings, .tiesStandings, .standingsHeaderRow{
+    font-size: x-large;
+}
 .imageStandings{
-    height:38px;
-    width:38px;
+    height:72px;
+    width:72px;
 }
 table,td,th{
     border: 1px solid black;
@@ -75,7 +79,8 @@ table,td,th{
 }
 
 .standingsTable{
-    width:500px;
+    width:1000px;
+    height: 400px;
 }
 
 .logoStandings{
@@ -105,10 +110,14 @@ table,td,th{
 }
 
 .confNameConfStandings{
-    font-size: larger;
+    font-size: xx-large;
     font-weight: bold;
 }
 
+.divStandingsBlock{
+    font-size: x-large;
+    font-weight: bold;
+}
 .teamNameCell{
     width:70%;
 }
@@ -248,7 +257,7 @@ body{
 }
 
 .currRecordStandings{
-	width:20%;
+	width:30%;
 	text-align:left;
 	color:gray;
 }
