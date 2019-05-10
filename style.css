@@ -257,3 +257,7 @@ body{
 .gameComplete {
     font-size: x-large;
 }
+
+.playoffTable{
+    width: 1000px;
+}
