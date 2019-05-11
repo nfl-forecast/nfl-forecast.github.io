@@ -322,12 +322,11 @@ function CVController(logoService, teamService) {
       }
       this.amerFinal[i] = sumAmer * this.amerConf[i];
     }
-
     this.teamPercents =[];
     for(var i = 0; i < 6; i++)
-      this.teamPercents[i] = {seed: i+1, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:(this.natWildCard[0][i]+this.natWildCard[1][i])*100, divisional:(this.natDivisional[0][i]+this.natDivisional[1][i])*100, conference:(this.natConf[i])*100, superBowl:100*this.natFinal[i]};
+      this.teamPercents[i] = {seed: i+1, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.natWildCard[0][i]+this.natWildCard[1][i])*100).toFixed(2), divisional:((this.natDivisional[0][i]+this.natDivisional[1][i])*100).toFixed(2), conference:((this.natConf[i])*100).toFixed(2), superBowl:(100*this.natFinal[i]).toFixed(2)};
     for(var i = 6; i < 12; i++)
-      this.teamPercents[i] = {seed: i-5, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:(this.amerWildCard[0][i-6]+this.amerWildCard[1][i-6])*100, divisional:(this.amerDivisional[0][i-6]+this.amerDivisional[1][i-6])*100, conference: (this.amerConf[i-6])*100, superBowl:(this.amerFinal[i-6])*100};
+      this.teamPercents[i] = {seed: i-5, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.amerWildCard[0][i-6]+this.amerWildCard[1][i-6])*100).toFixed(2), divisional:((this.amerDivisional[0][i-6]+this.amerDivisional[1][i-6])*100).toFixed(2), conference: ((this.amerConf[i-6])*100).toFixed(2), superBowl:((this.amerFinal[i-6])*100).toFixed(2)};
     this.originalOrder = angular.copy(this.teamPercents);
   };
 
