@@ -239,7 +239,7 @@ button:active {
 
 body{
     min-width: 1000px;
-    max-width: 2000px;
+    max-height: 2000px;
 }
 
 .pwLogo{
