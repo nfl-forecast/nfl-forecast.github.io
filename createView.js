@@ -109,7 +109,16 @@ function CVController(logoService, teamService) {
   };
 
   this.superbowlCalc = function(homeTeam, awayTeam) {
-    return 1/(Math.pow(10, (-(this.getFPI(homeTeam)-this.getFPI(awayTeam)))/3.5)+1);
+    var hF = this.getFPI(homeTeam)/100;
+    var aF = this.getFPI(awayTeam)/100;
+
+    var fpiDiff = -(hF-aF);
+
+    var exponent = (fpiDiff)/3.5;
+    var power = Math.pow(10.0, exponent);
+
+
+    return 1.0/(power+1);
   };
 
   this.makeCalculations = function() {
@@ -324,42 +333,10 @@ function CVController(logoService, teamService) {
     }
     this.teamPercents =[];
     for(var i = 0; i < 6; i++)
-      this.teamPercents[i] = {seed: i+1, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.natWildCard[0][i]+this.natWildCard[1][i])*100).toFixed(2), divisional:((this.natDivisional[0][i]+this.natDivisional[1][i])*100).toFixed(2), conference:((this.natConf[i])*100).toFixed(2), superBowl:(100*this.natFinal[i]).toFixed(2)};
+      this.teamPercents[i] = {seed: i+1, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.natWildCard[0][i]+this.natWildCard[1][i])*100).toFixed(2), divisional:((this.natDivisional[0][i]+this.natDivisional[1][i])*100).toFixed(2), conference:((this.natConf[i])*100).toFixed(2), superbowl:(100*this.natFinal[i]).toFixed(2)};
     for(var i = 6; i < 12; i++)
-      this.teamPercents[i] = {seed: i-5, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.amerWildCard[0][i-6]+this.amerWildCard[1][i-6])*100).toFixed(2), divisional:((this.amerDivisional[0][i-6]+this.amerDivisional[1][i-6])*100).toFixed(2), conference: ((this.amerConf[i-6])*100).toFixed(2), superBowl:((this.amerFinal[i-6])*100).toFixed(2)};
+      this.teamPercents[i] = {seed: i-5, teamName:this.seeds[i], fpi:this.getFPI(this.seeds[i]), wildcard:((this.amerWildCard[0][i-6]+this.amerWildCard[1][i-6])*100).toFixed(2), divisional:((this.amerDivisional[0][i-6]+this.amerDivisional[1][i-6])*100).toFixed(2), conference: ((this.amerConf[i-6])*100).toFixed(2), superbowl:((this.amerFinal[i-6])*100).toFixed(2)};
     this.originalOrder = angular.copy(this.teamPercents);
-  };
-
-  this.getWildCard = function(teamName) {
-    if(this.amerPerc === undefined) {
-      this.makeCalculations();
-    }
-
-    return this.teamPercents[this.getIndex(teamName)].wildcard;
-  };
-
-  this.getDivisional = function(teamName) {
-    if(this.amerPerc === undefined) {
-      this.makeCalculations();
-    }
-
-    return this.teamPercents[this.getIndex(teamName)].divisional;
-  };
-
-  this.getConfernce = function(teamName) {
-    if(this.amerPerc === undefined) {
-      this.makeCalculations();
-    }
-
-    return this.teamPercents[this.getIndex(teamName)].conference;
-  };
-
-  this.getSuperbowl = function(teamName) {
-    if(this.amerPerc === undefined) {
-      this.makeCalculations();
-    }
-
-    return this.teamPercents[this.getIndex(teamName)].superbowl;
   };
 
   this.getIndex = function(teamName) {
