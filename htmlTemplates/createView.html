@@ -1,3 +1,6 @@
+<div class="chooseButtonHeader">
+  Select Teams to see their percent below
+</div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">
   <seed-buttons changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
 </div>
