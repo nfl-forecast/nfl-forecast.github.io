@@ -15,8 +15,7 @@ function MainController()
   this.STANDINGS = 1;
   this.BRACKET = 2;
   this.TABLE = 3;
-  this.HOW = 4;
-  this.CREATE = 5;
+  this.CREATE = 4;
   this.shown = this.SCHEDULE;
 
   this.getCurrTeams = function() {
