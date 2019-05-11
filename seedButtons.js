@@ -1,5 +1,5 @@
 angular.module('nflforecast').component('seedButtons', {
-  controller: ["logoService", SBController],
+  controller: ["teamService", "logoService", SBController],
   bindings: {
     allseeds: "=",
     index: "=",
@@ -11,15 +11,19 @@ angular.module('nflforecast').component('seedButtons', {
 
 });
 
-function SBController(logoService) {
+function SBController(teamService, logoService) {
   this.$onInit = function() {
   };
 
   this.clicked = function(teamName) {
     if(!this.allseeds.includes(teamName))
     {
-      this.allseeds[this.index] = teamName;
-      this.changed = true;
+      var afterSeeds = angular.copy(this.allseeds);
+      afterSeeds[this.index] = teamName;
+      if(teamService.validPlayoffs(afterSeeds)) {
+        this.allseeds[this.index] = teamName;
+        this.changed = true;
+      }
     }
   };
 
