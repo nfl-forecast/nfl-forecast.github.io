@@ -79,32 +79,97 @@ function teamService() {
     return this.getTeam(teamName).secondaryColor;
   };
 
-  this.oneFrom = function (conference, divWinners) {
-    var count = 0;
-    for (var team in conference.teams) {
-      if (divWinners.includes(conference.teams[team].name))
-        count++;
+  // this.oneFrom = function (conference, divWinners) {
+  //   var count = 0;
+  //   for (var team in conference.teams) {
+  //     if (divWinners.includes(conference.teams[team].name))
+  //       count++;
+  //   }
+  //   if (count !== 1)
+  //     return false;
+  //   else return true;
+  // };
+  //
+  // this.validPlayoffs = function (seeds) {
+  //   var AFCSeeds = seeds.slice(0, 6);
+  //   var NFCSeeds = seeds.slice(6);
+  //
+  //   var AFCDiv = AFCSeeds.slice(0, 4);
+  //   var NFCDiv = NFCSeeds.slice(0, 4);
+  //
+  //   var afc = true;
+  //   var nfc = true;
+  //
+  //   for (var division in forecastData.AFC)
+  //     afc = afc && this.oneFrom(forecastData.AFC[division], AFCDiv);
+  //   for (var division in forecastData.NFC)
+  //     nfc = nfc && this.oneFrom(forecastData.NFC[division], NFCDiv);
+  //
+  //   return afc && nfc;
+  // };
+
+  this.getDivisionTeams = function(teamName) {
+    var conferences = this.getConferenceNames()
+    for (var confIndex in conferences) {
+      for (var division in forecastData[conferences[confIndex]]) {
+        var conf = forecastData[conferences[confIndex]];
+        for (var team in conf[division].teams) {
+          if (conf[division].teams[team].name === teamName) {
+            return conf[division].teams;
+          }
+        }
+      }
     }
-    if (count !== 1)
-      return false;
-    else return true;
+    return undefined;
+  }
+
+  this.getNames = function(teamArray) {
+    var names = [];
+    for(var i = 0; i < teamArray.length; i++) {
+      names[i] = teamArray[i].name;
+    }
+    return names;
   };
 
-  this.validPlayoffs = function (seeds) {
-    var AFCSeeds = seeds.slice(0, 6);
-    var NFCSeeds = seeds.slice(6);
-
-    var AFCDiv = AFCSeeds.slice(0, 4);
-    var NFCDiv = NFCSeeds.slice(0, 4);
-
-    var afc = true;
-    var nfc = true;
-
-    for (var division in forecastData.AFC)
-      afc = afc && this.oneFrom(forecastData.AFC[division], AFCDiv);
-    for (var division in forecastData.NFC)
-      nfc = nfc && this.oneFrom(forecastData.NFC[division], NFCDiv);
-
-    return afc && nfc;
+  this.getDivisionalRivalIndex = function(teamName, seeds) {
+    var confIndex = this.getConfIndex(teamName);
+    var index = 0;
+    var divWinners = [];
+    if(parseInt(confIndex) === 0)
+      divWinners = seeds.slice(0,4);
+    else {
+      divWinners = seeds.slice(6, 10);
+      index += 6;
+    }
+    var divteams = this.getNames(this.getDivisionTeams(teamName));
+    for(var i =0; i <divteams.length; i++) {
+      for (var j = 0; j < divWinners.length; j++) {
+        if (divteams[i] === divWinners[j]) {
+          return index + j;
+        }
+      }
+    }
+    return -1;
   };
+
+  this.getConfIndex = function(teamName) {
+    var conferences = this.getConferenceNames()
+    for (var confIndex in conferences) {
+      for (var division in forecastData[conferences[confIndex]]) {
+        var conf = forecastData[conferences[confIndex]];
+        for (var team in conf[division].teams) {
+          if (conf[division].teams[team].name === teamName) {
+            return confIndex;
+          }
+        }
+      }
+    }
+    return undefined;
+  }
+
+  this.getRandomDivTeam = function(teamName) {
+    var teams = this.getDivisionTeams(teamName);
+    if(teams[0].name !== teamName) return teams[0].name;
+    else return teams[1].name;
+  }
 }
