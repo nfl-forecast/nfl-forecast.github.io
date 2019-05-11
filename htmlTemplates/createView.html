@@ -1,0 +1,60 @@
+<div ng-repeat="seed in $ctrl.seeds track by $index">
+  <seed-buttons changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
+</div>
+{{$ctrl.verify()}}
+<table class = "playoffTable">
+  <tr class="playoffTableHeaderRow1">
+    <th colspan = "3">
+      Team Information
+    </th>
+    <th colspan = "4">
+      Percent Chance To Win
+    </th>
+  </tr>
+  <tr class="playoffTableHeaderRow">
+    <th class = "playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortSeed()"> Seed </div>
+    </th>
+    <th class ="playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortTeam()"> Team </div>
+    </th>
+    <th class ="playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortFPI()"> FPI </div>
+    </th>
+    <th class ="playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortWC()"> Wild card </div>
+    </th>
+    <th class = "playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortDiv()"> Divisional </div>
+    </th>
+    <th class = "playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortConf()"> Conference </div>
+    </th>
+    <th class = "playoffTableHeaderCell">
+      <div class="playoffTableBtn" ng-click="$ctrl.sortSB()"> Super Bowl </div>
+    </th>
+  </tr>
+  <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.teamPercents track by $index">
+    <td classs="playoffTableSeedCell">
+      {{team.seed}}
+    </td>
+    <td class="playoffTableLogoCell">
+      <img class='playoffTableLogo' ng-src='{{$ctrl.getLogo(team.teamName)}}'>
+    </td>
+    <td class="playoffTableFPICell">
+      {{team.fpi}}
+    </td>
+    <td class="playoffTableDataCell wildcard{{team.seed}}" style="background:{{$ctrl.style(team)}}">
+      {{$ctrl.wildcard($index)}}
+    </td>
+    <td class="playoffTableDataCell"  style="background:{{$ctrl.getColor(team.divisional)}}">
+      {{team.divisional + "%"}}
+    </td>
+    <td class="playoffTableDataCell" style="background:{{$ctrl.getColor(team.conference)}}">
+      {{team.conference + "%"}}
+    </td>
+    <td class="playoffTableDataCell" style="background:{{$ctrl.getColor(team.superbowl)}}">
+      {{team.superBowl + "%"}}
+    </td>
+  </tr>
+</table>

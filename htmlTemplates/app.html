@@ -3,6 +3,7 @@
   <button id="standings" class = "HeaderButton, Button{{$ctrl.shown===$ctrl.STANDINGS}}" ng-click="$ctrl.shown=$ctrl.STANDINGS">Standings</button>
   <button id="bracket" class = "HeaderButton, Button{{$ctrl.shown===$ctrl.BRACKET}}" ng-click="$ctrl.shown=$ctrl.BRACKET">Playoff Bracket</button>
   <button id ="percents" class = "HeaderButton, Button{{$ctrl.shown===$ctrl.TABLE}}" ng-click="$ctrl.shown=$ctrl.TABLE">Playoff Table</button>
+  <button id ="create" class = "HeaderButton, Button{{$ctrl.shown===$ctrl.CREATE}}" ng-click="$ctrl.shown=$ctrl.CREATE">Create Your Own Playoffs</button>
   <button id="info" class = "HeaderButton, Button{{$ctrl.shown===$ctrl.HOW}}" ng-click="$ctrl.shown=$ctrl.HOW">How We Do It</button>
 </div>
 <p> </p>
@@ -17,6 +18,9 @@
 </div>
 <div id = 'PlayoffContainer' ng-if="$ctrl.shown===$ctrl.TABLE">
   <playoff-table-view playoffs='$ctrl.data.playoffs'></playoff-table-view>
+</div>
+<div id = 'CreateContainer' ng-if="$ctrl.shown===$ctrl.CREATE">
+  <create-view names='$ctrl.data.names3232Array' percents="$ctrl.data.full3232Array" actualplayoffteams="$ctrl.currTeams"></create-view>
 </div>
 <div class="lastUpdated">
   Last Updated On {{$ctrl.data.lastUpdated}}

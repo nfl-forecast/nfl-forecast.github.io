@@ -1,0 +1,10 @@
+<div class="chooseButtonRow">
+  <div class="chooseButtonHeader">
+    {{$ctrl.name}}
+  </div>
+  <div class ="chooseButtonsSection">
+    <div class="chooseButton" ng-repeat="team in $ctrl.allteams">
+      <img ng-src="{{$ctrl.getLogo(team)}}" ng-click="$ctrl.clicked(team)" class="chooseButtonImage">
+    </div>
+  </div>
+</div>

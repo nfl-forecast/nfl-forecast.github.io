@@ -270,3 +270,12 @@ body{
 .playoffTable{
     width: 1000px;
 }
+
+.chooseButtonRow, .chooseButtonsSection {
+    display:flex;
+}
+
+.chooseButtonImage {
+    height: 32px;
+    width: 32px;
+}
