@@ -418,8 +418,8 @@ function CVController(logoService, teamService) {
   this.sortDiv = function(){
     if(this.currSorted===this.DIV && this.sortedState === this.DESCENDING)
     {
-      this.teamPercents = this.ASCENDING;
-      this.playoffData.sort(function(a, b){
+      this.sortedState = this.ASCENDING;
+      this.teamPercents.sort(function(a, b){
         if (a.divisional < b.divisional) {return -1;}
         if (a.divisional > b.divisional) {return 1;}
         return 0;})
