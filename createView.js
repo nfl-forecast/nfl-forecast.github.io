@@ -312,7 +312,7 @@ function CVController(logoService, teamService) {
       var sumNat = 0, sumAmer = 0;
       // for nat comparing to amer
       for (var j = 0; j < this.natFinal.length; j++) {
-        sumNat += this.amerConf[j] * this.percent[i][j + 6];
+        sumNat += this  .amerConf[j] * this.percent[i][j + 6];
       }
       this.natFinal[i] = sumNat * this.natConf[i];
 
@@ -400,8 +400,8 @@ function CVController(logoService, teamService) {
     {
       this.sortedState = this.ASCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.wildcard < b.wildcard) {return -1;}
-        if (a.wildcard > b.wildcard) {return 1;}
+        if (parseFloat(a.wildcard) < parseFloat(b.wildcard)) {return -1;}
+        if (parseFloat(a.wildcard) > parseFloat(b.wildcard)) {return 1;}
         return 0;})
     }
     else
@@ -409,8 +409,8 @@ function CVController(logoService, teamService) {
       this.currSorted=this.WC;
       this.sortedState = this.DESCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.wildcard < b.wildcard) {return 1;}
-        if (a.wildcard > b.wildcard) {return -1;}
+        if (parseFloat(a.wildcard) < parseFloat(b.wildcard)) {return 1;}
+        if (parseFloat(a.wildcard) > parseFloat(b.wildcard)) {return -1;}
         return 0;})
     }
   };
@@ -420,8 +420,8 @@ function CVController(logoService, teamService) {
     {
       this.sortedState = this.ASCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.divisional < b.divisional) {return -1;}
-        if (a.divisional > b.divisional) {return 1;}
+        if (parseFloat(a.divisional) < parseFloat(b.divisional)) {return -1;}
+        if (parseFloat(a.divisional) > parseFloat(b.divisional)) {return 1;}
         return 0;})
     }
     else
@@ -429,8 +429,8 @@ function CVController(logoService, teamService) {
       this.currSorted=this.DIV;
       this.sortedState = this.DESCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.divisional < b.divisional) {return 1;}
-        if (a.divisional > b.divisional) {return -1;}
+        if (parseFloat(a.divisional) < parseFloat(b.divisional)) {return 1;}
+        if (parseFloat(a.divisional) > parseFloat(b.divisional)) {return -1;}
         return 0;})
     }
   };
@@ -440,8 +440,8 @@ function CVController(logoService, teamService) {
     {
       this.sortedState = this.ASCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.conference < b.conference) {return -1;}
-        if (a.conference > b.conference) {return 1;}
+        if (parseFloat(a.conference) < parseFloat(b.conference)) {return -1;}
+        if (parseFloat(a.conference) > parseFloat(b.conference)) {return 1;}
         return 0;})
     }
     else
@@ -449,8 +449,8 @@ function CVController(logoService, teamService) {
       this.currSorted=this.CONF;
       this.sortedState = this.DESCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.conference < b.conference) {return 1;}
-        if (a.conference > b.conference) {return -1;}
+        if (parseFloat(a.conference) < parseFloat(b.conference)) {return 1;}
+        if (parseFloat(a.conference) > parseFloat(b.conference)) {return -1;}
         return 0;})
     }
   };
@@ -460,8 +460,8 @@ function CVController(logoService, teamService) {
     {
       this.sortedState = this.ASCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.superbowl < b.superbowl) {return -1;}
-        if (a.superbowl > b.superbowl) {return 1;}
+        if (parseFloat(a.superbowl) < parseFloat(b.superbowl)) {return -1;}
+        if (parseFloat(a.superbowl) > parseFloat(b.superbowl)) {return 1;}
         return 0;})
     }
     else
@@ -469,8 +469,8 @@ function CVController(logoService, teamService) {
       this.currSorted=this.SB;
       this.sortedState = this.DESCENDING;
       this.teamPercents.sort(function(a, b){
-        if (a.superbowl < b.superbowl) {return 1;}
-        if (a.superbowl > b.superbowl) {return -1;}
+        if (parseFloat(a.superbowl) < parseFloat(b.superbowl)) {return 1;}
+        if (parseFloat(a.superbowl) > parseFloat(b.superbowl)) {return -1;}
         return 0;})
     }
   };
