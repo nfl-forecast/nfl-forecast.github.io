@@ -59,7 +59,7 @@ function PTVController(logoService)
   };
 
   this.sortSeed = function(){
-    this.selceted = this.SEED;
+    this.currSorted = this.SEED;
     this.playoffData = angular.copy(this.originalOrder);
   };
 
@@ -199,4 +199,17 @@ function PTVController(logoService)
     else
       return this.getColor(team.wildcard);
   };
+
+  this.getCarrot = function(type) {
+    if(this.currSorted === type) {
+      if(this.sortedState === this.DESCENDING){
+        return ('fas fa-caret-down');
+      }
+      else {
+        return ("fas fa-caret-up");
+      }
+    }
+    else return "";
+
+  }
 }

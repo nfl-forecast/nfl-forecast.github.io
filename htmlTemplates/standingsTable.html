@@ -2,18 +2,23 @@
   <tr class="standingsHeaderRow">
   <th class="teamNameStandingsHeader" ng-click="$ctrl.sortTeamName()">
     Team Information
+    <i class="{{$ctrl.getCarrot($ctrl.TEAMNAME)}}"></i>
   </th>
   <th class="fpiStandingsHeader" ng-click="$ctrl.sortFPI()">
     FPI
+    <i class="{{$ctrl.getCarrot($ctrl.FPI)}}"></i>
   </th>
   <th class="winsStandingsHeader" ng-click="$ctrl.sortWins()">
     Wins
+    <i class="{{$ctrl.getCarrot($ctrl.WINS)}}"></i>
   </th>
   <th class="lossesStandingsHeader" ng-click="$ctrl.sortLosses()">
     Losses
+    <i class="{{$ctrl.getCarrot($ctrl.LOSSES)}}"></i>
   </th>
   <th class="tiesStandingsHeader" ng-click="$ctrl.sortTies()">
     Ties
+    <i class="{{$ctrl.getCarrot($ctrl.TIES)}}"></i>
   </th>
   </tr>
   <tr class="standingsRow" ng-repeat="team in $ctrl.teamArr">

@@ -127,4 +127,17 @@ function STController(logoService, playoffService)
         return 0;})
     }
   };
+
+  this.getCarrot = function(type) {
+    if(this.currSorted === type) {
+      if(this.sortedState === this.DESCENDING){
+        return ('fas fa-caret-down');
+      }
+      else {
+        return ("fas fa-caret-up");
+      }
+    }
+    else return "";
+
+  }
 }

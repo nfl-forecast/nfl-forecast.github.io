@@ -348,7 +348,7 @@ function CVController(logoService, teamService) {
   }
 
   this.sortSeed = function(){
-    this.selceted = this.SEED;
+    this.currSorted = this.SEED;
     this.teamPercents = angular.copy(this.originalOrder);
   };
 
@@ -509,6 +509,19 @@ function CVController(logoService, teamService) {
 
   this.getLogo = function(teamName) {
     return logoService.getLogo(teamName);
+  }
+
+  this.getCarrot = function(type) {
+    if(this.currSorted === type) {
+      if(this.sortedState === this.DESCENDING){
+        return ('fas fa-caret-down');
+      }
+      else {
+        return ("fas fa-caret-up");
+      }
+    }
+    else return "";
+
   }
 
 }

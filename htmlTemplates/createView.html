@@ -17,24 +17,31 @@
   <tr class="playoffTableHeaderRow">
     <th class = "playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortSeed()"> Seed </div>
+      <i class="{{$ctrl.getCarrot($ctrl.SEED)}}"></i>
     </th>
     <th class ="playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortTeam()"> Team </div>
+      <i class="{{$ctrl.getCarrot($ctrl.NAME)}}"></i>
     </th>
     <th class ="playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortFPI()"> FPI </div>
+      <i class="{{$ctrl.getCarrot($ctrl.FPI)}}"></i>
     </th>
     <th class ="playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortWC()"> Wild card </div>
+      <i class="{{$ctrl.getCarrot($ctrl.WC)}}"></i>
     </th>
     <th class = "playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortDiv()"> Divisional </div>
+      <i class="{{$ctrl.getCarrot($ctrl.DIV)}}"></i>
     </th>
     <th class = "playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortConf()"> Conference </div>
+      <i class="{{$ctrl.getCarrot($ctrl.CONF)}}"></i>
     </th>
     <th class = "playoffTableHeaderCell">
       <div class="playoffTableBtn" ng-click="$ctrl.sortSB()"> Super Bowl </div>
+      <i class="{{$ctrl.getCarrot($ctrl.SB)}}"></i>
     </th>
   </tr>
   <tr class= "playoffTableDataRow" ng-repeat="team in $ctrl.teamPercents track by $index">
