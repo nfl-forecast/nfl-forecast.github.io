@@ -280,5 +280,5 @@ body{
 }
 
 standings-view, division-standings-view, league-standings-view, conference-standings-view {
-      max-height: 1000px;
+      max-height: 500px;
   }
