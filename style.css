@@ -239,7 +239,6 @@ button:active {
 
 body{
     min-width: 1000px;
-    max-height: 1000px;
 }
 
 .pwLogo{
@@ -279,3 +278,7 @@ body{
     height: 32px;
     width: 32px;
 }
+
+standings-view, division-standings-view, league-standings-view, conference-standings-view {
+      max-height: 1000px;
+  }
