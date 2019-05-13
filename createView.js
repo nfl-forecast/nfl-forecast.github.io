@@ -62,7 +62,7 @@ function CVController(logoService, teamService) {
     this.afcTeams = this.names.slice(0, 16);
     this.nfcTeams = this.names.slice(16);
     this.seeds = angular.copy(this.actualplayoffteams);
-
+    this.fun = false;
   };
 
   this.makePercents = function() {

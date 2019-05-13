@@ -1,8 +1,12 @@
+<div class="modeButton">
+  <button class="funMode" ng-click="$ctrl.fun = true"> Fun Mode </button>
+  <button class="realMode" ng-click="$ctrl.$onInit(); $ctrl.changed = true"> Real Mode </button>
+</div>
 <div class="chooseButtonHeader">
   Select Teams to see their percent below
 </div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">
-  <seed-buttons changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
+  <seed-buttons funmode= "$ctrl.fun" changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
 </div>
 {{$ctrl.verify()}}
 <table class = "playoffTable">
