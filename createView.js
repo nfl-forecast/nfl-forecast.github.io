@@ -527,6 +527,7 @@ function CVController(logoService, teamService) {
   this.funOn = function() {
     this.$onInit();
     this.funMode = true;
+    this.changed == true;
   }
 
 }
