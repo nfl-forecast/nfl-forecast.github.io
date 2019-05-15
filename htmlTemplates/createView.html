@@ -2,14 +2,14 @@
   <button class="funMode" ng-click="$ctrl.fun = true"> Fun Mode </button>
   <button class="realMode" ng-click="$ctrl.$onInit(); $ctrl.funOn()"> Real Mode </button>
 </div>
-<div class="chooseButtonHeader">
-  Select Teams to see their percent below
-</div>
-<div class ="blurbFun" ng-if="!$ctrl.funMode">
+<div class ="blurbFun" ng-if="$ctrl.fun">
   Use your creativity to create any scenario you can think of.
 </div>
-<div class="blurbReal" ng-if="$ctrl.funMode">
+<div class="blurbReal" ng-if="!$ctrl.fun">
   Create only purely realistic playoff scenarios.
+</div>
+<div class="chooseButtonHeader">
+  Select Teams to see their percent below
 </div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">
   <seed-buttons funmode= "$ctrl.fun" changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
