@@ -5,6 +5,12 @@
 <div class="chooseButtonHeader">
   Select Teams to see their percent below
 </div>
+<div class ="blurbFun" ng-if="!$ctrl.funMode">
+  Use your creativity to create any scenario you can think of.
+</div>
+<div class="blurbReal" ng-if="$ctrl.funMode">
+  Create only purely realistic playoff scenarios.
+</div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">
   <seed-buttons funmode= "$ctrl.fun" changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
 </div>
