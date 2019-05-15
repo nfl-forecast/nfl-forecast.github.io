@@ -1,6 +1,6 @@
 <div class="modeButton">
-  <button class="funMode" ng-click="$ctrl.fun = true"> Fun Mode </button>
-  <button class="realMode" ng-click="$ctrl.$onInit(); $ctrl.funOn()"> Real Mode </button>
+  <button class="funMode" ng-click=" $ctrl.funOn()"> Fun Mode </button>
+  <button class="realMode" ng-click="$ctrl.$onInit();"> Real Mode </button>
 </div>
 <div class ="blurbFun" ng-if="$ctrl.fun">
   Use your creativity to create any scenario you can think of.
