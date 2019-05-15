@@ -81,7 +81,7 @@ function SBController(teamService, logoService) {
           } else //in a wildcard spot going for wildcard spot
           {
             if (!(this.getSeed(teamName) === this.index)) {
-              var temp = angualt.copy(this.allseeds[this.index]);
+              var temp = angualar.copy(this.allseeds[this.index]);
               this.allseeds[this.index] = angular.copy(this.allseeds[teamIndex]);
               this.allseeds[teamIndex] = angular.copy(temp);
               this.changed = true;
