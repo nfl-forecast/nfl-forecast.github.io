@@ -526,6 +526,7 @@ function CVController(logoService, teamService) {
 
   this.funOn = function() {
     this.seeds = angular.copy(this.actualplayoffteams);
+    this.fun = true;
     this.changed == true;
   }
 
