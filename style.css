@@ -100,7 +100,7 @@ table,td,th{
 }
 
 .confNameDivStandings{
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bolder;
 }
 
@@ -283,3 +283,11 @@ body{
 standings-view, division-standings-view, league-standings-view, conference-standings-view {
       max-height: 500px;
   }
+
+.messageBody {
+    font-size: larger;
+}
+
+.messageHeader {
+    font-size: x-large;
+}
