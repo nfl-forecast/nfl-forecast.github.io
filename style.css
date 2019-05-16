@@ -157,8 +157,8 @@ button:active {
 }
 
 .Buttontrue{
-    background: #e5e5e5;
-    box-shadow: inset 0px 0px 5px #c1c1c1;
+    background: #aeaeae;
+    box-shadow: inset 0px 0px 5px #333333;
     outline: none;
 }
 
@@ -294,9 +294,20 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 
 .HeaderButton{
     font-size: xx-large;
+    padding: 10px;
 }
 
 #ButtonRow {
     display: flex;
     justify-content: space-between;
+}
+
+#weekButtons{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.weekButton {
+    font-size: larger;
 }

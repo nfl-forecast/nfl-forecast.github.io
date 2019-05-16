@@ -1,6 +1,11 @@
-<div id='weekButtons'>
-  <span class='weekButtonsStyle' ng-repeat='week in $ctrl.data.season.weeks track by $index'>
-    <button class='Button{{$ctrl.selected===$index}}' ng-click='$ctrl.selected=$index'>Week {{$index+1}}</button>
-  </span>
+<div class='weekButtons'>
+  <div class='weekButtonsStyle' ng-repeat='week in $ctrl.firstLine track by $index'>
+    <button class='weekButton Button{{$ctrl.selected===$index}}' ng-click='$ctrl.selected=$index'>Week {{$index+1}}</button>
+  </div>
+</div>
+<div class='weekButtons'>
+  <div class='weekButtonsStyle' ng-repeat='week in $ctrl.secondLine track by $index'>
+    <button class='weekButton Button{{$ctrl.selected===$index}}' ng-click='$ctrl.selected=$index'>Week {{$index+1}}</button>
+  </div>
 </div>
 <week-view week=$ctrl.data.season.weeks[$ctrl.selected]></week-view>
