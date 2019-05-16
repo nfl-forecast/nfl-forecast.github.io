@@ -38,8 +38,8 @@ function SBController(teamService, logoService) {
             var flag = false;
             for (var i = 4; i < 6; i++) {
               for (var j = 0; j < teamsindivision.length; j++) {
-                if (this.allseeds[i] === teamsindivision[j] && flag) {
-                  flag = false;
+                if (this.allseeds[i] === teamsindivision[j] && !flag) {
+                  flag = true;
                   var temp = angular.copy(this.allseeds[i]);
                   this.allseeds[i] = angular.copy(this.allseeds[teamIndex]);
                   this.allseeds[teamIndex] = angular.copy(temp);
@@ -50,8 +50,8 @@ function SBController(teamService, logoService) {
             }
             for (var i = 10; i < 12; i++) {
               for (var j = 0; j < teamsindivision.length; j++) {
-                if (this.allseeds[i] === teamsindivision[j] && flag) {
-                  flag = false;
+                if (this.allseeds[i] === teamsindivision[j] && !flag) {
+                  flag = true;
                   var temp = angular.copy(this.allseeds[i]);
                   this.allseeds[i] = angular.copy(this.allseeds[teamIndex]);
                   this.allseeds[teamIndex] = angular.copy(temp);
@@ -81,7 +81,7 @@ function SBController(teamService, logoService) {
           } else //in a wildcard spot going for wildcard spot
           {
             if (!(this.getSeed(teamName) === this.index)) {
-              var temp = angualar.copy(this.allseeds[this.index]);
+              var temp = angular.copy(this.allseeds[this.index]);
               this.allseeds[this.index] = angular.copy(this.allseeds[teamIndex]);
               this.allseeds[teamIndex] = angular.copy(temp);
               this.changed = true;

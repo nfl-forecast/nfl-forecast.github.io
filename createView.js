@@ -509,7 +509,7 @@ function CVController(logoService, teamService) {
 
   this.getLogo = function(teamName) {
     return logoService.getLogo(teamName);
-  }
+  };
 
   this.getCarrot = function(type) {
     if(this.currSorted === type) {
@@ -522,12 +522,18 @@ function CVController(logoService, teamService) {
     }
     else return "";
 
-  }
+  };
 
   this.funOn = function() {
     this.seeds = angular.copy(this.actualplayoffteams);
     this.fun = true;
-    this.changed == true;
+    this.changed = true;
+  };
+
+  this.realOn = function() {
+    this.seeds = angular.copy(this.actualplayoffteams);
+    this.fun = false;
+    this.changed = true;
   }
 
 }
