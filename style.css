@@ -302,12 +302,12 @@ standings-view, division-standings-view, league-standings-view, conference-stand
     justify-content: space-between;
 }
 
-#weekButtons{
+.weekButtons{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .weekButton {
     font-size: larger;
+    margin: 10px;
 }
