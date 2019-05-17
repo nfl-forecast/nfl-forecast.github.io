@@ -1,40 +1,16 @@
 .game{
     display:flex;
-    margin: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .gameWhenWhere{
     display:flex;
-}
-.gameAwayTeam{
-    width:6%;
-    justify-content: left;
-}
-.gameHomeTeam{
-    width:6%;
-    justify-content: right;
-    justify-items: right;
+    justify-content: space-between;
 }
 
-.gameHomeLogo{
-    justify-content: right;
-    justify-items: right;
-}
 .homeFpi{
     text-align: right;
-}
-.gameDate{
-    width:20%;
-    text-align:left;
-}
-
-.gameTime{
-    width:20%;
-    text-align:right;
-}
-.gameLocation{
-    width:60%;
-    text-align: center;
 }
 .gameInfo{
     width:88%;
@@ -308,6 +284,31 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .weekButton {
+    font-size: larger;
+    margin: 10px;
+}
+
+.game {
+    display: flex;
+    justify-content: space-between;
+}
+
+.standingsButtonRow{
+    display: flex;
+    justify-content: center;
+}
+
+.standingsButtons {
+    font-size: larger;
+    margin: 10px;
+}
+
+.modeButton {
+    display: flex;
+    justify-content: center;
+}
+
+.funMode, .realMode {
     font-size: larger;
     margin: 10px;
 }

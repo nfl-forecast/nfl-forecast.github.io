@@ -4,7 +4,7 @@
   </div>
   <div class ="chooseButtonsSection">
     <div class="chooseButton" ng-repeat="team in $ctrl.allteams">
-      <img ng-src="{{$ctrl.getLogo(team)}}" ng-click="$ctrl.clicked(team)" class="chooseButtonImage">
+      <img ng-src="{{$ctrl.getLogo(team)}}" ng-click="$ctrl.clicked(team)" class="chooseButtonImage Button{{$ctrl.allseeds[$ctrl.index] === team}}">
     </div>
   </div>
 </div>
