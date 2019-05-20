@@ -9,7 +9,7 @@
   Create only purely realistic playoff scenarios.
 </div>
 <div class="chooseButtonHeader">
-  <br>Select Teams to see their percent below</br>
+  <br>Select teams below to change the playoff scenario</br>
 </div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">
   <seed-buttons funmode= "$ctrl.fun" changed="$ctrl.changed" allseeds="$ctrl.seeds" index="$index" allteams="$ctrl.getConfernceTeams($index)" name="$ctrl.namesOfSeeds[$index]"></seed-buttons>
