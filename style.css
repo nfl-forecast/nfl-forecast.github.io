@@ -312,3 +312,7 @@ standings-view, division-standings-view, league-standings-view, conference-stand
     font-size: larger;
     margin: 10px;
 }
+
+.blurbFun, .blurbReal {
+    font-size: larger;
+}
