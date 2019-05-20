@@ -161,7 +161,7 @@ button:active {
 
 .pwImages{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .predSBWin {
