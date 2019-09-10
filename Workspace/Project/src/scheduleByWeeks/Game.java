@@ -1,5 +1,9 @@
 package scheduleByWeeks;
 
+import java.sql.Time;
+import java.time.LocalDate;
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import teamStructure.Team;
@@ -20,6 +24,7 @@ public class Game{
 		location = l;
 		time = t;
 		date = d;
+		checkPlayed();
 		if(!played)
 			calculate();
 	}
@@ -83,5 +88,31 @@ public class Game{
 	public String getAwayPercent()
 	{
 		return Math.round(100*awayPCT)+"%";
+	}
+	
+	public void setDate(String str)
+	{
+		date = str;
+	}
+	
+	public void setTime(String str)
+	{
+		time = str;
+	}
+	
+	public void checkPlayed()
+	{
+		LocalDate today = LocalDate.now();
+		LocalDate played = LocalDate.parse(date);
+		if(today.compareTo(played) < 0)
+			this.played = false;
+		else if(today.compareTo(played) > 0)
+		{
+			this.played = true;
+		}
+		else
+		{
+			this.played = false;
+		}
 	}
 }

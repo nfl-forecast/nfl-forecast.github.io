@@ -83,8 +83,7 @@ public class Schedule{
 		for(Week w: weeks)
 		{
 			for(Game g : w.games)
-			{
-				g.played = false;
+			{				
 				g.calculate();
 			}
 		}

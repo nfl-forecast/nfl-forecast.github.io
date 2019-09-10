@@ -46,6 +46,10 @@ public class Team{
 	 */
 	public void addResult(boolean home, double percentage) {
 		wins += percentage;
+		if(wins > 16)
+		{
+			wins = 16;
+		}
 	}
 
 	/**
