@@ -13,7 +13,7 @@ function logoService()
     logoMap.set("Minnesota Vikings", {image: "images/Minnesota-Vikings.png"});
     logoMap.set("Carolina Panthers", {image: "images/Carolina-Panthers.png"});
     logoMap.set("Atlanta Falcons", {image: "images/Atlanta-Falcons.png"});
-    logoMap.set("Washington Redskins", {image: "images/Washington-Redskins.png"});
+    logoMap.set("Washington Football Team", {image: "images/Washington-Football-Team.png"});
     logoMap.set("Green Bay Packers", {image: "images/Green-Bay-Packers.png"});
     logoMap.set("Detroit Lions", {image: "images/Detroit-Lions.png"});
     logoMap.set("Tampa Bay Buccaneers", {image: "images/Tampa-Bay-Buccaneers.png"});

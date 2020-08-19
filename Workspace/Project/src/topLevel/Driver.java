@@ -53,7 +53,7 @@ public class Driver{
 				DET = new Team("Detroit Lions", new Color(0, 105, 177), new Color(162, 170, 173)),
 				CHI = new Team("Chicago Bears", new Color(5, 28, 44), new Color(220, 68, 5)),
 				MIN = new Team("Minnesota Vikings", new Color(84, 41, 109), new Color(255, 184, 28)),
-				WSH = new Team("Washington Redskins", new Color(134, 38, 51), new Color(255, 205, 0)),
+				WSH = new Team("Washington Football Team", new Color(134, 38, 51), new Color(255, 205, 0)),
 				DAL = new Team("Dallas Cowboys", new Color(4, 30, 66), new Color(134, 147, 151)),
 				NYG = new Team("New York Giants", new Color(0, 30, 98), new Color(255, 0, 0)),
 				PHI = new Team("Philadelphia Eagles", new Color(0, 72, 81), new Color(134, 147, 151)),
