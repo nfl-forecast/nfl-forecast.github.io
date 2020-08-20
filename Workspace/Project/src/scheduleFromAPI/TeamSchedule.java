@@ -5,16 +5,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TeamSchedule
 {
 	@JsonProperty("ID")
-	String ID;
+	private String ID;
 	
 	@JsonProperty("City")
-	String City;
+	private String City;
 	
 	@JsonProperty("Name")
-	String Name;
+	private String Name;
 	
 	@JsonProperty("Abbreviation")
-	String Abbreviation;
+	private String Abbreviation;
 	
 	
 	public void setID(String str)

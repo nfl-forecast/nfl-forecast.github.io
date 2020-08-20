@@ -11,7 +11,7 @@ public class PlayoffCalc{
 	private double[][] natWildCard, natDivisional, amerWildCard, amerDivisional;
 	private double[][] percent;
 	private Team[] teams;
-	DecimalFormat fmt;
+	private DecimalFormat fmt;
 
 	public PlayoffCalc(Team[] nat, Team[] amer) {
 		teams = new Team[12];
@@ -425,7 +425,7 @@ public class PlayoffCalc{
 		List<String> teamName = new ArrayList<String>();
 		for(int i = 0; i < 6; i++)
 		{
-			teamName.add(teams[i].name);
+			teamName.add(teams[i].getName());
 		}
 		return teamName;
 	}
@@ -434,7 +434,7 @@ public class PlayoffCalc{
 		List<String> teamName = new ArrayList<String>();
 		for(int i = 6; i < 12; i++)
 		{
-			teamName.add(teams[i].name);
+			teamName.add(teams[i].getName());
 		}
 		return teamName;
 	}

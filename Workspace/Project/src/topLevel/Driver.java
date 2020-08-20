@@ -88,9 +88,9 @@ public class Driver{
 
 		int count = 0;
 		for (int i = 0; i < 16; i++) {
-			if (Integer.parseInt(AFCTeams[i].getStats().GamesPlayed.text) == 16)
+			if (Integer.parseInt(AFCTeams[i].getStats().getGamesPlayed().getText()) == 16)
 				count += 1;
-			if (Integer.parseInt(NFCTeams[i].getStats().GamesPlayed.text) == 16)
+			if (Integer.parseInt(NFCTeams[i].getStats().getGamesPlayed().getText()) == 16)
 				count += 1;
 		}
 
@@ -117,8 +117,8 @@ public class Driver{
 		{
 			allTeams[i] = AFCTeams[i];
 			allTeams[i+16] = NFCTeams[i];
-			names3232Array[i] = AFCTeams[i].name;
-			names3232Array[i+16] = NFCTeams[i].name;
+			names3232Array[i] = AFCTeams[i].getName();
+			names3232Array[i+16] = NFCTeams[i].getName();
 		}
 		
 		full3232Array = PlayoffCalc.makeFullPercents(allTeams);

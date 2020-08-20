@@ -2,9 +2,9 @@ package data;
 
 public class TeamStats
 {
-	public TeamData team;
-	public String rank;
-	public FullStats stats;
+	private TeamData team;
+	private String rank;
+	private FullStats stats;
 	
 	public void setTeam(TeamData t)
 	{
@@ -21,5 +21,14 @@ public class TeamStats
 	public String  toString()
 	{
 		return team.toString() + " #" + rank + "\n" + stats.toString();
+	}
+	
+	public TeamData getTeam()
+	{
+		return team;
+	}
+	
+	public FullStats getStats() {
+		return stats;
 	}
 }

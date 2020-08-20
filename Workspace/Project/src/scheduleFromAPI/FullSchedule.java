@@ -2,7 +2,7 @@ package scheduleFromAPI;
 
 public class FullSchedule
 {
-	Schedule fullgamesschedule;
+	private Schedule fullgamesschedule;
 	public void setFullgameschedule(Schedule s)
 	{
 		fullgamesschedule = s;

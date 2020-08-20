@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Division
 {
 	private Team[] teamsInDivision;
-	Conference conference;
 	public Division(Team Team1, Team Team2, Team Team3, Team Team4)
 	{
 		teamsInDivision = new Team[4];
@@ -13,17 +12,6 @@ public class Division
 		teamsInDivision[1] = Team2;
 		teamsInDivision[2] = Team3;
 		teamsInDivision[3] = Team4;
-		for(Team t : teamsInDivision)
-			t.addDiv(this);
-	}
-	
-	/**
-	 * 
-	 * @param con The conference this division is in
-	 */
-	public void addCon(Conference con)
-	{
-		conference = con;
 	}
 	
 	/**

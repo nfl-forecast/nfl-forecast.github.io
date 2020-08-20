@@ -8,17 +8,13 @@ import data.TeamStats;
 
 public class Conference implements Cloneable
 {
-	public Division North, East, South, West;
+	private Division North, East, South, West;
 	public Conference(Division N, Division E, Division S, Division W) throws Exception
 	{
 		North = N;
 		East = E;
 		South = S;
 		West = W;
-		East.addCon(this);
-		North.addCon(this);
-		South.addCon(this);
-		West.addCon(this);
 		getStats();
 	}
 	
@@ -203,11 +199,11 @@ public class Conference implements Cloneable
 	 */
 	private void getStats()
 	{
-		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.teamstandingsentry;
+		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.getTeamstandingsentry();
 		for(TeamStats ts : tsList)
 		{
-			ts.stats.combine();
-			Team fakeTeam = new Team(ts.team.toString(), null, null);
+			ts.getStats().combine();
+			Team fakeTeam = new Team(ts.getTeam().toString(), null, null);
 			if(oppContains(fakeTeam) != null)
 				oppContains(fakeTeam).makeFPI(ts);
 		}
@@ -216,5 +212,33 @@ public class Conference implements Cloneable
 	public String toString()
 	{
 		return North.toString() + "\n" + East.toString() + "\n" + South.toString() + "\n" + West.toString();
+	}
+	
+	public Team[] getAllTeams() {
+		Team[] all = new Team[16];
+		Team[] east = East.getTeams();
+		Team[] west = West.getTeams();
+		Team[] north = North.getTeams();
+		Team[] south = South.getTeams();
+		for(int i = 0; i < 4; i++)
+			all[i] = east[i];
+		for(int i = 0; i < 4; i++)
+			all[4+i] = west[i];
+		for(int i = 0; i < 4; i++)
+			all[8+i] = north[i];
+		for(int i = 0; i < 4; i++)
+			all[12+i] = south[i];
+		return all;
+	}
+
+	public static ArrayList<Team> getAllTeams(Conference AFC, Conference NFC) {
+		ArrayList<Team> allTeams = new ArrayList<Team>();
+		Team[] afc = AFC.getAllTeams();
+		Team[] nfc = NFC.getAllTeams();
+		for(int i = 0; i < 16; i++) {
+			allTeams.add(afc[i]);
+			allTeams.add(nfc[i]);
+		}
+		return allTeams;
 	}
 }

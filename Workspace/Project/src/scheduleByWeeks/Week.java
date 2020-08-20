@@ -8,7 +8,7 @@ import teamStructure.Team;
 
 public class Week
 {
-	public List<Game> games;
+	private List<Game> games;
 	private List<Team> teamsOnBye;
 	
 	public Week()
@@ -20,32 +20,11 @@ public class Week
 	 * 
 	 * @param NFC
 	 * @param AFC
-	 * @return An array List of Teams in both Conferences
-	 */
-	private ArrayList<Team> getAllTeams(Conference NFC, Conference AFC)
-	{
-		ArrayList<Team> allteams = new ArrayList<Team>();
-		Team[] NFCTeams = NFC.places();
-		for(Team t : NFCTeams)
-		{
-			allteams.add(t);
-		}
-		Team[] AFCTeams = AFC.places();
-		for(Team t : AFCTeams)
-		{
-			allteams.add(t);
-		}
-		return allteams;
-	}
-	/**
-	 * 
-	 * @param NFC
-	 * @param AFC
 	 * Sets the teamsOnBye by removing all teams that are playing this week
 	 */
 	public void setUpTeamsOnBye(Conference NFC, Conference AFC)
 	{
-		ArrayList<Team> allTeams = getAllTeams(NFC, AFC);
+		ArrayList<Team> allTeams = Conference.getAllTeams(NFC, AFC);
 		for(Game g : games)
 		{
 			allTeams.remove(g.getHomeTeam());
@@ -53,6 +32,7 @@ public class Week
 		}
 		teamsOnBye.addAll(allTeams);
 	}
+	
 	public String toString()
 	{
 		String str = "";
@@ -63,11 +43,11 @@ public class Week
 		}
 		return str;
 	}
-	public List<String> getTeamsOnBye()
+	public List<Team> getTeamsOnBye()
 	{
-		List<String> tob = new ArrayList<String>();
-		for(Team t:teamsOnBye)
-			tob.add(t.name);
-		return tob;
+		return teamsOnBye;
+	}
+	public List<Game> getGames() {
+		return games;
 	}
 }

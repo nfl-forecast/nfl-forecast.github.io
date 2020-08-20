@@ -15,14 +15,13 @@ import topLevel.SchedType;
 
 @JsonIgnoreProperties(value = { "stat" })
 public class Team{
-	public String name;
+	private String name;
 	
 	@JsonIgnore
 	private TeamStats stat;
 	private double FPI;
 
 	private Color s, p;
-	Division division;
 	private double wins;
 
 	public Team(String teamName, Color primary, Color secondary) {
@@ -30,13 +29,6 @@ public class Team{
 		s = secondary;
 		p = primary;
 		FPI = 1;
-	}
-
-	/**
-	 * @param div The division this team is in
-	 */
-	public void addDiv(Division div) {
-		division = div;
 	}
 
 	/**
@@ -194,7 +186,7 @@ public class Team{
 		if (stat == null)
 			return null;
 		else
-			return stat.stats;
+			return stat.getStats();
 	}
 	/**
 	 * 
@@ -204,20 +196,20 @@ public class Team{
 	public void makeFPI(TeamStats stats) {
 		// temporary test
 		//stat = stats;
-		wins = Integer.parseInt(stats.stats.Wins.text);
+		wins = Integer.parseInt(stats.getStats().getWins().getText());
 		//FPI = wins;
 		//return;
 
 		stat = stats;
 		FPI = 0;
-		for (Stat s : stat.stats.ImportantStats) {
-			FPI += logisticShell(s.getA(), s.getB(), s.getC(), Double.parseDouble(s.text));
+		for (Stat s : stat.getStats().ImportantStats) {
+			FPI += logisticShell(s.getA(), s.getB(), s.getC(), Double.parseDouble(s.getText()));
 		}
 	}
 
 	private double logisticShell(double a, double b, double c, double statValue) {
 		if (c == 1)
-			statValue = statValue/Integer.parseInt(getStats().GamesPlayed.text+"");
+			statValue = statValue/Integer.parseInt(getStats().getGamesPlayed().getText()+"");
 		return 1 / (1 + Math.pow((Math.E), (a + b * (statValue))));
 	}
 
@@ -254,7 +246,7 @@ public class Team{
 	{
 		if(Driver.allPlayed)
 			return 0;
-		else return Integer.parseInt(stat.stats.Ties.text);
+		else return Integer.parseInt(stat.getStats().getTies().getText());
 	}
 	
 	public String getLosses()
@@ -282,7 +274,7 @@ public class Team{
 	public String getStatWins()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.stats.Wins.text;
+			return stat.getStats().getWins().getText();
 		else
 		{
 			return "0";
@@ -292,7 +284,7 @@ public class Team{
 	public String getStatLosses()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.stats.Losses.text;
+			return stat.getStats().getLosses().getText();
 		else
 		{
 			return "0";
@@ -302,10 +294,14 @@ public class Team{
 	public String getStatTies()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.stats.Ties.text;
+			return stat.getStats().getTies().getText();
 		else
 		{
 			return "0";
 		}
+	}
+
+	public String getName() {
+		return name;
 	}
 }

@@ -4,8 +4,8 @@ import java.util.List;
 
 public class overallteamstandings
 {
-	public String lastUpdatedOn;
-	public List<TeamStats> teamstandingsentry;
+	private String lastUpdatedOn;
+	private List<TeamStats> teamstandingsentry;
 	
 	public String toString()
 	{
@@ -21,5 +21,9 @@ public class overallteamstandings
 	public void setTeamstandingsentry(List<TeamStats> t)
 	{
 		teamstandingsentry = t;
+	}
+	public List<TeamStats> getTeamstandingsentry()
+	{
+		return teamstandingsentry;
 	}
 }

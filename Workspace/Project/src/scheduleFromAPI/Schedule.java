@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Schedule
 {
-	String lastUpdatedOn;
-	List<Games> gameentry;
+	private String lastUpdatedOn;
+	private List<Games> gameentry;
 	
 	public void setLastUpdatedOn(String str)
 	{

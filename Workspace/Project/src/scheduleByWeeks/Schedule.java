@@ -10,7 +10,7 @@ import teamStructure.Conference;
 import teamStructure.Team;
 
 public class Schedule{
-	public List<Week> weeks;
+	private List<Week> weeks;
 	
 	public Schedule(Conference NFC, Conference AFC)
 	{
@@ -31,15 +31,15 @@ public class Schedule{
 		int week = 0;
 		for(Games g : listGames)
 		{
-			if(Integer.parseInt(g.week) != week)
+			if(Integer.parseInt(g.getWeek()) != week)
 			{
 				if(week != 0)
 					weeks.get(week-1).setUpTeamsOnBye(NFC, AFC);
 				week++;
 				weeks.add(new Week());
 			}
-			Game game = new Game(convert(g.awayTeam,NFC,AFC), convert(g.homeTeam, NFC, AFC), g.played, g.location, g.time, g.date);
-			weeks.get(week-1).games.add(game);
+			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getLocation(), g.getTime(), g.getDate());
+			weeks.get(week-1).getGames().add(game);
 		}
 		weeks.get(16).setUpTeamsOnBye(NFC, AFC);
 		}
@@ -82,7 +82,7 @@ public class Schedule{
 	{
 		for(Week w: weeks)
 		{
-			for(Game g : w.games)
+			for(Game g : w.getGames())
 			{				
 				g.calculate();
 			}

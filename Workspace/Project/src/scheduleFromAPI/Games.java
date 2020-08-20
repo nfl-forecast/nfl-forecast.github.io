@@ -8,14 +8,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Games {
-	String id;
-	public String date;
-	public String time;
-	public String location;
-	public TeamSchedule awayTeam, homeTeam;
-	public String week;
-	public String ScheduleStatus;
-	public boolean played;
+	private String id;
+	private String date;
+	private String time;
+	private String location;
+	private TeamSchedule awayTeam, homeTeam;
+	private String week;
+	private String ScheduleStatus;
+	private boolean played;
 
 	public void setScheduleStatus(String str) {
 		ScheduleStatus = str;
@@ -94,6 +94,42 @@ public class Games {
 
 	public void setAwayTeam(TeamSchedule str) {
 		awayTeam = str;
+	}
+	
+	public String getScheduleStatus() {
+		return ScheduleStatus;
+	}
+
+	public String getWeek() {
+		return week;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public String getTime() {
+		return time;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public TeamSchedule getHomeTeam() {
+		return homeTeam;
+	}
+
+	public TeamSchedule getAwayTeam() {
+		return awayTeam;
+	}
+	
+	public boolean getPlayed() {
+		return played;
 	}
 
 	public String toString() {

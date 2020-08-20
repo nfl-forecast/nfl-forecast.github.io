@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import teamStructure.Team;
 
 public class Game{
-	Team awayTeam, homeTeam;
+	private Team awayTeam, homeTeam;
 	@JsonIgnore
-	public double awayPCT, homePCT;
-	public boolean played;
-	public String location;
-	public String time;
-	public String date;
+	private double awayPCT, homePCT;
+	private boolean played;
+	private String location;
+	private String time;
+	private String date;
 
 	public Game(Team away, Team home, boolean isPlayed, String l, String t, String d) {
 		awayTeam = away;
@@ -72,12 +72,12 @@ public class Game{
 
 	public String getHomeTeamName()
 	{
-		return homeTeam.name;
+		return homeTeam.getName();
 	}
 	
 	public String getAwayTeamName()
 	{
-		return awayTeam.name;
+		return awayTeam.getName();
 	}
 
 	public String getHomePercent()

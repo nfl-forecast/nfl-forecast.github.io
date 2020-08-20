@@ -4,487 +4,487 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FullStats{
 	@JsonProperty("GamesPlayed")
-	public Stat GamesPlayed;
+	private Stat GamesPlayed;
 
 	@JsonProperty("PassAttempts")
-	public Stat PassAttempts;
+	private Stat PassAttempts;
 
 	@JsonProperty("PassCompletions")
-	public Stat PassCompletions;
+	private Stat PassCompletions;
 
 	@JsonProperty("PassPct")
-	public Stat PassPct;
+	private Stat PassPct;
 
 	@JsonProperty("PassGrossYards")
-	public Stat PassGrossYards;
+	private Stat PassGrossYards;
 
 	@JsonProperty("PassNetYards")
-	public Stat PassNetYards;
+	private Stat PassNetYards;
 
 	@JsonProperty("PassAvg")
-	public Stat PassAvg;
+	private Stat PassAvg;
 
 	@JsonProperty("PassYardsPerAtt")
-	public Stat PassYardsPerAtt;
+	private Stat PassYardsPerAtt;
 
 	@JsonProperty("PassTD")
-	public Stat PassTD;
+	private Stat PassTD;
 
 	@JsonProperty("PassTDPct")
-	public Stat PassTDPct;
+	private Stat PassTDPct;
 
 	@JsonProperty("PassInt")
-	public Stat PassInt;
+	private Stat PassInt;
 
 	@JsonProperty("PassIntPct")
-	public Stat PassIntPct;
+	private Stat PassIntPct;
 
 	@JsonProperty("PassLng")
-	public Stat PassLng;
+	private Stat PassLng;
 
 	@JsonProperty("Pass20Plus")
-	public Stat Pass20Plus;
+	private Stat Pass20Plus;
 
 	@JsonProperty("Pass40Plus")
-	public Stat Pass40Plus;
+	private Stat Pass40Plus;
 
 	@JsonProperty("PassSacks")
-	public Stat PassSacks;
+	private Stat PassSacks;
 
 	@JsonProperty("PassSackY")
-	public Stat PassSackY;
+	private Stat PassSackY;
 
 	@JsonProperty("QBRating")
-	public Stat QBRating;
+	private Stat QBRating;
 
 	@JsonProperty("RushAttempts")
-	public Stat RushAttempts;
+	private Stat RushAttempts;
 
 	@JsonProperty("RushYards")
-	public Stat RushYards;
+	private Stat RushYards;
 
 	@JsonProperty("RushAverage")
-	public Stat RushAverage;
+	private Stat RushAverage;
 
 	@JsonProperty("RushTD")
-	public Stat RushTD;
+	private Stat RushTD;
 
 	@JsonProperty("RushLng")
-	public Stat RushLng;
+	private Stat RushLng;
 
 	@JsonProperty("Rush20Plus")
-	public Stat Rush20Plus;
+	private Stat Rush20Plus;
 
 	@JsonProperty("Rush40Plus")
-	public Stat Rush40Plus;
+	private Stat Rush40Plus;
 
 	@JsonProperty("RushFumbles")
-	public Stat RushFumbles;
+	private Stat RushFumbles;
 
 	@JsonProperty("Receptions")
-	public Stat Receptions;
+	private Stat Receptions;
 
 	@JsonProperty("RecYards")
-	public Stat RecYards;
+	private Stat RecYards;
 
 	@JsonProperty("RecAverage")
-	public Stat RecAverage;
+	private Stat RecAverage;
 
 	@JsonProperty("RecTD")
-	public Stat RecTD;
+	private Stat RecTD;
 
 	@JsonProperty("RecLng")
-	public Stat RecLng;
+	private Stat RecLng;
 
 	@JsonProperty("Rec20Plus")
-	public Stat Rec20Plus;
+	private Stat Rec20Plus;
 
 	@JsonProperty("Rec40Plus")
-	public Stat Rec40Plus;
+	private Stat Rec40Plus;
 
 	@JsonProperty("RecFumbles")
-	public Stat RecFumbles;
+	private Stat RecFumbles;
 
 	@JsonProperty("TackleSolo")
-	public Stat TackleSolo;
+	private Stat TackleSolo;
 
 	@JsonProperty("TackleTotal")
-	public Stat TackleTotal;
+	private Stat TackleTotal;
 
 	@JsonProperty("TackleAst")
-	public Stat TackleAst;
+	private Stat TackleAst;
 
 	@JsonProperty("Sacks")
-	public Stat Sacks;
+	private Stat Sacks;
 
 	@JsonProperty("SackYds")
-	public Stat SackYds;
+	private Stat SackYds;
 
 	@JsonProperty("Safeties")
-	public Stat Safeties;
+	private Stat Safeties;
 
 	@JsonProperty("Interceptions")
-	public Stat Interceptions;
+	private Stat Interceptions;
 
 	@JsonProperty("IntTD")
-	public Stat IntTD;
+	private Stat IntTD;
 
 	@JsonProperty("IntYds")
-	public Stat IntYds;
+	private Stat IntYds;
 
 	@JsonProperty("IntAverage")
-	public Stat IntAverage;
+	private Stat IntAverage;
 
 	@JsonProperty("IntLng")
-	public Stat IntLng;
+	private Stat IntLng;
 
 	@JsonProperty("PassesDefended")
-	public Stat PassesDefended;
+	private Stat PassesDefended;
 
 	@JsonProperty("Stuffs")
-	public Stat Stuffs;
+	private Stat Stuffs;
 
 	@JsonProperty("StuffYds")
-	public Stat StuffYds;
+	private Stat StuffYds;
 
 	@JsonProperty("KB")
-	public Stat KB;
+	private Stat KB;
 
 	@JsonProperty("Fumbles")
-	public Stat Fumbles;
+	private Stat Fumbles;
 
 	@JsonProperty("FumLost")
-	public Stat FumLost;
+	private Stat FumLost;
 
 	@JsonProperty("FumForced")
-	public Stat FumForced;
+	private Stat FumForced;
 
 	@JsonProperty("FumOwnRec")
-	public Stat FumOwnRec;
+	private Stat FumOwnRec;
 
 	@JsonProperty("FumOppRec")
-	public Stat FumOppRec;
+	private Stat FumOppRec;
 
 	@JsonProperty("FumRecYds")
-	public Stat FumRecYds;
+	private Stat FumRecYds;
 
 	@JsonProperty("FumTotalRec")
-	public Stat FumTotalRec;
+	private Stat FumTotalRec;
 
 	@JsonProperty("FumTD")
-	public Stat FumTD;
+	private Stat FumTD;
 
 	@JsonProperty("KrRet")
-	public Stat KrRet;
+	private Stat KrRet;
 
 	@JsonProperty("KrYds")
-	public Stat KrYds;
+	private Stat KrYds;
 
 	@JsonProperty("KrAvg")
-	public Stat KrAvg;
+	private Stat KrAvg;
 
 	@JsonProperty("KrLng")
-	public Stat KrLng;
+	private Stat KrLng;
 
 	@JsonProperty("KrTD")
-	public Stat KrTD;
+	private Stat KrTD;
 
 	@JsonProperty("Kr20Plus")
-	public Stat Kr20Plus;
+	private Stat Kr20Plus;
 
 	@JsonProperty("Kr40Plus")
-	public Stat Kr40Plus;
+	private Stat Kr40Plus;
 
 	@JsonProperty("KrFC")
-	public Stat KrFC;
+	private Stat KrFC;
 
 	@JsonProperty("KrFum")
-	public Stat KrFum;
+	private Stat KrFum;
 
 	@JsonProperty("PrRet")
-	public Stat PrRet;
+	private Stat PrRet;
 
 	@JsonProperty("PrYds")
-	public Stat PrYds;
+	private Stat PrYds;
 
 	@JsonProperty("PrAvg")
-	public Stat PrAvg;
+	private Stat PrAvg;
 
 	@JsonProperty("PrLng")
-	public Stat PrLng;
+	private Stat PrLng;
 
 	@JsonProperty("PrTD")
-	public Stat PrTD;
+	private Stat PrTD;
 
 	@JsonProperty("Pr20Plus")
-	public Stat Pr20Plus;
+	private Stat Pr20Plus;
 
 	@JsonProperty("Pr40Plus")
-	public Stat Pr40Plus;
+	private Stat Pr40Plus;
 
 	@JsonProperty("PrFC")
-	public Stat PrFC;
+	private Stat PrFC;
 
 	@JsonProperty("PrFum")
-	public Stat PrFum;
+	private Stat PrFum;
 
 	@JsonProperty("FgBlk")
-	public Stat FgBlk;
+	private Stat FgBlk;
 
 	@JsonProperty("FgMade")
-	public Stat FgMade;
+	private Stat FgMade;
 
 	@JsonProperty("FgAtt")
-	public Stat FgAtt;
+	private Stat FgAtt;
 
 	@JsonProperty("FgPct")
-	public Stat FgPct;
+	private Stat FgPct;
 
 	@JsonProperty("FgMade50Plus")
-	public Stat FgMade50Plus;
+	private Stat FgMade50Plus;
 
 	@JsonProperty("FgAtt50Plus")
-	public Stat FgAtt50Plus;
+	private Stat FgAtt50Plus;
 
 	@JsonProperty("Fg50PlusPct")
-	public Stat Fg50PlusPct;
+	private Stat Fg50PlusPct;
 
 	@JsonProperty("FgLng")
-	public Stat FgLng;
+	private Stat FgLng;
 
 	@JsonProperty("XpBlk")
-	public Stat XpBlk;
+	private Stat XpBlk;
 
 	@JsonProperty("XpMade")
-	public Stat XpMade;
+	private Stat XpMade;
 
 	@JsonProperty("XpAtt")
-	public Stat XpAtt;
+	private Stat XpAtt;
 
 	@JsonProperty("XpPct")
-	public Stat XpPct;
+	private Stat XpPct;
 
 	@JsonProperty("FgAndXpPts")
-	public Stat FgAndXpPts;
+	private Stat FgAndXpPts;
 
 	@JsonProperty("Kickoffs")
-	public Stat Kickoffs;
+	private Stat Kickoffs;
 
 	@JsonProperty("KoYds")
-	public Stat KoYds;
+	private Stat KoYds;
 
 	@JsonProperty("KoOOB")
-	public Stat KoOOB;
+	private Stat KoOOB;
 
 	@JsonProperty("KoAvg")
-	public Stat KoAvg;
+	private Stat KoAvg;
 
 	@JsonProperty("KoTB")
-	public Stat KoTB;
+	private Stat KoTB;
 
 	@JsonProperty("KoPct")
-	public Stat KoPct;
+	private Stat KoPct;
 
 	@JsonProperty("KoRet")
-	public Stat KoRet;
+	private Stat KoRet;
 
 	@JsonProperty("KoRetYds")
-	public Stat KoRetYds;
+	private Stat KoRetYds;
 
 	@JsonProperty("KoRetAvgYds")
-	public Stat KoRetAvgYds;
+	private Stat KoRetAvgYds;
 
 	@JsonProperty("KoTD")
-	public Stat KoTD;
+	private Stat KoTD;
 
 	@JsonProperty("KoOS")
-	public Stat KoOS;
+	private Stat KoOS;
 
 	@JsonProperty("KoOSR")
-	public Stat KoOSR;
+	private Stat KoOSR;
 
 	@JsonProperty("Punts")
-	public Stat Punts;
+	private Stat Punts;
 
 	@JsonProperty("PuntYds")
-	public Stat PuntYds;
+	private Stat PuntYds;
 
 	@JsonProperty("PuntNetYds")
-	public Stat PuntNetYds;
+	private Stat PuntNetYds;
 
 	@JsonProperty("PuntLng")
-	public Stat PuntLng;
+	private Stat PuntLng;
 
 	@JsonProperty("PuntAvg")
-	public Stat PuntAvg;
+	private Stat PuntAvg;
 
 	@JsonProperty("PuntNetAvg")
-	public Stat PuntNetAvg;
+	private Stat PuntNetAvg;
 
 	@JsonProperty("PuntBlk")
-	public Stat PuntBlk;
+	private Stat PuntBlk;
 
 	@JsonProperty("PuntOOB")
-	public Stat PuntOOB;
+	private Stat PuntOOB;
 
 	@JsonProperty("PuntDown")
-	public Stat PuntDown;
+	private Stat PuntDown;
 
 	@JsonProperty("PuntIn20")
-	public Stat PuntIn20;
+	private Stat PuntIn20;
 
 	@JsonProperty("PuntIn20Pct")
-	public Stat PuntIn20Pct;
+	private Stat PuntIn20Pct;
 
 	@JsonProperty("PuntTB")
-	public Stat PuntTB;
+	private Stat PuntTB;
 
 	@JsonProperty("PuntTBPct")
-	public Stat PuntTBPct;
+	private Stat PuntTBPct;
 
 	@JsonProperty("PuntFC")
-	public Stat PuntFC;
+	private Stat PuntFC;
 
 	@JsonProperty("PuntRet")
-	public Stat PuntRet;
+	private Stat PuntRet;
 
 	@JsonProperty("PuntRetYds")
-	public Stat PuntRetYds;
+	private Stat PuntRetYds;
 
 	@JsonProperty("PuntRetAvg")
-	public Stat PuntRetAvg;
+	private Stat PuntRetAvg;
 
 	@JsonProperty("FirstDownsTotal")
-	public Stat FirstDownsTotal;
+	private Stat FirstDownsTotal;
 
 	@JsonProperty("FirstDownsPass")
-	public Stat FirstDownsPass;
+	private Stat FirstDownsPass;
 
 	@JsonProperty("FirstDownsRush")
-	public Stat FirstDownsRush;
+	private Stat FirstDownsRush;
 
 	@JsonProperty("FirstDownsPenalty")
-	public Stat FirstDownsPenalty;
+	private Stat FirstDownsPenalty;
 
 	@JsonProperty("ThirdDowns")
-	public Stat ThirdDowns;
+	private Stat ThirdDowns;
 
 	@JsonProperty("ThirdDownsAtt")
-	public Stat ThirdDownsAtt;
+	private Stat ThirdDownsAtt;
 
 	@JsonProperty("ThirdDownsPct")
-	public Stat ThirdDownsPct;
+	private Stat ThirdDownsPct;
 
 	@JsonProperty("FourthDowns")
-	public Stat FourthDowns;
+	private Stat FourthDowns;
 
 	@JsonProperty("FourthDownsAtt")
-	public Stat FourthDownsAtt;
+	private Stat FourthDownsAtt;
 
 	@JsonProperty("FourthDownsPct")
-	public Stat FourthDownsPct;
+	private Stat FourthDownsPct;
 
 	@JsonProperty("Penalties")
-	public Stat Penalties;
+	private Stat Penalties;
 
 	@JsonProperty("PenaltyYds")
-	public Stat PenaltyYds;
+	private Stat PenaltyYds;
 
 	@JsonProperty("OffensePlays")
-	public Stat OffensePlays;
+	private Stat OffensePlays;
 
 	@JsonProperty("OffenseYds")
-	public Stat OffenseYds;
+	private Stat OffenseYds;
 
 	@JsonProperty("OffenseAvgYds")
-	public Stat OffenseAvgYds;
+	private Stat OffenseAvgYds;
 
 	@JsonProperty("TotalTD")
-	public Stat TotalTD;
+	private Stat TotalTD;
 
 	@JsonProperty("PointsFor")
-	public Stat PointsFor;
+	private Stat PointsFor;
 
 	@JsonProperty("PointsAgainst")
-	public Stat PointsAgainst;
+	private Stat PointsAgainst;
 
 	@JsonProperty("PointDifferential")
-	public Stat PointDifferential;
+	private Stat PointDifferential;
 
 	@JsonProperty("TwoPtAtt")
-	public Stat TwoPtAtt;
+	private Stat TwoPtAtt;
 
 	@JsonProperty("TwoPtMade")
-	public Stat TwoPtMade;
+	private Stat TwoPtMade;
 
 	@JsonProperty("TwoPtPassAtt")
-	public Stat TwoPtPassAtt;
+	private Stat TwoPtPassAtt;
 
 	@JsonProperty("TwoPtPassMade")
-	public Stat TwoPtPassMade;
+	private Stat TwoPtPassMade;
 
 	@JsonProperty("TwoPtRushAtt")
-	public Stat TwoPtRushAtt;
+	private Stat TwoPtRushAtt;
 
 	@JsonProperty("TwoPtRushMade")
-	public Stat TwoPtRushMade;
+	private Stat TwoPtRushMade;
 
 	@JsonProperty("TacklesForLoss")
-	public Stat TacklesForLoss;
+	private Stat TacklesForLoss;
 
 	@JsonProperty("FgMade1_19")
-	public Stat FgMade1_19;
+	private Stat FgMade1_19;
 
 	@JsonProperty("FgAtt1_19")
-	public Stat FgAtt1_19;
+	private Stat FgAtt1_19;
 
 	@JsonProperty("Fg1_19Pct")
-	public Stat Fg1_19Pct;
+	private Stat Fg1_19Pct;
 
 	@JsonProperty("FgMade20_29")
-	public Stat FgMade20_29;
+	private Stat FgMade20_29;
 
 	@JsonProperty("FgAtt20_29")
-	public Stat FgAtt20_29;
+	private Stat FgAtt20_29;
 
 	@JsonProperty("Fg20_29Pct")
-	public Stat Fg20_29Pct;
+	private Stat Fg20_29Pct;
 
 	@JsonProperty("FgMade30_39")
-	public Stat FgMade30_39;
+	private Stat FgMade30_39;
 
 	@JsonProperty("FgAtt30_39")
-	public Stat FgAtt30_39;
+	private Stat FgAtt30_39;
 
 	@JsonProperty("Fg30_39Pct")
-	public Stat Fg30_39Pct;
+	private Stat Fg30_39Pct;
 
 	@JsonProperty("FgMade40_49")
-	public Stat FgMade40_49;
+	private Stat FgMade40_49;
 
 	@JsonProperty("FgAtt40_49")
-	public Stat FgAtt40_49;
+	private Stat FgAtt40_49;
 
 	@JsonProperty("Fg40_49Pct")
-	public Stat Fg40_49Pct;
+	private Stat Fg40_49Pct;
 
 	@JsonProperty("Wins")
-	public Stat Wins;
+	private Stat Wins;
 
 	@JsonProperty("Losses")
-	public Stat Losses;
+	private Stat Losses;
 
 	@JsonProperty("Ties")
-	public Stat Ties;
+	private Stat Ties;
 
 	@JsonProperty("OTWins")
-	public Stat OTWins;
+	private Stat OTWins;
 
 	@JsonProperty("OTLosses")
-	public Stat OTLosses;
+	private Stat OTLosses;
 
 	@JsonProperty("WinPct")
-	public Stat WinPct;
+	private Stat WinPct;
 
 	public Stat[] AllStats, ImportantStats;
 
@@ -1316,9 +1316,22 @@ public class FullStats{
 		String str = "";
 		for(Stat s : ImportantStats)
 		{
-			if(s != null && s.text != null)
+			if(s != null && s.getText() != null)
 				str += s.toString();
 		}
 	return str;
+	}
+	
+	public Stat getWins() {
+		return Wins;
+	}
+	public Stat getLosses() {
+		return Losses;
+	}
+	public Stat getTies() {
+		return Ties;
+	}
+	public Stat getGamesPlayed() {
+		return GamesPlayed;
 	}
 }
