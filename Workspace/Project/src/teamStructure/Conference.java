@@ -3,8 +3,10 @@ package teamStructure;
 import java.util.ArrayList;
 import java.util.List;
 
-import data.MakeObjectsUsingJackson;
-import data.TeamStats;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import dataFromHTML.FullStats;
+import dataFromHTML.MakeObjectsUsingJackson;
 
 public class Conference implements Cloneable
 {
@@ -199,11 +201,11 @@ public class Conference implements Cloneable
 	 */
 	private void getStats()
 	{
-		List<TeamStats> tsList = MakeObjectsUsingJackson.run().overallteamstandings.getTeamstandingsentry();
-		for(TeamStats ts : tsList)
+		List<FullStats> tsList = MakeObjectsUsingJackson.run().Allstats.getStatEntry();
+		for(FullStats ts : tsList)
 		{
-			ts.getStats().combine();
-			Team fakeTeam = new Team(ts.getTeam().toString(), null, null);
+			ts.combine();
+			Team fakeTeam = new Team(ts.getTeamName(), null, null);
 			if(oppContains(fakeTeam) != null)
 				oppContains(fakeTeam).makeFPI(ts);
 		}
@@ -214,6 +216,7 @@ public class Conference implements Cloneable
 		return North.toString() + "\n" + East.toString() + "\n" + South.toString() + "\n" + West.toString();
 	}
 	
+	@JsonIgnore
 	public Team[] getAllTeams() {
 		Team[] all = new Team[16];
 		Team[] east = East.getTeams();
@@ -229,6 +232,19 @@ public class Conference implements Cloneable
 		for(int i = 0; i < 4; i++)
 			all[12+i] = south[i];
 		return all;
+	}
+	
+	public Division getNorth() {
+		return North;
+	}
+	public Division getSouth() {
+		return South;
+	}
+	public Division getEast() {
+		return East;
+	}
+	public Division getWest() {
+		return West;
 	}
 
 	public static ArrayList<Team> getAllTeams(Conference AFC, Conference NFC) {

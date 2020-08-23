@@ -1,4 +1,4 @@
-package scheduleFromAPI;
+package scheduleFromHTML;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -23,7 +23,7 @@ public class MakeGameObjectsUsingJackson {
 	public static FullSchedule run() {
 		String str = "";
 		try {
-			str = ScheduleFromAPI.getRegOnly();
+			str = JSoupScheduleParser.run();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

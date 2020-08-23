@@ -1,9 +1,9 @@
-package scheduleFromAPI;
+package scheduleFromHTML;
 
 public class FullSchedule
 {
-	private Schedule fullgamesschedule;
-	public void setFullgameschedule(Schedule s)
+	public Schedule fullgamesschedule;
+	public void setFullgamesschedule(Schedule s)
 	{
 		fullgamesschedule = s;
 	}

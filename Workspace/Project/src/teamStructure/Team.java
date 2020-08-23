@@ -7,25 +7,25 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import data.FullStats;
-import data.Stat;
-import data.TeamStats;
+import dataFromHTML.FullStats;
+import dataFromHTML.Stat;
 import topLevel.Driver;
 import topLevel.SchedType;
+import topLevel.TeamNameHelper;
 
 @JsonIgnoreProperties(value = { "stat" })
 public class Team{
 	private String name;
 	
 	@JsonIgnore
-	private TeamStats stat;
+	private FullStats stat;
 	private double FPI;
 
 	private Color s, p;
 	private double wins;
 
 	public Team(String teamName, Color primary, Color secondary) {
-		name = teamName;
+		name = TeamNameHelper.getTeamName(teamName);
 		s = secondary;
 		p = primary;
 		FPI = 1;
@@ -183,38 +183,34 @@ public class Team{
 	 * @return All of the stats deposited by the APIs
 	 */
 	public FullStats getStats() {
-		if (stat == null)
-			return null;
-		else
-			return stat.getStats();
+		return stat;
 	}
 	/**
 	 * 
 	 * @param stats The stats that are equivalent for this team Sets the FPI based
 	 *              off of the stats
 	 */
-	public void makeFPI(TeamStats stats) {
+	public void makeFPI(FullStats stats) {
 		// temporary test
 		//stat = stats;
-		wins = Integer.parseInt(stats.getStats().getWins().getText());
+		wins = Integer.parseInt(stats.getW().getValue());
 		//FPI = wins;
 		//return;
 
 		stat = stats;
 		FPI = 0;
-		for (Stat s : stat.getStats().ImportantStats) {
-			FPI += logisticShell(s.getA(), s.getB(), s.getC(), Double.parseDouble(s.getText()));
+		for (Stat s : stat.ImportantStats) {
+			FPI += logisticShell(s.getA(), s.getB(), s.getC(), Double.parseDouble(s.getValue()));
 		}
 	}
 
 	private double logisticShell(double a, double b, double c, double statValue) {
 		if (c == 1)
-			statValue = statValue/Integer.parseInt(getStats().getGamesPlayed().getText()+"");
+			statValue = statValue/getStats().getGamesPlayed();
 		return 1 / (1 + Math.pow((Math.E), (a + b * (statValue))));
 	}
 
 	public double calculate(Team away) {
-		// TODO: include calculating method from games
 //		if (FPI > away.FPI)
 //			return 1;
 //		else if (FPI < away.FPI)
@@ -223,7 +219,8 @@ public class Team{
 //			return 0.5;
 //		System.out.println(FPI);
 //		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
-		return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/3.5)+1);
+		/*COVID-19 NO FANS   return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/3.5)+1);*/
+		return superBowl(away);
 	}
 	public double superBowl(Team away)
 	{
@@ -246,7 +243,7 @@ public class Team{
 	{
 		if(Driver.allPlayed)
 			return 0;
-		else return Integer.parseInt(stat.getStats().getTies().getText());
+		else return Integer.parseInt(stat.getT().getValue());
 	}
 	
 	public String getLosses()
@@ -274,7 +271,7 @@ public class Team{
 	public String getStatWins()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.getStats().getWins().getText();
+			return stat.getW().getValue();
 		else
 		{
 			return "0";
@@ -284,7 +281,7 @@ public class Team{
 	public String getStatLosses()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.getStats().getLosses().getText();
+			return stat.getL().getValue();
 		else
 		{
 			return "0";
@@ -294,11 +291,15 @@ public class Team{
 	public String getStatTies()
 	{
 		if(Driver.type != SchedType.regularSeasonNext)
-			return stat.getStats().getTies().getText();
+			return stat.getT().getValue();
 		else
 		{
 			return "0";
 		}
+	}
+	
+	public String getClinchChar() {
+		return stat.getClinchChar();
 	}
 
 	public String getName() {

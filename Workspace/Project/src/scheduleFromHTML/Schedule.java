@@ -1,11 +1,11 @@
-package scheduleFromAPI;
+package scheduleFromHTML;
 
 import java.util.List;
 
 public class Schedule
 {
 	private String lastUpdatedOn;
-	private List<Games> gameentry;
+	public List<Games> gameentry;
 	
 	public void setLastUpdatedOn(String str)
 	{

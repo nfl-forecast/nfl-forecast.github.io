@@ -1,4 +1,4 @@
-package data;
+package dataFromHTML;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,31 +6,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Stat
 {
-	@JsonProperty("@category")
-	private String category;
-	@JsonProperty("@abbreviation")
-	private String abbreviation;
 	
-	@JsonProperty("#text")
-	private String text;
+	public String abbreviation;
+	
+	
+	public String value;
 	
 	private double a, b, c;
 	public String toString()
 	{
-		return abbreviation + ": " + text + "\n";
-	}
-	
-	public void setCategory(String str)
-	{
-		category = str;
+		return abbreviation + ": " + value + "\n";
 	}
 	public void setAbbreviation(String str)
 	{
 		abbreviation = str;
 	}
-	public void setText(String str)
+	public void setValue(String str)
 	{
-		text = str;
+		value = str;
 	}
 	
 	public void setCoefs(double one, double two, double three)
@@ -40,9 +33,9 @@ public class Stat
 		c = three;
 	}
 	
-	public String getText()
+	public String getValue()
 	{
-		return text;
+		return value;
 	}
 	
 	public double getA()

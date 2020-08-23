@@ -3,9 +3,9 @@ package scheduleByWeeks;
 import java.util.ArrayList;
 import java.util.List;
 
-import scheduleFromAPI.Games;
-import scheduleFromAPI.MakeGameObjectsUsingJackson;
-import scheduleFromAPI.TeamSchedule;
+import scheduleFromHTML.Games;
+import scheduleFromHTML.MakeGameObjectsUsingJackson;
+import scheduleFromHTML.TeamSchedule;
 import teamStructure.Conference;
 import teamStructure.Team;
 
@@ -38,7 +38,7 @@ public class Schedule{
 				week++;
 				weeks.add(new Week());
 			}
-			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getLocation(), g.getTime(), g.getDate());
+			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getTime(), g.getDate(), g.getAwayTeam().getScore(), g.getHomeTeam().getScore());
 			weeks.get(week-1).getGames().add(game);
 		}
 		weeks.get(16).setUpTeamsOnBye(NFC, AFC);
@@ -87,5 +87,9 @@ public class Schedule{
 				g.calculate();
 			}
 		}
+	}
+
+	public List<Week> getWeeks() {
+		return weeks;
 	}
 }

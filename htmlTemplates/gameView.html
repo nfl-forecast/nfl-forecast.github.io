@@ -1,28 +1,30 @@
 <div class="game">
   <div class = "gameAwayTeam">
     <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.awayTeamName)}}' alt='LOGO'>
-    <div class = 'fpi'> FPI: {{$ctrl.getFPI($ctrl.game.awayTeamName)}}</div>
+    <div class = 'fpi'> FPI: {{$ctrl.game.awayTeam.fpi}}</div>
   </div>
   <div class = "gameInfo">
     <div class = "percentBar" style="display:flex" ng-if="$ctrl.game.played === false">
-      <div class = "awayBar"style='background:{{$ctrl.getPcolor($ctrl.game.awayTeamName)}}; width:{{$ctrl.game.awayPercent}}'>
-      <div class="awayPCT" style='color:{{$ctrl.getScolor($ctrl.game.awayTeamName)}}; text-align: right'>
-       {{$ctrl.game.awayPercent}}&nbsp;
+      <div class = "awayBar"style='background:{{$ctrl.getPColorAway()}}; width:{{$ctrl.game.awayPCT}}'>
+      <div class="awayPCT" style='color:{{$ctrl.getSColorAway()}}; text-align: right'>
+       {{$ctrl.game.awayPCT}}&nbsp;
       </div>
       </div>
-      <div class="homePCT" style='background:{{$ctrl.getPcolor($ctrl.game.homeTeamName)}}; color:{{$ctrl.getScolor($ctrl.game.homeTeamName)}}; width:{{$ctrl.game.homePercent}}'>
-       &nbsp;{{$ctrl.game.homePercent}}
+      <div class="homePCT" style="background:{{$ctrl.getPColorHome()}}; color:{{$ctrl.getSColorHome()}}; width:{{$ctrl.game.homePCT}}">
+       &nbsp;{{$ctrl.game.homePCT}}
       </div>
     </div>
     <div class = "gameComplete" ng-if="$ctrl.game.played === true">
-      Game Played
+      <div class="awayScore" style='width:50%'>
+        {{$ctrl.game.awayScore}}
+      </div>
+      <div class="homeScore" style='width:50%'>
+        {{$ctrl.game.homeScore}}
+      </div>
     </div>
     <div class = "gameWhenWhere">
       <div class = "gameDate">
         {{$ctrl.game.date}}
-      </div>
-      <div class = "gameLocation">
-        {{$ctrl.game.location}}
       </div>
       <div class = "gameTime">
         {{$ctrl.game.time}}
@@ -31,6 +33,6 @@
   </div>
   <div class = "gameHomeTeam">
     <div gameHomeLogo><img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'></div>
-    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.getFPI($ctrl.game.homeTeamName)}}</div>
+    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.game.homeTeam.fpi}}</div>
   </div>
 </div>

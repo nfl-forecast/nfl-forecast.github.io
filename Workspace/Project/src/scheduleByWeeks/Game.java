@@ -1,35 +1,29 @@
 package scheduleByWeeks;
 
-import java.sql.Time;
-import java.time.LocalDate;
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import teamStructure.Team;
 
 public class Game{
 	private Team awayTeam, homeTeam;
-	@JsonIgnore
 	private double awayPCT, homePCT;
 	private boolean played;
-	private String location;
 	private String time;
 	private String date;
+	private int homeScore;
+	private int awayScore;
 
-	public Game(Team away, Team home, boolean isPlayed, String l, String t, String d) {
+	public Game(Team away, Team home, boolean isPlayed, String t, String d, int awayScore, int homeScore) {
 		awayTeam = away;
 		homeTeam = home;
 		played = isPlayed;
-		location = l;
 		time = t;
 		date = d;
-		checkPlayed();
+		this.awayScore = awayScore;
+		this.homeScore = homeScore;
 		if(!played)
 			calculate();
 	}
 
-	@JsonIgnore
+	
 	/**
 	 * @return The home team
 	 */
@@ -37,7 +31,6 @@ public class Game{
 		return homeTeam;
 	}
 
-	@JsonIgnore
 	/**
 	 * 
 	 * @return The home team
@@ -80,12 +73,12 @@ public class Game{
 		return awayTeam.getName();
 	}
 
-	public String getHomePercent()
+	public String getHomePCT()
 	{
 		return Math.round(100*homePCT)+"%";
 	}
 	
-	public String getAwayPercent()
+	public String getAwayPCT()
 	{
 		return Math.round(100*awayPCT)+"%";
 	}
@@ -100,19 +93,22 @@ public class Game{
 		time = str;
 	}
 	
-	public void checkPlayed()
-	{
-		LocalDate today = LocalDate.now();
-		LocalDate played = LocalDate.parse(date);
-		if(today.compareTo(played) < 0)
-			this.played = false;
-		else if(today.compareTo(played) > 0)
-		{
-			this.played = true;
-		}
-		else
-		{
-			this.played = false;
-		}
+	public int getAwayScore() {
+		return awayScore;
+	}
+	
+	public int getHomeScore() {
+		return homeScore;
+	}
+	
+	public String getTime() {
+		return time;
+	}
+	public String getDate() {
+		return date;
+	}
+	
+	public boolean getPlayed() {
+		return played;
 	}
 }

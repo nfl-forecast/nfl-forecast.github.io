@@ -1,4 +1,4 @@
-package data;
+package dataFromHTML;
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -14,8 +14,6 @@ public class MakeObjectsUsingJackson {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Aw Shucks!");
-			System.out.println("Something went wrong!");
 			e.printStackTrace();
 		}
 
@@ -23,7 +21,7 @@ public class MakeObjectsUsingJackson {
 	public static TopData run(){
 		String str = "";
 		try {
-			str = GetOverallTeamStandings.getRegOnly();
+			str = JSoupStatParser.get("2019");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

@@ -6,7 +6,18 @@
 
 .gameWhenWhere{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.gameTime {
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+
+.gameDate {
+    margin-left: 10px;
+    margin-right:10px;
 }
 
 .homeFpi{
@@ -72,7 +83,8 @@ table,td,th{
 .specialCharactersStandings{
     justify-items: left;
     height: 100%;
-    width:5%;
+    width:10%;
+    margin: 10px;
 }
 
 .confNameDivStandings{

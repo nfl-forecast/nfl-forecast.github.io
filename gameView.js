@@ -24,13 +24,23 @@ function GVController(logoService, teamService)
     return logoService.getLogo(teamName);
   };
 
-  this.getPcolor = function(teamName){
-    var arr = teamService.getPColor(teamName);
+  this.getPColorAway = function(){
+    var arr = this.game.awayTeam.primaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 
-  this.getScolor = function(teamName){
-    var arr = teamService.getSColor(teamName);
+  this.getSColorAway = function(){
+    var arr = this.game.awayTeam.secondaryColor;
+    return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
+  };
+
+  this.getPColorHome = function(){
+    var arr = this.game.homeTeam.primaryColor;
+    return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
+  };
+
+  this.getSColorHome = function(){
+    var arr = this.game.homeTeam.secondaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 }
