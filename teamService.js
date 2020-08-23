@@ -50,7 +50,7 @@ function teamService() {
       var teams = conference[division].teams
       teamArr = teamArr.concat(teams);
     }*/
-    var divisions = ["North", "East", "West", "South"];
+    var divisions = ["north", "east", "west", "south"];
     for (var i = 0; i < divisions.length; i++) {
       var division = conference[divisions[i]];
       var teams = division.teams;
