@@ -31,14 +31,14 @@ function PTVController(logoService)
     this.fpiValues = [];
     this.fpiValues = this.fpiValues.concat(this.playoffsCopy.fpi);
     this.totalWildCard = [];
-    this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.afcwildCard);
     this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.nfcwildCard);
+    this.totalWildCard = this.totalWildCard.concat(this.playoffsCopy.afcwildCard);
     this.totalDivisional = [];
-    this.totalDivisional = this.totalDivisional.concat(this.playoffsCopy.afcdivisional);
     this.totalDivisional = this.totalDivisional.concat(this.playoffsCopy.nfcdivisional);
+    this.totalDivisional = this.totalDivisional.concat(this.playoffsCopy.afcdivisional);
     this.totalConference = [];
-    this.totalConference = this.totalConference.concat(this.playoffsCopy.afcconference);
     this.totalConference = this.totalConference.concat(this.playoffsCopy.nfcconference);
+    this.totalConference = this.totalConference.concat(this.playoffsCopy.afcconference);
     this.superBowl = this.playoffsCopy.superBowl;
 
     for(var i = 0; i < 14; i++) {

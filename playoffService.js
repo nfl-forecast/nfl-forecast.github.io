@@ -4,7 +4,7 @@ function playoffService()
   this.characterMap = new Map();
 
   this.getWildcardPCT = function(teamName) {
-    for(var i = 0; i < 12; i++)
+    for(let i = 0; i < 7; i++)
     {
       if(forecastData.playoffs.afcteams[i] === teamName)
       {
