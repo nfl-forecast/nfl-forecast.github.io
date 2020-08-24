@@ -10,8 +10,8 @@ angular.module('nflforecast').component('createView', {
 });
 
 function CVController(logoService, teamService) {
-  this.namesOfSeeds = ["AFC 1st Seed", "AFC 2nd Seed", "AFC 3rd Seed", "AFC 4th Seed", "AFC 5th Seed", "AFC 6th Seed", "AFC 7th Seed", "NFC 1st Seed",
-    "NFC 2nd Seed", "NFC 3rd Seed", "NFC 4th Seed", "NFC 5th Seed", "NFC 6th Seed", "NFC 7th Seed"];
+  this.namesOfSeeds = ["NFC 1st Seed",
+    "NFC 2nd Seed", "NFC 3rd Seed", "NFC 4th Seed", "NFC 5th Seed", "NFC 6th Seed", "NFC 7th Seed", "AFC 1st Seed", "AFC 2nd Seed", "AFC 3rd Seed", "AFC 4th Seed", "AFC 5th Seed", "AFC 6th Seed", "AFC 7th Seed"];
 
   this.changed = false;
 
@@ -69,19 +69,19 @@ function CVController(logoService, teamService) {
   this.makePercents = function() {
     for(let i = 0; i < 7; i++) {
       for(let j = i + 1; j < 7; j++) {
-        this.percent[i][j] = this.calculate(this.nfcTeams[i], this.nfcTeams[j]);
+        this.percent[i][j] = this.calculate(this.seeds[i], this.seeds[j]);
         this.percent[j][i] = 1 -  this.percent[i][j];
       }
     }
     for(let i = 0; i < 7; i++) {
       for(let j = i + 1; j < 7; j++) {
-        this.percent[i+7][j+7] = this.calculate(this.afcTeams[i], this.afcTeams[j]);
+        this.percent[i+7][j+7] = this.calculate(this.seeds[i+7], this.seeds[j+7]);
         this.percent[j+7][i+7] = 1 -  this.percent[i+7][j+7];
       }
     }
     for (let i = 0; i < 7; i++) {
       for (let j = 0; j < 7; j++) {
-        this.percent[i][j+7] = this.superbowlCalc(this.nfcTeams[i], this.afcTeams[j]);
+        this.percent[i][j+7] = this.superbowlCalc(this.seeds[i], this.seeds[j+7]);
         this.percent[j+7][i] = 1 -  this.percent[i][j+7];
       }
     }
@@ -89,16 +89,18 @@ function CVController(logoService, teamService) {
 
   this.getConferenceTeams = function(index) {
     if(index < 7)
-      return this.afcTeams;
-    else
       return this.nfcTeams;
+    else
+      return this.afcTeams;
   };
 
   this.calculate = function(homeTeam, awayTeam) {
     var hF = this.getFPI(homeTeam)/100;
     var aF = this.getFPI(awayTeam)/100;
 
-    var fpiDiff = -(hF-aF)-.15;
+    //COVID-19 NO FANS
+    // var fpiDiff = -(hF-aF)-.15;
+    var fpiDiff = -(hF-aF);
 
     var exponent = (fpiDiff)/3.5;
     var power = Math.pow(10.0, exponent);
@@ -140,11 +142,11 @@ function CVController(logoService, teamService) {
     this.natWildCard[1][6] = 0;
 
     // second game
-    for (let i = 0; i < teams.length / 2; i++) {
+    for (let i = 0; i < 7; i++) {
       this.natDivisional[0][i] = 0;
-      this.natDivisional[0][i] = 0;
+      this.natDivisional[1][i] = 0;
     }
-    for (let i = 1; i < teams.length / 2; i++) {
+    for (let i = 1; i < 7; i++) {
       this.natDivisional[0][0] += this.natWildCard[0][i] * this.percent[0][i];
       this.natDivisional[0][i] += this.natWildCard[0][i] * this.percent[i][0];
     }
@@ -258,11 +260,11 @@ function CVController(logoService, teamService) {
     this.amerWildCard[1][5] =  this.amerPerc[5][2] *  this.amerPerc[6][1];
     this.amerWildCard[1][6] = 0;
 
-    for (let i = 0; i < this.teams.length / 2; i++) {
+    for (let i = 0; i < 7; i++) {
       this.amerDivisional[0][i] = 0;
-      this.amerDivisional[0][i] = 0;
+      this.amerDivisional[1][i] = 0;
     }
-    for (let i = 1; i < this.teams.length / 2; i++) {
+    for (let i = 1; i < 7; i++) {
       this.amerDivisional[0][0] += this.amerWildCard[0][i] * this.amerPerc[0][i];
       this.amerDivisional[0][i] += this.amerWildCard[0][i] * this.amerPerc[i][0];
     }
@@ -346,10 +348,10 @@ function CVController(logoService, teamService) {
 
     // SUPERBOWL//
 
-    for (var i = 0; i < this.natFinal.length; i++) {
-      var sumNat = 0, sumAmer = 0;
+    for (let i = 0; i < this.natFinal.length; i++) {
+      let sumNat = 0, sumAmer = 0;
       // for nat comparing to amer
-      for (var j = 0; j < this.natFinal.length; j++) {
+      for (let j = 0; j < this.natFinal.length; j++) {
         sumNat += this  .amerConf[j] * this.percent[i][j + 7];
       }
       this.natFinal[i] = sumNat * this.natConf[i];
@@ -374,7 +376,7 @@ function CVController(logoService, teamService) {
         return i;
     }
     return -1;
-  }
+  };
 
   this.sortSeed = function(){
     this.currSorted = this.SEED;
@@ -512,8 +514,10 @@ function CVController(logoService, teamService) {
     var red = (-51 * Math.pow(adjusted,2))/2000 + 255;
     var blue = (-153 * Math.pow(adjusted - 50,2))/2000 + 765 / 4;
     var green = (-51 * Math.pow(adjusted - 100,2))/2000 + 255;
+    if(red === 0 && blue===0 && green === 0)
+      return "";
     return "rgb(" + Math.round(red) + ", " + Math.round(green) + ", " + Math.round(blue) + ")";
-  }
+  };
 
   this.style = function(team) {
     if(team.seed === 1)
@@ -527,7 +531,7 @@ function CVController(logoService, teamService) {
       this.makeCalculations();
       this.changed = false;
     }
-  }
+  };
 
   this.wildcard = function(index) {
     if(this.teamPercents[index].seed === 1)

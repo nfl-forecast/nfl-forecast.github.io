@@ -23,7 +23,7 @@ function SBController(teamService, logoService) {
       {
         if (this.getSeed(teamName) < 4) //currently in divisional spot
         {
-          if (this.index < 4 || (this.index > 5 && this.index < 10)) //in division spot going for division spot
+          if (this.index < 4 || (this.index > 6 && this.index < 11)) //in division spot going for division spot
           {
             if (!(teamIndex === this.index)) //in division spot that isn't spot going for
             {
@@ -69,7 +69,7 @@ function SBController(teamService, logoService) {
           }
         } else //currently in wildcard spot
         {
-          if (this.index < 4 || (this.index > 5 && this.index < 10)) //in a wildcard spot going for division spot
+          if (this.index < 4 || (this.index > 6 && this.index < 11)) //in a wildcard spot going for division spot
           {
             var divIndex = teamService.getDivisionalRivalIndex(teamName, this.allseeds);
             var temp = angular.copy(this.allseeds[divIndex]);
@@ -90,7 +90,7 @@ function SBController(teamService, logoService) {
         }
       } else //not in playoffs
       {
-        if (this.index < 4 || (this.index > 5 && this.index < 10)) //not in a playoff spot going for division spot
+        if (this.index < 4 || (this.index > 6 && this.index < 11)) //not in a playoff spot going for division spot
         {
           this.allseeds[teamService.getDivisionalRivalIndex(teamName, this.allseeds)] = teamName;
           this.changed = true;
@@ -137,12 +137,12 @@ function SBController(teamService, logoService) {
     if(!this.allseeds.includes(teamName)) return -1;
     else
     {
-      for(var i = 0; i < 6; i++)
+      for(let i = 0; i < 7; i++)
       {
         if(teamName === this.allseeds[i])
           return i;
       }
-      for(var i = 6; i < 12; i++)
+      for(let i = 7; i < 14; i++)
       {
         if(teamName === this.allseeds[i])
           return i-6;

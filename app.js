@@ -19,8 +19,8 @@ function MainController()
   this.shown = this.SCHEDULE;
 
   this.getCurrTeams = function() {
-    var allTeams = angular.copy(this.data.playoffs.afcteams);
-    allTeams = allTeams.concat(angular.copy(this.data.playoffs.nfcteams));
+    var allTeams = angular.copy(this.data.playoffs.nfcteams);
+    allTeams = allTeams.concat(angular.copy(this.data.playoffs.afcteams));
     return allTeams;
   };
 

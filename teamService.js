@@ -19,7 +19,7 @@ function teamService() {
   };
 
   this.getConferenceNames = function () {
-    return ["AFC", "NFC"]
+    return ["NFC", "AFC"]
   };
 
   this.getConferenceTeams = function (conferenceName) {
@@ -138,10 +138,10 @@ function teamService() {
     if(parseInt(confIndex) === 0)
       divWinners = seeds.slice(0,4);
     else {
-      divWinners = seeds.slice(6, 10);
-      index += 6;
+      divWinners = seeds.slice(7, 11);
+      index += 7;
     }
-    var divteams = this.getNames(this.getDivisionTeams(teamName));
+    let divteams = this.getNames(this.getDivisionTeams(teamName));
     for(var i =0; i <divteams.length; i++) {
       for (var j = 0; j < divWinners.length; j++) {
         if (divteams[i] === divWinners[j]) {
