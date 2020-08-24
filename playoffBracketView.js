@@ -14,7 +14,7 @@ function PBVController(logoService)
   };
   this.getPredictedSBWinner = function() {
     var greatest = 0;
-    for(var i = 1; i < 12; i++)
+    for(var i = 1; i < 14; i++)
     {
       if(parseFloat(this.playoffs.superBowl[i]) > parseFloat(this.playoffs.superBowl[greatest]))
         greatest = i;
@@ -24,10 +24,10 @@ function PBVController(logoService)
 
   this.teams = function(index) {
     var returning = " ";
-    if(index < 6)
-      returning = this.playoffs.afcteams[index];
-    else if(index < 12)
-      returning =  this.playoffs.nfcteams[index - 6];
+    if(index < 7)
+      returning = this.playoffs.nfcteams[index];
+    else if(index < 14)
+      returning =  this.playoffs.afcteams[index - 7];
     return returning;
   }
 }

@@ -46,7 +46,7 @@ table,td,th{
     text-align: center;
 }
 
-.wildcard1, .wildcard2{
+.wildcard1{
     background:grey;
 }
 
@@ -193,17 +193,10 @@ button:active {
     font-size:medium;
 }
 .playoffGame{
-    justify-content: center;
-    width: 270px;
-    margin: 30px;
-    height: 73px;
-    margin-left:auto;
-    margin-right:auto;
+    min-height:120px;
+    width: 100%;
 }
 
-.awayTeam, .homeTeam{
-    width: 60px;
-}
 .superbowlBracket {
     width: 100%;
 }
@@ -211,18 +204,35 @@ button:active {
 .playoffGameDiv{
     justify-content: center;
     text-align: center;
+    margin: 3px;
 }
 
 .conferenceBracket, .divisionalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
     display: flex;
+    justify-self: center;
 }
 
-.AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2BRacket, .NFC1Bracket, .NFC2BRacket, .AFCWildcardBracket, .NFCWildcardBracket, .AFC36Bracket, .AFC45Bracket, .NFC36Bracket, .NFC45Bracket{
+.AFCConferenceBracket, .AFCDivisionalBracket, .AFCWildcardBracket{
+    justify-content: left;
+}
+
+.NFCConferenceBracket, .NFCDivisionalBracket, .NFCWildcardBracket{
+    justify-content: right;
+}
+
+.AFCConferenceBracket, .NFCConferenceBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .AFC1Bracket, .AFC2Bracket, .NFC1Bracket, .NFC2Bracket, .AFCWildcardBracket, .NFCWildcardBracket{
   width: 50%;
 }
 
-.bracketTeam {
+.AFC27Bracket,.AFC36Bracket, .AFC45Bracket, .NFC27BRacket, .NFC36Bracket, .NFC45Bracket {
+    width: 33.33%;
+}
+
+.bracketTeam, .bracketName{
     padding: 5px;
+    display:flex;
+    height: 60px;
+    justify-content: center;
 }
 
 body{

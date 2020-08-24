@@ -24,10 +24,10 @@ function PTVController(logoService)
   this.originalOrder = [];
   this.$onInit = function(){
     this.playoffsCopy = angular.copy(this.playoffs);
-    this.seeds = [1,2,3,4,5,6,1,2,3,4,5,6];
+    this.seeds = [1,2,3,4,5,6,7,1,2,3,4,5,6,7];
     this.totalNames = [];
-    this.totalNames = this.totalNames.concat(this.playoffsCopy.afcteams);
     this.totalNames = this.totalNames.concat(this.playoffsCopy.nfcteams);
+    this.totalNames = this.totalNames.concat(this.playoffsCopy.afcteams);
     this.fpiValues = [];
     this.fpiValues = this.fpiValues.concat(this.playoffsCopy.fpi);
     this.totalWildCard = [];
@@ -41,7 +41,7 @@ function PTVController(logoService)
     this.totalConference = this.totalConference.concat(this.playoffsCopy.nfcconference);
     this.superBowl = this.playoffsCopy.superBowl;
 
-    for(var i = 0; i < 12; i++) {
+    for(var i = 0; i < 14; i++) {
       this.playoffData[i] = {seed:this.seeds[i], name:this.totalNames[i], fpi:this.fpiValues[i], wildcard:parseFloat(this.totalWildCard[i]), divisional:parseFloat(this.totalDivisional[i]), conference:parseFloat(this.totalConference[i]), superbowl:parseFloat(this.superBowl[i])};
     }
     this.originalOrder = angular.copy(this.playoffData);
@@ -52,7 +52,7 @@ function PTVController(logoService)
   };
 
   this.wildcard = function(index) {
-    if(this.playoffData[index].seed === 1 || this.playoffData[index].seed === 2)
+    if(this.playoffData[index].seed === 1)
       return " ";
     else
       return (this.playoffData[index].wildcard + "%");
@@ -194,7 +194,7 @@ function PTVController(logoService)
   }
 
   this.style = function(team) {
-    if(team.seed <= 2)
+    if(team.seed === 1)
       return "grey";
     else
       return this.getColor(team.wildcard);

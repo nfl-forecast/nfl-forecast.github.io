@@ -26,6 +26,7 @@ function playoffService()
     var afc4=afcTeams[3];
     var afc5=afcTeams[4];
     var afc6=afcTeams[5];
+    var afc7 = afcTeams[6]
 
     var nfcTeams = forecastData.playoffs.nfcteams;
     var nfc1=nfcTeams[0];
@@ -34,18 +35,21 @@ function playoffService()
     var nfc4=nfcTeams[3];
     var nfc5=nfcTeams[4];
     var nfc6=nfcTeams[5];
+    var nfc7=nfcTeams[6];
     characterMap.set(afc1, {character: "HOME"});
     characterMap.set(afc2, {character: "DIV"});
     characterMap.set(afc3, {character: "DIV"});
     characterMap.set(afc4, {character: "DIV"});
     characterMap.set(afc5, {character: "WC"});
     characterMap.set(afc6, {character: "WC"});
+    characterMap.set(afc7, {character: "WC"});
     characterMap.set(nfc1, {character: "HOME"});
     characterMap.set(nfc2, {character: "DIV"});
     characterMap.set(nfc3, {character: "DIV"});
     characterMap.set(nfc4, {character: "DIV"});
     characterMap.set(nfc5, {character: "WC"});
     characterMap.set(nfc6, {character: "WC"});
+    characterMap.set(nfc7, {character: "WC"});
 
   };
 

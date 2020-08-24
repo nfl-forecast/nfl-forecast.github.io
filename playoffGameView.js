@@ -18,7 +18,12 @@ function PGVController(logoService, teamService, playoffService) {
   };
 
   this.getLogo = function(teamName) {
-    return logoService.getLogo(teamName);
+    var teamLogo = logoService.getLogo(teamName);
+    if(teamLogo !== undefined)
+      return logoService.getLogo(teamName);
+    else if(teamName.includes("AFC"))
+      return logoService.getLogo("AFC");
+    else return logoService.getLogo("NFC");
   };
 
   this.getWildCard = function(teamName) {

@@ -1,15 +1,9 @@
 <div class="playoffGameDiv" ng-if="!$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
-      <td class="awayTeam">
-          Away
-      </td>
       <td class="bracketTeam">
         <div class = "bracketLogo">
           <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team1)}}">
-        </div>
-        <div class = "bracketName">
-          {{$ctrl.team1}}
         </div>
       </td>
       <td>
@@ -17,15 +11,9 @@
       </td>
     </tr>
     <tr>
-       <td class="homeTeam">
-          Home
-      </td>
       <td class="bracketTeam">
         <div class = "bracketLogo">
           <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team2)}}">
-        </div>
-        <div class = "bracketName">
-          {{$ctrl.team2}}
         </div>
       </td>
       <td>
@@ -37,22 +25,21 @@
 <div class="playoffGameDiv" ng-if="$ctrl.fakeGame">
   <table class="playoffGame">
     <tr>
-       <td class="awayTeam" ng-if="!($ctrl.team1 == 'AFC Winner')">
-          Away
-      </td>
       <td class="bracketTeam">
-        {{$ctrl.team1}}
+        <div class = "bracketLogo">
+          <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team1)}}">
+        </div>
+        <div class = "bracketName" ng-if="($ctrl.t1 ===undefined)">
+          {{$ctrl.team1}}
+        </div>
       </td>
     </tr>
     <tr>
-      <td class="HomeTeam" ng-if="!($ctrl.team2 == 'NFC Winner')">
-          Home
-      </td>
       <td class="bracketTeam">
-        <div class = "bracketLogo"  ng-if="!($ctrl.t2 ===undefined)">
+        <div class = "bracketLogo">
           <img class="bracketLogo" ng-src="{{$ctrl.getLogo($ctrl.team2)}}">
         </div>
-        <div class = "bracketName">
+        <div class = "bracketName" ng-if="($ctrl.t2 ===undefined)">
           {{$ctrl.team2}}
         </div>
       </td>

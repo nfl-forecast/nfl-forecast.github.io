@@ -48,7 +48,7 @@ function SBController(teamService, logoService) {
                 }
               }
             }
-            for (var i = 10; i < 12; i++) {
+            for (var i = 10; i < 14; i++) {
               for (var j = 0; j < teamsindivision.length; j++) {
                 if (this.allseeds[i] === teamsindivision[j] && !flag) {
                   flag = true;

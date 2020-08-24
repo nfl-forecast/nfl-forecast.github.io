@@ -99,8 +99,8 @@ public class Driver{
 		{
 			allTeams[i] = AFCTeams[i];
 			allTeams[i+16] = NFCTeams[i];
-			names3232Array[i] = AFCTeams[i].getName();
 			names3232Array[i+16] = NFCTeams[i].getName();
+			names3232Array[i] = AFCTeams[i].getName();
 		}
 		
 		full3232Array = PlayoffCalc.makeFullPercents(allTeams);

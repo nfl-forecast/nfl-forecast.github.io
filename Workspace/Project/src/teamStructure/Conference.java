@@ -70,7 +70,7 @@ public class Conference implements Cloneable
 		teams.remove(South.first());
 		teams.remove(East.first());
 		teams.remove(West.first());
-		Team[] seeds = new Team[6];
+		Team[] seeds = new Team[7];
 		seeds[4] = Team.compareTo(teams);
 		
 		teams = allTeams();
@@ -80,6 +80,15 @@ public class Conference implements Cloneable
 		teams.remove(West.first());
 		teams.remove(seeds[4]);
 		seeds[5] = Team.compareTo(teams);
+		
+		teams = allTeams();
+		teams.remove(North.first());
+		teams.remove(South.first());
+		teams.remove(East.first());
+		teams.remove(West.first());
+		teams.remove(seeds[4]);
+		teams.remove(seeds[5]);
+		seeds[6] = Team.compareTo(teams);
 		
 		teams = new ArrayList<Team>();
 		teams.add(North.first());
