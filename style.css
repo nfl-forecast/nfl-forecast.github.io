@@ -207,9 +207,10 @@ button:active {
     margin: 3px;
 }
 
-.conferenceBracket, .divisionalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
+.divisionalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
     display: flex;
     justify-self: center;
+    font-size: 30px;
 }
 
 .AFCConferenceBracket, .AFCDivisionalBracket, .AFCWildcardBracket{
