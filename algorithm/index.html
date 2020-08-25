@@ -1,0 +1,104 @@
+<html>
+
+  <head>
+
+    <title>
+      NFL Forecast: A football predictor
+    </title>
+    <link href="algorithm.css" rel="stylesheet" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">
+        <div class="logo">
+          <img src="../nflforecastWhite.png" alt="">
+        </div>
+        <div class="name">
+          NFL Forecast:
+        </div>
+        <div class="subTitle">
+          A Football Predictor
+        </div>
+      </div>
+      <div class="pageLinks">
+        <a href="../.." class="link">
+          Home
+        </a>
+      </div>
+      <div id="blankHeader"></div>
+    </div>
+    <div class="main">
+      <section id="components" class="largeSection">
+        <h2>NFL Forecast has several Components:</h2>
+        <ul>
+          <li>Obtaining data: Originally, an API located at mysportsfeeds.com was used to get NFL stats and schedules, but data is now obtained directly from nfl.com</li>
+          <li>Java: Java is used to simulate the NFL season</li>
+          <li>AngularJS: AngularJS is used to make a site on Github</li>
+          <li>IFrame: The data displayed is shown from the site hosted on GitHub</li>
+        </ul>
+      </section>
+      <section id="java" class="largeSection">
+        <h2>Java</h2>
+
+        <section id="fpi" class="subSection">
+          <h3>Calculating each team's Football Power Index (FPI)</h3>
+          <p>
+            Each team's FPI is completely based on real in game statistics. The first step was to choose which statistics we wanted to analyze. Our initial list consisted of 48 unique statistics, which was eventually narrowed down to 23. To understand the relationship that different statistics had with the outcome of a game, we looked at a large range of games from the 2018-19 season and recorded stat values for both teams and associated each value with a win or a loss. For each statistic, this process was completed for up to 20 games.
+          </p>
+          <p>
+            Then the data was grouped into regions based on the value of the statistic. Each region was converted into ordered pairs: (average stat value, percentage of games won). These ordered pairs were then put into a program in Wolfram that performed logistic regression. This function now accurately represents a team's percent chance to win when their statistical values for the season were entered. Each statistic has its own unique logistic function.
+          </p>
+          <p>
+            The FPI for each team is calculated by inserting the team's current stat value (retrieved from nfl.com) into each logistic function and calculating the sum of all of the functions.
+          </p>
+        </section>
+        <section id="simulationReg" class="subSection">
+          <h3>Simulating the regular season</h3>
+          <p>
+            For each game of the NFL season, the FPI of the home team and away team are plugged into a function that calculates the percent chance for each team win, which also takes home field advantage in to account. Then, each team's predicted wins for the season is calculated by adding up the percent chance to win each game and the amount of wins the team currently has. The predicted losses is calculated by subtracting the amount of ties and wins from sixteen.
+          </p>
+        </section>
+        <section id="simulationPost" class="subSection">
+          <h3>Simulating the playoffs</h3>
+          <p>Using the results from the simulated season, a predicted list of the twelve playoff teams is determined. Then, using percentages for individual games, the probability for each team to win each round of the playoffs is calculated. This culminates in a final percentage for each team's chance to win the Super Bowl.
+          </p>
+        </section>
+      </section>
+      <section id="web" class="largeSection">
+        <h2>Javascript/HTML/CSS (Web)</h2>
+        <section id="schedule" class="subSection">
+          <h3>Schedule and Week</h3>
+          <p>
+            The schedule tab includes information for all 17 weeks of the regular season. Each week tab contains data retrieved from the API, as well as our own calculated data. The data from the API consists of the teams on a bye, and all of the games for that week. Every games date, location, and time is displayed. The percent values displayed are sent from the java calculations to the javascript files. Here it is used to be shown on the website, as well as being used to create the width of the bar, which is proportional to the percent shown.
+          </p>
+        </section>
+        <section id="standings" class="subSection">
+          <h3>Standings</h3>
+          <p>
+            The standings are broken up into different groups. The different groupings are Divisions, Conferences, and the entire league. Each group is displayed by placing the official NFL teams into their respective divisions or conferences. Users have the ability to sort any column of the tables, which includes Team Information, FPI, Wins, Losses, and Ties.  In javascript, a sorting algorithm allows this to occur on a click of the column header, switching between ascending and descending order. Each table is initially sorted by wins. Each group can be sorted individually.
+          </p>
+        </section>
+        <section id="bracket" class="subSection">
+          <h3>Playoff Bracket</h3>
+          <p>
+            The first piece of information shown is the predicted winner of the Super Bowl. The team's logo is displayed next to the Lombardi Trophy. The team's percent chance to win is displayed below the images. The predicted bracket is shown with each team in their starting positions.
+          </p>
+        </section>
+        <section id="table" class="subSection">
+          <h3>Playoff Table</h3>
+          <p>The data from the playoffs calculations is displayed in the table which is originally sorted by the seed. The wildcard round boxes for the top seed in both conferences are greyed out, since they have a bye for that round. Any column can be sorted by clicking on the column header. Each gray box is treated as 100% when sorting.
+          </p>
+          <p>
+            The colors on the playoff table are calculated through various equations determining the amount of red, green, and blue in the color's RGB value. This allows a high percentage to be green, a low to be red, and a median value to be grey. Another function is also used to adjust the percentages before using them in the color equations, so the median is around 25%.
+          </p>
+        </section>
+        <section id="create" class="subSection">
+          <h3>Create Your Own Playoff Scenario</h3>
+          <p>
+            The Create Your Own Playoff Scenario function is divided into two distinct modes. The default mode is Real Mode. In Real Mode, all playoff scenarios have to be able to actually happen. If a team that isn't in the playoffs is made to go to a division winner seed (1-4), The team first swaps with the winner of its division. Then it is flipped with the attempted seed. If a team that is in a division winner seed(1-4) then is attempted to be moved into a wildcard seed, it is flipped with a different team from its division and then it takes the wildcard position. In Fun Mode, any team is allowed to be in any positions. Teams are even allowed to play against themselves. However teams can only be set to playoff positions in their own conference.
+          </p>
+        </section>
+      </section>
+    </div>
+  </body>
+</html>

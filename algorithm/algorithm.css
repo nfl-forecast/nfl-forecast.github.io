@@ -1,0 +1,61 @@
+.main {
+    margin-top: 45px;
+    width: 98%;
+}
+
+.header {
+    position: fixed;
+    background-color: rgb(1, 51, 105);
+    width:100%;
+    top: 0;
+    display: flex;
+    color: white;
+}
+
+#blankHeader {
+    width: 2%;
+}
+
+img {
+    height: 40px;
+}
+
+.title {
+    width:90%;
+    display: flex;
+}
+
+.logo {
+
+}
+
+.name {
+    font-size: 40px;
+}
+
+.subTitle {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.pageLinks {
+    display: flex;
+    justify-self:right;
+    width: 8%;
+    margin-right: 10px;
+}
+
+.link {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    text-align: right;
+}
+
+.largeSection {
+
+}
+
+.subSection {
+
+}
