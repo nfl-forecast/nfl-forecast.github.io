@@ -5,8 +5,8 @@
   </div>
 </div>
 <div class='weekButtonsStyle' ng-repeat='team in $ctrl.week.teamsOnBye'>
-  <span><img class='Byeimage' ng-src='{{$ctrl.getTeamImage(team)}}' alt='LOGO'></span>
-  {{team}}
+  <span><img class='Byeimage' ng-src='{{$ctrl.getTeamImage(team.name)}}' alt='LOGO'></span>
+  {{team.name}}
 </div>
 </br>
 <div class = 'ScheduleHeader'>
