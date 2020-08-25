@@ -21,7 +21,7 @@ img {
 }
 
 .title {
-    width:83%;
+    width:85%;
     display: flex;
 }
 
@@ -50,12 +50,4 @@ img {
     text-decoration: none;
     color: white;
     text-align: right;
-}
-
-.largeSection {
-
-}
-
-.subSection {
-
 }
