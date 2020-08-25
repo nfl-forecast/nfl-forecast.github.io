@@ -10,6 +10,7 @@
     top: 0;
     display: flex;
     color: white;
+
 }
 
 #blankHeader {
@@ -46,7 +47,7 @@ img {
 }
 
 .link {
-    width: 50%;
+    width: 33%;
     text-decoration: none;
     color: white;
     text-align: right;

@@ -10,6 +10,7 @@
     top: 0;
     display: flex;
     color: white;
+
 }
 
 #blankHeader {
@@ -21,7 +22,7 @@ img {
 }
 
 .title {
-    width:85%;
+    width:78%;
     display: flex;
 }
 
@@ -41,13 +42,21 @@ img {
 .pageLinks {
     display: flex;
     justify-self:right;
-    width: 15%;
+    width: 20%;
     margin-right: 10px;
 }
 
 .link {
-    width: 50%;
+    width: 33%;
     text-decoration: none;
     color: white;
     text-align: right;
+}
+
+.largeSection {
+
+}
+
+.subSection {
+
 }
