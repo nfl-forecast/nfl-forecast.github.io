@@ -232,7 +232,7 @@ button:active {
 .bracketTeam, .bracketName{
     padding: 5px;
     display:flex;
-    height: 60px;
+    height: 65px;
     justify-content: center;
 }
 
@@ -421,4 +421,9 @@ img {
 
 .nav-link {
     font-size: 20px;
+}
+
+main {
+    margin-left: 10px;
+    margin-right: 10px;
 }
