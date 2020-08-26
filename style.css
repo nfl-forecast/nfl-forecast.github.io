@@ -236,10 +236,6 @@ button:active {
     justify-content: center;
 }
 
-body{
-    min-width: 1100px;
-    max-width: 1180px;
-}
 
 .pwLogo{
     width:50%;
@@ -357,4 +353,72 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 
 .chooseButton {
     margin-left: 20px;
+}
+
+.header {
+    display: flex;
+}
+
+#blankHeader {
+    width: 2%;
+}
+
+img {
+    height: 40px;
+}
+
+.title {
+    width:83%;
+    display: flex;
+}
+
+.logo {
+    margin: 10px;
+
+}
+
+.name {
+    font-size: 25px;
+    margin:10px;
+}
+
+.subTitle {
+    font-size: 15px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.pageLinks {
+    display: flex;
+    justify-self:right;
+    width: 15%;
+    margin-right: 10px;
+}
+
+.link {
+    width: 100px;
+    text-decoration: none;
+    color: white;
+    text-align: right;
+}
+
+.largeSection {
+
+}
+
+.subSection {
+
+}
+
+.nav-items {
+    display:flex;
+}
+
+.nav-item {
+    padding: 20px;
+}
+
+.nav-link {
+    font-size: 20px;
 }

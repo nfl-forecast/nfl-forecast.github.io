@@ -2,50 +2,70 @@
 
   <head>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
     <title>
       NFL Forecast: A football predictor
     </title>
     <link href="algorithm.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
   <body>
-    <div class="header">
-      <div class="title">
-        <div class="logo">
-          <img src="../nflforecastWhite.png" alt="">
-        </div>
-        <div class="name">
-          NFL Forecast:
-        </div>
-        <div class="subTitle">
-          A Football Predictor
-        </div>
+    <nav class="navbar navbar-dark bg-dark" role="navigation">
+                  <span class="navbar-brand header">
+                     <div class="logo">
+                        <img src="../nflforecastWhite.png" alt="">
+                    </div>
+                    <div class="name">
+                        NFL Forecast:
+                      </div>
+                      <div class="subTitle">
+                        A Football Predictor
+                      </div>
+                  </span>
+      <div>
+        <ul class="navbar-nav mr-auto">
+          <div class="nav-items">
+            <li class="nav-item">
+              <a class="nav-link link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="../algorithm">Algorithm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="../contact_us">Contact us</a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div class="pageLinks">
-        <a href=".." class="link">
-          Home
-        </a>
-        <a href="../algorithm" class="link">
-          Algorithm
-        </a>
-        <a href="../contact_us" class="link">
-          Contact Us
-        </a>
-      </div>
-      <div id="blankHeader"></div>
-    </div>
+    </nav>
+
+
     <div class="main">
       <section id="components" class="largeSection">
-        <h2>NFL Forecast has several Components:</h2>
-        <ul>
-          <li>Obtaining data: Originally, an API located at mysportsfeeds.com was used to get NFL stats and schedules, but data is now obtained directly from nfl.com</li>
-          <li>Java: Java is used to simulate the NFL season</li>
-          <li>AngularJS: AngularJS is used to make a site on Github</li>
-          <li>IFrame: The data displayed is shown from the site hosted on GitHub</li>
+        <h2 id = "componentsHeader">NFL Forecast has several components</h2>
+        <ul id = "componentsInfoList">
+          <div class = "componentsInfo">
+            <p class = "componentsInfoText"> Originally, an API located at mysportsfeeds.com was used to get NFL stats and schedules, but data is now obtained directly from nfl.com</p>
+          </div>
+          <div class = "componentsInfo">
+            <p class = "componentsInfoText"> Java is used to simulate the NFL season</p>
+          </div>
+          <div class = "componentsInfo">
+           <p class = "componentsInfoText"> AngularJS is used to make a site on Github</p>
+          </div>
+          <div class = "componentsInfo">
+            <p class = "componentsInfoText">The data displayed is shown from the site hosted on GitHub</p>
+          </div>
         </ul>
       </section>
+
       <section id="java" class="largeSection">
         <h2>Java</h2>
-
         <section id="fpi" class="subSection">
           <h3>Calculating each team's Football Power Index (FPI)</h3>
           <p>
@@ -70,6 +90,7 @@
           </p>
         </section>
       </section>
+
       <section id="web" class="largeSection">
         <h2>Javascript/HTML/CSS (Web)</h2>
         <section id="schedule" class="subSection">

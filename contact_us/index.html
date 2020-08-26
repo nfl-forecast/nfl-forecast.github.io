@@ -5,34 +5,45 @@
   <title>
     NFL Forecast: A football predictor
   </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
   <link href="contact_us.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-<div class="header">
-  <div class="title">
-    <div class="logo">
-      <img src="../nflforecastWhite.png" alt="">
+  <nav class="navbar navbar-dark bg-dark" role="navigation">
+                    <span class="navbar-brand header">
+                       <div class="logo">
+                          <img src="../nflforecastWhite.png" alt="">
+                      </div>
+                      <div class="name">
+                          NFL Forecast:
+                        </div>
+                        <div class="subTitle">
+                          A Football Predictor
+                        </div>
+                    </span>
+    <div>
+      <ul class="navbar-nav mr-auto">
+        <div class="nav-items">
+          <li class="nav-item">
+            <a class="nav-link link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link" href="../algorithm">Algorithm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link" href="../contact_us">Contact us</a>
+          </li>
+        </div>
+      </ul>
     </div>
-    <div class="name">
-      NFL Forecast:
-    </div>
-    <div class="subTitle">
-      A Football Predictor
-    </div>
-  </div>
-  <div class="pageLinks">
-    <a href=".." class="link">
-      Home
-    </a>
-    <a href="../algorithm" class="link">
-      Algorithm
-    </a>
-    <a href="../contact_us" class="link">
-      Contact Us
-    </a>
-  </div>
-  <div id="blankHeader"></div>
-</div>
+  </nav>
+
 <div class="main">
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScqM1wUQySdJppqHax78m0_uXpLD4YLeWdWBlLkrDsLkJJPNQ/viewform?embedded=true" width="640" height="1004" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </div>
