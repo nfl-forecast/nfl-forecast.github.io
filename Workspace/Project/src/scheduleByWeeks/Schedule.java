@@ -38,7 +38,7 @@ public class Schedule{
 				week++;
 				weeks.add(new Week());
 			}
-			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getTime(), g.getDate(), g.getAwayTeam().getScore(), g.getHomeTeam().getScore());
+			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getTime(), g.getDate(), g.getUrl() ,g.getAwayTeam().getScore(), g.getHomeTeam().getScore());
 			weeks.get(week-1).getGames().add(game);
 		}
 		weeks.get(16).setUpTeamsOnBye(NFC, AFC);

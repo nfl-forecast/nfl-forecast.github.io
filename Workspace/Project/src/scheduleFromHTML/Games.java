@@ -11,9 +11,13 @@ public class Games {
 	public TeamSchedule awayTeam, homeTeam;
 	public String week;
 	private boolean played;
+	public String url;
 
 	public void setWeek(String str) {
 		week = str;
+	}
+	public void setUrl(String str) {
+		url = str;
 	}
 
 	public void setDate(String str) {
@@ -65,5 +69,10 @@ public class Games {
 
 	public String toString() {
 		return awayTeam + " @ " + homeTeam;
+	}
+	
+	
+	public String getUrl() {
+		return url;
 	}
 }

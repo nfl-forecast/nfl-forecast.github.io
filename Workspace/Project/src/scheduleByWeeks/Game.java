@@ -7,11 +7,12 @@ public class Game{
 	private double awayPCT, homePCT;
 	private boolean played;
 	private String time;
+	private String url;
 	private String date;
 	private int homeScore;
 	private int awayScore;
 
-	public Game(Team away, Team home, boolean isPlayed, String t, String d, int awayScore, int homeScore) {
+	public Game(Team away, Team home, boolean isPlayed, String t, String d, String u, int awayScore, int homeScore) {
 		awayTeam = away;
 		homeTeam = home;
 		played = isPlayed;
@@ -19,6 +20,7 @@ public class Game{
 		date = d;
 		this.awayScore = awayScore;
 		this.homeScore = homeScore;
+		url = u;
 		if(!played)
 			calculate();
 	}
@@ -106,6 +108,10 @@ public class Game{
 	}
 	public String getDate() {
 		return date;
+	}
+	
+	public String getUrl() {
+		return url;
 	}
 	
 	public boolean getPlayed() {

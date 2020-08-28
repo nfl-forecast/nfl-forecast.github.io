@@ -22,14 +22,14 @@
         {{$ctrl.game.homeScore}}
       </div>
     </div>
-    <div class = "gameWhenWhere">
-      <div class = "gameDate">
+    <a class = "gameWhenWhere" href="https://www.{{$ctrl.game.url}}">
+      <div class = "gameDate" >
         {{$ctrl.game.date}}
       </div>
       <div class = "gameTime">
         {{$ctrl.game.time}}
       </div>
-    </div>
+    </a>
   </div>
   <div class = "gameHomeTeam">
     <div gameHomeLogo><img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'></div>

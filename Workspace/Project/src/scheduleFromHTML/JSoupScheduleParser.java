@@ -42,6 +42,7 @@ public class JSoupScheduleParser {
 					List<Element> gameNodes = section.select("> div.nfl-c-matchup-strip");
 					for (Element gameNode : gameNodes) {
 						Element left = gameNode.selectFirst("> a");
+						String url = left.attr("href");
 						Elements timeNodes = left.select("span.nfl-c-matchup-strip__date-time");
 						String time;
 						if (timeNodes.size() != 0)
@@ -76,7 +77,7 @@ public class JSoupScheduleParser {
 						String home = "{\"Name\": \"" + homeName + "\", \"Abreviation\": \"" + homeAbr + "\","
 								+ "\"Score\": \"" + homeScore + "\"}";
 						String game = "{\"week\": \"" + i + "\", \"date\": \"" + date + "\", \"time\": \"" + time
-								+ "\", \"awayTeam\": " + away + ", \"homeTeam\": " + home + "}";
+								+ "\", \"url\": \"nfl.com" +url + "\", \"awayTeam\": " + away + ", \"homeTeam\": " + home + "}";
 						schedule += game + ", ";
 					}
 					
@@ -90,7 +91,7 @@ public class JSoupScheduleParser {
 			write.close();
 			return schedule;
 		} catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
-			System.out.print(e);
+			e.printStackTrace();
 			return "";
 		}
 
