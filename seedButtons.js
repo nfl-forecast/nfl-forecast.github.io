@@ -145,7 +145,7 @@ function SBController(teamService, logoService) {
       for(let i = 7; i < 14; i++)
       {
         if(teamName === this.allseeds[i])
-          return i-6;
+          return i-7;
       }
     }
   };
@@ -154,7 +154,7 @@ function SBController(teamService, logoService) {
     if(!this.allseeds.includes(teamName)) return -1;
     else
     {
-      for(var i = 0; i < 12; i++)
+      for(var i = 0; i < 14; i++)
       {
         if(teamName === this.allseeds[i])
           return i;
