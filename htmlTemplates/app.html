@@ -1,26 +1,27 @@
 <div id="ButtonRow">
-  <button id="schedule" class="HeaderButton Button{{$ctrl.shown===$ctrl.SCHEDULE}}" ng-click="$ctrl.shown=$ctrl.SCHEDULE">Schedule</button>
-  <button id="standings" class = "HeaderButton Button{{$ctrl.shown===$ctrl.STANDINGS}}" ng-click="$ctrl.shown=$ctrl.STANDINGS">Standings</button>
-  <button id="bracket" class = "HeaderButton Button{{$ctrl.shown===$ctrl.BRACKET}}" ng-click="$ctrl.shown=$ctrl.BRACKET">Playoff Bracket</button>
-  <button id ="percents" class = "HeaderButton Button{{$ctrl.shown===$ctrl.TABLE}}" ng-click="$ctrl.shown=$ctrl.TABLE">Playoff Table</button>
-  <button id ="create"  class = "HeaderButton Button{{$ctrl.shown===$ctrl.CREATE}}" ng-click="$ctrl.shown=$ctrl.CREATE">Create Your Own Playoff Scenario</button>
+  <button id="schedule" class="HeaderButton HeaderButton{{$ctrl.shown===$ctrl.SCHEDULE}}" ng-click="$ctrl.shown=$ctrl.SCHEDULE">Schedule</button>
+  <button id="standings" class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.STANDINGS}}" ng-click="$ctrl.shown=$ctrl.STANDINGS">Standings</button>
+  <button id="bracket" class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.BRACKET}}" ng-click="$ctrl.shown=$ctrl.BRACKET">Playoff Bracket</button>
+  <button id ="percents" class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.TABLE}}" ng-click="$ctrl.shown=$ctrl.TABLE">Playoff Table</button>
+  <button id ="create"  class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.CREATE}}" ng-click="$ctrl.shown=$ctrl.CREATE">Create Your Own Playoff Scenario</button>
 </div>
-<p> </p>
-<div id = 'ScheduleContainer' ng-if="$ctrl.shown===$ctrl.SCHEDULE">
-  <week-buttons data='$ctrl.data'></week-buttons>
-</div>
-<div id = 'StandingsContainer' ng-if="$ctrl.shown===$ctrl.STANDINGS">
-  <standings-view data = '$ctrl.data' ></standings-view>
-</div>
-<div id="BracketContainer" ng-if="$ctrl.shown===$ctrl.BRACKET">
-  <playoff-bracket-view playoffs="$ctrl.data.playoffs"></playoff-bracket-view>
-</div>
-<div id = 'PlayoffContainer' ng-if="$ctrl.shown===$ctrl.TABLE">
-  <playoff-table-view playoffs='$ctrl.data.playoffs'></playoff-table-view>
-</div>
-<div id = 'CreateContainer' ng-if="$ctrl.shown===$ctrl.CREATE">
-  <create-view names='$ctrl.data.names3232Array' percents="$ctrl.data.full3232Array" actualplayoffteams="$ctrl.currTeams"></create-view>
-</div>
-<div class="lastUpdated">
-  Data Last Updated On {{$ctrl.data.lastUpdated}}
+<div id="mainPage">
+  <div id = 'ScheduleContainer' ng-if="$ctrl.shown===$ctrl.SCHEDULE">
+    <week-buttons data='$ctrl.data'></week-buttons>
+  </div>
+  <div id = 'StandingsContainer' ng-if="$ctrl.shown===$ctrl.STANDINGS">
+    <standings-view data = '$ctrl.data' ></standings-view>
+  </div>
+  <div id="BracketContainer" ng-if="$ctrl.shown===$ctrl.BRACKET">
+    <playoff-bracket-view playoffs="$ctrl.data.playoffs"></playoff-bracket-view>
+  </div>
+  <div id = 'PlayoffContainer' ng-if="$ctrl.shown===$ctrl.TABLE">
+    <playoff-table-view playoffs='$ctrl.data.playoffs'></playoff-table-view>
+  </div>
+  <div id = 'CreateContainer' ng-if="$ctrl.shown===$ctrl.CREATE">
+    <create-view names='$ctrl.data.names3232Array' percents="$ctrl.data.full3232Array" actualplayoffteams="$ctrl.currTeams"></create-view>
+  </div>
+  <div class="lastUpdated">
+    Data Last Updated On {{$ctrl.data.lastUpdated}}
+  </div>
 </div>

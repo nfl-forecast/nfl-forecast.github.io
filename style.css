@@ -2,6 +2,7 @@
     top:0;
     position: fixed;
     width: 100%;
+    height: 100px;
 }
 
 .game{
@@ -150,12 +151,6 @@ button:active {
     outline: none;
 }
 
-.Buttontrue{
-    background: #aeaeae;
-    box-shadow: inset 0px 0px 5px #333333;
-    outline: none;
-}
-
 
 .lastUpdated{
     color: grey;
@@ -298,14 +293,45 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .HeaderButton{
-    font-size: x-large;
-    padding: 12px;
+    font-size: large;
+    padding-right: 5%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    display: inline-block;
+    height: 50px;
+}
+
+.HeaderButtontrue {
+
+    text-decoration: underline blue;
+}
+
+.HeaderButton:focus {
+    border: none;
+    outline: none;
+    background-color: inherit;
+    display: inline-block;
 }
 
 #ButtonRow {
+    position: fixed;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    height: 51px;
+    padding-right: 20px;
+    background-color: lightgrey;
+    top:100px;
+    
 }
+
+#mainPage {
+    margin-top: 151px;
+    background: white;
+    padding: 10px;
+}
+
+
 
 .weekButtons{
     display: flex;
@@ -332,12 +358,12 @@ standings-view, division-standings-view, league-standings-view, conference-stand
     margin: 10px;
 }
 
-.modeButton {
+.modeButtons {
     display: flex;
     justify-content: center;
 }
 
-.funMode, .realMode {
+.modeButton {
     font-size: larger;
     margin: 10px;
 }
@@ -431,5 +457,5 @@ img {
 
 .notNav {
 
-    margin: 100px 10px 10px 10px;
+    margin-top: 100px;
 }
