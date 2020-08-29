@@ -37,11 +37,11 @@
 
 .teamNameSection{
     display:flex;
-    font-size: x-large;
+    font-size: 25px;
 }
 
 .winsStandings, .lossesStandings, .fpiStandings, .tiesStandings, .standingsHeaderRow{
-    font-size: x-large;
+    font-size: 25px;
 }
 .imageStandings{
     height:72px;
@@ -95,22 +95,22 @@ table,td,th{
 }
 
 .confNameDivStandings{
-    font-size: xx-large;
+    font-size: 30px;
     font-weight: bolder;
 }
 
 .divStandingsBlock{
-    font-size: large;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .confNameConfStandings{
-    font-size: xx-large;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .divStandingsBlock{
-    font-size: x-large;
+    font-size: 25px;
     font-weight: bold;
 }
 .teamNameCell{
@@ -122,7 +122,7 @@ table,td,th{
 }
 
 .awayPCT, .homePCT{
-    font-size: xx-large;
+    font-size: 30px;
 }
 
 .away_home_row {
@@ -131,13 +131,13 @@ table,td,th{
 
 .away {
     width: 50%;
-    font-size: large;
+    font-size: 20px;
     text-align: left;
 }
 
 .home {
     width: 50%;
-    font-size: large;
+    font-size: 20px;
     text-align: right;
 }
 
@@ -159,7 +159,7 @@ button:active {
 }
 
 .scheduleHeader{
-    font-size: xx-large;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -169,7 +169,7 @@ button:active {
 
 .pwHeader {
     text-align: center;
-    font-size: large;
+    font-size: 20px;
 }
 
 .pwImages{
@@ -262,11 +262,6 @@ button:active {
 	color:gray;
 }
 
-
-.gameComplete {
-    font-size: x-large;
-}
-
 .playoffTable, .createTable{
     width: 100%;
 }
@@ -289,15 +284,15 @@ standings-view, division-standings-view, league-standings-view, conference-stand
   }
 
 .messageBody {
-    font-size: larger;
+    font-size: 22px;
 }
 
 .messageHeader {
-    font-size: x-large;
+    font-size: 25px;
 }
 
 .HeaderButton{
-    font-size: large;
+    font-size: 20px;
     border: none;
     outline: none;
     background-color: inherit;
@@ -342,7 +337,7 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .weekButton {
-    font-size: larger;
+    font-size: 20px;
     margin: 10px;
 }
 
@@ -357,7 +352,7 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .standingsButtons {
-    font-size: larger;
+    font-size: 20px;
     margin: 10px;
 }
 
@@ -367,12 +362,12 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .modeButton {
-    font-size: larger;
+    font-size: 22px;
     margin: 10px;
 }
 
 .blurbFun, .blurbReal {
-    font-size: larger;
+    font-size: 22px;
 }
 
 .chooseButtonRow {
@@ -449,14 +444,6 @@ img {
     text-align: right;
 }
 
-.largeSection {
-
-}
-
-.subSection {
-
-}
-
 .nav-items {
     display:flex;
 }
@@ -472,4 +459,5 @@ img {
 .notNav {
 
     margin-top: 100px;
+    font-size: 15px;
 }
