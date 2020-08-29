@@ -199,7 +199,12 @@ button:active {
 }
 
 .superbowlBracket {
-    width: 100%;
+     width: 100%;
+ }
+
+.playoffBracketLbl {
+    text-align: center;
+    font-size: 30px;
 }
 
 .playoffGameDiv{
@@ -211,7 +216,6 @@ button:active {
 .divisionalBracket, .AFCDivisionalBracket, .NFCDivisionalBracket, .wildcardBracket, .AFCWildcardBracket, .NFCWildcardBracket{
     display: flex;
     justify-self: center;
-    font-size: 30px;
 }
 
 .AFCConferenceBracket, .AFCDivisionalBracket, .AFCWildcardBracket{
@@ -233,7 +237,7 @@ button:active {
 .bracketTeam, .bracketName{
     padding: 5px;
     display:flex;
-    height: 65px;
+    min-height: 65px;
     justify-content: center;
 }
 

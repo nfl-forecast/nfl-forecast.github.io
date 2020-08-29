@@ -14,8 +14,11 @@
     {{$ctrl.playoffs.superBowl[$ctrl.getPredictedSBWinner()]}}%
   </div>
 </div>
-<div class="divisionalBracket">
+<div class="playoffBracketLbl">
   Divisional
+</div>
+<div class="divisionalBracket">
+
   <div class="NFCDivisionalBracket">
     <div class="NFC1Bracket">
       <playoff-game-view team1="'Worst Seeded Winner From NFC Wildcard Games'" team2="$ctrl.teams(0)"></playoff-game-view>
@@ -33,8 +36,10 @@
     </div>
   </div>
 </div>
-<div class="wildcardBracket">
+<div class="playoffBracketLbl">
   Wildcard
+</div>
+<div class="wildcardBracket">
   <div class="NFCWildcardBracket">
     <div class="NFC36Bracket">
       <playoff-game-view team1="$ctrl.teams(5)" team2="$ctrl.teams(2)"></playoff-game-view>
