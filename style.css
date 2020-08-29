@@ -384,6 +384,7 @@ standings-view, division-standings-view, league-standings-view, conference-stand
     background: #aeaeae;
     box-shadow: inset 0px 0px 5px #333333;
     outline: none;
+    border: 1px solid darkgray;
 }
 
 .chooseButtonsSection {
