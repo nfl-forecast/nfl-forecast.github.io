@@ -294,7 +294,6 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 
 .HeaderButton{
     font-size: large;
-    padding-right: 5%;
     border: none;
     outline: none;
     background-color: inherit;
@@ -322,7 +321,7 @@ standings-view, division-standings-view, league-standings-view, conference-stand
     padding-right: 20px;
     background-color: lightgrey;
     top:100px;
-    
+    justify-content:space-between;
 }
 
 #mainPage {
