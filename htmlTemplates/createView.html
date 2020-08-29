@@ -1,6 +1,6 @@
-<div class="modeButton">
-  <button class="realMode Button{{!$ctrl.fun}}" ng-click="$ctrl.realOn();"> Real Mode </button>
-  <button class="funMode Button{{$ctrl.fun}}" ng-click=" $ctrl.funOn()"> Fun Mode </button>
+<div class="modeButtons">
+  <button class="modeButton realMode Button{{!$ctrl.fun}}" ng-click="$ctrl.realOn();"> Real Mode </button>
+  <button class="modeButton funMode Button{{$ctrl.fun}}" ng-click=" $ctrl.funOn()"> Fun Mode </button>
 </div>
 <div class ="blurbFun" ng-if="$ctrl.fun">
   Use your creativity to create any playoff scenario you can think of.
@@ -8,7 +8,7 @@
 <div class="blurbReal" ng-if="!$ctrl.fun">
   Create only purely realistic playoff scenarios.
 </div>
-<div class="chooseButtonHeader">
+<div class="chooseButtonLabel">
   <br>Select teams below to change the playoff scenario</br>
 </div>
 <div ng-repeat="seed in $ctrl.seeds track by $index">

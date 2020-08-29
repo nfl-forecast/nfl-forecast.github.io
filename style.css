@@ -373,13 +373,23 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 
 .chooseButtonRow {
     display: flex;
-    justify-content: space-between;
+
+}
+
+.chooseButtonHeader {
+    width: 103px;
+}
+
+.Buttontrue{
+    background: #aeaeae;
+    box-shadow: inset 0px 0px 5px #333333;
+    outline: none;
 }
 
 .chooseButtonsSection {
     display: flex;
-    justify-content: space-evenly;
-    margin-right: 20%;
+    justify-content: space-between;
+    flex: 9;
 }
 
 .chooseButton {
