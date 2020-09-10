@@ -44,7 +44,7 @@ public class Driver{
 				CLE = new Team("Browns", new Color(56, 47, 45), new Color(235, 51, 0)),
 				BAL = new Team("Ravens", new Color(26, 25, 95), new Color(255, 255, 255)),
 				CIN = new Team("Bengals", new Color(252, 76, 2), new Color(0, 0, 0)),
-				LAC = new Team("Chargers", new Color(12, 35, 64), new Color(255, 184, 28)),
+				LAC = new Team("Chargers", new Color(0,128,198), new Color(255, 184, 28)),
 				DEN = new Team("Broncos", new Color(252, 76, 2), new Color(12, 35, 64)),
 				LV = new Team("Raiders", new Color(0, 0, 0), new Color(191, 192, 191)),
 				KC = new Team("Chiefs", new Color(200, 16, 46), new Color(255, 255, 255));
@@ -64,7 +64,7 @@ public class Driver{
 				SEA = new Team("Seahawks", new Color(0, 21, 51), new Color(77, 255, 0)),
 				SF = new Team("49ers", new Color(157, 42, 70), new Color(255, 255, 255)),
 				ARI = new Team("Cardinals", new Color(155, 39, 67), new Color(255, 255, 255)),
-				LAR = new Team("Rams", new Color(4, 30, 66), new Color(255, 255, 255));
+				LAR = new Team("Rams", new Color(4, 30, 66), new Color(255, 163, 0));
 
 		Division AEast = new Division(NE, NYJ, BUF, MIA), AWest = new Division(LAC, DEN, LV, KC),
 				ASouth = new Division(HOU, IND, JAX, TEN), ANorth = new Division(PIT, CLE, BAL, CIN);
