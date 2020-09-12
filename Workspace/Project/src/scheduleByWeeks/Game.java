@@ -1,5 +1,9 @@
 package scheduleByWeeks;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import teamStructure.Team;
 
 public class Game{
@@ -11,6 +15,8 @@ public class Game{
 	private String date;
 	private int homeScore;
 	private int awayScore;
+	
+	public Game() {}
 
 	public Game(Team away, Team home, boolean isPlayed, String t, String d, String u, int awayScore, int homeScore) {
 		awayTeam = away;
@@ -85,6 +91,15 @@ public class Game{
 		return Math.round(100*awayPCT)+"%";
 	}
 	
+	public void setHomePCT(double h)
+	{
+		homePCT = h;
+	}
+	public void setAwayPCT(double a)
+	{
+		awayPCT = a;
+	}
+	
 	public void setDate(String str)
 	{
 		date = str;
@@ -117,4 +132,52 @@ public class Game{
 	public boolean getPlayed() {
 		return played;
 	}
+
+	public boolean equals(Game g) {
+		return(url.equals(g.url));
+	}
+
+
+	public void setHomeTeam(Team t) {
+		homeTeam = t;
+	}
+
+	public void setAwayTeam(Team t) {
+		awayTeam = t;
+	}
+	
+	public void setHomeTeamName(String s){}
+	
+	public void setAwayTeamName(String s){}
+	
+	public void setAwayScore(int s) {
+		awayScore = s;
+	}
+	
+	public void setHomeScore(int s) {
+		homeScore = s;
+	}
+	
+	public void setUrl(String str) {
+		url = str;
+	}
+	
+	public void setPlayed(boolean b) {
+		played = b;
+	}
+	
+	
+	@JsonSetter("homePCT")
+	public void setHomePCT(String s)
+	{
+		double d = Double.parseDouble(s.replace("%", ""));
+		homePCT = d/100;
+	}
+	@JsonSetter("awayPCT")
+	public void setAwayPCT(String s)
+	{
+		double d = Double.parseDouble(s.replace("%", ""));
+		awayPCT = d/100;
+	}
+	
 }

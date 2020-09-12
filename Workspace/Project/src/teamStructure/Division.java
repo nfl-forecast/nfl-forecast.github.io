@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class Division
 {
-	private Team[] teamsInDivision;
+	public Team[] teamsInDivision;
+	public Division() {}
 	public Division(Team Team1, Team Team2, Team Team3, Team Team4)
 	{
 		teamsInDivision = new Team[4];
@@ -132,5 +133,10 @@ public class Division
 			str += plc[i].toString() + "\n";
 		str += plc[3].toString();
 		return str;
+	}
+	
+	public void setTeams(Team[] teams)
+	{
+		teamsInDivision = teams;
 	}
 }

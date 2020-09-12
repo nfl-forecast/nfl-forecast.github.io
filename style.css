@@ -117,12 +117,20 @@ table,td,th{
     width:70%;
 }
 
-.percentBar{
-    height: 45px;
+.percentBarIncomplete{
+    height: 60px;
 }
 
-.awayPCT, .homePCT{
-    font-size: 30px;
+.percentBarComplete, .scoreBar{
+    height: 35px;
+}
+
+.awayPCTComplete, .homePCTComplete, .homeScore, .awayScore, .scoreTime{
+    font-size: 25px;
+}
+
+.awayPCTIncomplete, .homePCTIncomplete{
+    font-size: 40px;
 }
 
 .away_home_row {

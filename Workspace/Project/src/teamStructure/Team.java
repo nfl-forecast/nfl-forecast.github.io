@@ -24,6 +24,7 @@ public class Team{
 	private Color s, p;
 	private double wins;
 
+	public Team() {}
 	public Team(String teamName, Color primary, Color secondary) {
 		name = TeamNameHelper.getTeamName(teamName);
 		s = secondary;
@@ -241,7 +242,7 @@ public class Team{
 	
 	public int getTies()
 	{
-		if(Driver.allPlayed)
+		if(Driver.allPlayed || stat == null)
 			return 0;
 		else return Integer.parseInt(stat.getT().getValue());
 	}
@@ -263,14 +264,9 @@ public class Team{
 		return (int)(Math.round(FPI*100));
 	}
 	
-	public void setWins(int newWins)
-	{
-		wins = newWins;
-	}
-	
 	public String getStatWins()
 	{
-		if(Driver.type != SchedType.regularSeasonNext)
+		if(Driver.type != SchedType.regularSeasonNext && stat != null)
 			return stat.getW().getValue();
 		else
 		{
@@ -280,7 +276,7 @@ public class Team{
 	
 	public String getStatLosses()
 	{
-		if(Driver.type != SchedType.regularSeasonNext)
+		if(Driver.type != SchedType.regularSeasonNext && stat != null)
 			return stat.getL().getValue();
 		else
 		{
@@ -290,7 +286,7 @@ public class Team{
 	
 	public String getStatTies()
 	{
-		if(Driver.type != SchedType.regularSeasonNext)
+		if(Driver.type != SchedType.regularSeasonNext && stat != null)
 			return stat.getT().getValue();
 		else
 		{
@@ -299,10 +295,38 @@ public class Team{
 	}
 	
 	public String getClinchChar() {
+		if(stat == null) return "";
 		return stat.getClinchChar();
 	}
 
 	public String getName() {
 		return name;
 	}
+	
+	public void setName(String str) {
+		name = TeamNameHelper.getTeamName(str);
+	}
+	
+	public void setSecondaryColor(int[] rgb) {
+		s = new Color(rgb[0], rgb[1], rgb[2]);
+	}
+	
+	public void setPrimaryColor(int[] rgb) {
+		p = new Color(rgb[0], rgb[1], rgb[2]);
+	}
+	
+	public void setWins(double  d) {
+		wins = d;
+	}
+	
+	public void setFPI(double d) {
+		FPI = d;
+	}
+	
+	public void setClinchChar(String str) {}
+	public void setStatLosses(int i) {}
+	public void setStatWins(int i) {}
+	public void setStatTies(int i) {}
+	public void setLosses(double d) {}
+	public void setTies(double d) {}
 }

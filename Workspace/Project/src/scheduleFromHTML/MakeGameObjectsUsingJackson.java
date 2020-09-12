@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import topLevel.Driver;
+
 public class MakeGameObjectsUsingJackson {
 
 	public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class MakeGameObjectsUsingJackson {
 	public static FullSchedule run() {
 		String str = "";
 		try {
-			str = JSoupScheduleParser.run();
+			str = JSoupScheduleParser.run(Driver.seasonSchedule + "");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

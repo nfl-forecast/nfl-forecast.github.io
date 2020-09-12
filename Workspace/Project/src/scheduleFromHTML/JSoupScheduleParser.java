@@ -15,10 +15,10 @@ import org.jsoup.select.Elements;
 
 public class JSoupScheduleParser {
 	public static void main(String[] args) throws InterruptedException {
-		System.out.println(run());
+		System.out.println(run("2020"));
 	}
 
-	public static String run() throws InterruptedException {
+	public static String run(String season) throws InterruptedException {
 		Document htmlFile = null;
 		try {
 			Calendar now = Calendar.getInstance();
@@ -32,7 +32,7 @@ public class JSoupScheduleParser {
 			String schedule ="{\"fullgamesschedule\": {\"lastUpdatedOn\": \"" +(thisMonth+"/"+today+"/"+thisYear+" "+thisHour+":"+thisMinute+":"+thisSecond) + "\", \"gameentry\":[";
 			for (int i = 1; i <= 17; i++) {
 				Thread.sleep(500);
-				htmlFile = Jsoup.connect("https://www.nfl.com/api/lazy/load?json=%7B%22Name%22%3A%22Schedules%22%2C%22Module%22%3A%7B%22seasonFromUrl%22%3A2020%2C%22SeasonType%22%3A%22REG" + i+ "%22%2C%22WeekFromUrl%22%3A1%2C%22PreSeasonPlacement%22%3A0%2C%22RegularSeasonPlacement%22%3A0%2C%22PostSeasonPlacement%22%3A0%2C%22TimeZoneID%22%3A%22America%2FNew_York%22%7D%7D").get();
+				htmlFile = Jsoup.connect("https://www.nfl.com/api/lazy/load?json=%7B%22Name%22%3A%22Schedules%22%2C%22Module%22%3A%7B%22seasonFromUrl%22%3A" + season + "%2C%22SeasonType%22%3A%22REG" + i+ "%22%2C%22WeekFromUrl%22%3A1%2C%22PreSeasonPlacement%22%3A0%2C%22RegularSeasonPlacement%22%3A0%2C%22PostSeasonPlacement%22%3A0%2C%22TimeZoneID%22%3A%22America%2FNew_York%22%7D%7D").get();
 				Element top = htmlFile.selectFirst("div[data-json-module]");
 				Elements sections = top.select("section");
 				for (Element e : sections) {
@@ -47,8 +47,15 @@ public class JSoupScheduleParser {
 						String time;
 						if (timeNodes.size() != 0)
 							time = timeNodes.get(0).ownText();
-						else
-							time = "Final";
+						else {
+							Elements liveNodes = left.select("p.nfl-c-matchup-strip__period");
+							if(liveNodes.size() > 0 &&  liveNodes.select("span.nfl-c-matchup-strip__quarter").size() > 0) {
+								time = liveNodes.select("span.nfl-c-matchup-strip__quarter").get(0).ownText();
+							
+							}else
+								time = "Final";
+						}
+							
 						Elements teamNames = left.select(".nfl-c-matchup-strip__team-fullname");
 						Element awayNameNode = teamNames.get(0);
 						String awayName = awayNameNode.ownText();

@@ -50,4 +50,26 @@ public class Week
 	public List<Game> getGames() {
 		return games;
 	}
+	public List<Game> completedGames() {
+		ArrayList<Game> played = new ArrayList<Game>();
+		for(Game g: games)
+			if(g.getPlayed())
+				played.add(g);
+		return played;
+	}
+	public boolean equals(Week w) {
+		if(this.games.size() != w.games.size())
+			return false;
+		for(int i = 0; i < games.size(); i++)
+			if(!w.games.get(i).equals(games.get(i)))
+				return false;
+		return true;
+	}
+
+	public void setGames(List<Game> g) {
+		games = g;
+	}
+	public void setTeamsOnBye(List<Team> t) {
+		teamsOnBye = t;
+	}
 }

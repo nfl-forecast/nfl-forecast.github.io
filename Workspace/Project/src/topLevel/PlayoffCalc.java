@@ -12,7 +12,7 @@ public class PlayoffCalc {
 	private double[][] percent;
 	private Team[] teams;
 	private DecimalFormat fmt;
-
+	public PlayoffCalc() {}
 	public PlayoffCalc(Team[] nat, Team[] amer) {
 		teams = new Team[14];
 		for (int i = 0; i < teams.length / 2; i++) {
@@ -452,5 +452,26 @@ public class PlayoffCalc {
 			}
 		return percents;
 	}
+
+	
+	public void  setFPI(List<Integer> i) {}
+
+	public void setAFCwildCard(List<String> s) {}
+
+	public void setAFCdivisional(List<String> s) {}
+
+	public void setAFCconference(List<String> s) {}
+
+	public void setNFCwildCard(List<String> s) {}
+
+	public void setNFCdivisional(List<String> s) {}
+
+	public void setNFCconference(List<String> s) {}
+
+	public void setSuperBowl(List<String> s) {}
+
+	public void setNFCTeams(List<String> s) {}
+
+	public void setAFCTeams(List<String> s) {}
 
 }

@@ -27,7 +27,7 @@ public class Games {
 	public void setTime(String str) {
 		time = str;
 
-		if(time == "final") {
+		if(time.equals("Final") || time.contains("Q")) {
 			played = true;
 		}
 		else {

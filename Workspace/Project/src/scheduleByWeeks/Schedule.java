@@ -11,7 +11,7 @@ import teamStructure.Team;
 
 public class Schedule{
 	private List<Week> weeks;
-	
+	public Schedule() {}
 	public Schedule(Conference NFC, Conference AFC)
 	{
 		weeks = new ArrayList<Week>();
@@ -91,5 +91,20 @@ public class Schedule{
 
 	public List<Week> getWeeks() {
 		return weeks;
+	}
+	public List<Week> completedWeeks() {
+		ArrayList<Week> compWeeks = new ArrayList<Week>();
+		boolean flag = false;
+		for(int i= 0; i < weeks.size() && !flag; i++) {
+			if(weeks.get(i).completedGames().size() - weeks.get(i).getGames().size() != 0) {
+				compWeeks.add(weeks.get(i));
+				flag = true;
+			}
+		}
+		return compWeeks;
+	}
+
+	public void setWeeks(List<Week> w) {
+		weeks = w;
 	}
 }

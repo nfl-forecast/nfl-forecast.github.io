@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 import dataFromHTML.FullStats;
 import dataFromHTML.MakeObjectsUsingJackson;
@@ -11,6 +12,7 @@ import dataFromHTML.MakeObjectsUsingJackson;
 public class Conference implements Cloneable
 {
 	private Division North, East, South, West;
+	public Conference() {}
 	public Conference(Division N, Division E, Division S, Division W) throws Exception
 	{
 		North = N;
@@ -266,4 +268,23 @@ public class Conference implements Cloneable
 		}
 		return allTeams;
 	}
+	
+	@JsonSetter("north")
+	public void setNorth(Division d) {
+		North = d;
+	}
+	@JsonSetter("south")
+	public void setSouth(Division d) {
+		South = d;
+	}
+	@JsonSetter("east")
+	public void setEast(Division d) {
+		East = d;
+	}
+	@JsonSetter("west")
+	public void setWest(Division d) {
+		West = d;
+	}
+	
+	
 }

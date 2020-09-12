@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import topLevel.Driver;
+
 public class MakeObjectsUsingJackson {
 
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class MakeObjectsUsingJackson {
 	public static TopData run(){
 		String str = "";
 		try {
-			str = JSoupStatParser.get("2019");
+			str = JSoupStatParser.get(Driver.seasonStats + "");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
