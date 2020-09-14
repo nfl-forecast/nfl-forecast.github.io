@@ -178,6 +178,8 @@ public class Driver{
 				Game percentFromGame = percentFromWeek.getGames().get(j);
 				g.setAwayPCT(percentFromGame.getAwayPCT());
 				g.setHomePCT(percentFromGame.getHomePCT());
+				g.setAwayFPI(percentFromGame.getAwayFPI() +"");
+				g.setHomeFPI(percentFromGame.getHomeFPI() +"");
 			}
 		}
 	}

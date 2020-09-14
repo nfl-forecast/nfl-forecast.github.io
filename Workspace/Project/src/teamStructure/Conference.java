@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 import dataFromHTML.FullStats;
 import dataFromHTML.MakeObjectsUsingJackson;
+import topLevel.Driver;
 
 public class Conference implements Cloneable
 {
@@ -212,13 +213,31 @@ public class Conference implements Cloneable
 	 */
 	private void getStats()
 	{
-		List<FullStats> tsList = MakeObjectsUsingJackson.run().Allstats.getStatEntry();
+		
+		List<FullStats> tsList = MakeObjectsUsingJackson.run(Driver.seasonSchedule + "").Allstats.getStatEntry();
+		List<Team> nostats = new ArrayList<Team>();
+		for(Team t: getAllTeams())
+			nostats.add(t);
 		for(FullStats ts : tsList)
 		{
 			ts.combine();
 			Team fakeTeam = new Team(ts.getTeamName(), null, null);
-			if(oppContains(fakeTeam) != null)
+			if(oppContains(fakeTeam) != null) {
 				oppContains(fakeTeam).makeFPI(ts);
+				nostats.remove(oppContains(fakeTeam));
+			}
+		}
+		if(nostats.size() > 0) {
+			List<FullStats> newList = MakeObjectsUsingJackson.run(Driver.seasonStats + "").Allstats.getStatEntry();
+			for(FullStats ts : newList)
+			{
+				ts.combine();
+				Team fakeTeam = new Team(ts.getTeamName(), null, null);
+				if(oppContains(fakeTeam) != null && nostats.contains(oppContains(fakeTeam))) {
+					oppContains(fakeTeam).makeFPI(ts);
+					nostats.remove(oppContains(fakeTeam));
+				}
+			}
 		}
 	}
 	

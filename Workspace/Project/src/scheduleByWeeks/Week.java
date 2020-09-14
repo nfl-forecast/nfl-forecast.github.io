@@ -27,8 +27,8 @@ public class Week
 		ArrayList<Team> allTeams = Conference.getAllTeams(NFC, AFC);
 		for(Game g : games)
 		{
-			allTeams.remove(g.getHomeTeam());
-			allTeams.remove(g.getAwayTeam());
+			allTeams.remove(g.homeTeam());
+			allTeams.remove(g.awayTeam());
 		}
 		teamsOnBye.addAll(allTeams);
 	}

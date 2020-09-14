@@ -9,38 +9,28 @@ angular.module('nflforecast').component('gameView', {
 
 function GVController(logoService, teamService)
 {
-  this.getFPI = function(teamName)
-  {
-    var team = teamService.getTeam(teamName);
-    if(team !== undefined)
-    {
-      return team.fpi;
-    }
-    else
-      return undefined;
-  };
   this.getTeamImage = function(teamName)
   {
     return logoService.getLogo(teamName);
   };
 
   this.getPColorAway = function(){
-    var arr = this.game.awayTeam.primaryColor;
+    var arr = this.game.awayPrimaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 
   this.getSColorAway = function(){
-    var arr = this.game.awayTeam.secondaryColor;
+    var arr = this.game.awaySecondaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 
   this.getPColorHome = function(){
-    var arr = this.game.homeTeam.primaryColor;
+    var arr = this.game.homePrimaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 
   this.getSColorHome = function(){
-    var arr = this.game.homeTeam.secondaryColor;
+    var arr = this.game.homeSecondaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
 }

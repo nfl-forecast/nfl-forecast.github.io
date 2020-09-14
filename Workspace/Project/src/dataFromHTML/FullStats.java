@@ -101,7 +101,10 @@ public class FullStats {
 	public void setPassTDPct() {
 		PassTDPct = new Stat();
 		PassTDPct.setAbbreviation("Pass TD PCT");
-		PassTDPct.setValue(""+Double.parseDouble(PassTD.getValue()) / Double.parseDouble(PassAtt.getValue()));
+		if(Double.parseDouble(PassAtt.getValue()) == 0)
+			PassTDPct.setValue("0");
+		else
+			PassTDPct.setValue(""+Double.parseDouble(PassTD.getValue()) / Double.parseDouble(PassAtt.getValue()));
 	}
 
 	public void setPassINT(Stat str) {
@@ -111,7 +114,10 @@ public class FullStats {
 	public void setPassINTPct() {
 		PassINTPct = new Stat();
 		PassINTPct.setAbbreviation("Pass INT PCT");
-		PassINTPct.setValue(""+Double.parseDouble(PassINT.getValue()) / Double.parseDouble(PassAtt.getValue()));
+		if(Double.parseDouble(PassAtt.getValue()) == 0)
+			PassINTPct.setValue("0");
+		else
+			PassINTPct.setValue(""+Double.parseDouble(PassINT.getValue()) / Double.parseDouble(PassAtt.getValue()));
 	}
 
 	public void setPassSck(Stat str) {
@@ -153,7 +159,10 @@ public class FullStats {
 	public void setIntAverage() {
 		IntAverage = new Stat();
 		IntAverage.setAbbreviation("Int Avg");
-		IntAverage.setValue(""+Double.parseDouble(INTYds.getValue())/Double.parseDouble(INT.getValue()));
+		if(Double.parseDouble(INT.getValue()) == 0)
+			IntAverage.setValue("0");
+		else
+			IntAverage.setValue(""+Double.parseDouble(INTYds.getValue())/Double.parseDouble(INT.getValue()));
 	}
 
 	public void setPDef(Stat str) {
@@ -170,8 +179,11 @@ public class FullStats {
 
 	public void setThirdMdPct() {
 		ThirdMdPct = new Stat();
-		ThirdMdPct.setValue(""+Double.parseDouble(ThirdMd.getValue())/Double.parseDouble(ThirdAtt.getValue()));
 		ThirdMdPct.setAbbreviation("3rd PCT");
+		if(Double.parseDouble(ThirdAtt.getValue()) == 0)
+			ThirdMdPct.setValue("0");
+		else
+			ThirdMdPct.setValue(""+Double.parseDouble(ThirdMd.getValue())/Double.parseDouble(ThirdAtt.getValue()));
 	}
 
 	/*
@@ -187,7 +199,10 @@ public class FullStats {
 		double PassAtmp =Double.parseDouble(PassAtt.getValue());
 		double totalYds= (RushAvg) * (RushAtmp) + (PassAvg) * (PassAtmp);
 		double totalPlays = RushAtmp + PassAtmp;
-		OffenseAvgYds.setValue("" + totalYds/totalPlays);
+		if(totalPlays == 0)
+			OffenseAvgYds.setValue("0");
+		else
+			OffenseAvgYds.setValue("" + totalYds/totalPlays);
 	}
 
 	public void setTotalTD() {
@@ -264,8 +279,8 @@ public class FullStats {
 				{ -2.61024, 0.248079, 1 }, { 7.78729, -0.297944, 1 }, { 9.62481, -2.37839, 0 },
 				{ 0.563469, -0.876024, 1 }, { 2.60792, -0.0418199, 1 }, { 1.66567, -0.651066, 1 },
 				{ 0.637217, -0.559201, 1 }, { -0.865994, 0.0380353, 0 }, { 1.872, -.313565, 1 },
-				{ 2.31006, -0.071767, 1 }, { 2.90524, -.541637, 0 }, { 1.64785, -0.705528, 1 }, { 2.93293, -.12126, 1 },
-				{ -2.93293, .12126, 1 }, { -.00705551, -.00792391, 1 } };
+				{ 2.31006, -0.071767, 0 }, { 2.90524, -.541637, 0 }, { 1.64785, -0.705528, 1 }, { 2.93293, -.12126, 1 },
+				{ -2.93293, .12126, 1 }, { -.00705551, -.00792391, 1} };
 		for (int i = 0; i < ImportantStats.length; i++) {
 			ImportantStats[i].setCoefs(coefs[i][0], coefs[i][1], coefs[i][2]);
 		}

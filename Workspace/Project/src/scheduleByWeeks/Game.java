@@ -1,7 +1,7 @@
 package scheduleByWeeks;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.awt.Color;
+
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 import teamStructure.Team;
@@ -9,12 +9,15 @@ import teamStructure.Team;
 public class Game{
 	private Team awayTeam, homeTeam;
 	private double awayPCT, homePCT;
+	private int homeFPI, awayFPI;
+	private String awayName, homeName;
 	private boolean played;
 	private String time;
 	private String url;
 	private String date;
 	private int homeScore;
 	private int awayScore;
+	private Color as, ap, hs, hp;
 	
 	public Game() {}
 
@@ -35,7 +38,7 @@ public class Game{
 	/**
 	 * @return The home team
 	 */
-	public Team getHomeTeam() {
+	public Team homeTeam() {
 		return homeTeam;
 	}
 
@@ -43,7 +46,7 @@ public class Game{
 	 * 
 	 * @return The home team
 	 */
-	public Team getAwayTeam() {
+	public Team awayTeam() {
 		return awayTeam;
 	}
 
@@ -73,12 +76,16 @@ public class Game{
 
 	public String getHomeTeamName()
 	{
-		return homeTeam.getName();
+		if(homeName == null || homeName.equals(""))
+			homeName = homeTeam.getName();
+		return homeName;
 	}
 	
 	public String getAwayTeamName()
 	{
-		return awayTeam.getName();
+		if(awayName == null || awayName.equals(""))
+			awayName = awayTeam.getName();
+		return awayName;
 	}
 
 	public String getHomePCT()
@@ -146,9 +153,13 @@ public class Game{
 		awayTeam = t;
 	}
 	
-	public void setHomeTeamName(String s){}
+	public void setHomeTeamName(String s){
+		homeName = s;
+	}
 	
-	public void setAwayTeamName(String s){}
+	public void setAwayTeamName(String s){
+		awayName = s;
+	}
 	
 	public void setAwayScore(int s) {
 		awayScore = s;
@@ -180,4 +191,75 @@ public class Game{
 		awayPCT = d/100;
 	}
 	
+	public int getHomeFPI() {
+		if(homeFPI == 0)
+			homeFPI = homeTeam.getFPI();
+		return homeFPI;
+	}
+	
+	public int getAwayFPI() {
+		if(awayFPI == 0)
+			awayFPI = awayTeam.getFPI();
+		return awayFPI;
+	}
+	
+	public void setHomeFPI(String str) {
+		homeFPI = Integer.parseInt(str);
+	}
+	
+	public void setAwayFPI(String str) {
+		awayFPI = Integer.parseInt(str);
+	}
+	
+	public int[] getHomeSecondaryColor() {
+		if(hs == null) {
+			int[] c = homeTeam.getSecondaryColor();
+			hs=new Color(c[0],c[1],c[2]);
+		}
+		int[] arr = {hs.getRed(), hs.getGreen(), hs.getBlue()};
+		return arr;
+	}
+	
+	public int[] getHomePrimaryColor() {
+		if(hp == null) {
+			int[] c = homeTeam.getPrimaryColor();
+			hp=new Color(c[0],c[1],c[2]);
+		}
+		int[] arr = {hp.getRed(), hp.getGreen(), hp.getBlue()};
+		return arr;
+	}
+	
+	public int[] getAwaySecondaryColor() {
+		if(as == null) {
+			int[] c = awayTeam.getSecondaryColor();
+			as=new Color(c[0],c[1],c[2]);
+		}
+		int[] arr = {as.getRed(), as.getGreen(), as.getBlue()};
+		return arr;
+	}
+	
+	public int[] getAwayPrimaryColor() {
+		if(ap == null) {
+			int[] c = awayTeam.getPrimaryColor();
+			ap=new Color(c[0],c[1],c[2]);
+		}
+		int[] arr = {ap.getRed(), ap.getGreen(), ap.getBlue()};
+		return arr;
+	}
+	
+	public void setHomeSecondaryColor(int[] c) {
+		hs = new Color(c[0], c[1], c[2]);
+	}
+	
+	public void setHomePrimaryColor(int[] c) {
+		hp = new Color(c[0], c[1], c[2]);
+	}
+	
+	public void setAwaySecondaryColor(int[] c) {
+		as = new Color(c[0], c[1], c[2]);
+	}
+	
+	public void setAwayPrimaryColor(int[] c) {
+		ap = new Color(c[0], c[1], c[2]);
+	}
 }

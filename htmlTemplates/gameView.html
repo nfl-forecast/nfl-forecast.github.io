@@ -1,7 +1,7 @@
 <div class="game">
   <div class = "gameAwayTeam">
     <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.awayTeamName)}}' alt='LOGO'>
-    <div class = 'fpi'> FPI: {{$ctrl.game.awayTeam.fpi}}</div>
+    <div class = 'fpi'> FPI: {{$ctrl.game.awayFPI}}</div>
   </div>
   <div class = "gameInfo">
     <div class="incomplete" ng-if="$ctrl.game.played === false">
@@ -52,6 +52,6 @@
     </div>
   <div class = "gameHomeTeam">
     <div gameHomeLogo><img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'></div>
-    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.game.homeTeam.fpi}}</div>
+    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.game.homeFPI}}</div>
   </div>
 </div>

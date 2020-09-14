@@ -11,7 +11,7 @@ public class MakeObjectsUsingJackson {
 
 	public static void main(String[] args) {
 		try
-		{run();
+		{run("2020");
 		
 		}
 		catch(Exception e)
@@ -20,10 +20,10 @@ public class MakeObjectsUsingJackson {
 		}
 
 	}
-	public static TopData run(){
+	public static TopData run(String season){
 		String str = "";
 		try {
-			str = JSoupStatParser.get(Driver.seasonStats + "");
+			str = JSoupStatParser.get(season);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
