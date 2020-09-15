@@ -266,7 +266,7 @@ public class Team{
 	
 	public String getStatWins()
 	{
-		if(Driver.type != SchedType.regularSeasonNext && stat != null)
+		if(stat != null && stat.getGamesPlayed() != 16)
 			return stat.getW().getValue();
 		else
 		{
@@ -276,7 +276,7 @@ public class Team{
 	
 	public String getStatLosses()
 	{
-		if(Driver.type != SchedType.regularSeasonNext && stat != null)
+		if(stat != null && stat.getGamesPlayed() != 16)
 			return stat.getL().getValue();
 		else
 		{
@@ -286,7 +286,7 @@ public class Team{
 	
 	public String getStatTies()
 	{
-		if(Driver.type != SchedType.regularSeasonNext && stat != null)
+		if(stat != null && stat.getGamesPlayed() != 16)
 			return stat.getT().getValue();
 		else
 		{
