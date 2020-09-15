@@ -96,8 +96,8 @@ public class Schedule{
 		ArrayList<Week> compWeeks = new ArrayList<Week>();
 		boolean flag = false;
 		for(int i= 0; i < weeks.size() && !flag; i++) {
-			if(weeks.get(i).completedGames().size() - weeks.get(i).getGames().size() != 0) {
-				compWeeks.add(weeks.get(i));
+			compWeeks.add(weeks.get(i));
+			if(weeks.get(i).completedGames().size() - weeks.get(i).getGames().size() != 0) {	
 				flag = true;
 			}
 		}

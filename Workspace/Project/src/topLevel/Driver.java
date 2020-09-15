@@ -149,7 +149,7 @@ public class Driver{
 		for(i = 0; i < weeks.size(); i++)
 			if(weekShouldInclude.size() > i)
 				if(weekShouldInclude.get(i).equals(weeks.get(i)))
-					newWeeks.add(i, weeks.get(i));
+					newWeeks.add(weeks.get(i));
 		for(int j =i; j < weekShouldInclude.size(); j++)
 				newWeeks.add(weekShouldInclude.get(j));
 		comp = newWeeks;
