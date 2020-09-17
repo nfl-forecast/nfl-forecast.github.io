@@ -28,13 +28,6 @@ public class JSoupStatParser {
 			int thisHour = now.get(Calendar.HOUR_OF_DAY);
 			int thisMinute = now.get(Calendar.MINUTE);
 			int thisSecond = now.get(Calendar.SECOND);
-			String[] docNames = {
-					"https://www.nfl.com/stats/team-stats/defense/interceptions/2019/reg/all"};
-			String[] wantedStats = {"https://www.nfl.com/stats/team-stats/defense/interceptions/2019/reg/all/INT",
-					"https://www.nfl.com/stats/team-stats/defense/interceptions/2019/reg/all/INT Yds"};
-			ArrayList<String> usingStats = new ArrayList<String>();
-			for (int i = 0; i < wantedStats.length; i++)
-				usingStats.add(wantedStats[i]);
 			String lastUpdated = "\"lastUpdatedOn\": \""
 					+ (thisMonth + "/" + today + "/" + thisYear + " " + thisHour + ":" + thisMinute + ":" + thisSecond)
 					+ "\"";

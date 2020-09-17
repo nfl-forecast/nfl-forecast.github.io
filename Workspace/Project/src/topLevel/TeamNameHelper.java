@@ -110,6 +110,12 @@ public class TeamNameHelper {
 		case "Washington Redskins": case "Redskins": {
 			return getTeamName("Washington Football Team");
 		}
+		case "San Diego Chargers": case "SD": {
+			return getTeamName("Los Angeles Chargers");
+		}
+		case "St. Louis Rams": case "STL": {
+			return getTeamName("Los Angeles Rams");
+		}
 		}
 		return str;
 	}
