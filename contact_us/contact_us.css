@@ -76,3 +76,13 @@ img {
 .nav-link {
     font-size: 20px;
 }
+
+#contact {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.main {
+    zoom: 1.2;
+}
