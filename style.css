@@ -485,8 +485,8 @@ img {
 #StandingsContainer, #ScheduleContainer, #PlayoffContainer, #CreateContainer, #BracketContainer {
     margin: 85px;
     zoom: 0.83;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-left: 225px;
+    margin-right: 225px;
 }
 
 .messageLists {
