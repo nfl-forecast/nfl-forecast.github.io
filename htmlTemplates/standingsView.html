@@ -3,21 +3,6 @@
   <button class = 'standingsButtons Button{{$ctrl.selectedView === $ctrl.CONFERENCEVIEW}}' ng-click="$ctrl.selectedView = $ctrl.CONFERENCEVIEW">Conferences</button>
   <button class = 'standingsButtons Button{{$ctrl.selectedView === $ctrl.LEAGUEVIEW}}' ng-click="$ctrl.selectedView = $ctrl.LEAGUEVIEW">League</button>
 </div>
-<div class="message">
-  <div class="messageHeader">
-    KEY
-  </div>
-  <div class="messageBody">
-    * = Clinched Home Field Advantage,
-    z = Clinched Division,
-    x = Clinched Playoff Spot
-  </div>
-  <div class="messageBody">
-    HOME = Predicted Home Field Advantage,
-    DIV = Predicted Division Winner,
-    WC = Predicted Wildcard
-  </div>
-</div>
 <div id='divisionStandings' ng-if="$ctrl.selectedView===$ctrl.DIVISIONVIEW">
   <division-standings-view data="$ctrl.data"></division-standings-view>
 </div>
@@ -26,4 +11,22 @@
 </div>
 <div id='leagueStandings' ng-if="$ctrl.selectedView===$ctrl.LEAGUEVIEW">
   <league-standings-view data="$ctrl.data"></league-standings-view>
+</div>
+<div class="message">
+  <div class="messageHeader">
+    KEY
+  </div>
+  <div class = "messageLists">
+    <ul class="messageBody">
+      <li class = "messageElement">* = Clinched Home Field Advantage</li>
+      <li class = "messageElement">z = Clinched Division</li>
+      <li class = "messageElement">x = Clinched Playoff Spot</li>
+    </ul>
+    <ul class="messageBody">
+      <li class = "messageElement">H = Predicted Home Field Advantage</li>
+      <li class = "messageElement">DIV = Predicted Division Winner</li>
+      <li class = "messageElement">WC = Predicted Wildcard</li>
+    </ul>
+  </div>
+
 </div>

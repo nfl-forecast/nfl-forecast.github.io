@@ -33,4 +33,26 @@ function GVController(logoService, teamService)
     var arr = this.game.homeSecondaryColor;
     return "rgb(" + arr[0] + ", " + arr[1] + ", " + arr[2] + ")";
   };
+
+  this.isAwayWinner = function() {
+    var one = this.game.homeScore;
+    var two = this.game.awayScore;
+    if (one < two) {
+      return "bolder";
+    }
+    if (one > two){
+      return "normal";
+    }
+
+  }
+  this.isHomeWinner = function() {
+    var one = this.game.homeScore;
+    var two = this.game.awayScore;
+    if (one > two) {
+      return "bolder";
+    }
+    if (one < two) {
+      return "normal";
+    }
+  }
 }

@@ -129,6 +129,7 @@ table,td,th{
     font-size: 25px;
 }
 
+
 .awayPCTIncomplete, .homePCTIncomplete{
     font-size: 40px;
 }
@@ -292,24 +293,24 @@ standings-view, division-standings-view, league-standings-view, conference-stand
   }
 
 .messageBody {
-    font-size: 22px;
+    font-size: 15px;
 }
 
 .messageHeader {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .HeaderButton{
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     outline: none;
     background-color: inherit;
     display: inline-block;
     height: 50px;
+    width: 20%;
 }
 
 .HeaderButtontrue {
-
     text-decoration: underline blue;
 }
 
@@ -347,6 +348,9 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 .weekButton {
     font-size: 20px;
     margin: 10px;
+    background: #343a40;
+    color: white;
+    border-radius: 15px;
 }
 
 .game {
@@ -362,6 +366,9 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 .standingsButtons {
     font-size: 20px;
     margin: 10px;
+    background: #343a40;
+    color: white;
+    border-radius: 15px;
 }
 
 .modeButtons {
@@ -370,8 +377,11 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .modeButton {
-    font-size: 22px;
+    font-size: 20px;
     margin: 10px;
+    background: #343a40;
+    color: white;
+    border-radius: 15px;
 }
 
 .blurbFun, .blurbReal {
@@ -388,10 +398,12 @@ standings-view, division-standings-view, league-standings-view, conference-stand
 }
 
 .Buttontrue{
-    background: #aeaeae;
-    box-shadow: inset 0px 0px 5px #333333;
+    background: darkgray;
+
+}
+
+.Buttontrue:focus {
     outline: none;
-    border: 1px solid darkgray;
 }
 
 .chooseButtonsSection {
@@ -469,3 +481,19 @@ img {
     margin-top: 100px;
     font-size: 15px;
 }
+
+#StandingsContainer, #ScheduleContainer, #PlayoffContainer, #CreateContainer, #BracketContainer {
+    margin: 100px;
+    zoom: 0.8;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.messageLists {
+    display: flex;
+}
+
+.messageBody {
+    list-style-type: none;
+}
+

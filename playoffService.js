@@ -36,14 +36,14 @@ function playoffService()
     var nfc5=nfcTeams[4];
     var nfc6=nfcTeams[5];
     var nfc7=nfcTeams[6];
-    characterMap.set(afc1, {character: "HOME"});
+    characterMap.set(afc1, {character: "H"});
     characterMap.set(afc2, {character: "DIV"});
     characterMap.set(afc3, {character: "DIV"});
     characterMap.set(afc4, {character: "DIV"});
     characterMap.set(afc5, {character: "WC"});
     characterMap.set(afc6, {character: "WC"});
     characterMap.set(afc7, {character: "WC"});
-    characterMap.set(nfc1, {character: "HOME"});
+    characterMap.set(nfc1, {character: "H"});
     characterMap.set(nfc2, {character: "DIV"});
     characterMap.set(nfc3, {character: "DIV"});
     characterMap.set(nfc4, {character: "DIV"});
