@@ -433,11 +433,9 @@ img {
     display: flex;
 }
 
-.logo {
-    margin: 10px;
-
+#logoImg {
+    zoom: 2;
 }
-
 .name {
     font-size: 25px;
     margin:10px;

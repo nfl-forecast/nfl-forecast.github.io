@@ -86,3 +86,7 @@ img {
 .main {
     zoom: 1.2;
 }
+
+#logoImg {
+    zoom: 2;
+}
