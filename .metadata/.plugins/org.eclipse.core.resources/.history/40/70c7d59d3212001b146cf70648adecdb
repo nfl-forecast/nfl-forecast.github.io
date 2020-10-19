@@ -288,19 +288,19 @@ public class Conference implements Cloneable
 		return allTeams;
 	}
 	
-	@JsonSetter("North")
+	@JsonSetter("north")
 	public void setNorth(Division d) {
 		North = d;
 	}
-	@JsonSetter("South")
+	@JsonSetter("south")
 	public void setSouth(Division d) {
 		South = d;
 	}
-	@JsonSetter("East")
+	@JsonSetter("east")
 	public void setEast(Division d) {
 		East = d;
 	}
-	@JsonSetter("West")
+	@JsonSetter("west")
 	public void setWest(Division d) {
 		West = d;
 	}
