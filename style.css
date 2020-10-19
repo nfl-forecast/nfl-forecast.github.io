@@ -483,8 +483,8 @@ img {
 }
 
 #StandingsContainer, #ScheduleContainer, #PlayoffContainer, #CreateContainer, #BracketContainer {
-    margin: 100px;
-    zoom: 0.8;
+    margin: 85px;
+    zoom: 0.83;
     margin-left: 250px;
     margin-right: 250px;
 }
