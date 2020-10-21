@@ -494,7 +494,8 @@ img {
 }
 
 .warning {
-    margin-left: 10%;
+    display: flex;
+    justify-content: center;
     margin-top: 175px;
     font-weight: bolder;
 }
