@@ -1,6 +1,7 @@
 <div class="modeButtons">
   <button class="modeButton realMode Button{{!$ctrl.fun}}" ng-click="$ctrl.realOn();"> Real Mode </button>
-  <button class="modeButton funMode Button{{$ctrl.fun}}" ng-click=" $ctrl.funOn()"> Fun Mode </button>
+  <audio id="my_audio" src="funmode.mp3"></audio>
+  <button class="modeButton funMode Button{{$ctrl.fun}}" onclick="document.getElementById('my_audio').play();" ng-click=" $ctrl.funOn()"> Fun Mode </button>
 </div>
 <div class ="blurbFun" ng-if="$ctrl.fun">
   Use your creativity to create any playoff scenario you can think of.
