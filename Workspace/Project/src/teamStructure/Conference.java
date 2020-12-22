@@ -12,6 +12,7 @@ import topLevel.Driver;
 
 public class Conference implements Cloneable
 {
+	public static Conference AFC, NFC;
 	private Division North, East, South, West;
 	public Conference() {}
 	public Conference(Division N, Division E, Division S, Division W) throws Exception
@@ -63,7 +64,7 @@ public class Conference implements Cloneable
 	
 	/**
 	 * 
-	 * @return An Array of the teams that would make the playoffs with Arr[0] being first seed and Arr[5] being 6th seed
+	 * @return An Array of the teams that would make the playoffs with Arr[0] being first seed and Arr[6] being 7th seed
 	 */
 	public Team[] seeding()
 	{
@@ -277,7 +278,7 @@ public class Conference implements Cloneable
 		return West;
 	}
 
-	public static ArrayList<Team> getAllTeams(Conference AFC, Conference NFC) {
+	public static ArrayList<Team> getAllLeagueTeams() {
 		ArrayList<Team> allTeams = new ArrayList<Team>();
 		Team[] afc = AFC.getAllTeams();
 		Team[] nfc = NFC.getAllTeams();
@@ -286,6 +287,10 @@ public class Conference implements Cloneable
 			allTeams.add(nfc[i]);
 		}
 		return allTeams;
+	}
+	
+	public static int getLeagueIndex(Team t) {
+		return getAllLeagueTeams().indexOf(t);
 	}
 	
 	@JsonSetter("North")
