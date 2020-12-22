@@ -11,11 +11,11 @@ import teamStructure.Team;
 
 public class Schedule{
 	private List<Week> weeks;
-	public Schedule() {}
-	public Schedule(Conference NFC, Conference AFC)
+	public Schedule()
 	{
 		weeks = new ArrayList<Week>();
-		getFromAPI(NFC, AFC);
+		getFromAPI();
+		createTeamScheds();
 	}
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class Schedule{
 	 * @throws Exception
 	 * Sets the weeks using the API
 	 */
-	private void getFromAPI(Conference NFC, Conference AFC)
+	private void getFromAPI()
 	{
 		try {
 		List<Games> listGames = MakeGameObjectsUsingJackson.run().getSchedule().getList();
@@ -34,14 +34,15 @@ public class Schedule{
 			if(Integer.parseInt(g.getWeek()) != week)
 			{
 				if(week != 0)
-					weeks.get(week-1).setUpTeamsOnBye(NFC, AFC);
+					weeks.get(week-1).setUpTeamsOnBye();
 				week++;
 				weeks.add(new Week());
 			}
-			Game game = new Game(convert(g.getAwayTeam(),NFC,AFC), convert(g.getHomeTeam(), NFC, AFC), g.getPlayed(), g.getTime(), g.getDate(), g.getUrl() ,g.getAwayTeam().getScore(), g.getHomeTeam().getScore());
+			Game game = new Game(convert(g.getAwayTeam()), convert(g.getHomeTeam()), g.getPlayed(), g.getTime(), g.getDate(), g.getUrl() ,g.getAwayTeam().getScore(), g.getHomeTeam().getScore());
 			weeks.get(week-1).getGames().add(game);
 		}
-		weeks.get(16).setUpTeamsOnBye(NFC, AFC);
+		weeks.get(16).setUpTeamsOnBye();
+		
 		}
 		catch(Exception e)
 		{
@@ -55,18 +56,18 @@ public class Schedule{
 	 * @param AFC
 	 * @return The same team in the Team format
 	 */
-	public Team convert(TeamSchedule team, Conference NFC, Conference AFC)
+	public Team convert(TeamSchedule team)
 	{
 		Team t = new Team(team.toString(), null, null);
-		if(NFC.oppContains(t) != null)
+		if(Conference.NFC.oppContains(t) != null)
 		{
-			return NFC.oppContains(t);
+			return Conference.NFC.oppContains(t);
 		}
 		else
 		{
-			if(AFC.oppContains(t) == null)
+			if(Conference.AFC.oppContains(t) == null)
 				System.out.println(team.toString());
-			return AFC.oppContains(t);
+			return Conference.AFC.oppContains(t);
 		}
 	}
 	public String toString()
@@ -106,5 +107,28 @@ public class Schedule{
 
 	public void setWeeks(List<Week> w) {
 		weeks = w;
+	}
+	
+	private void createTeamScheds() {
+		Game[][] teamScheds = new Game[32][17];
+		for(int i = 0; i < weeks.size(); i++) {
+			List<Game> games = weeks.get(i).getGames();
+			for(int j = 0; j <games.size(); j++) {
+				Game g = games.get(j);
+				Team away = g.awayTeam();
+				Team home = g.homeTeam();
+				int awayIndex = Conference.getLeagueIndex(away);
+				int homeIndex = Conference.getLeagueIndex(home);
+				teamScheds[awayIndex][i] = g;
+				teamScheds[homeIndex][i] = g;
+			}
+			List<Team> byes = weeks.get(i).getTeamsOnBye();
+			for(int j = 0; j < byes.size(); j++) {
+				teamScheds[Conference.getLeagueIndex(byes.get(j))][i] = null;
+			}
+		}
+		Object[] teams = Conference.getAllLeagueTeams().toArray();
+		for(int i = 0; i < teams.length; i++)
+			((Team)teams[i]).addTeamSchedule(teamScheds[i]);
 	}
 }

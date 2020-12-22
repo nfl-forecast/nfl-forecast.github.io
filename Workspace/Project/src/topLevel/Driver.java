@@ -34,7 +34,6 @@ public class Driver{
 	public static SchedType type;
 	public static int seasonSchedule;
 	public static int seasonStats;
-	public List<Week> comp;
 	public Driver() {
 		type = SchedType.regularSeasonNext;
 		seasonSchedule = 2020;
@@ -83,39 +82,18 @@ public class Driver{
 
 		Division NNorth = new Division(GB, DET, CHI, MIN), NEast = new Division(WAS, DAL, NYG, PHI),
 				NSouth = new Division(NO, CAR, ATL, TB), NWest = new Division(SEA, SF, ARI, LAR);
-		AFC = null;
-		NFC = null;
+		AFC = Conference.AFC = null;
+		NFC = Conference.NFC = null;
 		season = null;
 		try {
-			AFC = new Conference(ANorth, AEast, ASouth, AWest);
-			NFC = new Conference(NNorth, NEast, NSouth, NWest);
-			season = new Schedule(NFC, AFC);
+			AFC = Conference.AFC = new Conference(ANorth, AEast, ASouth, AWest);
+			NFC = Conference.NFC = new Conference(NNorth, NEast, NSouth, NWest);
+			season = new Schedule();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		Team[] AFCTeams = AFC.places();
-		Team[] NFCTeams = NFC.places();
-
-		playoffs = new PlayoffCalc(NFC.seeding(), AFC.seeding());
-		playoffs.calculate();
 		
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-		Date date = new Date();
-		lastUpdated = dateFormat.format(date); //2016/11/16 12:08:43
-		
-		Team[] allTeams = new Team[32];
-		names3232Array = new String[32];
-		
-		for(int i = 0; i < 16; i++)
-		{
-			allTeams[i] = AFCTeams[i];
-			allTeams[i+16] = NFCTeams[i];
-			names3232Array[i+16] = NFCTeams[i].getName();
-			names3232Array[i] = AFCTeams[i].getName();
-		}
-		
-		full3232Array = PlayoffCalc.makeFullPercents(allTeams);
 	}
 
 	public void toJSON() {
@@ -139,24 +117,8 @@ public class Driver{
 		}
 	}
 
-	public void JSONPast() throws Exception {
-		List<Week> weeks = weekPast();
-		if(weeks == null)
-			weeks = new ArrayList<Week>();
-		List<Week> weekShouldInclude = season.completedWeeks();
-		List<Week> newWeeks = new ArrayList<Week>();
-		int i;
-		for(i = 0; i < weeks.size(); i++)
-			if(weekShouldInclude.size() > i)
-				if(weekShouldInclude.get(i).equals(weeks.get(i)))
-					newWeeks.add(weeks.get(i));
-		for(int j =i; j < weekShouldInclude.size(); j++)
-				newWeeks.add(weekShouldInclude.get(j));
-		comp = newWeeks;
-		setCalculationsPast();
-	}
-	
-	public List<Week> weekPast() throws Exception {
+	public List<Team> weekPast() throws Exception {
+		try {
 		Scanner scan = new Scanner(new File("data.js"));
 		String str = scan.nextLine();
 		str = str.replace("var forecastData =", "");
@@ -164,30 +126,59 @@ public class Driver{
 		ObjectMapper mapper = new ObjectMapper();
 		Driver prev = mapper.readValue(str, Driver.class);
 		scan.close();
-		return prev.comp;
+		ArrayList<Team> allTeams = new ArrayList<Team>();
+		Team[] afcteams = prev.AFC.getAllTeams();
+		Team[] nfcteams = prev.NFC.getAllTeams();
+		for(int i = 0; i < afcteams.length; i++)
+			allTeams.add(i, afcteams[i]);
+		for(int i = 0; i < nfcteams.length; i++)
+			allTeams.add(i+16, nfcteams[i]);
+		return allTeams;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return new ArrayList<Team>();
+		}
 	}
 	
-	private void setCalculationsPast() {
-		int weeks = comp.size();
-		for(int i = 0; i < weeks; i++) {
-			Week w = season.getWeeks().get(i);
-			Week percentFromWeek = comp.get(i);
-			int games = w.getGames().size();
-			for(int j = 0; j < games; j++) {
-				Game g = w.getGames().get(j);
-				Game percentFromGame = percentFromWeek.getGames().get(j);
-				g.setAwayPCT(percentFromGame.getAwayPCT());
-				g.setHomePCT(percentFromGame.getHomePCT());
-				g.setAwayFPI(percentFromGame.getAwayFPI() +"");
-				g.setHomeFPI(percentFromGame.getHomeFPI() +"");
-			}
+	private void setCalculationsPast() throws Exception {
+		List<Team> teams = weekPast();
+		for(Team t: teams) {
+			Team thisTeam= Conference.AFC.oppContains(t);
+			if(thisTeam == null)
+				thisTeam =Conference.NFC.oppContains(t);
+			thisTeam.fixFPIs(t.getFPIs());
 		}
+	}
+	
+	public void playoffs() {
+		Team[] AFCTeams = Conference.AFC.places();
+		Team[] NFCTeams = Conference.NFC.places();
+
+		playoffs = new PlayoffCalc(Conference.NFC.seeding(), Conference.AFC.seeding());
+		playoffs.calculate();
+		
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Date date = new Date();
+		lastUpdated = dateFormat.format(date); //2016/11/16 12:08:43
+		
+		Team[] allTeams = new Team[32];
+		names3232Array = new String[32];
+		
+		for(int i = 0; i < 16; i++)
+		{
+			allTeams[i] = AFCTeams[i];
+			allTeams[i+16] = NFCTeams[i];
+			names3232Array[i+16] = NFCTeams[i].getName();
+			names3232Array[i] = AFCTeams[i].getName();
+		}
+		
+		full3232Array = PlayoffCalc.makeFullPercents(allTeams);
 	}
 	public static void main(String[] args) throws Exception {
 		Driver prog = new Driver();
-		prog.JSONPast();
-		if(prog.comp == null)
-			prog.comp = new ArrayList<Week>();
+		prog.setCalculationsPast();
+		prog.playoffs();
 		prog.toJSON();
 		/*int count = 0;
 		Team[] AFCTeams = prog.AFC.places();

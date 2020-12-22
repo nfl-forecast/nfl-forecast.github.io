@@ -2,6 +2,8 @@ package teamStructure;
 
 import java.util.ArrayList;
 
+import topLevel.TeamNameHelper;
+
 public class Division
 {
 	public Team[] teamsInDivision;
@@ -114,13 +116,19 @@ public class Division
 	 */
 	public Team oppContains(Team team)
 	{
-		if(teamsInDivision[0].equals(team))
+		String team0, team1, team2, team3, thisTeam;
+		team0 = TeamNameHelper.getTeamName(teamsInDivision[0].getName());
+		team1 = TeamNameHelper.getTeamName(teamsInDivision[1].getName());
+		team2 = TeamNameHelper.getTeamName(teamsInDivision[2].getName());
+		team3 = TeamNameHelper.getTeamName(teamsInDivision[3].getName());
+		thisTeam = TeamNameHelper.getTeamName(team.getName());
+		if(team0.equals(thisTeam))
 			return teamsInDivision[0];
-		else if(teamsInDivision[1].equals(team))
+		else if(team1.equals(thisTeam))
 			return teamsInDivision[1];
-		else if(teamsInDivision[2].equals(team))
+		else if(team2.equals(thisTeam))
 			return teamsInDivision[2];
-		else if(teamsInDivision[3].equals(team))
+		else if(team3.equals(thisTeam))
 			return teamsInDivision[3];
 		else return null;
 	}

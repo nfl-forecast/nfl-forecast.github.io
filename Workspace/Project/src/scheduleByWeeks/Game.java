@@ -2,6 +2,7 @@ package scheduleByWeeks;
 
 import java.awt.Color;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 import teamStructure.Team;
@@ -10,6 +11,8 @@ public class Game{
 	private Team awayTeam, homeTeam;
 	private double awayPCT, homePCT;
 	private int homeFPI, awayFPI;
+	@JsonIgnore
+	private double hFPI, aFPI;
 	private String awayName, homeName;
 	private boolean played;
 	private String time;
@@ -29,8 +32,10 @@ public class Game{
 		date = d;
 		this.awayScore = awayScore;
 		this.homeScore = homeScore;
+		this.getAwayFPI();
+		this.getHomeFPI();
 		url = u;
-		if(!played)
+		if(!isPlayed)
 			calculate();
 	}
 
@@ -51,14 +56,26 @@ public class Game{
 	}
 
 	
+	public void recalc() {
+		homePCT = calculateHome();
+		awayPCT = 1-homePCT;
+	}
+	
 	/**
 	 * Makes percentages to represent each teams chances to win the game
 	 */
 	public void calculate() {
-		// TODO: Set the formula to calculate percent chance to win
-		homePCT = homeTeam.calculate(awayTeam);
+		homePCT = calculateHome();
 		awayPCT = 1-homePCT;
 		setRecords();
+	}
+	public double calculateHome() {
+		/*COVID-19 NO FANS   return 1/(Math.pow(10, (-(homeFPI-awayFPI)-.15)/3.5)+1);*/
+		return superBowl();
+	}
+	public double superBowl()
+	{
+		return 1/(Math.pow(10, -(hFPI-aFPI)/3.5)+1);
 	}
 
 	/**
@@ -192,14 +209,18 @@ public class Game{
 	}
 	
 	public int getHomeFPI() {
-		if(homeFPI == 0)
+		if(homeFPI == 0) {
 			homeFPI = homeTeam.getFPI();
+			hFPI = homeTeam.fullFPI();
+		}
 		return homeFPI;
 	}
 	
 	public int getAwayFPI() {
-		if(awayFPI == 0)
+		if(awayFPI == 0) {
 			awayFPI = awayTeam.getFPI();
+			aFPI = awayTeam.fullFPI();
+		}
 		return awayFPI;
 	}
 	
@@ -209,6 +230,16 @@ public class Game{
 	
 	public void setAwayFPI(String str) {
 		awayFPI = Integer.parseInt(str);
+	}
+	
+	public void setHFPI(double fpi) {
+		hFPI = fpi;
+		homeFPI = (int)(Math.round(fpi) *100);
+	}
+	
+	public void setAFPI(double fpi) {
+		aFPI = fpi;
+		awayFPI = (int)(Math.round(fpi) *100);
 	}
 	
 	public int[] getHomeSecondaryColor() {

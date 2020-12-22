@@ -22,9 +22,9 @@ public class Week
 	 * @param AFC
 	 * Sets the teamsOnBye by removing all teams that are playing this week
 	 */
-	public void setUpTeamsOnBye(Conference NFC, Conference AFC)
+	public void setUpTeamsOnBye()
 	{
-		ArrayList<Team> allTeams = Conference.getAllTeams(NFC, AFC);
+		ArrayList<Team> allTeams = Conference.getAllLeagueTeams();
 		for(Game g : games)
 		{
 			allTeams.remove(g.homeTeam());

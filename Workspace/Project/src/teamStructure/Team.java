@@ -9,14 +9,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import dataFromHTML.FullStats;
 import dataFromHTML.Stat;
+import scheduleByWeeks.Game;
 import topLevel.Driver;
 import topLevel.SchedType;
 import topLevel.TeamNameHelper;
 
 @JsonIgnoreProperties(value = { "stat" })
-public class Team{
+public class Team {
 	private String name;
-	
+
 	@JsonIgnore
 	private FullStats stat;
 	private double FPI;
@@ -24,12 +25,19 @@ public class Team{
 	private Color s, p;
 	private double wins;
 
-	public Team() {}
+	@JsonIgnore
+	private Game[] teamSchedule;
+	private Double[] FPIs;
+
+	public Team() {
+	}
+
 	public Team(String teamName, Color primary, Color secondary) {
 		name = TeamNameHelper.getTeamName(teamName);
 		s = secondary;
 		p = primary;
 		FPI = 1;
+		FPIs = new Double[17];
 	}
 
 	/**
@@ -39,8 +47,7 @@ public class Team{
 	 */
 	public void addResult(boolean home, double percentage) {
 		wins += percentage;
-		if(wins > 16)
-		{
+		if (wins > 16) {
 			wins = 16;
 		}
 	}
@@ -186,6 +193,7 @@ public class Team{
 	public FullStats getStats() {
 		return stat;
 	}
+
 	/**
 	 * 
 	 * @param stats The stats that are equivalent for this team Sets the FPI based
@@ -193,10 +201,10 @@ public class Team{
 	 */
 	public void makeFPI(FullStats stats) {
 		// temporary test
-		//stat = stats;
+		// stat = stats;
 		wins = Integer.parseInt(stats.getW().getValue());
-		//FPI = wins;
-		//return;
+		// FPI = wins;
+		// return;
 
 		stat = stats;
 		FPI = 0;
@@ -207,7 +215,7 @@ public class Team{
 
 	private double logisticShell(double a, double b, double c, double statValue) {
 		if (c == 1)
-			statValue = statValue/getStats().getGamesPlayed();
+			statValue = statValue / getStats().getGamesPlayed();
 		return 1 / (1 + Math.pow((Math.E), (a + b * (statValue))));
 	}
 
@@ -220,113 +228,162 @@ public class Team{
 //			return 0.5;
 //		System.out.println(FPI);
 //		System.out.println(1/(Math.pow(10, -(Math.abs(FPI-away.FPI)+.15)/2.5)+1));
-		/*COVID-19 NO FANS   return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/3.5)+1);*/
+		/* COVID-19 NO FANS return 1/(Math.pow(10, (-(FPI-away.FPI)-.15)/3.5)+1); */
 		return superBowl(away);
 	}
-	public double superBowl(Team away)
-	{
-		return 1/(Math.pow(10, -(FPI-away.FPI)/3.5)+1);
+
+	public double superBowl(Team away) {
+		return 1 / (Math.pow(10, -(FPI - away.FPI) / 3.5) + 1);
 	}
-	
-	public int[] getPrimaryColor()
-	{
-		int[] arr = {p.getRed(), p.getGreen(), p.getBlue()};
+
+	public int[] getPrimaryColor() {
+		int[] arr = { p.getRed(), p.getGreen(), p.getBlue() };
 		return arr;
 	}
-	
-	public int[] getSecondaryColor()
-	{
-		int[] arr = {s.getRed(), s.getGreen(), s.getBlue()};
+
+	public int[] getSecondaryColor() {
+		int[] arr = { s.getRed(), s.getGreen(), s.getBlue() };
 		return arr;
 	}
-	
-	public int getTies()
-	{
-		if(Driver.allPlayed || stat == null)
+
+	public int getTies() {
+		if (Driver.allPlayed || stat == null)
 			return 0;
-		else return Integer.parseInt(stat.getT().getValue());
+		else
+			return Integer.parseInt(stat.getT().getValue());
 	}
-	
-	public String getLosses()
-	{
+
+	public String getLosses() {
 		DecimalFormat fmt = new DecimalFormat("#.##");
-		return fmt.format(16-getTies()-getWins());
+		return fmt.format(16 - getTies() - getWins());
 	}
-	
-	public double getWins()
-	{
+
+	public double getWins() {
 		DecimalFormat fmt = new DecimalFormat("#.##");
 		return Double.parseDouble(fmt.format(wins));
 	}
-	
-	public int getFPI()
-	{
-		return (int)(Math.round(FPI*100));
+
+	public int getFPI() {
+		return (int) (Math.round(FPI * 100));
 	}
-	
-	public String getStatWins()
-	{
-		if(stat != null && stat.getGamesPlayed() != 16)
+
+	public String getStatWins() {
+		if (stat != null && stat.getGamesPlayed() != 16)
 			return stat.getW().getValue();
-		else
-		{
+		else {
 			return "0";
 		}
 	}
-	
-	public String getStatLosses()
-	{
-		if(stat != null && stat.getGamesPlayed() != 16)
+
+	public String getStatLosses() {
+		if (stat != null && stat.getGamesPlayed() != 16)
 			return stat.getL().getValue();
-		else
-		{
+		else {
 			return "0";
 		}
 	}
-	
-	public String getStatTies()
-	{
-		if(stat != null && stat.getGamesPlayed() != 16)
+
+	public String getStatTies() {
+		if (stat != null && stat.getGamesPlayed() != 16)
 			return stat.getT().getValue();
-		else
-		{
+		else {
 			return "0";
 		}
 	}
-	
+
 	public String getClinchChar() {
-		if(stat == null) return "";
+		if (stat == null)
+			return "";
 		return stat.getClinchChar();
 	}
 
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String str) {
 		name = TeamNameHelper.getTeamName(str);
 	}
-	
+
 	public void setSecondaryColor(int[] rgb) {
 		s = new Color(rgb[0], rgb[1], rgb[2]);
 	}
-	
+
 	public void setPrimaryColor(int[] rgb) {
 		p = new Color(rgb[0], rgb[1], rgb[2]);
 	}
-	
-	public void setWins(double  d) {
+
+	public void setWins(double d) {
 		wins = d;
 	}
-	
+
 	public void setFPI(double d) {
 		FPI = d;
 	}
-	
-	public void setClinchChar(String str) {}
-	public void setStatLosses(int i) {}
-	public void setStatWins(int i) {}
-	public void setStatTies(int i) {}
-	public void setLosses(double d) {}
-	public void setTies(double d) {}
+
+	public void setClinchChar(String str) {
+	}
+
+	public void setStatLosses(int i) {
+	}
+
+	public void setStatWins(int i) {
+	}
+
+	public void setStatTies(int i) {
+	}
+
+	public void setLosses(double d) {
+	}
+
+	public void setTies(double d) {
+	}
+
+	public void addTeamSchedule(Game[] sched) {
+		teamSchedule = sched;
+		fixFPIs(new Double[17]);
+	}
+
+	public void fixFPIs(Double[] fpis) {
+		FPIs = fpis;
+		FPIs[nextUnplayed()] = FPI;
+		for (int i = 1; i <= nextUnplayed(); i++)
+			if (FPIs[i] != null && FPIs[i - 1] == null)
+				for (int j = i - 1; j >= 0 && FPIs[j] == null; j--)
+					FPIs[j] = FPIs[i];
+		setSchedFPIs();
+	}
+
+	private int nextUnplayed() {
+		for (int i = 0; i < teamSchedule.length; i++) {
+			Game g = teamSchedule[i];
+			if (g != null && g.getPlayed() == false)
+				return i;
+		}
+		return 17;
+	}
+
+	private void setSchedFPIs() {
+		for (int i = 0; i < nextUnplayed(); i++) {
+			Game g = teamSchedule[i];
+			if (g != null) {
+				if (this.equals(g.homeTeam()))
+					g.setHFPI(FPIs[i]);
+				else
+					g.setAFPI(FPIs[i]);
+				g.recalc();
+			}
+		}
+	}
+
+	public Double[] getFPIs() {
+		return FPIs;
+	}
+	public void setFPIs(Double[] f) {
+		FPIs = f;
+	}
+
+	public double fullFPI() {
+		return FPI;
+	}
 }
