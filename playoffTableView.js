@@ -202,28 +202,31 @@ function PTVController(logoService)
   };
 
   this.getColorDiv = function(value) {
-    value = value/50;
+    value = value/100;
     //value from 0 to 1
-    if(value > 1)
-      value = 1;
+    value *= 2;
+    if(value > .5)
+      value= 0.5+((value-.5)/2);
     var hue = ((value) * 120).toString(10);
     return ["hsl(", hue, ",100%,50%)"].join("");
   };
 
   this.getColorConf = function(value) {
-    value = value/25;
+    value = value/100;
     //value from 0 to 1
-    if(value > 1)
-      value = 1;
+    value *= 4;
+    if(value > .5)
+      value= 0.5+((value-.5)/2);
     var hue = ((value) * 120).toString(10);
     return ["hsl(", hue, ",100%,50%)"].join("");
   };
 
   this.getColorSB = function(value) {
-    value = value/12.5;
+    value = value/100;
     //value from 0 to 1
-    if(value > 1)
-      value = 1;
+    value*=8;
+    if(value > .5)
+      value= 0.5+((value-.5)/2);
     var hue = ((value) * 120).toString(10);
     return ["hsl(", hue, ",100%,50%)"].join("");
   };
