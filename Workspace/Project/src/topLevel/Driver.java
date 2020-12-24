@@ -92,8 +92,6 @@ public class Driver{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
 	}
 
 	public void toJSON() {
@@ -117,7 +115,7 @@ public class Driver{
 		}
 	}
 
-	public List<Team> weekPast() throws Exception {
+	public Team[] weekPast() throws Exception {
 		try {
 		Scanner scan = new Scanner(new File("data.js"));
 		String str = scan.nextLine();
@@ -126,28 +124,35 @@ public class Driver{
 		ObjectMapper mapper = new ObjectMapper();
 		Driver prev = mapper.readValue(str, Driver.class);
 		scan.close();
-		ArrayList<Team> allTeams = new ArrayList<Team>();
-		Team[] afcteams = prev.AFC.getAllTeams();
-		Team[] nfcteams = prev.NFC.getAllTeams();
-		for(int i = 0; i < afcteams.length; i++)
-			allTeams.add(i, afcteams[i]);
-		for(int i = 0; i < nfcteams.length; i++)
-			allTeams.add(i+16, nfcteams[i]);
-		return allTeams;
+		return getAllTeams(prev);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			return new ArrayList<Team>();
+			return new Team[0];
 		}
+		
+		
+	}
+	
+	private static Team[] getAllTeams(Driver d) {
+		Team[] allTeams = new Team[32];
+		Team[] afcteams = d.AFC.getAllTeams();
+		Team[] nfcteams = d.NFC.getAllTeams();
+		for(int i = 0; i < afcteams.length; i++)
+			allTeams[i] = afcteams[i];
+		for(int i = 0; i < nfcteams.length; i++)
+			allTeams[i+16] = nfcteams[i];
+		return allTeams;
 	}
 	
 	private void setCalculationsPast() throws Exception {
-		List<Team> teams = weekPast();
-		for(Team t: teams) {
-			Team thisTeam= Conference.AFC.oppContains(t);
-			if(thisTeam == null)
-				thisTeam =Conference.NFC.oppContains(t);
+		Team[] teams = weekPast();
+		Team[] currTeams = getAllTeams(this);
+		for(int i = 0; i < teams.length; i++) {
+			Team t = teams[i];
+			Team thisTeam = currTeams[i];
 			thisTeam.fixFPIs(t.getFPIs());
+			System.out.print("");
 		}
 	}
 	

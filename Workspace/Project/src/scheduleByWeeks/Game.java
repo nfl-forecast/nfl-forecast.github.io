@@ -234,12 +234,12 @@ public class Game{
 	
 	public void setHFPI(double fpi) {
 		hFPI = fpi;
-		homeFPI = (int)(Math.round(fpi) *100);
+		homeFPI = (int)(Math.round(fpi *100));
 	}
 	
 	public void setAFPI(double fpi) {
 		aFPI = fpi;
-		awayFPI = (int)(Math.round(fpi) *100);
+		awayFPI = (int)(Math.round(fpi *100));
 	}
 	
 	public int[] getHomeSecondaryColor() {
