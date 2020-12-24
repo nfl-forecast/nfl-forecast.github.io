@@ -191,13 +191,48 @@ function PTVController(logoService)
 	var blue = (-153 * Math.pow(adjusted - 50,2))/2000 + 765 / 4;
 	var green = (-51 * Math.pow(adjusted - 100,2))/2000 + 255;
     return "rgb(" + Math.round(red) + ", " + Math.round(green) + ", " + Math.round(blue) + ")";
-  }
+  };
+
+
+  this.getColorWc = function(value) {
+    value = value/100;
+    //value from 0 to 1
+    var hue = ((value) * 120).toString(10);
+    return ["hsl(", hue, ",100%,50%)"].join("");
+  };
+
+  this.getColorDiv = function(value) {
+    value = value/50;
+    //value from 0 to 1
+    if(value > 1)
+      value = 1;
+    var hue = ((value) * 120).toString(10);
+    return ["hsl(", hue, ",100%,50%)"].join("");
+  };
+
+  this.getColorConf = function(value) {
+    value = value/25;
+    //value from 0 to 1
+    if(value > 1)
+      value = 1;
+    var hue = ((value) * 120).toString(10);
+    return ["hsl(", hue, ",100%,50%)"].join("");
+  };
+
+  this.getColorSB = function(value) {
+    value = value/12.5;
+    //value from 0 to 1
+    if(value > 1)
+      value = 1;
+    var hue = ((value) * 120).toString(10);
+    return ["hsl(", hue, ",100%,50%)"].join("");
+  };
 
   this.style = function(team) {
     if(team.seed === 1)
       return "grey";
     else
-      return this.getColor(team.wildcard);
+      return this.getColorWc(team.wildcard);
   };
 
   this.getCarrot = function(type) {
