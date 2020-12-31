@@ -45,4 +45,28 @@ public class MakeGameObjectsUsingJackson {
 		}
 		return null;
 	}
+
+	public static FullSchedule runPost() {
+		String str = "";
+		try {
+			str = JSoupScheduleParser.runPost(Driver.seasonSchedule + "");
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		ObjectMapper mapper = new ObjectMapper();
+
+		try {
+
+			FullSchedule full = mapper.readValue(str, FullSchedule.class);
+			return full;
+			
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

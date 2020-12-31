@@ -1,0 +1,6 @@
+<div class='weekButtons'>
+  <div class='weekButtonsStyle' ng-repeat='week in $ctrl.weeks track by $index'>
+    <button class='weekButton Button{{$ctrl.selected===$index}}' ng-click='$ctrl.selected=$index'>{{$ctrl.name($index)}}</button>
+  </div>
+</div>
+<post-week-view week=$ctrl.data.postSched.playoffWeeks[$ctrl.selected]></post-week-view>

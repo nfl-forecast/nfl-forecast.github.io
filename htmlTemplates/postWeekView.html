@@ -1,0 +1,25 @@
+<div class = 'ScheduleHeader' ng-show="!($ctrl.week.teamsOnBye.length === 0)">
+  </br>
+  <div>
+    Byes
+  </div>
+</div>
+<div class='weekButtonsStyle' ng-repeat='team in $ctrl.week.teamsOnBye'>
+  <span><img class='Byeimage' ng-src='{{$ctrl.getTeamImage(team.name)}}' alt='LOGO'></span>
+  {{team.name}}
+</div>
+</br>
+<div class = 'ScheduleHeader'>
+  Games
+</div>
+<div class = 'away_home_row'>
+  <div class = 'away'>
+    Away Team
+  </div>
+  <div class = 'home'>
+    Home Team
+  </div>
+</div>
+<div class='game_view' ng-repeat='gameData in $ctrl.week.games'>
+  <post-game-view game = gameData></post-game-view>
+</div>

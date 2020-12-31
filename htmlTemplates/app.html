@@ -5,8 +5,7 @@
   <button id ="percents" class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.TABLE}}" ng-click="$ctrl.shown=$ctrl.TABLE">Playoff Table</button>
   <button id ="create"  class = "HeaderButton HeaderButton{{$ctrl.shown===$ctrl.CREATE}}" ng-click="$ctrl.shown=$ctrl.CREATE">Create Your Own Playoff Scenario</button>
 </div>
-<p class = "warning">*Due to many scheduling changes as a result of COVID-19, results from Week 5 and onwards cannot be displayed until further notice.</p>
-
+W
 <div id="mainPage">
 
   <div id = 'ScheduleContainer' ng-if="$ctrl.shown===$ctrl.SCHEDULE">
@@ -16,7 +15,7 @@
     <standings-view data = '$ctrl.data' ></standings-view>
   </div>
   <div id="BracketContainer" ng-if="$ctrl.shown===$ctrl.BRACKET">
-    <playoff-bracket-view playoffs="$ctrl.data.playoffs"></playoff-bracket-view>
+    <post-week-buttons data='$ctrl.data'></post-week-buttons>
   </div>
   <div id = 'PlayoffContainer' ng-if="$ctrl.shown===$ctrl.TABLE">
     <playoff-table-view playoffs='$ctrl.data.playoffs'></playoff-table-view>

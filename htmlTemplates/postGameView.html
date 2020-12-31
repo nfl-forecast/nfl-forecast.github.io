@@ -1,0 +1,57 @@
+<div class="game">
+  <div class = "gameAwayTeam">
+    <img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.awayTeamName)}}' alt='LOGO'>
+    <div class = 'fpi'> FPI: {{$ctrl.game.awayFPI}}</div>
+  </div>
+  <div class = "gameInfo">
+    <div class="incomplete" ng-if="$ctrl.game.played === false">
+    <div class = "percentBar percentBarIncomplete" style="display:flex">
+      <div class = "awayBar"style='background:{{$ctrl.getPColorAway()}}; width:{{$ctrl.game.awayPCT}}'>
+      <div class="awayPCT awayPCTIncomplete" style='color:{{$ctrl.getSColorAway()}}; text-align: right'>
+       {{$ctrl.game.awayPCT}}&nbsp;
+      </div>
+      </div>
+      <div class="homePCT homePCTIncomplete" style="background:{{$ctrl.getPColorHome()}}; color:{{$ctrl.getSColorHome()}}; width:{{$ctrl.game.homePCT}}">
+       &nbsp;{{$ctrl.game.homePCT}}
+      </div>
+    </div>
+    <span class = "gameWhenWhere">
+      <div class = "gameDate" >
+        {{$ctrl.game.date}}
+      </div>
+      <div class = "gameTime">
+        {{$ctrl.game.time}}
+      </div>
+    </span>
+
+  </div>
+    <div class = "gameComplete" ng-if="$ctrl.game.played === true">
+
+      <div class = "percentBar percentBarComplete" style="display:flex">
+        <div class = "awayBar"style='background:{{$ctrl.getPColorAway()}}; width:{{$ctrl.game.awayPCT}}'>
+          <div class="awayPCT awayPCTComplete" style='color:{{$ctrl.getSColorAway()}}; text-align: right'>
+            {{$ctrl.game.awayPCT}}&nbsp;
+          </div>
+        </div>
+        <div class="homePCT homePCTComplete" style="background:{{$ctrl.getPColorHome()}}; color:{{$ctrl.getSColorHome()}}; width:{{$ctrl.game.homePCT}}">
+          &nbsp;{{$ctrl.game.homePCT}}
+        </div>
+      </div>
+      <div class = "scoreBar" style="display:flex">
+        <div class="awayScore" style='font-weight:{{$ctrl.isAwayWinner()}}; width:45%; text-align:right'>
+          {{$ctrl.game.awayScore}}
+        </div>
+        <div class="scoreTime" style='width:10%; text-align: center'>
+          <span class = "gameWhenWhere">{{$ctrl.game.time}}</span>
+        </div>
+        <div class="homeScore" style='font-weight:{{$ctrl.isHomeWinner()}}; width:45%; width:45%; text-align:left'>
+          {{$ctrl.game.homeScore}}
+        </div>
+      </div>
+    </div>
+    </div>
+  <div class = "gameHomeTeam">
+    <div gameHomeLogo><img class='gameLogo' ng-src='{{$ctrl.getTeamImage($ctrl.game.homeTeamName)}}'></div>
+    <div class = 'fpi, homeFpi'> FPI: {{$ctrl.game.homeFPI}}</div>
+  </div>
+</div>

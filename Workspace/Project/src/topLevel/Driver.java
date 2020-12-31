@@ -14,6 +14,7 @@ import java.util.Scanner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import playoffSchedule.PlayoffSchedule;
 import scheduleByWeeks.Game;
 import scheduleByWeeks.Schedule;
 import scheduleByWeeks.Week;
@@ -26,6 +27,7 @@ import teamStructure.Team;
 public class Driver{
 	public Conference AFC, NFC;
 	public Schedule season;
+	
 	public PlayoffCalc playoffs;
 	public static boolean allPlayed;
 	public String lastUpdated;
@@ -34,8 +36,10 @@ public class Driver{
 	public static SchedType type;
 	public static int seasonSchedule;
 	public static int seasonStats;
+	private PlayoffSchedule postSched;
+	
 	public Driver() {
-		type = SchedType.regularSeasonNext;
+		type = SchedType.regularSeasonStarted;
 		seasonSchedule = 2020;
 		if(type == SchedType.regularSeasonNext)
 			seasonStats = seasonSchedule-1;
@@ -179,6 +183,7 @@ public class Driver{
 		}
 		
 		full3232Array = PlayoffCalc.makeFullPercents(allTeams);
+		postSched = new PlayoffSchedule();
 	}
 	public static void main(String[] args) throws Exception {
 		Driver prog = new Driver();
@@ -253,6 +258,14 @@ public class Driver{
 		
 		System.out.println(prog.NFC.West);*/
 
+	}
+	
+	public void setpostSched(PlayoffSchedule ps) {
+		postSched = ps;
+	}
+	
+	public PlayoffSchedule getpostSched() {
+		return postSched;
 	}
 
 }
